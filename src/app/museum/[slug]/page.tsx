@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 // Generate dynamic FAQs based on museum data
 function generateMuseumFAQs(museum: {
@@ -92,8 +93,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!museum) return { title: "Museum Not Found" };
 
-  const title = `${museum.name} | Masterpieces & Visiting Info`;
-  const description = `Plan your visit to ${museum.name} in ${museum.city}. See ${museum.Artwork.length} famous artworks, get ticket info, and explore the collection.`;
+  const title = `${museum.name}: Masterpieces & Visiting Guide | Masterpiece Locator`;
+
+  // Get top 2 notable works for description
+  const topWorks = museum.Artwork.slice(0, 2).map(a => a.title);
+  const description = topWorks.length >= 2
+    ? `Plan your ${museum.name} visit. See ${museum.Artwork.length} masterpieces including ${topWorks[0]} & ${topWorks[1]}. Hours, tickets & tips.`
+    : `Plan your ${museum.name} visit. See ${museum.Artwork.length} masterpieces. Hours, tickets & tips.`;
 
   return {
     title,
@@ -193,6 +199,13 @@ export default async function MuseumPage({ params }: Props) {
     _count: { artworks: a._count.Artwork },
   }));
 
+  // Build breadcrumb items for schema
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    { name: "Museums", href: "/museums" },
+    { name: museum.name },
+  ];
+
   return (
     <div className="bg-white">
       {/* JSON-LD Structured Data */}
@@ -200,6 +213,7 @@ export default async function MuseumPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero */}
       <div className="relative h-64 md:h-80 bg-neutral-900">

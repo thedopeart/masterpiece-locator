@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const totalArtworks = rawMuseums.reduce((sum, m) => sum + m._count.Artwork, 0);
 
   return {
-    title: `Art in ${cityName} | ${rawMuseums.length} Museums & ${totalArtworks} Masterpieces`,
-    description: `Discover art in ${cityName}. Visit ${rawMuseums.length} world-class museums and see ${totalArtworks} famous masterpieces including works at ${rawMuseums[0].name}.`,
+    title: `Art in ${cityName}: Museums & Must-See Paintings | Masterpiece Locator`,
+    description: `Discover ${totalArtworks} masterpieces across ${rawMuseums.length} museums in ${cityName}. Plan your art trip with our guide.`,
   };
 }
 
@@ -98,8 +99,17 @@ export default async function CityPage({ params }: Props) {
     _count: { artworks: a._count.Artwork },
   }));
 
+  // Build breadcrumb items for schema
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    { name: "Cities", href: "/cities" },
+    { name: cityName },
+  ];
+
   return (
     <div className="bg-white min-h-screen">
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       {/* Header */}
       <div className="bg-neutral-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-4">

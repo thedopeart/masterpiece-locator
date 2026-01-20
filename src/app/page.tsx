@@ -1,9 +1,32 @@
 import { prisma } from "@/lib/db";
+import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import ArtistCard from "@/components/ArtistCard";
 import MuseumCard from "@/components/MuseumCard";
 import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
+
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
+
+export const metadata: Metadata = {
+  title: "Masterpiece Locator — Find Famous Art | Luxury Wall Art",
+  description: "Discover where to see the world's most famous paintings. Search 4,000+ masterpieces across museums worldwide. Plan your art trip today.",
+  openGraph: {
+    title: "Masterpiece Locator — Find Famous Art | Luxury Wall Art",
+    description: "Discover where to see the world's most famous paintings. Search 4,000+ masterpieces across museums worldwide.",
+    type: "website",
+    url: BASE_URL,
+    siteName: "Masterpiece Locator by Luxury Wall Art",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Masterpiece Locator — Find Famous Art",
+    description: "Discover where to see the world's most famous paintings. Search 4,000+ masterpieces across museums worldwide.",
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
+};
 
 // Revalidate every 60 seconds for fresh data without blocking
 export const revalidate = 60;

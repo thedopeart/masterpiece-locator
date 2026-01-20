@@ -216,7 +216,7 @@ async function main() {
   let artists = await prisma.artist.findMany({
     where: whereClause,
     include: {
-      artworks: {
+      Artwork: {
         select: {
           slug: true,
           title: true,
@@ -240,7 +240,7 @@ async function main() {
   for (const artist of artists) {
     processedCount++;
     console.log(`[${processedCount}/${artists.length}] ${artist.name}`);
-    console.log(`  Your artworks: ${artist.artworks.length}`);
+    console.log(`  Your artworks: ${artist.Artwork.length}`);
 
     await sleep(DELAY_MS);
 
@@ -255,7 +255,7 @@ async function main() {
 
     // Create set of normalized titles you already have
     const existingTitles = new Set(
-      artist.artworks.map(a => normalizeTitle(a.title))
+      artist.Artwork.map(a => normalizeTitle(a.title))
     );
 
     // Find gaps

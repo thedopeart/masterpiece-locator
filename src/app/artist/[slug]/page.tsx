@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 // Generate dynamic FAQs based on artist data
 function generateArtistFAQs(artist: {
@@ -115,10 +116,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? `(b. ${artist.birthYear})`
         : "";
 
-  const title = `${artist.name} ${lifespan} | Where to See Their Art`;
-  const description =
-    artist.bioShort ||
-    `Discover where to see famous works by ${artist.name}. Find museums and locations around the world.`;
+  const title = `${artist.name} Paintings: Where to See Them | Masterpiece Locator`;
+
+  // Build data-driven description
+  const artworkCount = artist.Artwork?.length || 0;
+  const museums = [...new Set(artist.Artwork?.filter(a => a.Museum).map(a => a.Museum!.name) || [])];
+  const museumCount = museums.length;
+  const notableWork = artist.Artwork?.[0]?.title;
+
+  const description = artworkCount > 0 && museumCount > 0
+    ? `Find ${artist.name}'s paintings worldwide. ${artworkCount} works at ${museumCount} museums${notableWork ? ` including ${notableWork}` : ""}.`
+    : artist.bioShort || `Discover where to see famous works by ${artist.name}. Find museums and locations around the world.`;
 
   const imageUrl = artist.imageUrl || artist.Artwork[0]?.imageUrl;
 
@@ -228,6 +236,13 @@ export default async function ArtistPage({ params }: Props) {
 
   const altText = `Portrait of ${artist.name}${artist.nationality ? `, ${artist.nationality} artist` : ""}${lifespan ? ` (${lifespan})` : ""}`;
 
+  // Build breadcrumb items for schema
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    { name: "Artists", href: "/artists" },
+    { name: artist.name },
+  ];
+
   return (
     <div className="bg-white">
       {/* JSON-LD Structured Data */}
@@ -235,6 +250,7 @@ export default async function ArtistPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbSchema items={breadcrumbItems} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Breadcrumb */}

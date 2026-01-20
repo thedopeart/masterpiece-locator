@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 // Generate dynamic FAQs based on artwork data
 function generateArtworkFAQs(artwork: {
@@ -92,8 +93,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const museumName = artwork.museum?.name || "unknown location";
   const city = artwork.museum?.city || "";
 
-  const title = `${artwork.title} by ${artistName} | ${museumName}`;
-  const description = `See ${artwork.title}${artwork.year ? ` (${artwork.year})` : ""} by ${artistName} at ${museumName}${city ? ` in ${city}` : ""}. Plan your visit with location details, museum info, and nearby masterpieces.`;
+  const title = `${artwork.title} by ${artistName} — Where to See It | Masterpiece Locator`;
+  const description = `See ${artwork.title} at ${museumName}${city ? ` in ${city}` : ""}. Get gallery location, hours, tickets & nearby masterpieces.`;
 
   return {
     title,
@@ -203,21 +204,38 @@ export default async function ArtworkPage({ params }: Props) {
           nationality: artwork.artist.nationality || undefined,
         }
       : undefined,
-    locationCreated: artwork.museum
+    contentLocation: artwork.museum
       ? {
-          "@type": "Place",
+          "@type": "Museum",
           name: artwork.museum.name,
           address: {
             "@type": "PostalAddress",
+            streetAddress: artwork.museum.address || undefined,
             addressLocality: artwork.museum.city,
             addressCountry: artwork.museum.country,
           },
+          ...(artwork.museum.latitude && artwork.museum.longitude && {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: artwork.museum.latitude,
+              longitude: artwork.museum.longitude,
+            },
+          }),
+          url: artwork.museum.websiteUrl || undefined,
         }
       : undefined,
+    sameAs: artwork.wikipediaUrl ? [artwork.wikipediaUrl] : undefined,
   };
 
   const artistName = artwork.artist?.name || "Unknown Artist";
   const altText = `${artwork.title} by ${artistName}${artwork.year ? ` (${artwork.year})` : ""}${artwork.medium ? `, ${artwork.medium}` : ""}${artwork.museum ? ` at ${artwork.museum.name}` : ""}`;
+
+  // Build breadcrumb items for schema
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    ...(artwork.artist ? [{ name: artwork.artist.name, href: `/artist/${artwork.artist.slug}` }] : []),
+    { name: artwork.title },
+  ];
 
   return (
     <div className="bg-white">
@@ -226,6 +244,7 @@ export default async function ArtworkPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbSchema items={breadcrumbItems} />
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
