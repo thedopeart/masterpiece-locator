@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { museumMetaTitle, museumMetaDescription } from "@/lib/seo";
 
 // Generate dynamic FAQs based on museum data
 function generateMuseumFAQs(museum: {
@@ -97,12 +98,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topWorks = museum.Artwork.slice(0, 2).map(a => a.title);
   const topArtists = [...new Set(museum.Artwork.filter(a => a.Artist).map(a => a.Artist!.name))].slice(0, 2);
 
-  // Keyword-focused: "[museum] famous paintings" queries
-  const title = `${museum.name} Famous Paintings: ${museum.Artwork.length} Masterpieces to See`;
-
-  const description = topWorks.length >= 1
-    ? `What to see at ${museum.name} in ${museum.city}. ${museum.Artwork.length} famous paintings${topArtists.length > 0 ? ` by ${topArtists.join(", ")}` : ""}. Tickets, hours & visitor tips.`
-    : `Visit ${museum.name} in ${museum.city}. Famous paintings collection, tickets, hours & visitor guide.`;
+  // Keyword-focused with character limits (60 title, 160 description)
+  const title = museumMetaTitle(museum.name, museum.Artwork.length);
+  const description = museumMetaDescription(museum.name, museum.city, museum.Artwork.length, topArtists, topWorks);
 
   return {
     title,

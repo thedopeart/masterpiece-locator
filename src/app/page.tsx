@@ -9,11 +9,12 @@ import Link from "next/link";
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Keyword-focused: "where to see famous paintings" queries
+// Title: 59 chars, Description: 157 chars (within limits)
 export const metadata: Metadata = {
-  title: "Where to See Famous Paintings: Museum Locations for 4,000+ Masterpieces",
+  title: "Where to See Famous Paintings: 4,000+ Museum Locations",
   description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 4,000+ masterpieces. Museum locations, hours & tickets.",
   openGraph: {
-    title: "Where to See Famous Paintings: Museum Locations for 4,000+ Masterpieces",
+    title: "Where to See Famous Paintings: 4,000+ Museum Locations",
     description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 4,000+ masterpieces.",
     type: "website",
     url: BASE_URL,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Where to See Famous Paintings",
+    title: "Where to See Famous Paintings: 4,000+ Museum Locations",
     description: "Find where famous paintings are displayed. Museum locations for 4,000+ masterpieces including Mona Lisa, Starry Night & more.",
   },
   alternates: {

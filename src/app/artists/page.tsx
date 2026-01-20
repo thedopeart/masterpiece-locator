@@ -132,7 +132,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#fff' }}>
             {currentMovement
               ? `${currentMovement.name} Artists`
-              : "Artists"}
+              : "Famous Artists & Their Masterpieces"}
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: '#aaa' }}>
             {currentMovement
@@ -174,7 +174,10 @@ export default async function ArtistsPage({ searchParams }: Props) {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
 
-        {/* Results count */}
+        {/* Section Header */}
+        <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
+          {currentMovement ? `${currentMovement.name} Painters & Sculptors` : "Browse All Artists"}
+        </h2>
         <p className="text-neutral-600 mb-6">
           Showing {(currentPage - 1) * ARTISTS_PER_PAGE + 1}–{Math.min(currentPage * ARTISTS_PER_PAGE, totalArtists)} of {totalArtists} artist{totalArtists !== 1 ? "s" : ""}
           {currentMovement && ` in ${currentMovement.name}`}

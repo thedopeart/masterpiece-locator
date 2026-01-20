@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { artistMetaTitle, artistMetaDescription } from "@/lib/seo";
 
 // Generate dynamic FAQs based on artist data
 function generateArtistFAQs(artist: {
@@ -120,17 +121,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artworkCount = artist.Artwork?.length || 0;
   const museums = [...new Set(artist.Artwork?.filter(a => a.Museum).map(a => a.Museum!.name) || [])];
   const museumCount = museums.length;
-  const notableWork = artist.Artwork?.[0]?.title;
-  const topMuseum = museums[0] || "";
+  const notableWork = artist.Artwork?.[0]?.title || null;
+  const topMuseum = museums[0] || null;
 
-  // Keyword-focused: "[artist] paintings" queries
-  const title = museumCount > 0
-    ? `${artist.name} Paintings: ${artworkCount} Works at ${museumCount} Museums`
-    : `${artist.name} ${lifespan} Paintings & Art`;
-
-  const description = artworkCount > 0 && museumCount > 0
-    ? `See ${artist.name}'s paintings in person. ${artworkCount} works across ${museumCount} museums${topMuseum ? ` including ${topMuseum}` : ""}${notableWork ? `. Famous works: ${notableWork}` : ""}.`
-    : artist.bioShort || `Where to see ${artist.name}'s art. Museum locations and famous paintings.`;
+  // Keyword-focused with character limits (60 title, 160 description)
+  const title = artistMetaTitle(artist.name, artworkCount, museumCount, lifespan);
+  const description = artistMetaDescription(artist.name, artworkCount, museumCount, topMuseum, notableWork, artist.bioShort);
 
   const imageUrl = artist.imageUrl || artist.Artwork[0]?.imageUrl;
 

@@ -68,7 +68,7 @@ export default async function MovementsPage() {
           </nav>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#fff' }}>
-            Art Movements
+            Art Movements & Eras
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: '#aaa' }}>
             Renaissance, Impressionism, Cubism, Pop Art. Each movement below links to its key artists and their most famous works.
@@ -77,6 +77,11 @@ export default async function MovementsPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Section Header */}
+        <h2 className="text-2xl font-semibold text-neutral-900 mb-8">
+          Timeline of Art History
+        </h2>
+
         {/* Timeline */}
         <div className="relative">
           {/* Timeline line */}
@@ -145,9 +150,9 @@ export default async function MovementsPage() {
                           : " - Present"}
                       </div>
 
-                      <h2 className="text-xl font-semibold text-neutral-900 group-hover:text-[#C9A84C] transition-colors mb-2">
+                      <h3 className="text-xl font-semibold text-neutral-900 group-hover:text-[#C9A84C] transition-colors mb-2">
                         {movement.name}
-                      </h2>
+                      </h3>
 
                       {movement.description && (
                         <p className="text-neutral-600 text-sm mb-4 line-clamp-2">

@@ -24,11 +24,14 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const params = await searchParams;
   const query = params.q || "";
 
+  // Keyword-focused titles (no branding)
   return {
     title: query
-      ? `Search: "${query}" | Masterpiece Locator`
-      : "Search Artworks | Masterpiece Locator",
-    description: "Search famous artworks, artists, and museums. Find where masterpieces are located.",
+      ? `${query} Paintings: Where to See Them`
+      : "Search Famous Paintings by Artist, Museum, or City",
+    description: query
+      ? `Find where to see "${query}" in person. Museum locations, hours, and tickets for famous paintings.`
+      : "Search famous artworks, artists, and museums. Find where masterpieces are located worldwide.",
   };
 }
 

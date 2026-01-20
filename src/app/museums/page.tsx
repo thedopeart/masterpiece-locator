@@ -96,7 +96,7 @@ export default async function MuseumsPage() {
           </nav>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#fff' }}>
-            Museums
+            World&apos;s Greatest Art Museums
           </h1>
           <p className="text-lg max-w-2xl mb-8" style={{ color: '#aaa' }}>
             The Louvre, MoMA, the Rijksmuseum, and dozens more. See what&apos;s on display at each one and get visitor info before you go.

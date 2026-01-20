@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
 
 // Generate dynamic FAQs based on artwork data
 function generateArtworkFAQs(artwork: {
@@ -90,12 +91,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 
   const artistName = artwork.artist?.name || "Unknown Artist";
-  const museumName = artwork.museum?.name || "unknown location";
-  const city = artwork.museum?.city || "";
+  const museumName = artwork.museum?.name || null;
+  const city = artwork.museum?.city || null;
 
-  // Keyword-focused: "where is [artwork]" queries
-  const title = `Where Is ${artwork.title}? See It at ${museumName}`;
-  const description = `${artwork.title} by ${artistName} is at ${museumName}${city ? ` in ${city}` : ""}. Gallery location, visiting hours, tickets & nearby masterpieces.`;
+  // Keyword-focused with character limits (60 title, 160 description)
+  const title = artworkMetaTitle(artwork.title, museumName);
+  const description = artworkMetaDescription(artwork.title, artistName, museumName, city);
 
   return {
     title,

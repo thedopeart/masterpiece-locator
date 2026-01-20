@@ -89,7 +89,7 @@ export default async function CitiesPage() {
           </nav>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#fff' }}>
-            Cities
+            Art Cities Around the World
           </h1>
           <p className="text-lg max-w-2xl mb-8" style={{ color: '#aaa' }}>
             Paris, Amsterdam, New York, Madrid. Pick a city, see what museums are there, and find out what&apos;s hanging on their walls.
@@ -120,6 +120,11 @@ export default async function CitiesPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Section Header */}
+        <h2 className="text-2xl font-semibold text-neutral-900 mb-6">
+          Browse by Destination
+        </h2>
+
         {/* Cities Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cities.map((cityData) => {
@@ -157,9 +162,9 @@ export default async function CitiesPage() {
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h2 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-white">
                       {cityData.city}
-                    </h2>
+                    </h3>
                     <p className="text-neutral-300 text-sm">{cityData.country}</p>
                   </div>
                 </div>

@@ -13,25 +13,16 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locato
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: {
-    default: "Masterpiece Locator | Find Famous Art Around the World",
-    template: "%s | Masterpiece Locator",
-  },
+  // No template - each page controls its own keyword-focused title
   description:
     "Discover where to see the world's most famous paintings. Search museums, plan art trips, and find masterpieces near you.",
   openGraph: {
     type: "website",
     siteName: "Masterpiece Locator",
     locale: "en_US",
-    title: "Masterpiece Locator | Find Famous Art Around the World",
-    description:
-      "Discover where to see the world's most famous paintings. Search museums, plan art trips, and find masterpieces near you.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masterpiece Locator | Find Famous Art Around the World",
-    description:
-      "Discover where to see the world's most famous paintings. Search museums, plan art trips, and find masterpieces near you.",
   },
   robots: {
     index: true,

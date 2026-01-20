@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { cityMetaTitle, cityMetaDescription } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const totalArtworks = rawMuseums.reduce((sum, m) => sum + m._count.Artwork, 0);
 
-  // Keyword-focused: "art museums in [city]" queries
-  const topMuseum = rawMuseums[0]?.name || "";
+  // Keyword-focused with character limits (60 title, 160 description)
+  const topMuseum = rawMuseums[0]?.name || null;
 
   return {
-    title: `Art Museums in ${cityName}: ${rawMuseums.length} Museums & ${totalArtworks} Paintings`,
-    description: `Best art museums in ${cityName}. See ${totalArtworks} famous paintings across ${rawMuseums.length} museums${topMuseum ? ` including ${topMuseum}` : ""}. Plan your visit.`,
+    title: cityMetaTitle(cityName, rawMuseums.length, totalArtworks),
+    description: cityMetaDescription(cityName, rawMuseums.length, totalArtworks, topMuseum),
   };
 }
 

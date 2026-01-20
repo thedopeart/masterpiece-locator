@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
+import { createMetaTitle, createMetaDescription } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,9 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!movement) return { title: "Movement Not Found" };
 
+  const years = movement.endYear
+    ? `${movement.startYear}-${movement.endYear}`
+    : `${movement.startYear}+`;
+
   return {
-    title: `${movement.name} Art Movement | Artists & Masterpieces`,
-    description: `Explore ${movement.name} (${movement.startYear}${movement.endYear ? `-${movement.endYear}` : ""}) art. Discover ${movement._count.Artist} artists and their famous works.`,
+    title: createMetaTitle(`${movement.name} Art: ${movement._count.Artist} Artists & Famous Paintings`),
+    description: createMetaDescription(
+      `${movement.name} (${years}) paintings and artists. See ${movement._count.Artist} artists and where to find their masterpieces in museums worldwide.`
+    ),
   };
 }
 
