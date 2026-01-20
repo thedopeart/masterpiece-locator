@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // No basePath needed - Shopify App Proxy handles the /apps/masterpieces prefix
-  // The app runs at root and Shopify forwards requests from /apps/masterpieces
+  // basePath ensures all internal links include /apps/masterpieces prefix
+  basePath: "/apps/masterpieces",
+
+  // assetPrefix serves static assets from Vercel directly (not through Shopify proxy)
+  assetPrefix: "https://masterpiece-locator.vercel.app/apps/masterpieces",
 
   // Required for Shopify proxy to work correctly
   async headers() {
