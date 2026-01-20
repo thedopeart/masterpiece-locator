@@ -79,19 +79,30 @@ async function searchWikipedia(title, artistName) {
           continue;
         }
 
-        // Check if this looks like our artwork
-        const isMatch =
-          // Title contains our search title
-          resultTitleLower.includes(searchTitleLower) ||
-          // Our title contains the result (minus parenthetical)
-          searchTitleLower.includes(resultTitleLower.replace(/ \(.*\)/, '')) ||
-          // Result contains artist name and snippet mentions painting
-          (resultTitleLower.includes(artistLower) &&
-           (result.snippet.toLowerCase().includes('painting') ||
-            result.snippet.toLowerCase().includes('canvas') ||
-            result.snippet.toLowerCase().includes('oil')));
+        // Check if this looks like our artwork - be strict to avoid wrong matches
+        const resultClean = resultTitleLower.replace(/ \([^)]+\)/, '').trim();
+        const searchClean = searchTitleLower.trim();
 
-        if (isMatch) {
+        // Strong match: titles are very similar
+        const isStrongMatch =
+          // Exact match (ignoring parentheticals)
+          resultClean === searchClean ||
+          // Result starts with our title
+          resultClean.startsWith(searchClean) ||
+          // Our title starts with the result
+          searchClean.startsWith(resultClean);
+
+        // Weak match: need artist confirmation too
+        const isWeakMatch =
+          (resultTitleLower.includes(artistLower) || result.snippet.toLowerCase().includes(artistLower)) &&
+          (resultTitleLower.includes(searchClean.split(' ')[0]) || // First word matches
+           searchClean.includes(resultClean.split(' ')[0]));
+
+        if (isStrongMatch) {
+          return result.title;
+        }
+        // Only use weak matches for very specific titles (3+ words)
+        if (isWeakMatch && searchClean.split(' ').length >= 3) {
           return result.title;
         }
       }
@@ -235,89 +246,92 @@ function extractFacts(wikiContent, artworkTitle, artistName) {
  */
 function synthesizeDescription(facts, artworkTitle, artistName, existingYear, existingMedium) {
   const parts = [];
+  const year = facts.year || existingYear;
+  const medium = facts.medium || existingMedium;
 
-  // Opening - vary the structure
-  const openers = [
-    () => {
-      const year = facts.year || existingYear;
-      const medium = facts.medium || existingMedium;
-      if (year && medium) {
-        return `${artistName} created this ${medium.toLowerCase()} work in ${year}.`;
-      } else if (year) {
-        return `This work dates to ${year}, during ${artistName}'s active period.`;
-      } else if (medium) {
-        return `Executed in ${medium.toLowerCase()}, this piece showcases ${artistName}'s technical approach.`;
-      }
-      return null;
-    },
-    () => {
-      if (facts.context.length > 0) {
-        // Rewrite the context, don't copy
-        const ctx = facts.context[0];
-        if (ctx.toLowerCase().includes('commission')) {
-          return `Originally commissioned as a private work, this painting demonstrates ${artistName}'s ability to satisfy demanding patrons.`;
-        }
-        if (ctx.toLowerCase().includes('depicts') || ctx.toLowerCase().includes('shows')) {
-          // Extract what it depicts and rewrite
-          const depicts = ctx.match(/(?:depicts|shows|portrays)\s+([^,\.]+)/i);
-          if (depicts) {
-            return `The composition presents ${depicts[1].trim()}, rendered with ${artistName}'s characteristic attention to detail.`;
-          }
-        }
-      }
-      return null;
-    }
-  ];
+  // Opening - vary the structure based on what we know
+  if (year && medium) {
+    const variations = [
+      `${artistName} created this ${medium.toLowerCase()} work in ${year}.`,
+      `Painted in ${year}, this ${medium.toLowerCase()} piece exemplifies ${artistName}'s approach to the subject.`,
+      `This ${medium.toLowerCase()} from ${year} demonstrates ${artistName}'s technical skill.`
+    ];
+    parts.push(variations[Math.floor(Math.random() * variations.length)]);
+  } else if (year) {
+    parts.push(`This work dates to ${year}, produced during an active phase of ${artistName}'s career.`);
+  } else if (medium) {
+    parts.push(`Executed in ${medium.toLowerCase()}, this piece showcases ${artistName}'s command of the medium.`);
+  }
 
-  // Try openers until one works
-  for (const opener of openers) {
-    const result = opener();
-    if (result) {
-      parts.push(result);
-      break;
+  // Context about what's depicted
+  if (facts.context.length > 0) {
+    const ctx = facts.context[0];
+    const depicts = ctx.match(/(?:depicts?|shows?|portrays?|represents?|illustrates?)\s+([^,\.]{10,60})/i);
+    if (depicts) {
+      const subject = depicts[1].trim()
+        .replace(/^(a|an|the)\s+/i, '')
+        .replace(/\s+$/, '');
+      parts.push(`The composition depicts ${subject}, rendered with the artist's characteristic attention to form and detail.`);
     }
   }
 
-  // Middle section - synthesize from facts
-  if (facts.style.length > 0) {
-    // Don't copy, synthesize
+  // Style information
+  if (facts.style.length > 0 && parts.length < 3) {
     const styleInfo = facts.style[0].toLowerCase();
-    if (styleInfo.includes('brushwork')) {
-      parts.push(`The brushwork reflects the artist's mature technique.`);
-    } else if (styleInfo.includes('color')) {
-      parts.push(`The color palette demonstrates ${artistName}'s distinctive approach to light and atmosphere.`);
+    if (styleInfo.includes('brushwork') || styleInfo.includes('brush')) {
+      parts.push(`The visible brushwork reflects ${artistName}'s confident handling of paint.`);
+    } else if (styleInfo.includes('color') || styleInfo.includes('palette')) {
+      parts.push(`The color choices demonstrate a sophisticated understanding of tonal relationships.`);
     } else if (styleInfo.includes('composition')) {
-      parts.push(`The composition draws the viewer's eye through carefully balanced elements.`);
+      parts.push(`The balanced composition guides the eye through the picture plane.`);
+    } else if (styleInfo.includes('light')) {
+      parts.push(`The treatment of light reveals careful observation of natural effects.`);
     }
   }
 
-  if (facts.subject.length > 0 && parts.length < 2) {
+  // Subject matter context
+  if (facts.subject.length > 0 && parts.length < 3) {
     const subjectInfo = facts.subject[0].toLowerCase();
     if (subjectInfo.includes('landscape')) {
-      parts.push(`As a landscape work, it captures a specific moment in time and place.`);
+      parts.push(`The landscape setting creates a sense of place and atmosphere.`);
     } else if (subjectInfo.includes('portrait')) {
-      parts.push(`The portrait reveals both the subject's character and the artist's observational skill.`);
-    } else if (subjectInfo.includes('religious') || subjectInfo.includes('biblical')) {
-      parts.push(`The religious subject matter was common for the period, yet the treatment here is distinctive.`);
+      parts.push(`As a portrait, the work balances likeness with artistic interpretation.`);
+    } else if (subjectInfo.includes('religious') || subjectInfo.includes('biblical') || subjectInfo.includes('christ') || subjectInfo.includes('virgin')) {
+      parts.push(`The religious subject reflects the devotional art traditions of the period.`);
+    } else if (subjectInfo.includes('mytholog')) {
+      parts.push(`Drawing on classical mythology, the work engages with humanist themes.`);
+    } else if (subjectInfo.includes('still life')) {
+      parts.push(`The still life arrangement invites contemplation of transient beauty.`);
     }
   }
 
-  // Closing - significance
-  if (facts.significance.length > 0) {
-    // Don't copy the "famous" statements, synthesize
+  // Significance
+  if (facts.significance.length > 0 && parts.length < 4) {
     const sig = facts.significance[0].toLowerCase();
-    if (sig.includes('masterpiece') || sig.includes('most famous')) {
-      parts.push(`This ranks among the artist's most celebrated works.`);
+    if (sig.includes('masterpiece') || sig.includes('most famous') || sig.includes('best known')) {
+      parts.push(`The painting ranks among ${artistName}'s most recognized works.`);
     } else if (sig.includes('influential')) {
-      parts.push(`The painting influenced later artists and movements.`);
-    } else if (sig.includes('one of the')) {
-      parts.push(`Art historians consider this a key work in the artist's output.`);
+      parts.push(`This work influenced subsequent generations of artists.`);
+    } else if (sig.includes('one of the') || sig.includes('among the')) {
+      parts.push(`Scholars consider this a significant example of the artist's output.`);
+    } else if (sig.includes('icon') || sig.includes('symbol')) {
+      parts.push(`The image has achieved iconic status in art history.`);
     }
   }
 
-  // Ensure we have at least something
-  if (parts.length === 0) {
-    return null; // Not enough info to synthesize
+  // If we still don't have enough, add a generic but relevant closing
+  if (parts.length === 1) {
+    const closings = [
+      `The work reveals ${artistName}'s ability to balance technical skill with expressive intent.`,
+      `Today, the painting remains a valued example of ${artistName}'s artistic vision.`,
+      `The piece demonstrates the qualities that distinguish ${artistName}'s contributions to art.`
+    ];
+    parts.push(closings[Math.floor(Math.random() * closings.length)]);
+  }
+
+  // Require at least 2 sentences for quality
+  if (parts.length < 2) {
+    return null;
   }
 
   return parts.join(' ');
@@ -394,7 +408,7 @@ async function main() {
       medium: true,
       description: true,
       historicalSignificance: true,
-      Artist: { select: { name: true, slug: true } }
+      Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true } }
     }
   });
 
@@ -437,6 +451,22 @@ async function main() {
 
     // Extract facts
     const facts = extractFacts(wikiContent, artwork.title, artistName);
+
+    // Validate extracted year against artist's lifespan
+    if (facts.year && artwork.Artist) {
+      const yearNum = parseInt(facts.year);
+      const birthYear = artwork.Artist.birthYear;
+      const deathYear = artwork.Artist.deathYear;
+
+      // Year should be after artist was at least 10 and before death + 1 year
+      const validStart = birthYear ? birthYear + 10 : 1400;
+      const validEnd = deathYear ? deathYear + 1 : 2100;
+
+      if (yearNum < validStart || yearNum > validEnd) {
+        console.log(`    ⚠ Invalid year ${yearNum} for artist (${birthYear || '?'}-${deathYear || '?'}), discarding`);
+        facts.year = null;
+      }
+    }
 
     // Synthesize description
     const description = synthesizeDescription(
