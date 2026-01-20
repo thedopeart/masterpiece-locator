@@ -70,7 +70,10 @@ Use for color mentions. Only use these verified URLs:
 | Purple and Gold | `/collections/purple-and-gold` |
 | Rainbow | `/collections/rainbow-art` |
 
-**DO NOT guess or create URLs. Only use URLs from this list.**
+**DO NOT guess or create URLs. Only use verified URLs.**
+
+For additional collections (subjects, styles, rooms), check:
+`/Users/thedopeart/Desktop/luxury-wall-art/Interlinking/Collections Links.csv`
 
 ---
 
