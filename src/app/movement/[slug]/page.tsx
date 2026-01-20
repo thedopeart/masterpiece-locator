@@ -6,8 +6,9 @@ import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import { createMetaTitle, createMetaDescription } from "@/lib/seo";
+import { decodeHtmlEntities } from "@/lib/text";
 
-// Generate dynamic FAQs based on movement data
+// Generate factual FAQs - only data we actually have, no templated filler
 function generateMovementFAQs(movement: {
   name: string;
   description: string | null;
@@ -15,54 +16,35 @@ function generateMovementFAQs(movement: {
   endYear: number | null;
   keyCharacteristics: string[];
   artists: { name: string }[];
-  artworkCount: number;
 }) {
-  // Skip if no start year
-  if (!movement.startYear) return [];
   const faqs = [];
-  const topArtists = movement.artists.slice(0, 3).map(a => `<strong>${a.name}</strong>`).join(", ");
-  const period = movement.endYear
-    ? `from <strong>${movement.startYear}</strong> to <strong>${movement.endYear}</strong>`
-    : `beginning around <strong>${movement.startYear}</strong>`;
 
-  // FAQ 1: What is this movement?
-  faqs.push({
-    question: `What is ${movement.name}?`,
-    answer: movement.description
-      ? `${movement.description} The movement spanned ${period} and continues to influence contemporary art.`
-      : `<strong>${movement.name}</strong> is an art movement that emerged ${period}. It fundamentally changed how artists approached their craft and continues to be studied and admired today. The movement's influence can be seen in museums worldwide.`,
-  });
+  // FAQ 1: When was this movement? - factual only
+  if (movement.startYear) {
+    const period = movement.endYear
+      ? `<strong>${movement.startYear}</strong> to <strong>${movement.endYear}</strong>`
+      : `<strong>${movement.startYear}</strong> onwards`;
+    faqs.push({
+      question: `When was ${movement.name}?`,
+      answer: period + ".",
+    });
+  }
 
-  // FAQ 2: Key characteristics
+  // FAQ 2: Key characteristics - only if we have real data
   if (movement.keyCharacteristics.length > 0) {
-    const chars = movement.keyCharacteristics.slice(0, 4).map(c => `<strong>${c}</strong>`).join(", ");
+    const chars = movement.keyCharacteristics.map(c => `<strong>${c}</strong>`).join(", ");
     faqs.push({
-      question: `What are the characteristics of ${movement.name}?`,
-      answer: `${movement.name} is defined by several distinct characteristics: ${chars}. These elements set ${movement.name} apart from other movements and made it immediately recognizable. Artists within the movement pushed boundaries while sharing these common aesthetic principles.`,
+      question: `What defines ${movement.name}?`,
+      answer: chars + ".",
     });
   }
 
-  // FAQ 3: Famous artists
+  // FAQ 3: Famous artists - factual list only
   if (movement.artists.length > 0) {
+    const artistList = movement.artists.slice(0, 5).map(a => `<strong>${a.name}</strong>`).join(", ");
     faqs.push({
-      question: `Who are the most famous ${movement.name} artists?`,
-      answer: movement.artists.length === 1
-        ? `<strong>${movement.artists[0].name}</strong> is the primary ${movement.name} artist in our catalogue. Their work defined many of the movement's key characteristics and continues to draw visitors to museums worldwide.`
-        : `The ${movement.name} movement included <strong>${movement.artists.length} artists</strong> in our catalogue, with key figures like ${topArtists}. These artists pioneered the movement's distinctive style and their masterpieces remain among the most visited works in museums today.`,
-    });
-  }
-
-  // FAQ 4: When was this movement?
-  faqs.push({
-    question: `When was the ${movement.name} period?`,
-    answer: `The ${movement.name} movement flourished ${period}. Understanding when artists worked helps place their art in historical context. This era shaped the subjects, techniques, and materials available to ${movement.name} artists, and their innovations influenced movements that followed.`,
-  });
-
-  // FAQ 5: Where to see this art
-  if (movement.artworkCount > 0) {
-    faqs.push({
-      question: `Where can I see ${movement.name} paintings?`,
-      answer: `We've catalogued <strong>${movement.artworkCount}+ ${movement.name} masterpieces</strong> across museums worldwide. Each artwork page on this site shows exactly where it's displayed, making it easy to plan museum visits. Major art museums in cities like Paris, New York, London, and Amsterdam typically have significant ${movement.name} collections.`,
+      question: `Who are ${movement.name} artists?`,
+      answer: artistList + (movement.artists.length > 5 ? ` and ${movement.artists.length - 5} more.` : "."),
     });
   }
 
@@ -122,12 +104,25 @@ export default async function MovementPage({ params }: Props) {
 
   if (!rawMovement) notFound();
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const movement = {
     ...rawMovement,
+    name: decodeHtmlEntities(rawMovement.name),
+    description: decodeHtmlEntities(rawMovement.description),
+    keyCharacteristics: rawMovement.keyCharacteristics.map((c) => decodeHtmlEntities(c)),
     artists: rawMovement.Artist.map((a) => ({
       ...a,
-      artworks: a.Artwork,
+      name: decodeHtmlEntities(a.name),
+      artworks: a.Artwork.map((art) => ({
+        ...art,
+        title: decodeHtmlEntities(art.title),
+        Artist: art.Artist ? { ...art.Artist, name: decodeHtmlEntities(art.Artist.name) } : null,
+        Museum: art.Museum ? {
+          ...art.Museum,
+          name: decodeHtmlEntities(art.Museum.name),
+          city: decodeHtmlEntities(art.Museum.city),
+        } : null,
+      })),
       _count: { artworks: a._count.Artwork },
     })),
   };
@@ -151,10 +146,16 @@ export default async function MovementPage({ params }: Props) {
   });
 
   // Map to lowercase property names for ArtworkCard component
+  // Also decode HTML entities for display
   const artworks = rawArtworks.map((a) => ({
     ...a,
-    artist: a.Artist,
-    museum: a.Museum,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
   }));
 
   return (
@@ -330,7 +331,6 @@ export default async function MovementPage({ params }: Props) {
             endYear: movement.endYear,
             keyCharacteristics: movement.keyCharacteristics,
             artists: movement.artists.map(a => ({ name: a.name })),
-            artworkCount: artworks.length,
           });
           return faqs.length > 0 ? (
             <>

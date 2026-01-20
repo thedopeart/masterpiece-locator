@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import FAQ, { FAQSchema } from "@/components/FAQ";
+import { decodeHtmlEntities } from "@/lib/text";
 
 // Revalidate every 60 seconds
 export const revalidate = 60;
@@ -92,12 +93,17 @@ export default async function ArtistsPage({ searchParams }: Props) {
     take: ARTISTS_PER_PAGE,
   });
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const artists = rawArtists.map((a) => ({
     ...a,
+    name: decodeHtmlEntities(a.name),
+    nationality: decodeHtmlEntities(a.nationality),
     _count: { artworks: a._count.Artwork },
     artworks: a.Artwork,
-    movements: a.Movement,
+    movements: a.Movement.map((m) => ({
+      ...m,
+      name: decodeHtmlEntities(m.name),
+    })),
   }));
 
   // Get the current movement name if filtered

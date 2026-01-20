@@ -8,59 +8,50 @@ import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
+import { decodeHtmlEntities } from "@/lib/text";
 
-// Generate dynamic FAQs based on artwork data
-function generateArtworkFAQs(artwork: {
+// Extract series name from artwork title (e.g., "Rouen Cathedral" from "Rouen Cathedral, West Facade")
+function extractSeriesName(title: string): string | null {
+  // Common patterns for series titles:
+  // "Title, Subtitle" or "Title: Subtitle" or "Title - Subtitle" or "Title (Subtitle)"
+  const patterns = [
+    /^(.+?),\s+/,           // "Rouen Cathedral, West Facade"
+    /^(.+?):\s+/,           // "Water Lilies: Morning"
+    /^(.+?)\s+-\s+/,        // "Haystacks - End of Summer"
+    /^(.+?)\s+\(/,          // "Parliament (Sunset)"
+    /^(The\s+.+?)\s+(?:in|at|on)\s+/i,  // "The Japanese Bridge in Spring"
+  ];
+
+  for (const pattern of patterns) {
+    const match = title.match(pattern);
+    if (match && match[1].length >= 5) {
+      return match[1].trim();
+    }
+  }
+
+  // Also check for numbered series like "Water Lilies 1" vs "Water Lilies 2"
+  const numberedMatch = title.match(/^(.+?)\s*(?:\d+|I+V?|[A-Z])$/);
+  if (numberedMatch && numberedMatch[1].length >= 5) {
+    return numberedMatch[1].trim();
+  }
+
+  return null;
+}
+
+// Only generate FAQ if artwork has a real description in the database
+// We avoid templated FAQs - only factual, unique content
+function generateArtworkFAQ(artwork: {
   title: string;
-  year: number | null;
-  medium: string | null;
-  artist: { name: string; nationality: string | null } | null;
   museum: { name: string; city: string; country: string } | null;
 }) {
-  const faqs = [];
-  const artistName = artwork.artist?.name || "Unknown Artist";
-
-  // FAQ 1: Where can I see this artwork?
+  // Single factual FAQ about location - the only truly unique info we can provide
   if (artwork.museum) {
-    faqs.push({
-      question: `Where can I see ${artwork.title} in person?`,
-      answer: `<strong>${artwork.title}</strong> is on permanent display at the <strong>${artwork.museum.name}</strong> in ${artwork.museum.city}, ${artwork.museum.country}. We recommend checking the museum's official website for current <strong>visiting hours</strong>, ticket prices, and any temporary closures before planning your visit. The painting may occasionally be moved for restoration or special exhibitions, so confirming its current location is always wise.`,
-    });
+    return [{
+      question: `Where is ${artwork.title} displayed?`,
+      answer: `<strong>${artwork.museum.name}</strong> in ${artwork.museum.city}, ${artwork.museum.country}.`,
+    }];
   }
-
-  // FAQ 2: Who painted this?
-  if (artwork.artist) {
-    faqs.push({
-      question: `Who painted ${artwork.title}?`,
-      answer: `<strong>${artwork.title}</strong> was created by <strong>${artistName}</strong>${artwork.artist.nationality ? `, a celebrated <strong>${artwork.artist.nationality}</strong> artist` : ""}. ${artistName} developed a distinctive artistic voice that influenced generations of painters. This work demonstrates the technical skill and creative vision that made ${artistName} one of the most studied artists in history.`,
-    });
-  }
-
-  // FAQ 3: When was this created?
-  if (artwork.year) {
-    const century = Math.ceil(artwork.year / 100);
-    const centurySuffix = century === 19 ? "th" : century === 20 ? "th" : century === 21 ? "st" : "th";
-    faqs.push({
-      question: `When was ${artwork.title} created?`,
-      answer: `${artistName} created <strong>${artwork.title}</strong> in <strong>${artwork.year}</strong>, during the ${century}${centurySuffix} century. Understanding when a work was made reveals the historical context, artistic movements, and personal circumstances that shaped its creation. This period in ${artistName}'s career was marked by significant artistic development and experimentation.`,
-    });
-  }
-
-  // FAQ 4: What medium/technique?
-  if (artwork.medium) {
-    faqs.push({
-      question: `What technique did ${artistName} use for ${artwork.title}?`,
-      answer: `<strong>${artwork.title}</strong> is <strong>${artwork.medium}</strong>. ${artistName} chose this medium deliberately to achieve specific visual effects, whether capturing luminous light, rich texture, or subtle color gradations. The physical properties of the materials contribute to the work's appearance and have influenced how well it has survived over the centuries.`,
-    });
-  }
-
-  // FAQ 5: Why is this artwork famous?
-  faqs.push({
-    question: `Why is ${artwork.title} famous?`,
-    answer: `<strong>${artwork.title}</strong> by <strong>${artistName}</strong> has achieved lasting fame for its artistic mastery and cultural significance. The painting showcases technical excellence in composition, color, and execution that art historians continue to study and admire. It draws visitors${artwork.museum ? ` to <strong>${artwork.museum.name}</strong>` : ""} from around the world and has been reproduced countless times in books, prints, and digital media, cementing its place in the public imagination.`,
-  });
-
-  return faqs;
+  return [];
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
@@ -141,13 +132,30 @@ export default async function ArtworkPage({ params }: Props) {
   if (!rawArtwork) notFound();
 
   // Map to lowercase property names for consistency
+  // Also decode HTML entities for display
   const artwork = {
     ...rawArtwork,
+    title: decodeHtmlEntities(rawArtwork.title),
+    description: decodeHtmlEntities(rawArtwork.description),
+    medium: decodeHtmlEntities(rawArtwork.medium),
+    historicalSignificance: decodeHtmlEntities(rawArtwork.historicalSignificance),
     artist: rawArtwork.Artist ? {
       ...rawArtwork.Artist,
-      movements: rawArtwork.Artist.Movement,
+      name: decodeHtmlEntities(rawArtwork.Artist.name),
+      nationality: decodeHtmlEntities(rawArtwork.Artist.nationality),
+      bioShort: decodeHtmlEntities(rawArtwork.Artist.bioShort),
+      movements: rawArtwork.Artist.Movement.map((m) => ({
+        ...m,
+        name: decodeHtmlEntities(m.name),
+      })),
     } : null,
-    museum: rawArtwork.Museum,
+    museum: rawArtwork.Museum ? {
+      ...rawArtwork.Museum,
+      name: decodeHtmlEntities(rawArtwork.Museum.name),
+      city: decodeHtmlEntities(rawArtwork.Museum.city),
+      country: decodeHtmlEntities(rawArtwork.Museum.country),
+      address: decodeHtmlEntities(rawArtwork.Museum.address),
+    } : null,
   };
 
   // Get other artworks at this museum (prefer those with images)
@@ -182,17 +190,63 @@ export default async function ArtworkPage({ params }: Props) {
       })
     : [];
 
+  // Find series variations (other artworks with similar titles by same artist)
+  const seriesName = extractSeriesName(artwork.title);
+  const rawSeriesVariations = (seriesName && artwork.artistId)
+    ? await prisma.artwork.findMany({
+        where: {
+          artistId: artwork.artistId,
+          id: { not: artwork.id },
+          title: { startsWith: seriesName },
+          imageUrl: { not: null },
+        },
+        include: {
+          Artist: { select: { name: true } },
+          Museum: { select: { name: true, city: true } },
+        },
+        orderBy: { year: "asc" },
+        take: 8,
+      })
+    : [];
+
   // Map to lowercase property names for ArtworkCard component
+  // Also decode HTML entities for display
   const nearbyArtworks = rawNearbyArtworks.map((a) => ({
     ...a,
-    artist: a.Artist,
-    museum: a.Museum,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
   }));
   const moreByArtist = rawMoreByArtist.map((a) => ({
     ...a,
-    artist: a.Artist,
-    museum: a.Museum,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
   }));
+
+  // Map series variations
+  const seriesVariations = rawSeriesVariations.map((a) => ({
+    ...a,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
+  }));
+
+  // Filter moreByArtist to exclude series variations (avoid duplicates)
+  const seriesIds = new Set(seriesVariations.map((s) => s.id));
+  const filteredMoreByArtist = moreByArtist.filter((a) => !seriesIds.has(a.id));
 
   // Build JSON-LD structured data for SEO
   const jsonLd = {
@@ -350,49 +404,14 @@ export default async function ArtworkPage({ params }: Props) {
           )}
         </header>
 
-        {/* Artwork Description with Internal Links */}
-        <section className="mb-8">
-          <p className="text-neutral-600 leading-relaxed">
-            {artwork.museum ? (
-              <>
-                <strong>{artwork.title}</strong> is one of{" "}
-                {artwork.artist ? (
-                  <Link href={`/artist/${artwork.artist.slug}`} className="text-[#C9A84C] hover:underline font-medium">
-                    {artistName}&apos;s
-                  </Link>
-                ) : (
-                  `${artistName}'s`
-                )}{" "}
-                most significant works
-                {artwork.year && <>, painted in <strong>{artwork.year}</strong></>}.
-                {" "}You can see this masterpiece in person at the{" "}
-                <Link href={`/museum/${artwork.museum.slug}`} className="text-[#C9A84C] hover:underline font-medium">
-                  {artwork.museum.name}
-                </Link>{" "}
-                in{" "}
-                <Link href={`/city/${artwork.museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
-                  {artwork.museum.city}
-                </Link>, {artwork.museum.country}.
-                {artwork.medium && <> Created using {artwork.medium.toLowerCase()}, the painting</>}
-                {!artwork.medium && <> This work</>} showcases the technical skill and artistic vision that made {artistName} one of art history&apos;s most celebrated figures.
-              </>
-            ) : (
-              <>
-                <strong>{artwork.title}</strong> by{" "}
-                {artwork.artist ? (
-                  <Link href={`/artist/${artwork.artist.slug}`} className="text-[#C9A84C] hover:underline font-medium">
-                    {artistName}
-                  </Link>
-                ) : (
-                  artistName
-                )}
-                {artwork.year && <>, created in <strong>{artwork.year}</strong>,</>} represents a significant achievement in the artist&apos;s body of work.
-                {artwork.medium && <> This {artwork.medium.toLowerCase()} demonstrates</>}
-                {!artwork.medium && <> The painting demonstrates</>} {artistName}&apos;s mastery of composition and technique.
-              </>
-            )}
-          </p>
-        </section>
+        {/* Only show description if we have real content from the database */}
+        {artwork.description && (
+          <section className="mb-8">
+            <p className="text-neutral-600 leading-relaxed">
+              {artwork.description}
+            </p>
+          </section>
+        )}
 
         {/* Where to See It */}
         {artwork.museum && (
@@ -454,17 +473,6 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* About This Work */}
-        {artwork.description && (
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              About {artwork.title}
-            </h2>
-            <div className="prose max-w-none text-neutral-700 leading-relaxed">
-              <p>{artwork.description}</p>
-            </div>
-          </section>
-        )}
 
         {/* Historical Significance */}
         {artwork.historicalSignificance && (
@@ -478,22 +486,13 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* Technical Details */}
-        {(artwork.medium || artwork.dimensions || artwork.year) && (
+        {/* Technical Details - only show medium and dimensions (year/artist already in header) */}
+        {(artwork.medium || artwork.dimensions) && (
           <section className="mb-8">
             <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              Artwork Details
+              Details
             </h2>
-            <p className="text-neutral-500 text-sm mb-4">
-              Technical specifications and creation details for {artwork.title}
-            </p>
             <dl className="grid grid-cols-2 gap-4 text-sm bg-neutral-50 rounded-lg p-4">
-              {artwork.year && (
-                <>
-                  <dt className="text-neutral-500 font-medium">Year Created</dt>
-                  <dd className="text-neutral-900">{artwork.year}</dd>
-                </>
-              )}
               {artwork.medium && (
                 <>
                   <dt className="text-neutral-500 font-medium">Medium</dt>
@@ -506,30 +505,17 @@ export default async function ArtworkPage({ params }: Props) {
                   <dd className="text-neutral-900">{artwork.dimensions}</dd>
                 </>
               )}
-              {artwork.artist && (
-                <>
-                  <dt className="text-neutral-500 font-medium">Artist</dt>
-                  <dd className="text-neutral-900">{artwork.artist.name}</dd>
-                </>
-              )}
             </dl>
           </section>
         )}
 
-        {/* About the Artist */}
-        {artwork.artist && (
+        {/* About the Artist - only show if we have real bio content */}
+        {artwork.artist && artwork.artist.bioShort && (
           <section className="mb-8 border-t pt-8">
             <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              The Artist: {artwork.artist.name}
+              About {artwork.artist.name}
             </h2>
-            {artwork.artist.bioShort ? (
-              <p className="text-neutral-700 mb-4 leading-relaxed">{artwork.artist.bioShort}</p>
-            ) : (
-              <p className="text-neutral-700 mb-4 leading-relaxed">
-                {artwork.artist.name} is recognized as one of the influential artists in art history.
-                Their body of work continues to inspire and captivate audiences around the world.
-              </p>
-            )}
+            <p className="text-neutral-700 mb-4 leading-relaxed">{artwork.artist.bioShort}</p>
             <Link
               href={`/artist/${artwork.artist.slug}`}
               className="text-[#C9A84C] hover:underline font-medium"
@@ -539,32 +525,40 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* More by this Artist */}
-        {moreByArtist.length > 0 && artwork.artist && (
+        {/* Series Variations - no templated description, just the artworks */}
+        {seriesVariations.length > 0 && artwork.artist && seriesName && (
           <section className="mb-8 border-t border-neutral-200 pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-2">
-              More Paintings by {artwork.artist.name}
+            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+              {seriesName} Series by {artwork.artist.name}
             </h2>
-            <p className="text-neutral-500 mb-6">
-              Explore other notable works by this artist displayed in museums worldwide.
-            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {moreByArtist.map((item) => (
+              {seriesVariations.map((item) => (
                 <ArtworkCard key={item.id} artwork={item} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Other Works at This Museum */}
+        {/* More by this Artist - no templated description */}
+        {filteredMoreByArtist.length > 0 && artwork.artist && (
+          <section className="mb-8 border-t border-neutral-200 pt-8">
+            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+              More by {artwork.artist.name}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {filteredMoreByArtist.map((item) => (
+                <ArtworkCard key={item.id} artwork={item} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Other Works at This Museum - no templated description */}
         {nearbyArtworks.length > 0 && artwork.museum && (
           <section className="mb-8 border-t border-neutral-200 pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-2">
-              Other Masterpieces at {artwork.museum.name}
+            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+              Also at {artwork.museum.name}
             </h2>
-            <p className="text-neutral-500 mb-6">
-              While visiting, don&apos;t miss these other significant works in the same collection.
-            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {nearbyArtworks.map((item) => (
                 <ArtworkCard key={item.id} artwork={item} />
@@ -573,9 +567,9 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* FAQ Section */}
+        {/* FAQ Section - only show location FAQ, no templated questions */}
         {(() => {
-          const faqs = generateArtworkFAQs(artwork);
+          const faqs = generateArtworkFAQ(artwork);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />

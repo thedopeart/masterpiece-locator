@@ -8,8 +8,9 @@ import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artistMetaTitle, artistMetaDescription } from "@/lib/seo";
+import { decodeHtmlEntities } from "@/lib/text";
 
-// Generate dynamic FAQs based on artist data
+// Generate factual FAQs - only data we actually have, no templated filler
 function generateArtistFAQs(artist: {
   name: string;
   birthYear: number | null;
@@ -19,61 +20,38 @@ function generateArtistFAQs(artist: {
   artworks: { title: string; museum: { name: string; city: string } | null }[];
 }) {
   const faqs = [];
-  const firstName = artist.name.split(" ").pop() || artist.name;
-  const movementNames = artist.movements.map((m) => `<strong>${m.name}</strong>`).join(", ");
-  const movementNamesPlain = artist.movements.map((m) => m.name).join(", ");
-  const topArtworks = artist.artworks.slice(0, 3).map((a) => a.title);
   const museums = [...new Set(artist.artworks.filter(a => a.museum).map((a) => a.museum!.name))];
 
-  // FAQ 1: Where to see their work
+  // FAQ 1: Where to see their work - factual only
   if (museums.length > 0) {
-    const museumList = museums.slice(0, 3).map(m => `<strong>${m}</strong>`).join(", ");
+    const museumList = museums.slice(0, 5).map(m => `<strong>${m}</strong>`).join(", ");
     faqs.push({
-      question: `Where can I see ${artist.name}'s paintings in person?`,
+      question: `Where can I see ${artist.name}'s paintings?`,
       answer: museums.length === 1
-        ? `${artist.name}'s work is displayed at <strong>${museums[0]}</strong>. We recommend checking the museum's official website for current exhibitions, gallery locations, and visiting hours before planning your trip. Some works may occasionally be on loan or undergoing restoration.`
-        : `${artist.name}'s work is spread across <strong>${museums.length} museums</strong> worldwide, including ${museumList}${museums.length > 3 ? ` and ${museums.length - 3} others` : ""}. Each painting's page on this site shows exactly where it's currently displayed, making it easy to plan visits to see specific works.`,
+        ? `<strong>${museums[0]}</strong>.`
+        : `${museumList}${museums.length > 5 ? ` and ${museums.length - 5} more.` : "."}`,
     });
   }
 
-  // FAQ 2: Famous works
-  if (topArtworks.length > 0) {
-    const artworkList = topArtworks.map(a => `<strong>${a}</strong>`).join(", ");
-    faqs.push({
-      question: `What are ${artist.name}'s most famous paintings?`,
-      answer: topArtworks.length === 1
-        ? `<strong>${topArtworks[0]}</strong> is among ${firstName}'s most celebrated masterpieces. This work draws art lovers from around the world and has influenced countless artists. The painting exemplifies ${firstName}'s distinctive style and technical mastery.`
-        : `${firstName}'s most celebrated works include ${artworkList}. These paintings rank among the most recognizable in art history and draw significant crowds at their respective museums. Each work showcases different aspects of ${firstName}'s artistic development and technical innovation.`,
-    });
-  }
-
-  // FAQ 3: Art movement
-  if (artist.movements.length > 0) {
-    faqs.push({
-      question: `What art movement was ${artist.name} part of?`,
-      answer: artist.movements.length === 1
-        ? `${artist.name} was a pivotal figure in ${movementNames}. This movement fundamentally changed how artists approached their craft, and ${firstName}'s innovations within it continue to influence contemporary art. Understanding ${movementNamesPlain} helps contextualize why ${firstName}'s techniques were groundbreaking for their time.`
-        : `${artist.name} worked across multiple movements: ${movementNames}. Many artists evolved through different styles as they matured, or pioneered transitions between artistic eras. ${firstName}'s versatility across these movements demonstrates exceptional range and adaptability as an artist.`,
-    });
-  }
-
-  // FAQ 4: When did they live
+  // FAQ 2: When did they live - factual only
   if (artist.birthYear) {
     const lifespan = artist.deathYear
-      ? `from <strong>${artist.birthYear}</strong> to <strong>${artist.deathYear}</strong>`
-      : `was born in <strong>${artist.birthYear}</strong>`;
-    const age = artist.deathYear ? artist.deathYear - artist.birthYear : null;
+      ? `<strong>${artist.birthYear}</strong> to <strong>${artist.deathYear}</strong>`
+      : `Born <strong>${artist.birthYear}</strong>`;
     faqs.push({
       question: `When did ${artist.name} live?`,
-      answer: `${artist.name} lived ${lifespan}${age ? ` (${age} years)` : ""}${artist.nationality ? `, and was <strong>${artist.nationality}</strong>` : ""}. Understanding when an artist worked places their art in historical context, reveals their influences, and explains their impact on movements that followed. ${firstName}'s era shaped the subjects, techniques, and materials available to them.`,
+      answer: `${lifespan}${artist.nationality ? `. ${artist.nationality}.` : "."}`,
     });
   }
 
-  // FAQ 5: Why famous
-  faqs.push({
-    question: `Why is ${artist.name} famous?`,
-    answer: `<strong>${artist.name}</strong> is celebrated for ${artist.movements.length > 0 ? `pioneering contributions to ${movementNames}` : "innovative artistic techniques that pushed boundaries"} and creating works that continue to captivate audiences centuries later. ${topArtworks.length > 0 ? `Masterpieces like <strong>${topArtworks[0]}</strong> have become cultural touchstones, reproduced millions of times and recognized worldwide.` : "Their influence on subsequent generations of artists shaped the entire trajectory of art history."} Museums around the world proudly display ${firstName}'s work as essential pieces of their collections.`,
-  });
+  // FAQ 3: Art movement - factual only
+  if (artist.movements.length > 0) {
+    const movementList = artist.movements.map((m) => `<strong>${m.name}</strong>`).join(", ");
+    faqs.push({
+      question: `What art movement was ${artist.name} part of?`,
+      answer: `${movementList}.`,
+    });
+  }
 
   return faqs;
 }
@@ -166,13 +144,26 @@ export default async function ArtistPage({ params }: Props) {
   if (!rawArtist) notFound();
 
   // Map artworks and movements to lowercase property names for components
+  // Also decode HTML entities for display
   const artist = {
     ...rawArtist,
-    movements: rawArtist.Movement,
+    name: decodeHtmlEntities(rawArtist.name),
+    nationality: decodeHtmlEntities(rawArtist.nationality),
+    bioShort: decodeHtmlEntities(rawArtist.bioShort),
+    bioFull: decodeHtmlEntities(rawArtist.bioFull),
+    movements: rawArtist.Movement.map((m) => ({
+      ...m,
+      name: decodeHtmlEntities(m.name),
+    })),
     artworks: rawArtist.Artwork.map((a) => ({
       ...a,
-      artist: a.Artist,
-      museum: a.Museum,
+      title: decodeHtmlEntities(a.title),
+      artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+      museum: a.Museum ? {
+        ...a.Museum,
+        name: decodeHtmlEntities(a.Museum.name),
+        city: decodeHtmlEntities(a.Museum.city),
+      } : null,
     })),
   };
 
@@ -203,10 +194,16 @@ export default async function ArtistPage({ params }: Props) {
     },
   });
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const museums = rawMuseums.map((m) => ({
     ...m,
-    artworks: m.Artwork,
+    name: decodeHtmlEntities(m.name),
+    city: decodeHtmlEntities(m.city),
+    country: decodeHtmlEntities(m.country),
+    artworks: m.Artwork.map((a) => ({
+      ...a,
+      title: decodeHtmlEntities(a.title),
+    })),
     _count: { artworks: m._count.Artwork },
   }));
 
@@ -333,60 +330,19 @@ export default async function ArtistPage({ params }: Props) {
               )}
             </div>
 
-            {/* Combined Biography */}
-            {(() => {
-              const lastName = artist.name.split(" ").pop();
-              const topArtworks = artist.artworks.filter(a => a.imageUrl).slice(0, 3);
-              const uniqueCities = [...new Set(museums.map(m => m.city))].slice(0, 3);
-              const centuryNum = artist.birthYear ? Math.floor(artist.birthYear / 100) + 1 : null;
-              const century = centuryNum ? `${centuryNum}${centuryNum === 21 ? "st" : centuryNum === 22 ? "nd" : centuryNum === 23 ? "rd" : "th"}` : null;
-
-              return (
-                <div className="text-neutral-600 leading-relaxed space-y-3">
-                  {(artist.bioFull || artist.bioShort) && (
-                    <p>{artist.bioFull || artist.bioShort}</p>
-                  )}
-                  {artist.artworks.length > 0 && museums.length > 0 && (
-                    <p>
-                      We&apos;ve catalogued <strong>{artist.artworks.length} {artist.artworks.length === 1 ? "work" : "works"}</strong> by {lastName} across{" "}
-                      <Link href="/museums" className="text-[#C9A84C] hover:underline font-medium">{museums.length} {museums.length === 1 ? "museum" : "museums"}</Link>
-                      {uniqueCities.length > 0 && (
-                        <> in {uniqueCities.slice(0, 2).map((city, i) => (
-                          <span key={city}>
-                            {i > 0 && " and "}
-                            <Link
-                              href={`/city/${city.toLowerCase().replace(/\s+/g, "-")}`}
-                              className="text-[#C9A84C] hover:underline font-medium"
-                            >
-                              {city}
-                            </Link>
-                          </span>
-                        ))}{uniqueCities.length > 2 && ` and ${uniqueCities.length - 2} other ${uniqueCities.length - 2 === 1 ? "city" : "cities"}`}</>
-                      )}
-                      {artist.movements.length > 0 && (
-                        <>. {artist.nationality ? `A ${artist.nationality} artist` : "An artist"} associated with{" "}
-                        {artist.movements.slice(0, 2).map((m, i) => (
-                          <span key={m.slug}>
-                            {i > 0 && " and "}
-                            <Link href={`/movement/${m.slug}`} className="text-[#C9A84C] hover:underline font-medium">{m.name}</Link>
-                          </span>
-                        ))}, {lastName}&apos;s {century ? `${century}-century ` : ""}paintings helped shape the course of Western art</>
-                      )}
-                      {topArtworks.length > 0 && (
-                        <>. Notable works include <strong>{topArtworks[0].title}</strong>{topArtworks.length > 1 && <> and <strong>{topArtworks[1].title}</strong></>}</>
-                      )}.
-                    </p>
-                  )}
-                  {artist.wikipediaUrl && (
-                    <p>
-                      <a href={artist.wikipediaUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-900 text-sm">
-                        Learn more about {artist.name} on Wikipedia →
-                      </a>
-                    </p>
-                  )}
-                </div>
-              );
-            })()}
+            {/* Biography - only show if we have real content from database */}
+            <div className="text-neutral-600 leading-relaxed space-y-3">
+              {(artist.bioFull || artist.bioShort) && (
+                <p>{artist.bioFull || artist.bioShort}</p>
+              )}
+              {artist.wikipediaUrl && (
+                <p>
+                  <a href={artist.wikipediaUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-900 text-sm">
+                    Read more on Wikipedia →
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
         </header>
 

@@ -5,6 +5,7 @@ import ArtistCard from "@/components/ArtistCard";
 import MuseumCard from "@/components/MuseumCard";
 import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
+import { decodeHtmlEntities, isPrivateCollection, isCountryNotCity } from "@/lib/text";
 
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
@@ -54,38 +55,79 @@ export default async function Home() {
     orderBy: { createdAt: "desc" },
   });
 
-  // Map to lowercase property names for ArtworkCard component
+  // Map to lowercase property names for ArtworkCard component and decode HTML entities
   const featuredArtworks = rawFeaturedArtworks.map((a) => ({
     ...a,
-    artist: a.Artist,
-    museum: a.Museum,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
   }));
 
-  // Fetch featured artists
+  // Fetch featured artists with their artwork images for fallback
   const rawFeaturedArtists = await prisma.artist.findMany({
-    include: { _count: { select: { Artwork: true } } },
+    include: {
+      _count: { select: { Artwork: true } },
+      Artwork: {
+        where: { imageUrl: { not: null } },
+        take: 1,
+        orderBy: { searchVolumeTier: "asc" },
+        select: { imageUrl: true },
+      },
+    },
     take: 4,
     orderBy: { Artwork: { _count: "desc" } },
   });
 
-  // Map _count.Artwork to _count.artworks for components
+  // Map _count.Artwork to _count.artworks for components and decode HTML entities
   const featuredArtists = rawFeaturedArtists.map((a) => ({
     ...a,
+    name: decodeHtmlEntities(a.name),
+    nationality: decodeHtmlEntities(a.nationality),
+    // Use artwork image as fallback if no artist portrait
+    imageUrl: a.imageUrl || a.Artwork[0]?.imageUrl || null,
     _count: { artworks: a._count.Artwork },
   }));
 
-  // Fetch featured museums
+  // Fetch featured museums with artwork images for fallback
   const rawFeaturedMuseums = await prisma.museum.findMany({
-    include: { _count: { select: { Artwork: true } } },
-    take: 3,
+    include: {
+      _count: { select: { Artwork: true } },
+      Artwork: {
+        where: { imageUrl: { not: null } },
+        take: 1,
+        orderBy: { searchVolumeTier: "asc" },
+        select: { imageUrl: true },
+      },
+    },
+    take: 6, // Fetch extra to filter out invalid ones
     orderBy: { Artwork: { _count: "desc" } },
   });
 
-  // Map _count.Artwork to _count.artworks for components
-  const featuredMuseums = rawFeaturedMuseums.map((m) => ({
-    ...m,
-    _count: { artworks: m._count.Artwork },
-  }));
+  // Filter out invalid museums, decode HTML entities, and map to components
+  const featuredMuseums = rawFeaturedMuseums
+    .filter((m) => {
+      // Skip private collections
+      if (isPrivateCollection(m.name)) return false;
+      // Skip entries where city is actually a country
+      if (isCountryNotCity(m.city)) return false;
+      // Skip Unknown locations
+      if (m.city === "Unknown" || m.country === "Unknown") return false;
+      return true;
+    })
+    .slice(0, 3) // Take only 3 after filtering
+    .map((m) => ({
+      ...m,
+      name: decodeHtmlEntities(m.name),
+      city: decodeHtmlEntities(m.city),
+      country: decodeHtmlEntities(m.country),
+      // Use artwork image as fallback if no museum image
+      imageUrl: m.imageUrl || m.Artwork[0]?.imageUrl || null,
+      _count: { artworks: m._count.Artwork },
+    }));
 
   return (
     <div className="bg-neutral-50">

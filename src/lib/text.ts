@@ -3,34 +3,33 @@
  */
 
 // Decode HTML entities to their actual characters
-export function decodeHtmlEntities(text: string): string {
+export function decodeHtmlEntities(text: string | null | undefined): string {
+  if (!text) return '';
+
+  // First handle numeric entities like &#123; and &#160;
+  let result = text.replace(/&#(\d+);/g, (_, code) => {
+    const charCode = parseInt(code, 10);
+    // Handle nbsp (160) as regular space
+    if (charCode === 160) return ' ';
+    return String.fromCharCode(charCode);
+  });
+
+  // Handle named entities
   const entities: Record<string, string> = {
-    '&#233;': 'é',
-    '&#232;': 'è',
-    '&#234;': 'ê',
-    '&#224;': 'à',
-    '&#226;': 'â',
-    '&#228;': 'ä',
-    '&#246;': 'ö',
-    '&#252;': 'ü',
-    '&#39;': "'",
     '&apos;': "'",
     '&quot;': '"',
     '&amp;': '&',
     '&lt;': '<',
     '&gt;': '>',
     '&nbsp;': ' ',
-    '&#8211;': '–',
-    '&#8212;': '—',
   };
 
-  let result = text;
   for (const [entity, char] of Object.entries(entities)) {
     result = result.replace(new RegExp(entity, 'g'), char);
   }
 
-  // Also handle numeric entities like &#123;
-  result = result.replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)));
+  // Clean up any leading/trailing whitespace from decoded nbsp
+  result = result.trim();
 
   return result;
 }
@@ -70,7 +69,27 @@ const knownCountries = [
 ];
 
 export function isCountryNotCity(cityName: string): boolean {
-  return knownCountries.includes(cityName);
+  // Decode first, then check
+  const decoded = decodeHtmlEntities(cityName).trim();
+  return knownCountries.includes(decoded) || knownCountries.includes(cityName);
+}
+
+// Check if city name is invalid/malformed
+export function isInvalidCity(cityName: string): boolean {
+  if (!cityName) return true;
+
+  const decoded = decodeHtmlEntities(cityName).trim();
+
+  // Empty after decoding
+  if (!decoded) return true;
+
+  // Just a country name
+  if (isCountryNotCity(decoded)) return true;
+
+  // "Unknown"
+  if (decoded.toLowerCase() === 'unknown') return true;
+
+  return false;
 }
 
 // Normalize city name for grouping (handle variations)

@@ -3,6 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import FAQ, { FAQSchema } from "@/components/FAQ";
+import {
+  decodeHtmlEntities,
+  isValidMuseum,
+  isCountryNotCity,
+  isPrivateCollection,
+} from "@/lib/text";
 
 const museumFAQs = [
   {
@@ -60,12 +66,28 @@ export default async function MuseumsPage() {
     orderBy: [{ Artwork: { _count: "desc" } }, { name: "asc" }],
   });
 
-  // Map to lowercase for components
-  const museums = rawMuseums.map((m) => ({
-    ...m,
-    _count: { artworks: m._count.Artwork },
-    artworks: m.Artwork,
-  }));
+  // Filter out invalid museums and map to lowercase for components
+  const museums = rawMuseums
+    .filter((m) => {
+      // Skip invalid/malformed entries
+      if (!isValidMuseum(m)) return false;
+      // Skip private collections (show on cities page instead)
+      if (isPrivateCollection(m.name)) return false;
+      // Skip entries with country as city
+      if (isCountryNotCity(m.city)) return false;
+      return true;
+    })
+    .map((m) => ({
+      ...m,
+      name: decodeHtmlEntities(m.name),
+      city: decodeHtmlEntities(m.city),
+      country: decodeHtmlEntities(m.country),
+      _count: { artworks: m._count.Artwork },
+      artworks: m.Artwork.map((a) => ({
+        ...a,
+        title: decodeHtmlEntities(a.title),
+      })),
+    }));
 
   // Group by country
   const byCountry = museums.reduce(

@@ -53,10 +53,12 @@ export default async function CitiesPage() {
     0
   );
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const museums = validMuseums.map((m) => ({
     ...m,
     name: decodeHtmlEntities(m.name),
+    city: decodeHtmlEntities(m.city),
+    country: decodeHtmlEntities(m.country),
     _count: { artworks: m._count.Artwork },
     artworks: m.Artwork,
   }));

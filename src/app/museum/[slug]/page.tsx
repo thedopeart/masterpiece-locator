@@ -8,57 +8,31 @@ import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { museumMetaTitle, museumMetaDescription } from "@/lib/seo";
+import { decodeHtmlEntities } from "@/lib/text";
 
-// Generate dynamic FAQs based on museum data
+// Generate factual FAQs - only data we actually have, no templated filler
 function generateMuseumFAQs(museum: {
   name: string;
   city: string;
   country: string;
   ticketPriceRange: string | null;
-  websiteUrl: string | null;
   artworks: { title: string; artist: { name: string } | null }[];
-}, artistCount: number) {
+}) {
   const faqs = [];
-  const topArtworks = museum.artworks.slice(0, 3);
-  const topArtists = [...new Set(museum.artworks.filter(a => a.artist).map(a => a.artist!.name))].slice(0, 5);
 
-  // FAQ 1: What famous paintings are at this museum?
-  if (topArtworks.length > 0) {
-    const artworkList = topArtworks.map(a => `<strong>${a.title}</strong>${a.artist ? ` by ${a.artist.name}` : ""}`).join(", ");
-    faqs.push({
-      question: `What famous paintings can I see at ${museum.name}?`,
-      answer: `${museum.name} houses ${museum.artworks.length} notable works in our database, including ${artworkList}. The museum's collection spans multiple periods and styles, offering visitors a comprehensive look at art history. Check the museum's website for their complete collection and any traveling exhibitions.`,
-    });
-  }
+  // FAQ 1: Location - factual only
+  faqs.push({
+    question: `Where is ${museum.name}?`,
+    answer: `<strong>${museum.city}, ${museum.country}</strong>.`,
+  });
 
-  // FAQ 2: Ticket prices
+  // FAQ 2: Ticket prices - only if we have real data
   if (museum.ticketPriceRange) {
     faqs.push({
-      question: `How much does it cost to visit ${museum.name}?`,
-      answer: `<strong>Admission to ${museum.name}</strong> is ${museum.ticketPriceRange}. Many museums offer discounted rates for students, seniors, and children. Some also have free admission days or evening hours. We recommend checking the official website for current pricing, as fees may change seasonally.`,
+      question: `How much does ${museum.name} cost?`,
+      answer: `<strong>${museum.ticketPriceRange}</strong>.`,
     });
   }
-
-  // FAQ 3: Location
-  faqs.push({
-    question: `Where is ${museum.name} located?`,
-    answer: `<strong>${museum.name}</strong> is located in <strong>${museum.city}, ${museum.country}</strong>. The museum is typically accessible by public transportation, and many visitors combine their visit with exploring other attractions in ${museum.city}. Check the museum's website for detailed directions and parking information.`,
-  });
-
-  // FAQ 4: Which artists are represented?
-  if (topArtists.length > 0) {
-    const artistList = topArtists.map(a => `<strong>${a}</strong>`).join(", ");
-    faqs.push({
-      question: `Which famous artists have work at ${museum.name}?`,
-      answer: `${museum.name} features works by ${artistCount} artists in our database, including ${artistList}${topArtists.length < artistCount ? ` and ${artistCount - topArtists.length} others` : ""}. The collection represents various artistic movements and periods, making it an excellent destination for art enthusiasts.`,
-    });
-  }
-
-  // FAQ 5: Planning a visit
-  faqs.push({
-    question: `How do I plan a visit to ${museum.name}?`,
-    answer: `To plan your visit to <strong>${museum.name}</strong>, start by checking their official website for current <strong>opening hours</strong> and any temporary closures. Consider purchasing tickets online to skip lines, especially during peak season. Allow 2-3 hours for a focused visit, or longer if you want to explore the entire collection. The museum is located in ${museum.city}, ${museum.country}.`,
-  });
 
   return faqs;
 }
@@ -138,12 +112,23 @@ export default async function MuseumPage({ params }: Props) {
   if (!rawMuseum) notFound();
 
   // Map artworks to lowercase property names for ArtworkCard component
+  // Also decode HTML entities for display
   const museum = {
     ...rawMuseum,
+    name: decodeHtmlEntities(rawMuseum.name),
+    city: decodeHtmlEntities(rawMuseum.city),
+    country: decodeHtmlEntities(rawMuseum.country),
+    address: decodeHtmlEntities(rawMuseum.address),
+    description: decodeHtmlEntities(rawMuseum.description),
     artworks: rawMuseum.Artwork.map((a) => ({
       ...a,
-      artist: a.Artist,
-      museum: a.Museum,
+      title: decodeHtmlEntities(a.title),
+      artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+      museum: a.Museum ? {
+        ...a.Museum,
+        name: decodeHtmlEntities(a.Museum.name),
+        city: decodeHtmlEntities(a.Museum.city),
+      } : null,
     })),
   };
 
@@ -194,9 +179,10 @@ export default async function MuseumPage({ params }: Props) {
     take: 10,
   });
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const artists = rawArtists.map((a) => ({
     ...a,
+    name: decodeHtmlEntities(a.name),
     _count: { artworks: a._count.Artwork },
   }));
 
@@ -409,7 +395,7 @@ export default async function MuseumPage({ params }: Props) {
 
         {/* FAQ Section */}
         {(() => {
-          const faqs = generateMuseumFAQs(museum, artists.length);
+          const faqs = generateMuseumFAQs(museum);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />

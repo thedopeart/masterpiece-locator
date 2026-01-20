@@ -7,58 +7,34 @@ import ArtworkCard from "@/components/ArtworkCard";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import { cityMetaTitle, cityMetaDescription } from "@/lib/seo";
+import { decodeHtmlEntities } from "@/lib/text";
 
-// Generate dynamic FAQs based on city data
+// Generate factual FAQs - only data we actually have, no templated filler
 function generateCityFAQs(city: {
   name: string;
-  country: string;
   museums: { name: string; ticketPriceRange: string | null }[];
   totalArtworks: number;
-  artists: { name: string }[];
 }) {
   const faqs = [];
-  const topMuseums = city.museums.slice(0, 3).map(m => `<strong>${m.name}</strong>`).join(", ");
-  const topArtists = city.artists.slice(0, 3).map(a => `<strong>${a.name}</strong>`).join(", ");
 
-  // FAQ 1: What museums are in this city?
+  // FAQ 1: What museums are in this city? - factual only
   if (city.museums.length > 0) {
+    const museumList = city.museums.slice(0, 5).map(m => `<strong>${m.name}</strong>`).join(", ");
     faqs.push({
       question: `What art museums are in ${city.name}?`,
-      answer: city.museums.length === 1
-        ? `${city.name} is home to <strong>${city.museums[0].name}</strong>, which houses <strong>${city.totalArtworks} masterpieces</strong> from our catalogue. Check the museum's official website for current exhibitions, visiting hours, and ticket prices before planning your trip.`
-        : `${city.name} has <strong>${city.museums.length} major art museums</strong> in our catalogue, including ${topMuseums}${city.museums.length > 3 ? ` and ${city.museums.length - 3} more` : ""}. Together they house <strong>${city.totalArtworks} masterpieces</strong>. Each museum page on this site shows you exactly what's on display and how to plan your visit.`,
+      answer: museumList + (city.museums.length > 5 ? ` and ${city.museums.length - 5} more.` : "."),
     });
   }
 
-  // FAQ 2: Famous paintings in this city
-  if (city.totalArtworks > 0) {
-    faqs.push({
-      question: `What famous paintings can I see in ${city.name}?`,
-      answer: `${city.name}'s museums display <strong>${city.totalArtworks} catalogued masterpieces</strong>${city.artists.length > 0 ? ` by artists like ${topArtists}` : ""}. Browse the artwork listings above to see specific paintings and which museum holds each one. Many are permanently housed, while others may travel for special exhibitions.`,
-    });
-  }
-
-  // FAQ 3: Ticket prices
+  // FAQ 2: Ticket prices - only if we have real data
   const museumsWithPrices = city.museums.filter(m => m.ticketPriceRange);
   if (museumsWithPrices.length > 0) {
-    const priceExamples = museumsWithPrices.slice(0, 2).map(m => `<strong>${m.name}</strong> (${m.ticketPriceRange})`).join(" and ");
+    const priceList = museumsWithPrices.slice(0, 3).map(m => `<strong>${m.name}</strong>: ${m.ticketPriceRange}`).join(". ");
     faqs.push({
-      question: `How much do ${city.name} art museums cost?`,
-      answer: `Ticket prices vary by museum. For example, ${priceExamples}. Some museums offer free admission on certain days or for specific groups. We recommend checking each museum's official website for current prices, discounts, and any required advance bookings.`,
+      question: `How much do ${city.name} museums cost?`,
+      answer: priceList + ".",
     });
   }
-
-  // FAQ 4: Best time to visit
-  faqs.push({
-    question: `When is the best time to visit ${city.name} for art?`,
-    answer: `<strong>Weekday mornings</strong> right at opening offer the smallest crowds at ${city.name}'s museums. <strong>Tuesday and Wednesday</strong> tend to be quieter than other weekdays. Avoid weekends, school holidays, and rainy days when locals head indoors. Many museums have extended evening hours once a week, which can be a great time to visit.`,
-  });
-
-  // FAQ 5: Planning a trip
-  faqs.push({
-    question: `How do I plan an art trip to ${city.name}?`,
-    answer: `Start by identifying which paintings you want to see, then check which museums hold them using this site. <strong>Book tickets in advance</strong> for popular museums to avoid long lines. Download museum apps for floor plans and audio guides. Wear comfortable shoes since you'll walk several miles. Plan for <strong>2-3 hours per museum</strong> to avoid fatigue, and consider spacing visits across multiple days.`,
-  });
 
   return faqs;
 }
@@ -125,11 +101,18 @@ export default async function CityPage({ params }: Props) {
 
   if (rawMuseums.length === 0) notFound();
 
-  // Map to lowercase for components
+  // Map to lowercase for components and decode HTML entities
   const museums = rawMuseums.map((m) => ({
     ...m,
+    name: decodeHtmlEntities(m.name),
+    city: decodeHtmlEntities(m.city),
+    country: decodeHtmlEntities(m.country),
+    address: decodeHtmlEntities(m.address),
     _count: { artworks: m._count.Artwork },
-    artworks: m.Artwork,
+    artworks: m.Artwork.map((a) => ({
+      ...a,
+      title: decodeHtmlEntities(a.title),
+    })),
   }));
 
   const country = museums[0].country;
@@ -140,8 +123,13 @@ export default async function CityPage({ params }: Props) {
   const allArtworks = rawMuseums.flatMap((m) =>
     m.Artwork.map((a) => ({
       ...a,
-      artist: a.Artist,
-      museum: a.Museum,
+      title: decodeHtmlEntities(a.title),
+      artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+      museum: a.Museum ? {
+        ...a.Museum,
+        name: decodeHtmlEntities(a.Museum.name),
+        city: decodeHtmlEntities(a.Museum.city),
+      } : null,
     }))
   );
 
@@ -156,6 +144,7 @@ export default async function CityPage({ params }: Props) {
 
   const artists = rawArtists.map((a) => ({
     ...a,
+    name: decodeHtmlEntities(a.name),
     _count: { artworks: a._count.Artwork },
   }));
 
@@ -327,15 +316,13 @@ export default async function CityPage({ params }: Props) {
         {(() => {
           const faqs = generateCityFAQs({
             name: cityName,
-            country,
             museums: museums.map(m => ({ name: m.name, ticketPriceRange: m.ticketPriceRange })),
             totalArtworks,
-            artists: artists.map(a => ({ name: a.name })),
           });
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />
-              <FAQ items={faqs} title={`Visiting ${cityName} for Art`} />
+              <FAQ items={faqs} title={`Visiting ${cityName}`} />
             </>
           ) : null;
         })()}
