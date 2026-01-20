@@ -407,9 +407,10 @@ export default async function ArtworkPage({ params }: Props) {
         {/* Only show description if we have real content from the database */}
         {artwork.description && (
           <section className="mb-8">
-            <p className="text-neutral-600 leading-relaxed">
-              {artwork.description}
-            </p>
+            <div
+              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold"
+              dangerouslySetInnerHTML={{ __html: artwork.description }}
+            />
           </section>
         )}
 
