@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+// Canonical URL for SEO (Shopify proxy URL, not Vercel)
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 export default function robots(): MetadataRoute.Robots {
   return {
