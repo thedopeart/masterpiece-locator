@@ -47,7 +47,9 @@ interface Props {
 }
 
 export default async function ArtistsPage({ searchParams }: Props) {
-  const { movement: movementFilter, page: pageParam } = await searchParams;
+  const resolvedParams = await searchParams;
+  const movementFilter = resolvedParams?.movement;
+  const pageParam = resolvedParams?.page;
   const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
 
   // Get all movements for the filter
@@ -64,8 +66,8 @@ export default async function ArtistsPage({ searchParams }: Props) {
     _count: { artists: m._count.Artist },
   }));
 
-  // Build artist query
-  const whereClause = movementFilter
+  // Build artist query - only filter if movementFilter is a valid string
+  const whereClause = movementFilter && typeof movementFilter === 'string'
     ? { Movement: { some: { slug: movementFilter } } }
     : {};
 
