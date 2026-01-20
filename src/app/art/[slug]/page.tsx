@@ -568,9 +568,13 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* FAQ Section - only show location FAQ, no templated questions */}
+        {/* FAQ Section - use stored FAQs from database */}
         {(() => {
-          const faqs = generateArtworkFAQ(artwork);
+          // Use stored FAQs if available, otherwise fall back to generated location FAQ
+          const storedFaqs = rawArtwork.faqs as Array<{question: string; answer: string}> | null;
+          const faqs = storedFaqs && storedFaqs.length > 0
+            ? storedFaqs
+            : generateArtworkFAQ(artwork);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />

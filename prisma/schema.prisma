@@ -33,6 +33,7 @@ model Artwork {
   medium                 String?
   dimensions             String?
   description            String?
+  faqs                   Json?
   historicalSignificance String?
   imageUrl               String?
   imageAttribution       String?
