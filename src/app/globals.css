@@ -66,6 +66,15 @@ strong {
   color: inherit;
 }
 
+/* Ensure paragraph spacing in descriptions */
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
 /* Interlink color differentiation */
 /* Green for artist and movement links */
 a[href^="/artist/"],
