@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/apps/masterpieces"
+    },
+    {
+      "source": "/:path((?!apps/masterpieces|_next|api).*)",
+      "destination": "/apps/masterpieces/:path"
+    }
+  ]
+}
