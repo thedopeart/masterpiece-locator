@@ -60,3 +60,37 @@ textarea:focus-visible {
 .skip-link:focus {
   top: 0;
 }
+
+/* Interlink color differentiation */
+/* Green for artist and movement links */
+a[href^="/artist/"],
+a[href^="/movement/"] {
+  color: #028161 !important;
+}
+
+a[href^="/artist/"]:hover,
+a[href^="/movement/"]:hover {
+  text-decoration: underline;
+}
+
+/* Gold for museum and LuxuryWallArt links */
+a[href^="/museum/"],
+a[href*="luxurywallart"] {
+  color: #C9A84C !important;
+}
+
+a[href^="/museum/"]:hover,
+a[href*="luxurywallart"]:hover {
+  text-decoration: underline;
+}
+
+/* Bold text inside links inherits link color */
+a[href^="/artist/"] strong,
+a[href^="/movement/"] strong {
+  color: inherit !important;
+}
+
+a[href^="/museum/"] strong,
+a[href*="luxurywallart"] strong {
+  color: inherit !important;
+}

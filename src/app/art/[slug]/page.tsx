@@ -408,7 +408,7 @@ export default async function ArtworkPage({ params }: Props) {
         {artwork.description && (
           <section className="mb-8">
             <div
-              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#C9A84C] prose-strong:font-semibold prose-p:mb-4"
+              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-p:mb-4"
               dangerouslySetInnerHTML={{ __html: artwork.description }}
             />
           </section>
