@@ -38,42 +38,16 @@ Art discovery app with artwork pages featuring descriptions and FAQs. Content in
 ```
 
 ### LuxuryWallArt Links (display in gold #C9A84C)
-Use for color mentions. Only use these verified URLs:
+Link to collections for colors, subjects, styles, rooms. Great opportunity when mentioning colors in descriptions.
 
 ```html
-<a href="https://luxurywallart.com/collections/[slug]" target="_blank" rel="noopener"><strong>color name</strong></a>
+<a href="https://luxurywallart.com/collections/[slug]" target="_blank" rel="noopener"><strong>text</strong></a>
 ```
 
-**Verified Color Collection URLs:**
-| Color | URL Slug |
-|-------|----------|
-| Gold | `/collections/gold-art` |
-| Blue | `/collections/blue-wall-art` |
-| Red | `/collections/red-wall-art` |
-| Green | `/collections/green-wall-art` |
-| Orange | `/collections/orange-art` |
-| Pink | `/collections/pink-wall-art` |
-| Yellow | `/collections/yellow-paintings` |
-| Purple | `/collections/purple-paintings` |
-| Brown | `/collections/brown-art` |
-| Beige | `/collections/beige` |
-| Navy Blue | `/collections/navy-blue` |
-| Gray | `/collections/grey-art` |
-| Black | `/collections/black-wall-art` |
-| Black and Gold | `/collections/black-and-gold` |
-| Black and White | `/collections/black-and-white-artwork` |
-| Earth Tones | `/collections/earth-tones` |
-| Colorful | `/collections/colorful-artwork` |
-| Neutral | `/collections/neutral-art` |
-| Red and Black | `/collections/red-and-black-art` |
-| Green and Gold | `/collections/green-and-gold` |
-| Purple and Gold | `/collections/purple-and-gold` |
-| Rainbow | `/collections/rainbow-art` |
-
-**DO NOT guess or create URLs. Only use verified URLs.**
-
-For additional collections (subjects, styles, rooms), check:
+**ONLY use verified URLs from:**
 `/Users/thedopeart/Desktop/luxury-wall-art/Interlinking/Collections Links.csv`
+
+150+ collections available. DO NOT guess URLs - always verify in the CSV first.
 
 ---
 
