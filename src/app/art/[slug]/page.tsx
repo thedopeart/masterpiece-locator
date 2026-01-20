@@ -69,7 +69,14 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locato
 const getArtwork = cache(async (slug: string) => {
   return prisma.artwork.findUnique({
     where: { slug },
-    include: { Artist: true, Museum: true },
+    include: {
+      Artist: {
+        include: {
+          Movement: { select: { name: true, slug: true } },
+        },
+      },
+      Museum: true,
+    },
   });
 });
 
@@ -136,7 +143,10 @@ export default async function ArtworkPage({ params }: Props) {
   // Map to lowercase property names for consistency
   const artwork = {
     ...rawArtwork,
-    artist: rawArtwork.Artist,
+    artist: rawArtwork.Artist ? {
+      ...rawArtwork.Artist,
+      movements: rawArtwork.Artist.Movement,
+    } : null,
     museum: rawArtwork.Museum,
   };
 
@@ -324,6 +334,20 @@ export default async function ArtworkPage({ params }: Props) {
             )}
             {artwork.year && <>, {artwork.year}</>}
           </p>
+          {/* Movement badges */}
+          {artwork.artist?.movements && artwork.artist.movements.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {artwork.artist.movements.map((movement) => (
+                <Link
+                  key={movement.slug}
+                  href={`/movement/${movement.slug}`}
+                  className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm hover:bg-amber-200 transition-colors"
+                >
+                  {movement.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* Artwork Description with Internal Links */}

@@ -353,7 +353,13 @@ export default async function ArtistPage({ params }: Props) {
                       {uniqueCities.length > 0 && (
                         <> in {uniqueCities.slice(0, 2).map((city, i) => (
                           <span key={city}>
-                            {i > 0 && " and "}{city}
+                            {i > 0 && " and "}
+                            <Link
+                              href={`/city/${city.toLowerCase().replace(/\s+/g, "-")}`}
+                              className="text-[#C9A84C] hover:underline font-medium"
+                            >
+                              {city}
+                            </Link>
                           </span>
                         ))}{uniqueCities.length > 2 && ` and ${uniqueCities.length - 2} other ${uniqueCities.length - 2 === 1 ? "city" : "cities"}`}</>
                       )}

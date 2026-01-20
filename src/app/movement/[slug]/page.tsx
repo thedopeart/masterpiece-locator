@@ -4,7 +4,70 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
+import FAQ, { FAQSchema } from "@/components/FAQ";
 import { createMetaTitle, createMetaDescription } from "@/lib/seo";
+
+// Generate dynamic FAQs based on movement data
+function generateMovementFAQs(movement: {
+  name: string;
+  description: string | null;
+  startYear: number | null;
+  endYear: number | null;
+  keyCharacteristics: string[];
+  artists: { name: string }[];
+  artworkCount: number;
+}) {
+  // Skip if no start year
+  if (!movement.startYear) return [];
+  const faqs = [];
+  const topArtists = movement.artists.slice(0, 3).map(a => `<strong>${a.name}</strong>`).join(", ");
+  const period = movement.endYear
+    ? `from <strong>${movement.startYear}</strong> to <strong>${movement.endYear}</strong>`
+    : `beginning around <strong>${movement.startYear}</strong>`;
+
+  // FAQ 1: What is this movement?
+  faqs.push({
+    question: `What is ${movement.name}?`,
+    answer: movement.description
+      ? `${movement.description} The movement spanned ${period} and continues to influence contemporary art.`
+      : `<strong>${movement.name}</strong> is an art movement that emerged ${period}. It fundamentally changed how artists approached their craft and continues to be studied and admired today. The movement's influence can be seen in museums worldwide.`,
+  });
+
+  // FAQ 2: Key characteristics
+  if (movement.keyCharacteristics.length > 0) {
+    const chars = movement.keyCharacteristics.slice(0, 4).map(c => `<strong>${c}</strong>`).join(", ");
+    faqs.push({
+      question: `What are the characteristics of ${movement.name}?`,
+      answer: `${movement.name} is defined by several distinct characteristics: ${chars}. These elements set ${movement.name} apart from other movements and made it immediately recognizable. Artists within the movement pushed boundaries while sharing these common aesthetic principles.`,
+    });
+  }
+
+  // FAQ 3: Famous artists
+  if (movement.artists.length > 0) {
+    faqs.push({
+      question: `Who are the most famous ${movement.name} artists?`,
+      answer: movement.artists.length === 1
+        ? `<strong>${movement.artists[0].name}</strong> is the primary ${movement.name} artist in our catalogue. Their work defined many of the movement's key characteristics and continues to draw visitors to museums worldwide.`
+        : `The ${movement.name} movement included <strong>${movement.artists.length} artists</strong> in our catalogue, with key figures like ${topArtists}. These artists pioneered the movement's distinctive style and their masterpieces remain among the most visited works in museums today.`,
+    });
+  }
+
+  // FAQ 4: When was this movement?
+  faqs.push({
+    question: `When was the ${movement.name} period?`,
+    answer: `The ${movement.name} movement flourished ${period}. Understanding when artists worked helps place their art in historical context. This era shaped the subjects, techniques, and materials available to ${movement.name} artists, and their innovations influenced movements that followed.`,
+  });
+
+  // FAQ 5: Where to see this art
+  if (movement.artworkCount > 0) {
+    faqs.push({
+      question: `Where can I see ${movement.name} paintings?`,
+      answer: `We've catalogued <strong>${movement.artworkCount}+ ${movement.name} masterpieces</strong> across museums worldwide. Each artwork page on this site shows exactly where it's displayed, making it easy to plan museum visits. Major art museums in cities like Paris, New York, London, and Amsterdam typically have significant ${movement.name} collections.`,
+    });
+  }
+
+  return faqs;
+}
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -257,6 +320,25 @@ export default async function MovementPage({ params }: Props) {
             </section>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        {(() => {
+          const faqs = generateMovementFAQs({
+            name: movement.name,
+            description: movement.description,
+            startYear: movement.startYear,
+            endYear: movement.endYear,
+            keyCharacteristics: movement.keyCharacteristics,
+            artists: movement.artists.map(a => ({ name: a.name })),
+            artworkCount: artworks.length,
+          });
+          return faqs.length > 0 ? (
+            <>
+              <FAQSchema items={faqs} />
+              <FAQ items={faqs} title={`About ${movement.name}`} />
+            </>
+          ) : null;
+        })()}
 
         {/* CTA */}
         <section className="mt-12 bg-neutral-100 rounded-xl p-8 text-center">
