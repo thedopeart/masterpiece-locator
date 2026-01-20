@@ -13,9 +13,29 @@ Art discovery app with artwork pages featuring descriptions and FAQs. Content in
 - Never pad text just because a painting is famous
 
 ### Structure
-- Use `<p>` tags for paragraphs
+- Use `<p>` tags for paragraphs (typically 2-3 paragraphs)
 - No `<br>` tags between paragraphs (CSS handles spacing)
 - Vary sentence length dramatically
+
+### Typical Paragraph Flow
+1. **Opening paragraph**: Artist link, date, what the painting depicts visually
+2. **Middle paragraph**: Historical context, technique, interesting facts, controversies
+3. **Closing paragraph**: Artist bio context, current museum location with link
+
+### What to Include (when true and interesting)
+- What the painting actually shows (describe the scene)
+- When and where it was created
+- Historical context or story behind it
+- Interesting facts (scandals, thefts, X-ray discoveries, controversies)
+- Technical approach (technique, medium, series context)
+- Artist's life context relevant to the work
+- Current location and how it got there
+
+### What NOT to Do
+- Don't pad with generic art appreciation language
+- Don't repeat information already in the metadata (title, year shown on page)
+- Don't invent facts - only write what you actually know
+- Don't write longer just because a painting is famous
 
 ### Bold Keywords
 - Minimum **1 bold keyword per 100 words**
@@ -62,11 +82,30 @@ Link to collections for colors, subjects, styles, rooms. Great opportunity when 
 ### Common FAQ Topics
 - Where can I see [painting]? → link museum
 - What style/movement? → link movement
-- What colors? → link LWA collection
-- How big is it?
+- What colors? → link LWA collection if natural fit
+- How big is it? (include both metric and imperial)
 - When was it painted?
 - Who painted it? → link artist
-- What does it depict?
+- What does it depict/mean?
+- Why is it famous? (for well-known works)
+- Interesting facts (theft, scandal, hidden details)
+
+### FAQ Answer Structure
+1. Direct answer first
+2. Add supporting detail or context
+3. Weave in link naturally
+
+**Example:**
+```
+Q: Where can I see The Tempest?
+A: You can view this painting at <a href="/museum/..."><strong>Gallerie dell'Accademia</strong></a> in Venice, Italy. The museum preserves Venetian art spanning five centuries, and The Tempest remains one of its most mysterious treasures.
+```
+
+### Link Placement Patterns
+- **Artist link**: Usually in first paragraph, first mention of artist name
+- **Movement link**: When discussing style or art historical context
+- **Museum link**: In description's final paragraph OR in "where to see" FAQ
+- **LWA collection link**: When naturally mentioning colors (don't force it)
 
 ---
 
