@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Artist {
+  id           String     @id
+  slug         String     @unique
+  name         String
+  birthYear    Int?
+  deathYear    Int?
+  nationality  String?
+  bioShort     String?
+  bioFull      String?
+  imageUrl     String?
+  wikidataId   String?    @unique
+  wikipediaUrl String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime
+  Artwork      Artwork[]
+  Movement     Movement[] @relation("ArtistToMovement")
+}
+
+model Artwork {
+  id                     String         @id
+  slug                   String         @unique
+  title                  String
+  year                   Int?
+  medium                 String?
+  dimensions             String?
+  description            String?
+  historicalSignificance String?
+  imageUrl               String?
+  imageAttribution       String?
+  isPermanent            Boolean        @default(true)
+  galleryRoom            String?
+  wikidataId             String?        @unique
+  wikipediaUrl           String?
+  searchVolumeTier       Int            @default(3)
+  artistId               String?
+  museumId               String?
+  styleTags              String[]
+  moodTags               String[]
+  primaryColors          String[]
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime
+  Artist                 Artist?        @relation(fields: [artistId], references: [id])
+  Museum                 Museum?        @relation(fields: [museumId], references: [id])
+  ProductMatch           ProductMatch[]
+
+  @@index([artistId])
+  @@index([museumId])
+  @@index([searchVolumeTier])
+}
+
+model Movement {
+  id                 String   @id
+  slug               String   @unique
+  name               String
+  startYear          Int?
+  endYear            Int?
+  description        String?
+  keyCharacteristics String[]
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime
+  Artist             Artist[] @relation("ArtistToMovement")
+}
+
+model Museum {
+  id               String    @id
+  slug             String    @unique
+  name             String
+  city             String
+  country          String
+  address          String?
+  latitude         Float?
+  longitude        Float?
+  websiteUrl       String?
+  ticketUrl        String?
+  ticketPriceRange String?
+  hoursOfOperation Json?
+  description      String?
+  imageUrl         String?
+  wikidataId       String?   @unique
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime
+  Artwork          Artwork[]
+
+  @@index([city])
+  @@index([country])
+}
+
+model ProductMatch {
+  id               String   @id
+  artworkId        String
+  shopifyProductId String
+  matchType        String
+  matchStrength    Int
+  createdAt        DateTime @default(now())
+  Artwork          Artwork  @relation(fields: [artworkId], references: [id])
+
+  @@unique([artworkId, shopifyProductId])
+  @@index([artworkId])
+}

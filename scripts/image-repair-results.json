@@ -1,0 +1,1307 @@
+{
+  "fixed": [
+    {
+      "title": "Bacchus and Ariadne",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Titian_Bacchus_and_Ariadne.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Titian_Bacchus_and_Ariadne.jpg/960px-Titian_Bacchus_and_Ariadne.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "Bal du moulin de la Galette",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg/960px-Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "Barge Haulers on the Volga",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg/960px-Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Lute Player",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Orazio_Gentileschi_-_The_Lute_Player_-_WGA08581.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Michelangelo_Caravaggio_020.jpg/960px-Michelangelo_Caravaggio_020.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "The Martyrdom of Saint Bartholomew",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Jusepe_de_Ribera_-_Martyrdom_of_St_Bartholomew_-_WGA19421.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Jusepe_de_Ribera%2C_The_Martyrdom_of_Saint_Bartholomew%2C_1634.jpg/960px-Jusepe_de_Ribera%2C_The_Martyrdom_of_Saint_Bartholomew%2C_1634.jpg",
+      "source": "commons-title"
+    },
+    {
+      "title": "The Matchmaker",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Gerard_van_Honthorst_-_The_Matchmaker_-_WGA11666.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gerrit_van_Honthorst_-_De_koppelaarster.jpg/960px-Gerrit_van_Honthorst_-_De_koppelaarster.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Monarch of the Glen",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Edwin_Landseer_-_The_Monarch_of_the_Glen_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Monarch_of_the_Glen%2C_Edwin_Landseer%2C_1851.jpg/960px-Monarch_of_the_Glen%2C_Edwin_Landseer%2C_1851.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Night Café",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Vincent_Willem_van_Gogh_076.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vincent_Willem_van_Gogh_076.jpg/960px-Vincent_Willem_van_Gogh_076.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Ninth Wave",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg/960px-Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Nude Maja",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Francisco_de_Goya_-_La_maja_desnuda_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Goya_Maja_naga2.jpg/960px-Goya_Maja_naga2.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Origin of the Milky Way",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Jacopo_Tintoretto_-_The_Origin_of_the_Milky_Way_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Jacopo_Tintoretto_-_The_Origin_of_the_Milky_Way_-_Google_Art_Project.jpg/960px-Jacopo_Tintoretto_-_The_Origin_of_the_Milky_Way_-_Google_Art_Project.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Origin of the World",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Gustave_Courbet_-_L%27Origine_du_monde_%281866%29.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Origin-of-the-World.jpg/960px-Origin-of-the-World.jpg",
+      "source": "commons-artist-title"
+    },
+    {
+      "title": "The Oxbow",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton%29_1836.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg/960px-Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Ray",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Jean-Baptiste-Sim%C3%A9on_Chardin_-_The_Ray_-_WGA04750.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Gamma_ray_burst.jpg/960px-Gamma_ray_burst.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "The Reverend Robert Walker Skating on Duddingston Loch",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Henry_Raeburn_-_The_Rev._Robert_Walker_Skating_on_Duddingston_Loch.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Reverend_Robert_Walker_%281755_-_1808%29_Skating_on_Duddingston_Loch.jpg/960px-Reverend_Robert_Walker_%281755_-_1808%29_Skating_on_Duddingston_Loch.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Rokeby Venus",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg/960px-Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Seamstress",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Edouard_Vuillard_-_The_Seamstress_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Butler_Leicester_Seamstress_front.jpg",
+      "source": "commons-artist-title"
+    },
+    {
+      "title": "The Storm on the Sea of Galilee",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg/960px-Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Tailor",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Giovanni_Battista_Moroni_-_Portrait_of_a_Man_%28The_Tailor%29_-_WGA16265.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Giovanni_Battista_Moroni_-_The_Tailor_%281565-1570%29.jpg/960px-Giovanni_Battista_Moroni_-_The_Tailor_%281565-1570%29.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "The Tempest",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Giorgione_-_La_tempesta.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Giorgione%2C_The_tempest.jpg",
+      "source": "commons-title"
+    },
+    {
+      "title": "The Tower of Babel",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Rotterdam%29_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Brueghel-tower-of-babel.jpg/960px-Brueghel-tower-of-babel.jpg",
+      "source": "commons-title"
+    },
+    {
+      "title": "The Tribute Money",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Masaccio7.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/The_Tribute_Money_by_Masaccio.jpg/960px-The_Tribute_Money_by_Masaccio.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Turkish Bath",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Le_Bain_Turc%2C_by_Jean_Auguste_Dominique_Ingres%2C_from_C2RMF_retouched.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Le_Bain_Turc%2C_by_Jean_Auguste_Dominique_Ingres%2C_from_C2RMF_retouched.jpg/960px-Le_Bain_Turc%2C_by_Jean_Auguste_Dominique_Ingres%2C_from_C2RMF_retouched.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "The Vision of Saint John the Evangelist",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Alonso_Cano_-_The_Vision_of_St_John_the_Evangelist_-_WGA04014.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Fra_bartolomeo_02_Vision_of_St_Bernard_with_Sts_Benedict_and_John_the_Evangelist.jpg/960px-Fra_bartolomeo_02_Vision_of_St_Bernard_with_Sts_Benedict_and_John_the_Evangelist.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "The Young Bull",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Paulus_Potter_-_The_Bull_-_WGA18229.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paulus_Potter_-_Young_Bull.JPG/960px-Paulus_Potter_-_Young_Bull.JPG",
+      "source": "commons-title"
+    },
+    {
+      "title": "Three Women in Church",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wilhelm_Leibl_-_Three_Women_in_Church.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Wilhelm_Maria_Hubertus_Leibl_008.jpg/960px-Wilhelm_Maria_Hubertus_Leibl_008.jpg",
+      "source": "commons-quoted"
+    },
+    {
+      "title": "Ulysses and the Sirens",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Draper_Herbert_James_Ulysses_and_the_Sirens.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/John_William_Waterhouse_-_Ulysses_and_the_Sirens_%281891%29.jpg/960px-John_William_Waterhouse_-_Ulysses_and_the_Sirens_%281891%29.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "Vase of Flowers",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Jan_Davidsz._de_Heem_-_Vase_of_Flowers_-_WGA11290.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/%27Vase_of_Flowers_with_a_Curtain%27%2C_oil_on_panel_painting_by_Jacques_de_Gheyn_II%2C_1615.jpg",
+      "source": "commons-title"
+    },
+    {
+      "title": "Washington Crossing the Delaware",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg/960px-Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "Where Do We Come From? What Are We? Where Are We Going?",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Paul_Gauguin_-_D%27ou_venons-nous.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Paul_Gauguin_-_D%27ou_venons-nous.jpg/960px-Paul_Gauguin_-_D%27ou_venons-nous.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "Woman and Child in a Courtyard",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pieter_de_Hooch_-_A_Woman_and_her_Maid_in_a_Courtyard_-_WGA11692.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Stroop_Report_-_Warsaw_Ghetto_Uprising_06b.jpg/960px-Stroop_Report_-_Warsaw_Ghetto_Uprising_06b.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "Woman with a Parasol",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg/960px-Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg",
+      "source": "url-fix"
+    },
+    {
+      "title": "Woman with Dead Child",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Kollwitz_Woman_with_Dead_Child.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Dead_woman_child-My_Lai.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "Work",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Ford_Madox_Brown_-_Work_-_Google_Art_Project.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Baseball_pitching_motion_2004.jpg",
+      "source": "commons-broad"
+    },
+    {
+      "title": "Young Woman with a Candle",
+      "oldUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Godfried_Schalcken_-_A_Lady_with_a_Candle_-_WGA21080.jpg",
+      "newUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Godfried_Schalcken_-_Young_Girl_with_a_Candle_-_WGA20944.jpg",
+      "source": "commons-artist-title"
+    }
+  ],
+  "notFound": [
+    {
+      "title": "A Rough Surf",
+      "artist": "William Trost Richards",
+      "wikidataId": null
+    },
+    {
+      "title": "A Studio at Les Batignolles",
+      "artist": "Henri Fantin-Latour",
+      "wikidataId": null
+    },
+    {
+      "title": "Annunciation with St. Margaret and St. Ansanus",
+      "artist": "Simone Martini",
+      "wikidataId": null
+    },
+    {
+      "title": "Anxiety",
+      "artist": "Edvard Munch",
+      "wikidataId": null
+    },
+    {
+      "title": "Arearea (Joyousness)",
+      "artist": "Paul Gauguin",
+      "wikidataId": null
+    },
+    {
+      "title": "Assumption of the Virgin",
+      "artist": "Titian",
+      "wikidataId": null
+    },
+    {
+      "title": "Assumption of the Virgin",
+      "artist": "Correggio",
+      "wikidataId": null
+    },
+    {
+      "title": "Autumn Landscape",
+      "artist": "George Inness Jr.",
+      "wikidataId": null
+    },
+    {
+      "title": "Autumn on the Hudson River",
+      "artist": "Jasper Francis Cropsey",
+      "wikidataId": null
+    },
+    {
+      "title": "Back View of Venus",
+      "artist": "Jules Pascin",
+      "wikidataId": null
+    },
+    {
+      "title": "Banquet Piece with Mince Pie",
+      "artist": "Willem Claesz. Heda",
+      "wikidataId": null
+    },
+    {
+      "title": "Bathers at Asnières",
+      "artist": "Georges Seurat",
+      "wikidataId": null
+    },
+    {
+      "title": "Beat the Whites with the Red Wedge",
+      "artist": "El Lissitzky",
+      "wikidataId": null
+    },
+    {
+      "title": "Beata Beatrix",
+      "artist": "Dante Gabriel Rossetti",
+      "wikidataId": null
+    },
+    {
+      "title": "Blue Interior",
+      "artist": "Harriet Backer",
+      "wikidataId": null
+    },
+    {
+      "title": "Bogatyrs",
+      "artist": "Viktor Vasnetsov",
+      "wikidataId": null
+    },
+    {
+      "title": "Boston Harbor",
+      "artist": "Fitz Henry Lane",
+      "wikidataId": null
+    },
+    {
+      "title": "Boulevard Montmartre at Night",
+      "artist": "Camille Pissarro",
+      "wikidataId": null
+    },
+    {
+      "title": "Boyarina Morozova",
+      "artist": "Vasily Surikov",
+      "wikidataId": null
+    },
+    {
+      "title": "Breakfast Under the Big Birch",
+      "artist": "Carl Larsson",
+      "wikidataId": null
+    },
+    {
+      "title": "Breezing Up (A Fair Wind)",
+      "artist": "Winslow Homer",
+      "wikidataId": null
+    },
+    {
+      "title": "Carcass of Beef",
+      "artist": "Chaim Soutine",
+      "wikidataId": null
+    },
+    {
+      "title": "Cattleya Orchid and Three Hummingbirds",
+      "artist": "Martin Johnson Heade",
+      "wikidataId": null
+    },
+    {
+      "title": "Cavalry Making a Sortie from a Fort on a Hill",
+      "artist": "Philips Wouwerman",
+      "wikidataId": null
+    },
+    {
+      "title": "Coming from Evening Church",
+      "artist": "Samuel Palmer",
+      "wikidataId": null
+    },
+    {
+      "title": "Dancers in Blue",
+      "artist": "Edgar Degas",
+      "wikidataId": null
+    },
+    {
+      "title": "Dempsey and Firpo",
+      "artist": "George Bellows",
+      "wikidataId": null
+    },
+    {
+      "title": "Diana Leaving the Bath",
+      "artist": "François Boucher",
+      "wikidataId": null
+    },
+    {
+      "title": "Dolce Far Niente",
+      "artist": "John William Godward",
+      "wikidataId": null
+    },
+    {
+      "title": "Eaton's Neck, Long Island",
+      "artist": "John Frederick Kensett",
+      "wikidataId": null
+    },
+    {
+      "title": "Et in Arcadia Ego",
+      "artist": "Guercino",
+      "wikidataId": null
+    },
+    {
+      "title": "Family Reunion",
+      "artist": "Frédéric Bazille",
+      "wikidataId": null
+    },
+    {
+      "title": "Fisherman Presenting the Ring to the Doge",
+      "artist": "Paris Bordone",
+      "wikidataId": null
+    },
+    {
+      "title": "Fur Traders Descending the Missouri",
+      "artist": "George Caleb Bingham",
+      "wikidataId": null
+    },
+    {
+      "title": "Girl in White Kimono",
+      "artist": "George Hendrik Breitner",
+      "wikidataId": null
+    },
+    {
+      "title": "Girl with Peaches",
+      "artist": "Valentin Serov",
+      "wikidataId": null
+    },
+    {
+      "title": "Heart of the Andes",
+      "artist": "Frederic Edwin Church",
+      "wikidataId": null
+    },
+    {
+      "title": "I See Again in Memory My Dear Udnie",
+      "artist": "Francis Picabia",
+      "wikidataId": null
+    },
+    {
+      "title": "In Ictu Oculi",
+      "artist": "Juan de Valdés Leal",
+      "wikidataId": null
+    },
+    {
+      "title": "Interior of the Oude Kerk, Delft",
+      "artist": "Emanuel de Witte",
+      "wikidataId": null
+    },
+    {
+      "title": "Interior with Woman at Piano",
+      "artist": "Vilhelm Hammershøi",
+      "wikidataId": null
+    },
+    {
+      "title": "Interior with Young Woman from Behind",
+      "artist": "Vilhelm Hammershøi",
+      "wikidataId": null
+    },
+    {
+      "title": "Judith Slaying Holofernes",
+      "artist": "Artemisia Gentileschi",
+      "wikidataId": null
+    },
+    {
+      "title": "Jupiter and Semele",
+      "artist": "Gustave Moreau",
+      "wikidataId": null
+    },
+    {
+      "title": "Kauterskill Falls",
+      "artist": "Sanford Robinson Gifford",
+      "wikidataId": null
+    },
+    {
+      "title": "Kindred Spirits",
+      "artist": "Asher Brown Durand",
+      "wikidataId": null
+    },
+    {
+      "title": "L'Absinthe",
+      "artist": "Edgar Degas",
+      "wikidataId": null
+    },
+    {
+      "title": "Lady Hamilton as Circe",
+      "artist": "George Romney",
+      "wikidataId": null
+    },
+    {
+      "title": "Lamentation (The Mourning of Christ)",
+      "artist": "Giotto di Bondone",
+      "wikidataId": null
+    },
+    {
+      "title": "Lamentation of Christ",
+      "artist": "Andrea Mantegna",
+      "wikidataId": null
+    },
+    {
+      "title": "Landscape with the Marriage of Isaac and Rebecca",
+      "artist": "Claude Lorrain",
+      "wikidataId": null
+    },
+    {
+      "title": "Liverpool Quay by Moonlight",
+      "artist": "Atkinson Grimshaw",
+      "wikidataId": null
+    },
+    {
+      "title": "Madonna and Child with Two Angels",
+      "artist": "Filippo Lippi",
+      "wikidataId": null
+    },
+    {
+      "title": "Madonna of the Harpies",
+      "artist": "Andrea del Sarto",
+      "wikidataId": null
+    },
+    {
+      "title": "Madonna of the Meadow",
+      "artist": "Giovanni Bellini",
+      "wikidataId": null
+    },
+    {
+      "title": "Madonna with the Long Neck",
+      "artist": "Parmigianino",
+      "wikidataId": null
+    },
+    {
+      "title": "Maestà of Santa Trinita",
+      "artist": "Cimabue",
+      "wikidataId": null
+    },
+    {
+      "title": "Man Writing a Letter",
+      "artist": "Gabriel Metsu",
+      "wikidataId": null
+    },
+    {
+      "title": "Marriage A-la-Mode: The Tête à Tête",
+      "artist": "William Hogarth",
+      "wikidataId": null
+    },
+    {
+      "title": "Midsummer Dance",
+      "artist": "Anders Zorn",
+      "wikidataId": null
+    },
+    {
+      "title": "Morning of the Streltsy Execution",
+      "artist": "Vasily Surikov",
+      "wikidataId": null
+    },
+    {
+      "title": "Moscow Courtyard",
+      "artist": "Vasily Polenov",
+      "wikidataId": null
+    },
+    {
+      "title": "Music in the Tuileries",
+      "artist": "Édouard Manet",
+      "wikidataId": null
+    },
+    {
+      "title": "Nordic Summer Evening",
+      "artist": "Richard Bergh",
+      "wikidataId": null
+    },
+    {
+      "title": "Nymphs and Satyr",
+      "artist": "William-Adolphe Bouguereau",
+      "wikidataId": null
+    },
+    {
+      "title": "Oedipus and the Sphinx",
+      "artist": "Gustave Moreau",
+      "wikidataId": null
+    },
+    {
+      "title": "Old Woman Reading a Lectionary",
+      "artist": "Gerrit Dou",
+      "wikidataId": null
+    },
+    {
+      "title": "Paris Street; Rainy Day",
+      "artist": "Gustave Caillebotte",
+      "wikidataId": null
+    },
+    {
+      "title": "Peasant Family in an Interior",
+      "artist": "Louis Le Nain",
+      "wikidataId": null
+    },
+    {
+      "title": "Pierrot (Gilles)",
+      "artist": "Jean-Antoine Watteau",
+      "wikidataId": null
+    },
+    {
+      "title": "Pilgrimage to Cythera",
+      "artist": "Jean-Antoine Watteau",
+      "wikidataId": null
+    },
+    {
+      "title": "Pollice Verso",
+      "artist": "Jean-Léon Gérôme",
+      "wikidataId": null
+    },
+    {
+      "title": "Portinari Altarpiece",
+      "artist": "Hugo van der Goes",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of a Gentleman in His Study",
+      "artist": "Lorenzo Lotto",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of an Old Man and His Grandson",
+      "artist": "Domenico Ghirlandaio",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of Francis I",
+      "artist": "François Clouet",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of Louis XIV",
+      "artist": "Hyacinthe Rigaud",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of Madame de Pompadour",
+      "artist": "Maurice Quentin de La Tour",
+      "wikidataId": null
+    },
+    {
+      "title": "Portrait of Omai",
+      "artist": "Joshua Reynolds",
+      "wikidataId": null
+    },
+    {
+      "title": "Procession of the Magi",
+      "artist": "Benozzo Gozzoli",
+      "wikidataId": null
+    },
+    {
+      "title": "Proserpine",
+      "artist": "Dante Gabriel Rossetti",
+      "wikidataId": null
+    },
+    {
+      "title": "Reclining Girl",
+      "artist": "François Boucher",
+      "wikidataId": null
+    },
+    {
+      "title": "Regatta at Cowes",
+      "artist": "Raoul Dufy",
+      "wikidataId": null
+    },
+    {
+      "title": "River Landscape with Horseman and Peasants",
+      "artist": "Aelbert Cuyp",
+      "wikidataId": null
+    },
+    {
+      "title": "Romans during the Decadence",
+      "artist": "Thomas Couture",
+      "wikidataId": null
+    },
+    {
+      "title": "Saint Catherine of Alexandria",
+      "artist": "Bernardino Luini",
+      "wikidataId": null
+    },
+    {
+      "title": "Saint Serapion",
+      "artist": "Francisco de Zurbarán",
+      "wikidataId": null
+    },
+    {
+      "title": "Saturn Devouring One of His Children",
+      "artist": "Simon Vouet",
+      "wikidataId": null
+    },
+    {
+      "title": "Schokko with Wide-Brimmed Hat",
+      "artist": "Alexej von Jawlensky",
+      "wikidataId": null
+    },
+    {
+      "title": "Sea Eagles",
+      "artist": "Bruno Liljefors",
+      "wikidataId": null
+    },
+    {
+      "title": "Seated Woman with Bent Knee",
+      "artist": "Egon Schiele",
+      "wikidataId": null
+    },
+    {
+      "title": "Self-Portrait",
+      "artist": "Salvator Rosa",
+      "wikidataId": null
+    },
+    {
+      "title": "Self-Portrait in a Straw Hat",
+      "artist": "Élisabeth Vigée Le Brun",
+      "wikidataId": null
+    },
+    {
+      "title": "Self-Portrait on Her Sixth Wedding Anniversary",
+      "artist": "Paula Modersohn-Becker",
+      "wikidataId": null
+    },
+    {
+      "title": "Self-Portrait with Skeleton",
+      "artist": "Lovis Corinth",
+      "wikidataId": null
+    },
+    {
+      "title": "Ships in a Calm",
+      "artist": "Willem van de Velde the Younger",
+      "wikidataId": null
+    },
+    {
+      "title": "Simultaneous Windows on the City",
+      "artist": "Robert Delaunay",
+      "wikidataId": null
+    },
+    {
+      "title": "Smokers in an Inn",
+      "artist": "Adriaen Brouwer",
+      "wikidataId": null
+    },
+    {
+      "title": "Stag at Sharkey's",
+      "artist": "George Bellows",
+      "wikidataId": null
+    },
+    {
+      "title": "States of Mind: The Farewells",
+      "artist": "Umberto Boccioni",
+      "wikidataId": null
+    },
+    {
+      "title": "Still Life with Apples",
+      "artist": "Paul Cézanne",
+      "wikidataId": null
+    },
+    {
+      "title": "Still Life with Asparagus",
+      "artist": "Adriaen Coorte",
+      "wikidataId": null
+    },
+    {
+      "title": "Still Life with Fruit and Lobster",
+      "artist": "Jan Davidsz. de Heem",
+      "wikidataId": null
+    },
+    {
+      "title": "Still Life with Oranges and Walnuts",
+      "artist": "Luis Meléndez",
+      "wikidataId": null
+    },
+    {
+      "title": "Summer Evening at Skagen Beach",
+      "artist": "Peder Severin Krøyer",
+      "wikidataId": null
+    },
+    {
+      "title": "Suprematist Composition",
+      "artist": "Kazimir Malevich",
+      "wikidataId": null
+    },
+    {
+      "title": "The Adoration of the Shepherds",
+      "artist": "Jacopo Bassano",
+      "wikidataId": null
+    },
+    {
+      "title": "The Annunciation",
+      "artist": "Fra Angelico",
+      "wikidataId": null
+    },
+    {
+      "title": "The Avenue at Middelharnis",
+      "artist": "Meindert Hobbema",
+      "wikidataId": null
+    },
+    {
+      "title": "The Avenue in the Rain",
+      "artist": "Childe Hassam",
+      "wikidataId": null
+    },
+    {
+      "title": "The Bean Eater",
+      "artist": "Annibale Carracci",
+      "wikidataId": null
+    },
+    {
+      "title": "The Bellelli Family",
+      "artist": "Edgar Degas",
+      "wikidataId": null
+    },
+    {
+      "title": "The Betrothed",
+      "artist": "John William Godward",
+      "wikidataId": null
+    },
+    {
+      "title": "The Blue Room",
+      "artist": "Suzanne Valadon",
+      "wikidataId": null
+    },
+    {
+      "title": "The Boulevard Montmartre on a Winter Morning",
+      "artist": "Camille Pissarro",
+      "wikidataId": null
+    },
+    {
+      "title": "The Bucintoro at the Molo",
+      "artist": "Canaletto",
+      "wikidataId": null
+    },
+    {
+      "title": "The Charging Chasseur",
+      "artist": "Théodore Géricault",
+      "wikidataId": null
+    },
+    {
+      "title": "The Cheat with the Ace of Clubs",
+      "artist": "Georges de La Tour",
+      "wikidataId": null
+    },
+    {
+      "title": "The Circus",
+      "artist": "Georges Seurat",
+      "wikidataId": null
+    },
+    {
+      "title": "The City",
+      "artist": "Fernand Léger",
+      "wikidataId": null
+    },
+    {
+      "title": "The City Rises",
+      "artist": "Umberto Boccioni",
+      "wikidataId": null
+    },
+    {
+      "title": "The Cradle",
+      "artist": "Berthe Morisot",
+      "wikidataId": null
+    },
+    {
+      "title": "The Cyclops",
+      "artist": "Odilon Redon",
+      "wikidataId": null
+    },
+    {
+      "title": "The Damned Cast into Hell",
+      "artist": "Luca Signorelli",
+      "wikidataId": null
+    },
+    {
+      "title": "The Daughters of Edward Darley Boit",
+      "artist": "John Singer Sargent",
+      "wikidataId": null
+    },
+    {
+      "title": "The Delivery of the Keys",
+      "artist": "Perugino",
+      "wikidataId": null
+    },
+    {
+      "title": "The Desperate Man",
+      "artist": "Gustave Courbet",
+      "wikidataId": null
+    },
+    {
+      "title": "The Dining Room in the Country",
+      "artist": "Pierre Bonnard",
+      "wikidataId": null
+    },
+    {
+      "title": "The Dog",
+      "artist": "Francisco Goya",
+      "wikidataId": null
+    },
+    {
+      "title": "The Duke and Duchess of Urbino",
+      "artist": "Piero della Francesca",
+      "wikidataId": null
+    },
+    {
+      "title": "The Entry of Alexander into Babylon",
+      "artist": "Charles Le Brun",
+      "wikidataId": null
+    },
+    {
+      "title": "The Entry of Charles V into Antwerp",
+      "artist": "Hans Makart",
+      "wikidataId": null
+    },
+    {
+      "title": "The Execution of Lady Jane Grey",
+      "artist": "Paul Delaroche",
+      "wikidataId": null
+    },
+    {
+      "title": "The Fairy Feller's Master-Stroke",
+      "artist": "Richard Dadd",
+      "wikidataId": null
+    },
+    {
+      "title": "The Fall of the Rebel Angels",
+      "artist": "Domenico Beccafumi",
+      "wikidataId": null
+    },
+    {
+      "title": "The Feast of Saint Nicholas",
+      "artist": "Jan Steen",
+      "wikidataId": null
+    },
+    {
+      "title": "The Fifer",
+      "artist": "Édouard Manet",
+      "wikidataId": null
+    },
+    {
+      "title": "The Flagellation of Christ",
+      "artist": "Piero della Francesca",
+      "wikidataId": null
+    },
+    {
+      "title": "The Funeral of a Mummy",
+      "artist": "Frederick Arthur Bridgman",
+      "wikidataId": null
+    },
+    {
+      "title": "The Golden Stairs",
+      "artist": "Edward Burne-Jones",
+      "wikidataId": null
+    },
+    {
+      "title": "The Grand Canal and the Church of the Salute",
+      "artist": "Canaletto",
+      "wikidataId": null
+    },
+    {
+      "title": "The Great Red Dragon and the Woman Clothed in Sun",
+      "artist": "William Blake",
+      "wikidataId": null
+    },
+    {
+      "title": "The Guard of the Harem",
+      "artist": "Rudolf Ernst",
+      "wikidataId": null
+    },
+    {
+      "title": "The Horse Fair",
+      "artist": "Rosa Bonheur",
+      "wikidataId": null
+    },
+    {
+      "title": "The Immaculate Conception of Los Venerables",
+      "artist": "Bartolomé Esteban Murillo",
+      "wikidataId": null
+    },
+    {
+      "title": "The Interior of a Peasant's Cottage",
+      "artist": "Adriaen van Ostade",
+      "wikidataId": null
+    },
+    {
+      "title": "The Iron Rolling Mill",
+      "artist": "Adolph Menzel",
+      "wikidataId": null
+    },
+    {
+      "title": "The Isle of the Dead",
+      "artist": "Arnold Böcklin",
+      "wikidataId": null
+    },
+    {
+      "title": "The Jewish Bride",
+      "artist": "Rembrandt van Rijn",
+      "wikidataId": null
+    },
+    {
+      "title": "The Jewish Cemetery",
+      "artist": "Jacob van Ruisdael",
+      "wikidataId": null
+    },
+    {
+      "title": "The Journey of the Magi",
+      "artist": "Sassetta",
+      "wikidataId": null
+    },
+    {
+      "title": "The Kiss",
+      "artist": "Gustav Klimt",
+      "wikidataId": null
+    },
+    {
+      "title": "The Lace Maker",
+      "artist": "Caspar Netscher",
+      "wikidataId": null
+    },
+    {
+      "title": "The Lackawanna Valley",
+      "artist": "George Inness",
+      "wikidataId": null
+    },
+    {
+      "title": "The Lady with the Glove",
+      "artist": "Carolus-Duran",
+      "wikidataId": null
+    },
+    {
+      "title": "The Large Bathers",
+      "artist": "Paul Cézanne",
+      "wikidataId": null
+    },
+    {
+      "title": "The Large Blue Horses",
+      "artist": "Franz Marc",
+      "wikidataId": null
+    },
+    {
+      "title": "The Last Days of Pompeii",
+      "artist": "James Hamilton",
+      "wikidataId": null
+    },
+    {
+      "title": "The Last Judgment",
+      "artist": "Hans Memling",
+      "wikidataId": null
+    },
+    {
+      "title": "The Last Valley",
+      "artist": "John La Farge",
+      "wikidataId": null
+    },
+    {
+      "title": "The Laughing Cavalier",
+      "artist": "Frans Hals",
+      "wikidataId": null
+    },
+    {
+      "title": "The Merry Family",
+      "artist": "Jan Steen",
+      "wikidataId": null
+    },
+    {
+      "title": "The Miracle of the Relic of the Cross at the Ponte di Rialto",
+      "artist": "Vittore Carpaccio",
+      "wikidataId": null
+    },
+    {
+      "title": "The Moneylender and His Wife",
+      "artist": "Quentin Matsys",
+      "wikidataId": null
+    },
+    {
+      "title": "The Muses",
+      "artist": "Maurice Denis",
+      "wikidataId": null
+    },
+    {
+      "title": "The Muses: Clio, Euterpe and Thalia",
+      "artist": "Eustache Le Sueur",
+      "wikidataId": null
+    },
+    {
+      "title": "The Old Hunting Grounds",
+      "artist": "Worthington Whittredge",
+      "wikidataId": null
+    },
+    {
+      "title": "The Parrot Walk",
+      "artist": "Max Liebermann",
+      "wikidataId": null
+    },
+    {
+      "title": "The Penitent Magdalen",
+      "artist": "Georges de La Tour",
+      "wikidataId": null
+    },
+    {
+      "title": "The Poor Fisherman",
+      "artist": "Pierre Puvis de Chavannes",
+      "wikidataId": null
+    },
+    {
+      "title": "The Poor Poet",
+      "artist": "Carl Spitzweg",
+      "wikidataId": null
+    },
+    {
+      "title": "The Port of Hamburg",
+      "artist": "Albert Marquet",
+      "wikidataId": null
+    },
+    {
+      "title": "The Port of Saint-Tropez",
+      "artist": "Paul Signac",
+      "wikidataId": null
+    },
+    {
+      "title": "The Preaching of John the Baptist",
+      "artist": "Abraham Bloemaert",
+      "wikidataId": null
+    },
+    {
+      "title": "The Punishment of Lust",
+      "artist": "Giovanni Segantini",
+      "wikidataId": null
+    },
+    {
+      "title": "The Raising of Lazarus",
+      "artist": "Sebastiano del Piombo",
+      "wikidataId": null
+    },
+    {
+      "title": "The Rape of the Sabine Women",
+      "artist": "Nicolas Poussin",
+      "wikidataId": null
+    },
+    {
+      "title": "The Red Boy",
+      "artist": "Thomas Lawrence",
+      "wikidataId": null
+    },
+    {
+      "title": "The Roses of Heliogabalus",
+      "artist": "Lawrence Alma-Tadema",
+      "wikidataId": null
+    },
+    {
+      "title": "The Scribe",
+      "artist": "Ludwig Deutsch",
+      "wikidataId": null
+    },
+    {
+      "title": "The Seasons (Spring)",
+      "artist": "Alphonse Mucha",
+      "wikidataId": null
+    },
+    {
+      "title": "The Sick Child",
+      "artist": "Edvard Munch",
+      "wikidataId": null
+    },
+    {
+      "title": "The Sin",
+      "artist": "Franz von Stuck",
+      "wikidataId": null
+    },
+    {
+      "title": "The Slave Market",
+      "artist": "Jean-Léon Gérôme",
+      "wikidataId": null
+    },
+    {
+      "title": "The Song of the Lark",
+      "artist": "Jules Breton",
+      "wikidataId": null
+    },
+    {
+      "title": "The Star (Dancer on Stage)",
+      "artist": "Edgar Degas",
+      "wikidataId": null
+    },
+    {
+      "title": "The Swan Princess",
+      "artist": "Mikhail Vrubel",
+      "wikidataId": null
+    },
+    {
+      "title": "The Swing",
+      "artist": "Jean-Honoré Fragonard",
+      "wikidataId": null
+    },
+    {
+      "title": "The Swooning of Saint Catherine",
+      "artist": "Sodoma",
+      "wikidataId": null
+    },
+    {
+      "title": "The Three Brides",
+      "artist": "Jan Toorop",
+      "wikidataId": null
+    },
+    {
+      "title": "The Toilette of Esther",
+      "artist": "Théodore Chassériau",
+      "wikidataId": null
+    },
+    {
+      "title": "The Tower of Blue Horses",
+      "artist": "Franz Marc",
+      "wikidataId": null
+    },
+    {
+      "title": "The Triumph of Bacchus and Ariadne",
+      "artist": "Annibale Carracci",
+      "wikidataId": null
+    },
+    {
+      "title": "The Wedding at Cana",
+      "artist": "Paolo Veronese",
+      "wikidataId": null
+    },
+    {
+      "title": "The Yellow Christ",
+      "artist": "Paul Gauguin",
+      "wikidataId": null
+    },
+    {
+      "title": "The Yellow Cow",
+      "artist": "Franz Marc",
+      "wikidataId": null
+    },
+    {
+      "title": "The Yellow House",
+      "artist": "Vincent van Gogh",
+      "wikidataId": null
+    },
+    {
+      "title": "Time and Tide",
+      "artist": "Alfred Thompson Bricher",
+      "wikidataId": null
+    },
+    {
+      "title": "Triumph of Divine Providence",
+      "artist": "Pietro da Cortona",
+      "wikidataId": null
+    },
+    {
+      "title": "Two Girls in the Grass",
+      "artist": "Otto Mueller",
+      "wikidataId": null
+    },
+    {
+      "title": "Two Sisters (On the Terrace)",
+      "artist": "Pierre-Auguste Renoir",
+      "wikidataId": null
+    },
+    {
+      "title": "Vanitas Still Life",
+      "artist": "Pieter Claesz",
+      "wikidataId": null
+    },
+    {
+      "title": "Venice: The Dogana and San Giorgio Maggiore",
+      "artist": "Francesco Guardi",
+      "wikidataId": null
+    },
+    {
+      "title": "Venus, Cupid, Folly and Time",
+      "artist": "Bronzino",
+      "wikidataId": null
+    },
+    {
+      "title": "View of Dordrecht",
+      "artist": "Jan van Goyen",
+      "wikidataId": null
+    },
+    {
+      "title": "View of Toledo",
+      "artist": "El Greco",
+      "wikidataId": null
+    },
+    {
+      "title": "Ville-d'Avray",
+      "artist": "Camille Corot",
+      "wikidataId": null
+    },
+    {
+      "title": "Walk on the Beach",
+      "artist": "Joaquín Sorolla",
+      "wikidataId": null
+    },
+    {
+      "title": "Water Lilies (Nymphéas)",
+      "artist": "Claude Monet",
+      "wikidataId": null
+    },
+    {
+      "title": "What is Truth? Christ and Pilate",
+      "artist": "Nikolai Ge",
+      "wikidataId": null
+    },
+    {
+      "title": "When Will You Marry?",
+      "artist": "Paul Gauguin",
+      "wikidataId": null
+    },
+    {
+      "title": "Whistlejacket",
+      "artist": "George Stubbs",
+      "wikidataId": null
+    },
+    {
+      "title": "White Roses",
+      "artist": "Henri Fantin-Latour",
+      "wikidataId": null
+    },
+    {
+      "title": "Wild Turkey",
+      "artist": "John James Audubon",
+      "wikidataId": null
+    },
+    {
+      "title": "Windmill at Wijk bij Duurstede",
+      "artist": "Jacob van Ruisdael",
+      "wikidataId": null
+    },
+    {
+      "title": "Winter Landscape with Ice Skaters",
+      "artist": "Hendrick Avercamp",
+      "wikidataId": null
+    },
+    {
+      "title": "Woman Holding a Balance",
+      "artist": "Johannes Vermeer",
+      "wikidataId": null
+    },
+    {
+      "title": "Women of Algiers",
+      "artist": "Eugène Delacroix",
+      "wikidataId": null
+    }
+  ],
+  "errors": []
+}
