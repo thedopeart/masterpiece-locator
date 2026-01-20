@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Base path for Shopify App Proxy routing
-  basePath: "/apps/masterpieces",
+  // No basePath needed - Shopify App Proxy handles the /apps/masterpieces prefix
+  // The app runs at root and Shopify forwards requests from /apps/masterpieces
 
   // Required for Shopify proxy to work correctly
   async headers() {
