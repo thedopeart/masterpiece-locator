@@ -61,6 +61,11 @@ textarea:focus-visible {
   top: 0;
 }
 
+/* Bold text stays default (black) unless inside a colored link */
+strong {
+  color: inherit;
+}
+
 /* Interlink color differentiation */
 /* Green for artist and movement links */
 a[href^="/artist/"],
