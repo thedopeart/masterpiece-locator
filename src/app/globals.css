@@ -87,14 +87,14 @@ a[href^="/movement/"]:hover {
   text-decoration: underline;
 }
 
-/* Gold for museum and LuxuryWallArt links */
-a[href^="/museum/"],
-a[href*="luxurywallart"] {
+/* Gold for museum and LuxuryWallArt links (except buttons) */
+a[href^="/museum/"]:not(.inline-block),
+a[href*="luxurywallart"]:not(.inline-block) {
   color: #C9A84C !important;
 }
 
-a[href^="/museum/"]:hover,
-a[href*="luxurywallart"]:hover {
+a[href^="/museum/"]:not(.inline-block):hover,
+a[href*="luxurywallart"]:not(.inline-block):hover {
   text-decoration: underline;
 }
 
