@@ -47,7 +47,7 @@ export default function FAQ({ items, title = "Frequently Asked Questions", defau
               }`}
             >
               <div
-                className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:text-neutral-800 [&_strong]:font-semibold"
+                className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:text-[#C9A84C] [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:no-underline hover:[&_a]:underline"
                 dangerouslySetInnerHTML={{ __html: item.answer }}
               />
             </div>
@@ -76,7 +76,7 @@ export function FAQStatic({ items, title = "Frequently Asked Questions" }: Omit<
               {item.question}
             </h3>
             <p
-              className="text-neutral-600 leading-relaxed pl-9 [&_strong]:text-neutral-800 [&_strong]:font-semibold"
+              className="text-neutral-600 leading-relaxed pl-9 [&_strong]:text-[#C9A84C] [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:no-underline hover:[&_a]:underline"
               dangerouslySetInnerHTML={{ __html: item.answer }}
             />
           </div>
