@@ -2,6 +2,12 @@ import { prisma } from "@/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
+import {
+  decodeHtmlEntities,
+  isValidMuseum,
+  isCountryNotCity,
+  isPrivateCollection,
+} from "@/lib/text";
 
 // Revalidate every 60 seconds
 export const revalidate = 60;
@@ -27,32 +33,69 @@ export default async function CitiesPage() {
     orderBy: { Artwork: { _count: "desc" } },
   });
 
+  // Filter and clean museums
+  const validMuseums = rawMuseums.filter((m) => {
+    // Skip invalid/malformed entries
+    if (!isValidMuseum(m)) return false;
+    // Skip entries where city is actually a country (data quality issue)
+    if (isCountryNotCity(m.city)) return false;
+    // Skip Unknown cities (except Private Collections which we'll handle separately)
+    if (m.city === "Unknown" && !isPrivateCollection(m.name)) return false;
+    return true;
+  });
+
+  // Separate private collections
+  const privateCollections = rawMuseums.filter(
+    (m) => isPrivateCollection(m.name) || m.city === "Unknown"
+  );
+  const privateCollectionCount = privateCollections.reduce(
+    (sum, m) => sum + m._count.Artwork,
+    0
+  );
+
   // Map to lowercase for components
-  const museums = rawMuseums.map((m) => ({
+  const museums = validMuseums.map((m) => ({
     ...m,
+    name: decodeHtmlEntities(m.name),
     _count: { artworks: m._count.Artwork },
     artworks: m.Artwork,
   }));
 
-  // Group by city
+  // Group by city, consolidating duplicates (e.g., "Paris, France" and "Paris, Unknown")
   const byCity = museums.reduce(
     (acc, museum) => {
-      const key = `${museum.city}, ${museum.country}`;
-      if (!acc[key]) {
-        acc[key] = {
+      // Normalize the key - use just city name if country is Unknown
+      const normalizedCountry =
+        museum.country === "Unknown" ? "" : museum.country;
+      const key = normalizedCountry
+        ? `${museum.city}, ${normalizedCountry}`
+        : museum.city;
+
+      // Check if we already have this city with a different country variant
+      const existingKey = Object.keys(acc).find(
+        (k) => k.startsWith(museum.city + ",") || k === museum.city
+      );
+      const useKey = existingKey || key;
+
+      if (!acc[useKey]) {
+        acc[useKey] = {
           city: museum.city,
-          country: museum.country,
+          country: normalizedCountry || museum.country,
           museums: [],
           totalArtworks: 0,
           previewImages: [],
         };
       }
-      acc[key].museums.push(museum);
-      acc[key].totalArtworks += museum._count.artworks;
+      // Update country if we have a better one
+      if (normalizedCountry && acc[useKey].country === "Unknown") {
+        acc[useKey].country = normalizedCountry;
+      }
+      acc[useKey].museums.push(museum);
+      acc[useKey].totalArtworks += museum._count.artworks;
       // Collect preview images from artworks
       museum.artworks.forEach((a) => {
-        if (a.imageUrl && acc[key].previewImages.length < 4) {
-          acc[key].previewImages.push(a.imageUrl);
+        if (a.imageUrl && acc[useKey].previewImages.length < 4) {
+          acc[useKey].previewImages.push(a.imageUrl);
         }
       });
       return acc;
@@ -69,10 +112,10 @@ export default async function CitiesPage() {
     >
   );
 
-  // Sort by artwork count
-  const cities = Object.values(byCity).sort(
-    (a, b) => b.totalArtworks - a.totalArtworks
-  );
+  // Sort by artwork count, filter out any remaining Unknown cities
+  const cities = Object.values(byCity)
+    .filter((c) => c.city !== "Unknown" && c.totalArtworks > 0)
+    .sort((a, b) => b.totalArtworks - a.totalArtworks);
 
   return (
     <div className="bg-white min-h-screen">
@@ -105,7 +148,7 @@ export default async function CitiesPage() {
             </div>
             <div className="rounded-lg p-4 text-center" style={{ backgroundColor: '#1a1a1a', border: '1px solid #333' }}>
               <div className="text-2xl font-bold" style={{ color: '#C9A84C' }}>
-                {museums.length}
+                {cities.reduce((sum, c) => sum + c.museums.length, 0)}
               </div>
               <div className="text-sm" style={{ color: '#999' }}>Museums</div>
             </div>
@@ -209,6 +252,34 @@ export default async function CitiesPage() {
               </Link>
             );
           })}
+
+          {/* Private Collections Card */}
+          {privateCollectionCount > 0 && (
+            <div className="bg-neutral-50 rounded-xl border border-neutral-200 overflow-hidden">
+              <div className="h-40 bg-gradient-to-br from-neutral-300 to-neutral-400 flex items-center justify-center">
+                <div className="text-center">
+                  <svg className="w-12 h-12 text-neutral-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  <span className="text-neutral-600 font-medium">Private Collections</span>
+                </div>
+              </div>
+              <div className="p-4">
+                <p className="text-sm text-neutral-600 mb-3">
+                  Many masterpieces are held in private collections and not publicly accessible. These works occasionally appear at auctions or special museum exhibitions.
+                </p>
+                <div className="flex items-center justify-between pt-3 border-t border-neutral-200">
+                  <span className="text-sm font-medium text-neutral-900">
+                    {privateCollectionCount} masterpiece
+                    {privateCollectionCount !== 1 ? "s" : ""}
+                  </span>
+                  <span className="text-neutral-400 text-sm">
+                    Not publicly viewable
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* CTA */}
