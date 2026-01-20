@@ -116,17 +116,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? `(b. ${artist.birthYear})`
         : "";
 
-  const title = `${artist.name} Paintings: Where to See Them | Masterpiece Locator`;
-
-  // Build data-driven description
+  // Build data-driven meta
   const artworkCount = artist.Artwork?.length || 0;
   const museums = [...new Set(artist.Artwork?.filter(a => a.Museum).map(a => a.Museum!.name) || [])];
   const museumCount = museums.length;
   const notableWork = artist.Artwork?.[0]?.title;
+  const topMuseum = museums[0] || "";
+
+  // Keyword-focused: "[artist] paintings" queries
+  const title = museumCount > 0
+    ? `${artist.name} Paintings: ${artworkCount} Works at ${museumCount} Museums`
+    : `${artist.name} ${lifespan} Paintings & Art`;
 
   const description = artworkCount > 0 && museumCount > 0
-    ? `Find ${artist.name}'s paintings worldwide. ${artworkCount} works at ${museumCount} museums${notableWork ? ` including ${notableWork}` : ""}.`
-    : artist.bioShort || `Discover where to see famous works by ${artist.name}. Find museums and locations around the world.`;
+    ? `See ${artist.name}'s paintings in person. ${artworkCount} works across ${museumCount} museums${topMuseum ? ` including ${topMuseum}` : ""}${notableWork ? `. Famous works: ${notableWork}` : ""}.`
+    : artist.bioShort || `Where to see ${artist.name}'s art. Museum locations and famous paintings.`;
 
   const imageUrl = artist.imageUrl || artist.Artwork[0]?.imageUrl;
 

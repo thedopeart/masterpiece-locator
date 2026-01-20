@@ -28,9 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const totalArtworks = rawMuseums.reduce((sum, m) => sum + m._count.Artwork, 0);
 
+  // Keyword-focused: "art museums in [city]" queries
+  const topMuseum = rawMuseums[0]?.name || "";
+
   return {
-    title: `Art in ${cityName}: Museums & Must-See Paintings | Masterpiece Locator`,
-    description: `Discover ${totalArtworks} masterpieces across ${rawMuseums.length} museums in ${cityName}. Plan your art trip with our guide.`,
+    title: `Art Museums in ${cityName}: ${rawMuseums.length} Museums & ${totalArtworks} Paintings`,
+    description: `Best art museums in ${cityName}. See ${totalArtworks} famous paintings across ${rawMuseums.length} museums${topMuseum ? ` including ${topMuseum}` : ""}. Plan your visit.`,
   };
 }
 

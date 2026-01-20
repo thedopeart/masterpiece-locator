@@ -93,8 +93,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const museumName = artwork.museum?.name || "unknown location";
   const city = artwork.museum?.city || "";
 
-  const title = `${artwork.title} by ${artistName} — Where to See It | Masterpiece Locator`;
-  const description = `See ${artwork.title} at ${museumName}${city ? ` in ${city}` : ""}. Get gallery location, hours, tickets & nearby masterpieces.`;
+  // Keyword-focused: "where is [artwork]" queries
+  const title = `Where Is ${artwork.title}? See It at ${museumName}`;
+  const description = `${artwork.title} by ${artistName} is at ${museumName}${city ? ` in ${city}` : ""}. Gallery location, visiting hours, tickets & nearby masterpieces.`;
 
   return {
     title,

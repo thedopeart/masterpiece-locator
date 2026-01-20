@@ -93,13 +93,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!museum) return { title: "Museum Not Found" };
 
-  const title = `${museum.name}: Masterpieces & Visiting Guide | Masterpiece Locator`;
-
-  // Get top 2 notable works for description
+  // Get top works and artists for keyword-rich meta
   const topWorks = museum.Artwork.slice(0, 2).map(a => a.title);
-  const description = topWorks.length >= 2
-    ? `Plan your ${museum.name} visit. See ${museum.Artwork.length} masterpieces including ${topWorks[0]} & ${topWorks[1]}. Hours, tickets & tips.`
-    : `Plan your ${museum.name} visit. See ${museum.Artwork.length} masterpieces. Hours, tickets & tips.`;
+  const topArtists = [...new Set(museum.Artwork.filter(a => a.Artist).map(a => a.Artist!.name))].slice(0, 2);
+
+  // Keyword-focused: "[museum] famous paintings" queries
+  const title = `${museum.name} Famous Paintings: ${museum.Artwork.length} Masterpieces to See`;
+
+  const description = topWorks.length >= 1
+    ? `What to see at ${museum.name} in ${museum.city}. ${museum.Artwork.length} famous paintings${topArtists.length > 0 ? ` by ${topArtists.join(", ")}` : ""}. Tickets, hours & visitor tips.`
+    : `Visit ${museum.name} in ${museum.city}. Famous paintings collection, tickets, hours & visitor guide.`;
 
   return {
     title,
