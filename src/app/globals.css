@@ -60,3 +60,51 @@ textarea:focus-visible {
 .skip-link:focus {
   top: 0;
 }
+
+/* Bold text stays default (black) unless inside a colored link */
+strong {
+  color: inherit;
+}
+
+/* Ensure paragraph spacing in descriptions */
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Interlink color differentiation */
+/* Green for artist and movement links */
+a[href^="/artist/"],
+a[href^="/movement/"] {
+  color: #028161 !important;
+}
+
+a[href^="/artist/"]:hover,
+a[href^="/movement/"]:hover {
+  text-decoration: underline;
+}
+
+/* Gold for museum and LuxuryWallArt links (except buttons) */
+a[href^="/museum/"]:not(.inline-block),
+a[href*="luxurywallart"]:not(.inline-block) {
+  color: #C9A84C !important;
+}
+
+a[href^="/museum/"]:not(.inline-block):hover,
+a[href*="luxurywallart"]:not(.inline-block):hover {
+  text-decoration: underline;
+}
+
+/* Bold text inside links inherits link color */
+a[href^="/artist/"] strong,
+a[href^="/movement/"] strong {
+  color: inherit !important;
+}
+
+a[href^="/museum/"] strong,
+a[href*="luxurywallart"] strong {
+  color: inherit !important;
+}

@@ -408,7 +408,7 @@ export default async function ArtworkPage({ params }: Props) {
         {artwork.description && (
           <section className="mb-8">
             <div
-              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:text-[#C9A84C] prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold"
+              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-p:mb-4"
               dangerouslySetInnerHTML={{ __html: artwork.description }}
             />
           </section>
@@ -568,9 +568,13 @@ export default async function ArtworkPage({ params }: Props) {
           </section>
         )}
 
-        {/* FAQ Section - only show location FAQ, no templated questions */}
+        {/* FAQ Section - use stored FAQs from database */}
         {(() => {
-          const faqs = generateArtworkFAQ(artwork);
+          // Use stored FAQs if available, otherwise fall back to generated location FAQ
+          const storedFaqs = rawArtwork.faqs as Array<{question: string; answer: string}> | null;
+          const faqs = storedFaqs && storedFaqs.length > 0
+            ? storedFaqs
+            : generateArtworkFAQ(artwork);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />
