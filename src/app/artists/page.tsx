@@ -76,7 +76,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
   const rawArtists = await prisma.artist.findMany({
     where: whereClause,
     include: {
-      movements: { select: { name: true, slug: true } },
+      Movement: { select: { name: true, slug: true } },
       _count: { select: { Artwork: true } },
       Artwork: {
         where: { imageUrl: { not: null } }, // Only get artworks with images
@@ -95,6 +95,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
     ...a,
     _count: { artworks: a._count.Artwork },
     artworks: a.Artwork,
+    movements: a.Movement,
   }));
 
   // Get the current movement name if filtered
