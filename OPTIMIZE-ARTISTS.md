@@ -39,9 +39,9 @@ Write rich biographical content for artists in the Masterpiece Locator database.
 - Museums holding major collections of their work
 
 ### Interlinking
-- **Movement links**: `<a href="/movement/movement-slug"><strong>Movement Name</strong></a>`
-- **Museum links**: `<a href="/museum/museum-slug"><strong>Museum Name</strong></a>`
-- **Artwork links**: `<a href="/art/artwork-slug"><strong>Artwork Title</strong></a>`
+- **Movement links**: `<a href="/apps/masterpieces/movement/movement-slug"><strong>Movement Name</strong></a>`
+- **Museum links**: `<a href="/apps/masterpieces/museum/museum-slug"><strong>Museum Name</strong></a>`
+- **Artwork links**: `<a href="/apps/masterpieces/art/artwork-slug"><strong>Artwork Title</strong></a>`
 - **LuxuryWallArt**: When style matches collections (see CLAUDE.md for full list)
 - **Bold keywords**: At least 1 per paragraph
 
@@ -119,9 +119,9 @@ await prisma.artist.update({
 
 **bioFull**:
 ```html
-<p><a href="/movement/post-impressionism"><strong>Post-Impressionist</strong></a> painter <strong>Vincent van Gogh</strong> (1853-1890) created nearly 2,100 artworks in just over a decade, despite selling only one painting during his lifetime. The Dutch artist developed his bold, expressive style while living in France, where swirling brushstrokes and vivid colors became his signature. His subjects ranged from sunflowers and starry nights to self-portraits and humble peasant life. Works like <a href="/art/the-starry-night"><strong>The Starry Night</strong></a> and <a href="/art/sunflowers"><strong>Sunflowers</strong></a> now rank among the most recognized images in Western art.</p>
+<p><a href="/apps/masterpieces/movement/post-impressionism"><strong>Post-Impressionist</strong></a> painter <strong>Vincent van Gogh</strong> (1853-1890) created nearly 2,100 artworks in just over a decade, despite selling only one painting during his lifetime. The Dutch artist developed his bold, expressive style while living in France, where swirling brushstrokes and vivid colors became his signature. His subjects ranged from sunflowers and starry nights to self-portraits and humble peasant life. Works like <a href="/apps/masterpieces/art/the-starry-night"><strong>The Starry Night</strong></a> and <a href="/apps/masterpieces/art/sunflowers"><strong>Sunflowers</strong></a> now rank among the most recognized images in Western art.</p>
 
-<p>Van Gogh came to painting late, starting seriously at age 27 after failed careers in art dealing and ministry. His brother Theo provided crucial financial and emotional support throughout his artistic career. Time spent in Arles, southern France, proved intensely productive but also marked by mental health struggles, including the famous incident where he severed part of his ear. He died at 37, but his influence on <a href="/movement/expressionism"><strong>Expressionism</strong></a> and modern art proved immense. Today, the <a href="/museum/van-gogh-museum-amsterdam"><strong>Van Gogh Museum</strong></a> in Amsterdam holds the world's largest collection of his work, while major pieces hang in the <a href="/museum/museum-of-modern-art"><strong>Museum of Modern Art</strong></a> and <a href="/museum/musee-dorsay"><strong>Musée d'Orsay</strong></a>.</p>
+<p>Van Gogh came to painting late, starting seriously at age 27 after failed careers in art dealing and ministry. His brother Theo provided crucial financial and emotional support throughout his artistic career. Time spent in Arles, southern France, proved intensely productive but also marked by mental health struggles, including the famous incident where he severed part of his ear. He died at 37, but his influence on <a href="/apps/masterpieces/movement/expressionism"><strong>Expressionism</strong></a> and modern art proved immense. Today, the <a href="/apps/masterpieces/museum/van-gogh-museum-amsterdam"><strong>Van Gogh Museum</strong></a> in Amsterdam holds the world's largest collection of his work, while major pieces hang in the <a href="/apps/masterpieces/museum/museum-of-modern-art"><strong>Museum of Modern Art</strong></a> and <a href="/apps/masterpieces/museum/musee-dorsay"><strong>Musée d'Orsay</strong></a>.</p>
 ```
 
 **FAQs**:

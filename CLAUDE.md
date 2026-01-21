@@ -81,13 +81,13 @@ node get-artworks.js
 
 ### Internal Links (display in green #028161)
 ```html
-<a href="/artist/artist-slug"><strong>Artist Name</strong></a>
-<a href="/movement/movement-slug"><strong>Movement Name</strong></a>
+<a href="/apps/masterpieces/artist/artist-slug"><strong>Artist Name</strong></a>
+<a href="/apps/masterpieces/movement/movement-slug"><strong>Movement Name</strong></a>
 ```
 
 ### Museum Links (display in gold #C9A84C)
 ```html
-<a href="/museum/museum-slug"><strong>Museum Name</strong></a>
+<a href="/apps/masterpieces/museum/museum-slug"><strong>Museum Name</strong></a>
 ```
 
 ### LuxuryWallArt Links (display in gold #C9A84C)
