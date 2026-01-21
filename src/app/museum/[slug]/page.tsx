@@ -212,7 +212,7 @@ export default async function MuseumPage({ params }: Props) {
             className="object-cover opacity-60"
             priority
             sizes="100vw"
-            unoptimized={museum.imageUrl.includes('wikimedia.org')}
+            unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-r from-neutral-800 to-neutral-900" />

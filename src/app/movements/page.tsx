@@ -134,7 +134,7 @@ export default async function MovementsPage() {
                               fill
                               className="object-cover"
                               sizes="(max-width: 768px) 33vw, 20vw"
-                              unoptimized={url!.includes('wikimedia.org')}
+                              unoptimized={url!.includes('wikimedia.org') || url!.includes('wikiart.org')}
                             />
                           </div>
                         ))}

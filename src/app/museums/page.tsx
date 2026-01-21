@@ -187,7 +187,7 @@ export default async function MuseumsPage() {
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 33vw, 20vw"
-                                unoptimized={artwork.imageUrl.includes('wikimedia.org')}
+                                unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
                               />
                             )}
                           </div>
@@ -200,7 +200,7 @@ export default async function MuseumsPage() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        unoptimized={museum.imageUrl.includes('wikimedia.org')}
+                        unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
