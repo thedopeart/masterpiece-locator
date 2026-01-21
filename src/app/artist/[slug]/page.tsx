@@ -331,10 +331,12 @@ export default async function ArtistPage({ params }: Props) {
             </div>
 
             {/* Biography - only show if we have real content from database */}
-            <div className="text-neutral-600 leading-relaxed space-y-3">
-              {(artist.bioFull || artist.bioShort) && (
-                <p>{artist.bioFull || artist.bioShort}</p>
-              )}
+            <div className="text-neutral-600 leading-relaxed space-y-3 artist-bio">
+              {artist.bioFull ? (
+                <div dangerouslySetInnerHTML={{ __html: artist.bioFull }} />
+              ) : artist.bioShort ? (
+                <p>{artist.bioShort}</p>
+              ) : null}
               {artist.wikipediaUrl && (
                 <p>
                   <a href={artist.wikipediaUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-900 text-sm">
@@ -440,9 +442,10 @@ export default async function ArtistPage({ params }: Props) {
           </section>
         )}
 
-        {/* FAQ Section */}
+        {/* FAQ Section - use database FAQs if available, otherwise generate */}
         {(() => {
-          const faqs = generateArtistFAQs(artist);
+          const dbFaqs = rawArtist.faqs as { question: string; answer: string }[] | null;
+          const faqs = (dbFaqs && dbFaqs.length > 0) ? dbFaqs : generateArtistFAQs(artist);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />

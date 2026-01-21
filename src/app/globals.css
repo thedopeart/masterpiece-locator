@@ -76,14 +76,16 @@ strong {
 }
 
 /* Interlink color differentiation */
-/* Green for artist and movement links */
+/* Green for artist, movement, and artwork links */
 a[href^="/artist/"],
-a[href^="/movement/"] {
+a[href^="/movement/"],
+a[href^="/art/"] {
   color: #028161 !important;
 }
 
 a[href^="/artist/"]:hover,
-a[href^="/movement/"]:hover {
+a[href^="/movement/"]:hover,
+a[href^="/art/"]:hover {
   text-decoration: underline;
 }
 
@@ -100,11 +102,21 @@ a[href*="luxurywallart"]:not(.inline-block):hover {
 
 /* Bold text inside links inherits link color */
 a[href^="/artist/"] strong,
-a[href^="/movement/"] strong {
+a[href^="/movement/"] strong,
+a[href^="/art/"] strong {
   color: inherit !important;
 }
 
 a[href^="/museum/"] strong,
 a[href*="luxurywallart"] strong {
   color: inherit !important;
+}
+
+/* Artist bio paragraph spacing */
+.artist-bio p {
+  margin-bottom: 1rem;
+}
+
+.artist-bio p:last-child {
+  margin-bottom: 0;
 }
