@@ -13,7 +13,7 @@ async function main() {
 
   // Check which ones have been properly optimized
   const results = artists.map(a => {
-    const hasMovementLink = a.bioFull && a.bioFull.includes('href="/movement');
+    const hasMovementLink = a.bioFull && (a.bioFull.includes('href="/movement') || a.bioFull.includes('href="/apps/masterpieces/movement'));
     const hasBioFull = a.bioFull && a.bioFull.length > 200;
     const hasFaqs = a.faqs && Array.isArray(a.faqs) && a.faqs.length >= 5;
     const isOptimized = hasMovementLink && hasBioFull && hasFaqs;
