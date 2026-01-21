@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete.
 
-**Last Updated:** 2026-01-21T06:39
+**Last Updated:** 2026-01-21T16:35
 
-**Progress:** 229/312 complete
+**Progress:** 303/312 complete
 
 ---
 
@@ -57,7 +57,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | piet-mondrian | Piet Mondrian | 21 | Dutch | 1872-1944 | Abstract Expressionism, De Stijl | [Link](https://en.wikipedia.org/wiki/Piet_Mondrian) |
 | DONE | raphael | Raphael | 21 | Italian | 1483-1520 | Renaissance | [Link](https://en.wikipedia.org/wiki/Raphael) |
 | DONE | adolph-menzel | Adolph Menzel | 20 | German | 1815-1905 | Romanticism | - |
-| TODO | canaletto | Canaletto | 20 | Italian | 1697-1768 | - | - |
+| DONE | canaletto | Canaletto | 20 | Italian | 1697-1768 | - | - |
 | DONE | henri-toulouse-lautrec | Henri de Toulouse-Lautrec | 20 | French | 1864-1901 | Post-Impressionism | [Link](https://en.wikipedia.org/wiki/Henri_de_Toulouse-Lautrec) |
 | DONE | mary-cassatt | Mary Cassatt | 20 | American | 1844-1926 | Impressionism | - |
 | DONE | nicolas-poussin | Nicolas Poussin | 20 | French | 1594-1665 | - | - |
@@ -81,11 +81,11 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | edouard-vuillard | Édouard Vuillard | 18 | French | 1868-1940 | Post-Impressionism | - |
 | DONE | egon-schiele | Egon Schiele | 18 | Austrian | 1890-1918 | Expressionism | [Link](https://en.wikipedia.org/wiki/Egon_Schiele) |
 | DONE | ford-madox-brown | Ford Madox Brown | 18 | British | 1821-1893 | Pre-Raphaelite Brotherhood | - |
-| TODO | francesco-guardi | Francesco Guardi | 18 | Italian | 1712-1793 | - | - |
+| DONE | francesco-guardi | Francesco Guardi | 18 | Italian | 1712-1793 | - | - |
 | DONE | frans-hals | Frans Hals | 18 | Dutch | 1582-1666 | Baroque | - |
 | DONE | gerard-ter-borch | Gerard ter Borch | 18 | Dutch | 1617-1681 | - | - |
 | DONE | robert-campin | Robert Campin | 18 | Flemish | 1375-1444 | - | - |
-| TODO | thomas-cole | Thomas Cole | 18 | American | 1801-1848 | - | - |
+| DONE | thomas-cole | Thomas Cole | 18 | American | 1801-1848 | - | - |
 | DONE | akseli-gallen-kallela | Akseli Gallen-Kallela | 17 | Finnish | 1865-1931 | Symbolism | - |
 | DONE | amedeo-modigliani | Amedeo Modigliani | 17 | Italian | 1884-1920 | Expressionism | [Link](https://en.wikipedia.org/wiki/Amedeo_Modigliani) |
 | DONE | bernardino-luini | Bernardino Luini | 17 | Italian | 1480-1532 | Renaissance | - |
@@ -95,48 +95,48 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | jean-auguste-dominique-ingres | Jean-Auguste-Dominique Ingres | 17 | French | 1780-1867 | Neoclassicism | - |
 | DONE | joaquin-sorolla | Joaquín Sorolla | 17 | Spanish | 1863-1923 | - | - |
 | DONE | leonardo-da-vinci | Leonardo da Vinci | 17 | Italian | 1452-1519 | Renaissance | [Link](https://en.wikipedia.org/wiki/Leonardo_da_Vinci) |
-| TODO | paul-delaroche | Paul Delaroche | 17 | French | 1797-1856 | - | - |
+| DONE | paul-delaroche | Paul Delaroche | 17 | French | 1797-1856 | - | - |
 | DONE | peter-paul-rubens | Peter Paul Rubens | 17 | Flemish | 1577-1640 | Baroque | [Link](https://en.wikipedia.org/wiki/Peter_Paul_Rubens) |
-| TODO | salvator-rosa | Salvator Rosa | 17 | Italian | 1615-1673 | - | - |
-| TODO | william-holman-hunt | William Holman Hunt | 17 | British | 1827-1910 | Pre-Raphaelite Brotherhood | - |
-| TODO | bartolome-murillo | Bartolomé Esteban Murillo | 16 | Spanish | 1617-1682 | - | - |
-| TODO | correggio | Correggio | 16 | Italian | 1489-1534 | - | - |
-| TODO | david-teniers-younger | David Teniers the Younger | 16 | Flemish | 1610-1690 | - | - |
-| TODO | francisco-de-zurbaran | Francisco de Zurbarán | 16 | Spanish | 1598-1664 | - | - |
-| TODO | hieronymus-bosch | Hieronymus Bosch | 16 | Dutch | 1450-1516 | Northern Renaissance | [Link](https://en.wikipedia.org/wiki/Hieronymus_Bosch) |
-| TODO | petrus-christus | Petrus Christus | 16 | Flemish | 1410-1475 | - | - |
-| TODO | caspar-david-friedrich | Caspar David Friedrich | 15 | German | 1774-1840 | Romanticism | [Link](https://en.wikipedia.org/wiki/Caspar_David_Friedrich) |
+| DONE | salvator-rosa | Salvator Rosa | 17 | Italian | 1615-1673 | - | - |
+| DONE | william-holman-hunt | William Holman Hunt | 17 | British | 1827-1910 | Pre-Raphaelite Brotherhood | - |
+| DONE | bartolome-murillo | Bartolomé Esteban Murillo | 16 | Spanish | 1617-1682 | - | - |
+| DONE | correggio | Correggio | 16 | Italian | 1489-1534 | - | - |
+| DONE | david-teniers-younger | David Teniers the Younger | 16 | Flemish | 1610-1690 | - | - |
+| DONE | francisco-de-zurbaran | Francisco de Zurbarán | 16 | Spanish | 1598-1664 | - | - |
+| DONE | hieronymus-bosch | Hieronymus Bosch | 16 | Dutch | 1450-1516 | Northern Renaissance | [Link](https://en.wikipedia.org/wiki/Hieronymus_Bosch) |
+| DONE | petrus-christus | Petrus Christus | 16 | Flemish | 1410-1475 | - | - |
+| DONE | caspar-david-friedrich | Caspar David Friedrich | 15 | German | 1774-1840 | Romanticism | [Link](https://en.wikipedia.org/wiki/Caspar_David_Friedrich) |
 | TODO | claude-lorrain | Claude Lorrain | 15 | French | 1600-1682 | - | - |
-| TODO | giovanni-bellini | Giovanni Bellini | 15 | Italian | 1430-1516 | Renaissance | - |
-| TODO | hans-memling | Hans Memling | 15 | Flemish | 1430-1494 | - | - |
+| DONE | giovanni-bellini | Giovanni Bellini | 15 | Italian | 1430-1516 | Renaissance | - |
+| DONE | hans-memling | Hans Memling | 15 | Flemish | 1430-1494 | - | - |
 | TODO | jean-baptiste-simeon-chardin | Jean-Baptiste-Siméon Chardin | 15 | French | 1699-1779 | Rococo | - |
 | TODO | joachim-patinir | Joachim Patinir | 15 | Flemish | 1480-1524 | - | - |
 | TODO | juan-de-juanes | Juan de Juanes | 15 | Spanish | 1510-1579 | Renaissance | - |
 | TODO | lucas-cranach-elder | Lucas Cranach the Elder | 15 | German | 1472-1553 | - | - |
-| TODO | pietro-da-cortona | Pietro da Cortona | 15 | Italian | 1596-1669 | - | - |
-| TODO | quentin-matsys | Quentin Matsys | 15 | Flemish | 1466-1530 | - | - |
-| TODO | raoul-dufy | Raoul Dufy | 15 | French | 1877-1953 | - | - |
-| TODO | robert-delaunay | Robert Delaunay | 15 | French | 1885-1941 | - | - |
-| TODO | titian | Titian | 15 | Italian | 1488-1576 | Renaissance | [Link](https://en.wikipedia.org/wiki/Titian) |
-| TODO | william-hogarth | William Hogarth | 15 | British | 1697-1764 | - | - |
-| TODO | william-merritt-chase | William Merritt Chase | 15 | American | 1849-1916 | - | - |
-| TODO | albert-joseph-moore | Albert Joseph Moore | 14 | British | 1841-1893 | Academic Art | - |
-| TODO | bronzino | Bronzino | 14 | Italian | 1503-1572 | Mannerism | - |
-| TODO | edward-burne-jones | Edward Burne-Jones | 14 | British | 1833-1898 | Pre-Raphaelite Brotherhood | - |
-| TODO | ernest-meissonier | Ernest Meissonier | 14 | French | 1815-1891 | Academic Art | - |
-| TODO | gerard-david | Gerard David | 14 | Flemish | 1460-1523 | - | - |
+| DONE | pietro-da-cortona | Pietro da Cortona | 15 | Italian | 1596-1669 | - | - |
+| DONE | quentin-matsys | Quentin Matsys | 15 | Flemish | 1466-1530 | - | - |
+| DONE | raoul-dufy | Raoul Dufy | 15 | French | 1877-1953 | - | - |
+| DONE | robert-delaunay | Robert Delaunay | 15 | French | 1885-1941 | - | - |
+| DONE | titian | Titian | 15 | Italian | 1488-1576 | Renaissance | [Link](https://en.wikipedia.org/wiki/Titian) |
+| DONE | william-hogarth | William Hogarth | 15 | British | 1697-1764 | - | - |
+| DONE | william-merritt-chase | William Merritt Chase | 15 | American | 1849-1916 | - | - |
+| DONE | albert-joseph-moore | Albert Joseph Moore | 14 | British | 1841-1893 | Academic Art | - |
+| DONE | bronzino | Bronzino | 14 | Italian | 1503-1572 | Mannerism | - |
+| DONE | edward-burne-jones | Edward Burne-Jones | 14 | British | 1833-1898 | Pre-Raphaelite Brotherhood | - |
+| DONE | ernest-meissonier | Ernest Meissonier | 14 | French | 1815-1891 | Academic Art | - |
+| DONE | gerard-david | Gerard David | 14 | Flemish | 1460-1523 | - | - |
 | TODO | henri-fantin-latour | Henri Fantin-Latour | 14 | French | 1836-1904 | - | - |
 | TODO | alphonse-mucha | Alphonse Mucha | 13 | Czech | 1860-1939 | - | - |
-| TODO | anthony-van-dyck | Anthony van Dyck | 13 | Flemish | 1599-1641 | Baroque | - |
-| TODO | francois-boucher | François Boucher | 13 | French | 1703-1770 | - | - |
-| TODO | frederic-bazille | Frédéric Bazille | 13 | French | 1841-1870 | - | - |
-| TODO | george-stubbs | George Stubbs | 13 | British | 1724-1806 | - | - |
-| TODO | hans-holbein-younger | Hans Holbein the Younger | 13 | German | 1497-1543 | Renaissance | - |
-| TODO | hyacinthe-rigaud | Hyacinthe Rigaud | 13 | French | 1659-1743 | Baroque | - |
-| TODO | juan-de-valdes-leal | Juan de Valdés Leal | 13 | Spanish | 1622-1690 | Baroque | - |
-| TODO | luca-signorelli | Luca Signorelli | 13 | Italian | 1450-1523 | - | - |
-| TODO | maurice-denis | Maurice Denis | 13 | French | 1870-1943 | - | - |
-| TODO | max-liebermann | Max Liebermann | 13 | German | 1847-1935 | - | - |
+| DONE | anthony-van-dyck | Anthony van Dyck | 13 | Flemish | 1599-1641 | Baroque | - |
+| DONE | francois-boucher | François Boucher | 13 | French | 1703-1770 | - | - |
+| DONE | frederic-bazille | Frédéric Bazille | 13 | French | 1841-1870 | - | - |
+| DONE | george-stubbs | George Stubbs | 13 | British | 1724-1806 | - | - |
+| DONE | hans-holbein-younger | Hans Holbein the Younger | 13 | German | 1497-1543 | Renaissance | - |
+| DONE | hyacinthe-rigaud | Hyacinthe Rigaud | 13 | French | 1659-1743 | Baroque | - |
+| DONE | juan-de-valdes-leal | Juan de Valdés Leal | 13 | Spanish | 1622-1690 | Baroque | - |
+| DONE | luca-signorelli | Luca Signorelli | 13 | Italian | 1450-1523 | - | - |
+| DONE | maurice-denis | Maurice Denis | 13 | French | 1870-1943 | - | - |
+| DONE | max-liebermann | Max Liebermann | 13 | German | 1847-1935 | - | - |
 | DONE | tintoretto | Tintoretto | 13 | Italian | 1518-1594 | Renaissance | - |
 | DONE | albert-bierstadt | Albert Bierstadt | 12 | American | 1830-1902 | - | - |
 | DONE | annibale-carracci | Annibale Carracci | 12 | Italian | 1560-1609 | - | - |
@@ -146,10 +146,10 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | konstantin-korovin | Konstantin Korovin | 12 | Russian | 1861-1939 | Impressionism | - |
 | DONE | maurice-quentin-de-la-tour | Maurice Quentin de La Tour | 12 | French | 1704-1788 | Rococo | - |
 | DONE | artemisia-gentileschi | Artemisia Gentileschi | 11 | Italian | 1593-1656 | - | - |
-| TODO | cimabue | Cimabue | 11 | Italian | 1240-1302 | - | - |
+| DONE | cimabue | Cimabue | 11 | Italian | 1240-1302 | - | - |
 | DONE | eustache-le-sueur | Eustache Le Sueur | 11 | French | 1616-1655 | Baroque | - |
-| TODO | frederic-leighton | Frederic Leighton | 11 | British | 1830-1896 | - | - |
-| TODO | gentile-da-fabriano | Gentile da Fabriano | 11 | Italian | 1370-1427 | - | - |
+| DONE | frederic-leighton | Frederic Leighton | 11 | British | 1830-1896 | - | - |
+| DONE | gentile-da-fabriano | Gentile da Fabriano | 11 | Italian | 1370-1427 | - | - |
 | DONE | jacob-jordaens | Jacob Jordaens | 11 | Flemish | 1593-1678 | - | - |
 | DONE | jean-honore-fragonard | Jean-Honoré Fragonard | 11 | French | 1732-1806 | Rococo | - |
 | DONE | masaccio | Masaccio | 11 | Italian | 1401-1428 | - | - |
@@ -169,7 +169,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | edwin-landseer | Edwin Landseer | 9 | British | 1802-1873 | - | - |
 | DONE | fernand-leger | Fernand Léger | 9 | French | 1881-1955 | - | - |
 | DONE | franz-von-stuck | Franz von Stuck | 9 | German | 1863-1928 | - | - |
-| TODO | hugo-van-der-goes | Hugo van der Goes | 9 | Flemish | 1440-1482 | - | - |
+| DONE | hugo-van-der-goes | Hugo van der Goes | 9 | Flemish | 1440-1482 | - | - |
 | TODO | isaac-levitan | Isaac Levitan | 9 | Russian | 1860-1900 | Impressionism | - |
 | DONE | jean-leon-gerome | Jean-Léon Gérôme | 9 | French | 1824-1904 | - | - |
 | DONE | leon-bonnat | Léon Bonnat | 9 | French | 1833-1922 | Academic Art | - |
@@ -183,7 +183,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | filippo-lippi | Filippo Lippi | 8 | Italian | 1406-1469 | - | - |
 | DONE | francisco-goya | Francisco Goya | 8 | Spanish | 1746-1828 | Romanticism | [Link](https://en.wikipedia.org/wiki/Francisco_Goya) |
 | DONE | frederic-edwin-church | Frederic Edwin Church | 8 | American | 1826-1900 | - | - |
-| TODO | george-bellows | George Bellows | 8 | American | 1882-1925 | - | - |
+| DONE | george-bellows | George Bellows | 8 | American | 1882-1925 | American Realism | - |
 | DONE | guercino | Guercino | 8 | Italian | 1591-1666 | - | - |
 | DONE | guido-reni | Guido Reni | 8 | Italian | 1575-1642 | - | - |
 | DONE | jules-breton | Jules Breton | 8 | French | 1827-1906 | Academic Art | - |
@@ -193,12 +193,12 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | theodore-chasseriau | Théodore Chassériau | 8 | French | 1819-1856 | Romanticism, Orientalism | - |
 | DONE | umberto-boccioni | Umberto Boccioni | 8 | Italian | 1882-1916 | Futurism | - |
 | DONE | vasily-surikov | Vasily Surikov | 8 | Russian | 1848-1916 | Romanticism | - |
-| TODO | winslow-homer | Winslow Homer | 8 | American | 1836-1910 | - | - |
+| DONE | winslow-homer | Winslow Homer | 8 | American | 1836-1910 | American Realism | - |
 | DONE | andrea-mantegna | Andrea Mantegna | 7 | Italian | 1431-1506 | Renaissance | - |
 | DONE | felix-vallotton | Félix Vallotton | 7 | Swiss | 1865-1925 | - | - |
 | DONE | hendrick-avercamp | Hendrick Avercamp | 7 | Dutch | 1585-1634 | - | - |
 | DONE | jules-bastien-lepage | Jules Bastien-Lepage | 7 | French | 1848-1884 | Impressionism | - |
-| TODO | kathe-kollwitz | Käthe Kollwitz | 7 | German | 1867-1945 | - | - |
+| DONE | kathe-kollwitz | Käthe Kollwitz | 7 | German | 1867-1945 | Expressionism | - |
 | DONE | katsushika-hokusai | Katsushika Hokusai | 7 | Japanese | 1760-1849 | Ukiyo-e | [Link](https://en.wikipedia.org/wiki/Hokusai) |
 | DONE | pieter-claesz | Pieter Claesz | 7 | Dutch | 1597-1660 | Dutch Golden Age | - |
 | DONE | pontormo | Pontormo | 7 | Italian | 1494-1557 | - | - |
@@ -206,17 +206,17 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | aelbert-cuyp | Aelbert Cuyp | 6 | Dutch | 1620-1691 | - | - |
 | DONE | august-macke | August Macke | 6 | German | 1887-1914 | - | - |
 | DONE | carl-spitzweg | Carl Spitzweg | 6 | German | 1808-1885 | Romanticism | - |
-| TODO | emanuel-leutze | Emanuel Leutze | 6 | German-American | 1816-1868 | - | - |
-| TODO | franz-marc | Franz Marc | 6 | German | 1880-1916 | - | - |
-| TODO | giovanni-battista-tiepolo | Giovanni Battista Tiepolo | 6 | Italian | 1696-1770 | - | - |
-| TODO | gustave-dore | Gustave Doré | 6 | French | 1832-1883 | - | - |
-| TODO | henry-raeburn | Henry Raeburn | 6 | Scottish | 1756-1823 | - | - |
-| TODO | joshua-reynolds | Joshua Reynolds | 6 | British | 1723-1792 | - | - |
-| TODO | matthias-grunewald | Matthias Grünewald | 6 | German | 1470-1528 | - | - |
-| TODO | simon-vouet | Simon Vouet | 6 | French | 1590-1649 | Baroque | - |
-| TODO | thomas-eakins | Thomas Eakins | 6 | American | 1844-1916 | - | - |
-| TODO | vilhelm-hammershoi | Vilhelm Hammershøi | 6 | Danish | 1864-1916 | - | - |
-| TODO | andre-derain | André Derain | 5 | French | 1880-1954 | - | - |
+| DONE | emanuel-leutze | Emanuel Leutze | 6 | German-American | 1816-1868 | Romanticism | - |
+| DONE | franz-marc | Franz Marc | 6 | German | 1880-1916 | - | - |
+| DONE | giovanni-battista-tiepolo | Giovanni Battista Tiepolo | 6 | Italian | 1696-1770 | - | - |
+| DONE | gustave-dore | Gustave Doré | 6 | French | 1832-1883 | - | - |
+| DONE | henry-raeburn | Henry Raeburn | 6 | Scottish | 1756-1823 | - | - |
+| DONE | joshua-reynolds | Joshua Reynolds | 6 | British | 1723-1792 | - | - |
+| DONE | matthias-grunewald | Matthias Grünewald | 6 | German | 1470-1528 | - | - |
+| DONE | simon-vouet | Simon Vouet | 6 | French | 1590-1649 | Baroque | - |
+| DONE | thomas-eakins | Thomas Eakins | 6 | American | 1844-1916 | - | - |
+| DONE | vilhelm-hammershoi | Vilhelm Hammershøi | 6 | Danish | 1864-1916 | - | - |
+| DONE | andre-derain | André Derain | 5 | French | 1880-1954 | - | - |
 | DONE | carolus-duran | Carolus-Duran | 5 | French | 1837-1917 | Academic Art | - |
 | DONE | edmund-blair-leighton | Edmund Blair Leighton | 5 | British | 1852-1922 | Academic Art | - |
 | DONE | el-lissitzky | El Lissitzky | 5 | Russian | 1890-1941 | Suprematism | - |
@@ -224,7 +224,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | fernand-khnopff | Fernand Khnopff | 5 | Belgian | 1858-1921 | - | - |
 | DONE | george-caleb-bingham | George Caleb Bingham | 5 | American | 1811-1879 | - | - |
 | DONE | gerard-van-honthorst | Gerard van Honthorst | 5 | Dutch | 1592-1656 | Baroque, Dutch Golden Age | - |
-| TODO | ilya-repin | Ilya Repin | 5 | Russian | 1844-1930 | - | - |
+| DONE | ilya-repin | Ilya Repin | 5 | Russian | 1844-1930 | - | - |
 | DONE | mikhail-vrubel | Mikhail Vrubel | 5 | Russian | 1856-1910 | Symbolism | - |
 | DONE | simone-martini | Simone Martini | 5 | Italian | 1284-1344 | - | - |
 
@@ -234,9 +234,9 @@ Track progress across workers. Mark as DONE when complete.
 |--------|------|------|-------|-------------|-------|-----------|----------|
 | DONE | adriaen-coorte | Adriaen Coorte | 4 | Dutch | 1665-1707 | Dutch Golden Age | - |
 | DONE | alexej-von-jawlensky | Alexej von Jawlensky | 4 | Russian | 1864-1941 | - | - |
-| TODO | carl-larsson | Carl Larsson | 4 | Swedish | 1853-1919 | - | - |
+| DONE | carl-larsson | Carl Larsson | 4 | Swedish | 1853-1919 | - | - |
 | DONE | domenico-beccafumi | Domenico Beccafumi | 4 | Italian | 1486-1551 | Mannerism | - |
-| TODO | duccio | Duccio di Buoninsegna | 4 | Italian | 1255-1319 | - | - |
+| DONE | duccio | Duccio di Buoninsegna | 4 | Italian | 1255-1319 | Renaissance | - |
 | DONE | george-inness | George Inness | 4 | American | 1825-1894 | - | - |
 | DONE | georges-de-la-tour | Georges de La Tour | 4 | French | 1593-1652 | - | - |
 | DONE | henri-matisse | Henri Matisse | 4 | French | 1869-1954 | Post-Impressionism, Fauvism | [Link](https://en.wikipedia.org/wiki/Henri_Matisse) |
@@ -247,18 +247,18 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | john-frederick-kensett | John Frederick Kensett | 4 | American | 1816-1872 | Hudson River School, Luminism | - |
 | DONE | paula-modersohn-becker | Paula Modersohn-Becker | 4 | German | 1876-1907 | - | - |
 | DONE | peder-severin-kroyer | Peder Severin Krøyer | 4 | Danish | 1851-1909 | Impressionism | - |
-| TODO | rosa-bonheur | Rosa Bonheur | 4 | French | 1822-1899 | - | - |
+| DONE | rosa-bonheur | Rosa Bonheur | 4 | French | 1822-1899 | Academic Art | - |
 | DONE | sebastiano-del-piombo | Sebastiano del Piombo | 4 | Italian | 1485-1547 | Renaissance, Venetian School | - |
 | DONE | thomas-couture | Thomas Couture | 4 | French | 1815-1879 | Academic Art | - |
-| TODO | viktor-vasnetsov | Viktor Vasnetsov | 4 | Russian | 1848-1926 | Romanticism | - |
+| DONE | viktor-vasnetsov | Viktor Vasnetsov | 4 | Russian | 1848-1926 | Romanticism, Symbolism | - |
 | DONE | charles-le-brun | Charles Le Brun | 3 | French | 1619-1690 | Baroque | - |
 | DONE | childe-hassam | Childe Hassam | 3 | American | 1859-1935 | - | - |
-| TODO | eastman-johnson | Eastman Johnson | 3 | American | 1824-1906 | - | - |
+| DONE | eastman-johnson | Eastman Johnson | 3 | American | 1824-1906 | American Realism | - |
 | DONE | felicien-rops | Félicien Rops | 3 | Belgian | 1833-1898 | Symbolism | - |
 | DONE | frank-dicksee | Frank Dicksee | 3 | British | 1853-1928 | - | - |
 | DONE | giovanni-segantini | Giovanni Segantini | 3 | Italian | 1858-1899 | - | - |
 | DONE | jacopo-bassano | Jacopo Bassano | 3 | Italian | 1510-1592 | Mannerism, Venetian School | - |
-| TODO | john-james-audubon | John James Audubon | 3 | American | 1785-1851 | - | - |
+| DONE | john-james-audubon | John James Audubon | 3 | American | 1785-1851 | - | - |
 | DONE | leon-spilliaert | Léon Spilliaert | 3 | Belgian | 1881-1946 | Expressionism, Symbolism | - |
 | DONE | lovis-corinth | Lovis Corinth | 3 | German | 1858-1925 | - | - |
 | DONE | martin-johnson-heade | Martin Johnson Heade | 3 | American | 1819-1904 | - | - |
@@ -269,9 +269,9 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | benozzo-gozzoli | Benozzo Gozzoli | 2 | Italian | 1421-1497 | - | - |
 | DONE | carlos-schwabe | Carlos Schwabe | 2 | Swiss | 1866-1926 | Symbolism | - |
 | DONE | domenico-ghirlandaio | Domenico Ghirlandaio | 2 | Italian | 1449-1494 | - | - |
-| TODO | gilbert-stuart | Gilbert Stuart | 2 | American | 1755-1828 | - | - |
+| DONE | gilbert-stuart | Gilbert Stuart | 2 | American | 1755-1828 | - | - |
 | DONE | herbert-james-draper | Herbert James Draper | 2 | British | 1863-1920 | Academic Art | - |
-| TODO | ivan-shishkin | Ivan Shishkin | 2 | Russian | 1832-1898 | Romanticism | - |
+| DONE | ivan-shishkin | Ivan Shishkin | 2 | Russian | 1832-1898 | Romanticism | - |
 | DONE | jmw-turner | J.M.W. Turner | 2 | British | 1775-1851 | Romanticism | [Link](https://en.wikipedia.org/wiki/J._M._W._Turner) |
 | DONE | james-mcneill-whistler | James Abbott McNeill Whistler | 2 | American | 1834-1903 | Impressionism | - |
 | DONE | james-ensor | James Ensor | 2 | Belgian | 1860-1949 | Expressionism, Symbolism | - |
@@ -283,25 +283,25 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | pablo-picasso | Pablo Picasso | 2 | Spanish | 1881-1973 | Expressionism, Cubism, Surrealism | [Link](https://en.wikipedia.org/wiki/Pablo_Picasso) |
 | DONE | rudolf-ernst | Rudolf Ernst | 2 | Austrian | 1854-1932 | Orientalism | - |
 | DONE | samuel-palmer | Samuel Palmer | 2 | British | 1805-1881 | Romanticism | - |
-| TODO | thomas-lawrence | Thomas Lawrence | 2 | British | 1769-1830 | - | - |
+| DONE | thomas-lawrence | Thomas Lawrence | 2 | British | 1769-1830 | - | - |
 | DONE | vasily-polenov | Vasily Polenov | 2 | Russian | 1844-1927 | Romanticism | - |
 | DONE | wilhelm-leibl | Wilhelm Leibl | 2 | German | 1844-1900 | Impressionism | - |
 | DONE | albert-marquet | Albert Marquet | 1 | French | 1875-1947 | - | - |
 | DONE | alfred-thompson-bricher | Alfred Thompson Bricher | 1 | American | 1837-1908 | Hudson River School, Luminism | - |
 | DONE | andy-warhol | Andy Warhol | 1 | American | 1928-1987 | Pop Art | [Link](https://en.wikipedia.org/wiki/Andy_Warhol) |
-| TODO | bruno-liljefors | Bruno Liljefors | 1 | Swedish | 1860-1939 | Impressionism | - |
-| TODO | caspar-netscher | Caspar Netscher | 1 | Dutch | 1639-1684 | Dutch Golden Age | - |
-| TODO | christian-krohg | Christian Krohg | 1 | Norwegian | 1852-1925 | Impressionism | - |
+| DONE | bruno-liljefors | Bruno Liljefors | 1 | Swedish | 1860-1939 | Impressionism | - |
+| DONE | caspar-netscher | Caspar Netscher | 1 | Dutch | 1639-1684 | Dutch Golden Age | - |
+| DONE | christian-krohg | Christian Krohg | 1 | Norwegian | 1852-1925 | Impressionism | - |
 | DONE | constant-permeke | Constant Permeke | 1 | Belgian | 1886-1952 | Expressionism | - |
-| TODO | edward-hopper | Edward Hopper | 1 | American | 1882-1967 | American Realism | [Link](https://en.wikipedia.org/wiki/Edward_Hopper) |
-| TODO | emanuel-de-witte | Emanuel de Witte | 1 | Dutch | 1617-1692 | Dutch Golden Age | - |
+| DONE | edward-hopper | Edward Hopper | 1 | American | 1882-1967 | American Realism | [Link](https://en.wikipedia.org/wiki/Edward_Hopper) |
+| DONE | emanuel-de-witte | Emanuel de Witte | 1 | Dutch | 1617-1692 | Dutch Golden Age | - |
 | DONE | evelyn-de-morgan | Evelyn De Morgan | 1 | British | 1855-1919 | - | - |
 | DONE | fitz-henry-lane | Fitz Henry Lane | 1 | American | 1804-1865 | Luminism | - |
-| TODO | francesco-furini | Francesco Furini | 1 | Italian | 1603-1646 | Baroque | - |
+| DONE | francesco-furini | Francesco Furini | 1 | Italian | 1603-1646 | Baroque | - |
 | DONE | francois-clouet | François Clouet | 1 | French | 1510-1572 | Renaissance | - |
-| TODO | frederick-arthur-bridgman | Frederick Arthur Bridgman | 1 | American | 1847-1928 | Orientalism | - |
-| TODO | george-hendrik-breitner | George Hendrik Breitner | 1 | Dutch | 1857-1923 | Impressionism | - |
-| TODO | george-inness-jr | George Inness Jr. | 1 | American | 1854-1926 | Tonalism | - |
+| DONE | frederick-arthur-bridgman | Frederick Arthur Bridgman | 1 | American | 1847-1928 | Orientalism | - |
+| DONE | george-hendrik-breitner | George Hendrik Breitner | 1 | Dutch | 1857-1923 | Impressionism | - |
+| DONE | george-inness-jr | George Inness Jr. | 1 | American | 1854-1926 | Tonalism | - |
 | DONE | george-romney | George Romney | 1 | British | 1734-1802 | - | - |
 | DONE | georgia-okeeffe | Georgia O'Keeffe | 1 | American | 1887-1986 | American Realism | [Link](https://en.wikipedia.org/wiki/Georgia_O%27Keeffe) |
 | DONE | giovanni-di-paolo | Giovanni di Paolo | 1 | Italian | 1403-1482 | Renaissance | - |

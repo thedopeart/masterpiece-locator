@@ -53,8 +53,9 @@ Write rich biographical content for artists in the Masterpiece Locator database.
 - **5-6 FAQs per artist**
 
 ### Answer Length
-- **25-40 words each**
-- Every answer must have at least one interlink
+- **35-60 words each**
+- Every answer must have **2+ interlinks** (mix of artist, movement, museum, artwork, and LuxuryWallArt collection links)
+- Include specific details, dates, and context that help with SEO
 
 ### Common FAQ Topics
 1. What movement/style? → link movement

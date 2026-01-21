@@ -16,7 +16,7 @@ async function main() {
 
   // Check which ones have been properly optimized (have artist links in description)
   const results = artworks.map(a => {
-    const hasArtistLink = a.description && a.description.includes('href="/artist');
+    const hasArtistLink = a.description && (a.description.includes('href="/artist') || a.description.includes('href="/apps/masterpieces/artist'));
     const hasFaqs = a.faqs && Array.isArray(a.faqs) && a.faqs.length >= 2;
     const isOptimized = hasArtistLink && hasFaqs;
 
