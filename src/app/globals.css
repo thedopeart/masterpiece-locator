@@ -132,3 +132,12 @@ a[href*="luxurywallart.com"] strong {
 .artist-bio p:last-child {
   margin-bottom: 0;
 }
+
+/* Museum description paragraph spacing */
+.museum-description p {
+  margin-bottom: 1rem;
+}
+
+.museum-description p:last-child {
+  margin-bottom: 0;
+}
