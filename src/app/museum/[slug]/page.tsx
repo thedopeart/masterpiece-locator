@@ -250,8 +250,10 @@ export default async function MuseumPage({ params }: Props) {
 
           return (
             <section className="mb-8">
-              <div className="text-neutral-600 leading-relaxed space-y-3">
-                {museum.description && <p>{museum.description}</p>}
+              <div className="text-neutral-600 leading-relaxed space-y-3 museum-description">
+                {museum.description && (
+                  <div dangerouslySetInnerHTML={{ __html: museum.description }} />
+                )}
                 <p>
                   <strong>{museum.name}</strong> in{" "}
                   <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
@@ -393,9 +395,10 @@ export default async function MuseumPage({ params }: Props) {
           </div>
         </div>
 
-        {/* FAQ Section */}
+        {/* FAQ Section - use database FAQs if available, otherwise generate */}
         {(() => {
-          const faqs = generateMuseumFAQs(museum);
+          const dbFaqs = rawMuseum.faqs as { question: string; answer: string }[] | null;
+          const faqs = (dbFaqs && dbFaqs.length > 0) ? dbFaqs : generateMuseumFAQs(museum);
           return faqs.length > 0 ? (
             <>
               <FAQSchema items={faqs} />
