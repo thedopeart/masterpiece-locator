@@ -158,29 +158,14 @@ export default async function MovementPage({ params }: Props) {
     } : null,
   }));
 
+  // Calculate total artworks across all artists
+  const totalArtworks = movement.artists.reduce((sum, a) => sum + a._count.artworks, 0);
+
   return (
     <div className="bg-white min-h-screen">
-      {/* Header */}
-      <div className="bg-neutral-900 text-white py-12">
-        <div className="max-w-[1400px] mx-auto px-4">
-          <div className="text-amber-400 font-medium mb-2">
-            {movement.startYear}
-            {movement.endYear ? ` - ${movement.endYear}` : " - Present"}
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            {movement.name}
-          </h1>
-          {movement.description && (
-            <p className="text-neutral-300 text-lg max-w-2xl">
-              {movement.description}
-            </p>
-          )}
-        </div>
-      </div>
-
       <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
-        <nav className="text-sm text-neutral-600 mb-8">
+        <nav className="text-sm text-neutral-600 mb-6">
           <Link href="/" className="hover:text-neutral-900 hover:underline">
             Home
           </Link>
@@ -192,76 +177,98 @@ export default async function MovementPage({ params }: Props) {
           <span className="font-medium text-neutral-900">{movement.name}</span>
         </nav>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            {/* Key Characteristics */}
-            {movement.keyCharacteristics.length > 0 && (
-              <div className="bg-amber-50 rounded-xl p-6 mb-6">
-                <h2 className="text-lg font-semibold text-neutral-900 mb-4">
-                  Key Characteristics
-                </h2>
-                <ul className="space-y-2">
-                  {movement.keyCharacteristics.map((char) => (
-                    <li
-                      key={char}
-                      className="flex items-start gap-2 text-neutral-700"
-                    >
-                      <span className="text-amber-500 mt-1">•</span>
-                      {char}
-                    </li>
-                  ))}
-                </ul>
+        {/* Two-column layout */}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main Content */}
+          <div className="flex-1 min-w-0 lg:max-w-[65%]">
+            {/* Hero Header */}
+            <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 mb-8 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
               </div>
-            )}
-
-            {/* Quick Stats */}
-            <div className="bg-neutral-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-neutral-900 mb-4">
-                Overview
-              </h2>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Period</span>
-                  <span className="font-medium">
-                    {movement.startYear}
-                    {movement.endYear ? ` - ${movement.endYear}` : "+"}
-                  </span>
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {movement.startYear}
+                  {movement.endYear ? ` – ${movement.endYear}` : " – Present"}
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Artists</span>
-                  <span className="font-medium">{movement.artists.length}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Works</span>
-                  <span className="font-medium">{artworks.length}+</span>
-                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  {movement.name}
+                </h1>
+                {movement.description && (
+                  <p className="text-neutral-300 text-lg leading-relaxed max-w-2xl">
+                    {movement.description}
+                  </p>
+                )}
               </div>
             </div>
-          </div>
 
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Artists */}
+            {/* Mobile sidebar - shown on small screens */}
+            <div className="lg:hidden space-y-4 mb-8">
+              {/* Quick Stats */}
+              <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                <h3 className="font-semibold text-neutral-900 mb-3">At a Glance</h3>
+                <dl className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Period</dt>
+                    <dd className="text-neutral-900 font-medium">
+                      {movement.startYear}{movement.endYear ? ` – ${movement.endYear}` : "+"}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Artists</dt>
+                    <dd className="text-neutral-900 font-medium">{movement.artists.length}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Artworks</dt>
+                    <dd className="text-neutral-900 font-medium">{totalArtworks}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              {/* Key Characteristics - Mobile */}
+              {movement.keyCharacteristics.length > 0 && (
+                <div className="bg-amber-50 rounded-xl p-5 border border-amber-200/50">
+                  <h3 className="font-semibold text-neutral-900 mb-3">Defining Features</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {movement.keyCharacteristics.map((char) => (
+                      <span
+                        key={char}
+                        className="bg-white text-neutral-700 px-3 py-1 rounded-full text-sm border border-amber-200"
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Artists Section */}
             <section className="mb-10">
-              <h2 className="text-xl font-semibold text-neutral-900 mb-6">
-                {movement.name} Artists
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-semibold text-neutral-900">
+                  {movement.name} Artists
+                </h2>
+                <span className="text-sm text-neutral-500">{movement.artists.length} artists</span>
+              </div>
+              <div className="grid gap-3">
                 {movement.artists.map((artist) => (
                   <Link
                     key={artist.id}
                     href={`/artist/${artist.slug}`}
-                    className="flex items-center gap-4 p-4 bg-white border border-neutral-200 rounded-xl hover:shadow-md transition-shadow group"
+                    className="flex items-center gap-4 p-4 bg-white border border-neutral-200 rounded-xl hover:border-neutral-300 hover:shadow-sm transition-all group"
                   >
-                    <div className="w-16 h-16 rounded-full bg-neutral-100 overflow-hidden relative flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-neutral-100 overflow-hidden relative flex-shrink-0 ring-2 ring-white shadow-sm">
                       {artist.imageUrl ? (
                         <Image
                           src={artist.imageUrl}
                           alt={artist.name}
                           fill
                           className="object-cover"
-                          sizes="64px"
+                          sizes="56px"
                           unoptimized={artist.imageUrl.includes('wikimedia.org') || artist.imageUrl.includes('wikiart.org')}
                         />
                       ) : artist.artworks[0]?.imageUrl ? (
@@ -270,11 +277,11 @@ export default async function MovementPage({ params }: Props) {
                           alt={artist.name}
                           fill
                           className="object-cover"
-                          sizes="64px"
+                          sizes="56px"
                           unoptimized={artist.artworks[0].imageUrl.includes('wikimedia.org') || artist.artworks[0].imageUrl.includes('wikiart.org')}
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-xl font-light text-neutral-400">
+                        <div className="w-full h-full flex items-center justify-center text-lg font-medium text-neutral-400 bg-gradient-to-br from-neutral-100 to-neutral-200">
                           {artist.name.charAt(0)}
                         </div>
                       )}
@@ -284,78 +291,183 @@ export default async function MovementPage({ params }: Props) {
                         {artist.name}
                       </h3>
                       <p className="text-sm text-neutral-500">
-                        {artist.birthYear}
-                        {artist.deathYear ? ` - ${artist.deathYear}` : ""}
-                      </p>
-                      <p className="text-sm text-neutral-400">
-                        {artist._count.artworks} work
-                        {artist._count.artworks !== 1 ? "s" : ""}
+                        {artist.birthYear && (
+                          <>
+                            {artist.birthYear}
+                            {artist.deathYear ? ` – ${artist.deathYear}` : ""}
+                          </>
+                        )}
+                        {artist.birthYear && artist._count.artworks > 0 && " · "}
+                        {artist._count.artworks > 0 && (
+                          <span className="text-neutral-400">
+                            {artist._count.artworks} work{artist._count.artworks !== 1 ? "s" : ""}
+                          </span>
+                        )}
                       </p>
                     </div>
-                    <span className="text-neutral-400 group-hover:text-black transition-colors">
-                      View
-                    </span>
+                    <svg className="w-5 h-5 text-neutral-300 group-hover:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </Link>
                 ))}
               </div>
             </section>
+          </div>
 
-            {/* Masterpieces */}
-            <section>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-6">
-                {movement.name} Masterpieces
-              </h2>
-              {artworks.length > 0 ? (
-                <div className="grid md:grid-cols-2 gap-6">
-                  {artworks.map((artwork) => (
-                    <ArtworkCard key={artwork.id} artwork={artwork} />
-                  ))}
+          {/* Sidebar - Desktop only */}
+          <aside className="hidden lg:block lg:w-80 shrink-0">
+            <div className="lg:sticky lg:top-20 space-y-6">
+              {/* Quick Stats */}
+              <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                <h3 className="font-semibold text-neutral-900 mb-4">At a Glance</h3>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Period</dt>
+                    <dd className="text-neutral-900 font-medium">
+                      {movement.startYear}{movement.endYear ? ` – ${movement.endYear}` : "+"}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Artists</dt>
+                    <dd className="text-neutral-900 font-medium">{movement.artists.length}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-neutral-500">Artworks</dt>
+                    <dd className="text-neutral-900 font-medium">{totalArtworks}</dd>
+                  </div>
+                  {movement.startYear && movement.endYear && (
+                    <div className="flex justify-between">
+                      <dt className="text-neutral-500">Duration</dt>
+                      <dd className="text-neutral-900 font-medium">
+                        {movement.endYear - movement.startYear} years
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+
+              {/* Key Characteristics */}
+              {movement.keyCharacteristics.length > 0 && (
+                <div className="bg-amber-50 rounded-xl p-5 border border-amber-200/50">
+                  <h3 className="font-semibold text-neutral-900 mb-3">Defining Features</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {movement.keyCharacteristics.map((char) => (
+                      <span
+                        key={char}
+                        className="bg-white text-neutral-700 px-3 py-1.5 rounded-full text-sm border border-amber-200 shadow-sm"
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              ) : (
-                <div className="bg-neutral-100 rounded-lg p-8 text-center border border-neutral-200">
-                  <p className="text-neutral-500">
-                    No artworks catalogued for this movement yet.
+              )}
+
+              {/* Notable Artists Preview */}
+              {movement.artists.length > 0 && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-3">Notable Artists</h3>
+                  <div className="flex -space-x-2 mb-3">
+                    {movement.artists.slice(0, 5).map((artist, i) => (
+                      <div
+                        key={artist.id}
+                        className="w-10 h-10 rounded-full bg-neutral-200 border-2 border-white overflow-hidden relative"
+                        style={{ zIndex: 5 - i }}
+                      >
+                        {artist.imageUrl || artist.artworks[0]?.imageUrl ? (
+                          <Image
+                            src={artist.imageUrl || artist.artworks[0]?.imageUrl || ''}
+                            alt={artist.name}
+                            fill
+                            className="object-cover"
+                            sizes="40px"
+                            unoptimized
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-xs font-medium text-neutral-400 bg-gradient-to-br from-neutral-100 to-neutral-200">
+                            {artist.name.charAt(0)}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                    {movement.artists.length > 5 && (
+                      <div className="w-10 h-10 rounded-full bg-neutral-800 border-2 border-white flex items-center justify-center text-xs font-medium text-white">
+                        +{movement.artists.length - 5}
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-sm text-neutral-600">
+                    {movement.artists.slice(0, 3).map(a => a.name).join(", ")}
+                    {movement.artists.length > 3 && ` and ${movement.artists.length - 3} more`}
                   </p>
                 </div>
               )}
-            </section>
-          </div>
+
+            </div>
+          </aside>
         </div>
 
+        {/* Full-width Masterpieces Section */}
+        <section className="mt-12 border-t border-neutral-200 pt-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-neutral-900">
+              {movement.name} Masterpieces
+            </h2>
+            <span className="text-sm text-neutral-500">{artworks.length} works</span>
+          </div>
+          {artworks.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+              {artworks.map((artwork) => (
+                <ArtworkCard key={artwork.id} artwork={artwork} />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-neutral-50 rounded-xl p-12 text-center border border-neutral-200">
+              <div className="text-4xl mb-3">🎨</div>
+              <p className="text-neutral-600 font-medium">No artworks catalogued yet</p>
+              <p className="text-neutral-500 text-sm mt-1">Check back soon for {movement.name} masterpieces</p>
+            </div>
+          )}
+        </section>
+
         {/* FAQ Section */}
-        {(() => {
-          const faqs = generateMovementFAQs({
-            name: movement.name,
-            description: movement.description,
-            startYear: movement.startYear,
-            endYear: movement.endYear,
-            keyCharacteristics: movement.keyCharacteristics,
-            artists: movement.artists.map(a => ({ name: a.name })),
-          });
-          return faqs.length > 0 ? (
-            <>
-              <FAQSchema items={faqs} />
-              <FAQ items={faqs} title={`About ${movement.name}`} />
-            </>
-          ) : null;
-        })()}
+        <section className="mt-12 border-t border-neutral-200 pt-8">
+          {(() => {
+            const faqs = generateMovementFAQs({
+              name: movement.name,
+              description: movement.description,
+              startYear: movement.startYear,
+              endYear: movement.endYear,
+              keyCharacteristics: movement.keyCharacteristics,
+              artists: movement.artists.map(a => ({ name: a.name })),
+            });
+            return faqs.length > 0 ? (
+              <>
+                <FAQSchema items={faqs} />
+                <FAQ items={faqs} title={`About ${movement.name}`} />
+              </>
+            ) : null;
+          })()}
+        </section>
 
         {/* CTA */}
-        <section className="mt-12 bg-neutral-100 rounded-xl p-8 text-center">
-          <h2 className="text-xl font-semibold text-neutral-900 mb-2">
-            Love {movement.name} Art?
-          </h2>
-          <p className="text-neutral-600 mb-4">
-            Own museum-quality reproductions of these iconic works.
-          </p>
-          <a
-            href="https://luxurywallart.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-neutral-900 text-white px-6 py-3 rounded-lg hover:bg-neutral-800 transition-colors"
-          >
-            Shop {movement.name} Prints
-          </a>
+        <section className="mt-12 border-t border-neutral-200 pt-8">
+          <div className="bg-black rounded-xl p-8 text-center">
+            <h2 className="text-xl font-semibold text-white mb-2">
+              Bring {movement.name} Home
+            </h2>
+            <p className="text-neutral-400 mb-6 max-w-md mx-auto">
+              Museum-quality canvas prints inspired by these iconic masterpieces.
+            </p>
+            <a
+              href="https://luxurywallart.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
+            >
+              Shop {movement.name} Art
+            </a>
+          </div>
         </section>
       </div>
     </div>
