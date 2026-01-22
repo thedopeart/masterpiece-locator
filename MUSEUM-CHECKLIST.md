@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete (5+ FAQs).
 
-**Last Updated:** 2026-01-22T00:24
+**Last Updated:** 2026-01-22T00:26
 
-**Progress:** 30/440 complete
+**Progress:** 51/440 complete
 
 ---
 
@@ -23,7 +23,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | DONE | uffizi-gallery-florence-italy | Uffizi Gallery, Florence | Florence | Italy | 81 | 6 |
 | DONE | national-gallery-of-art | National Gallery of Art | Washington, D.C. | United States | 60 | 6 |
 | DONE | rijksmuseum | Rijksmuseum | Amsterdam | Netherlands | 59 | 6 |
-| TODO | russian-museum | State Russian Museum | Saint Petersburg | Russia | 54 | 0 |
+| DONE | russian-museum | State Russian Museum | Saint Petersburg | Russia | 54 | 6 |
 | DONE | cleveland-museum-of-art | Cleveland Museum of Art | Cleveland | United States | 50 | 6 |
 
 ## Tier 2 (20-49 artworks)
@@ -31,7 +31,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | Status | Slug | Name | City | Country | Artworks | FAQs |
 |--------|------|------|------|---------|----------|------|
 | DONE | kunsthistorisches-museum | Kunsthistorisches Museum | Vienna | Austria | 47 | 6 |
-| TODO | mfa-boston | Museum of Fine Arts, Boston | Boston | USA | 42 | 0 |
+| DONE | mfa-boston | Museum of Fine Arts, Boston | Boston | USA | 42 | 6 |
 | DONE | tate-britain | Tate Britain | London | United Kingdom | 31 | 6 |
 | DONE | gem228ldegalerie-berlin-germany | Gemäldegalerie, Berlin | Berlin | Germany | 29 | 6 |
 | DONE | thyssenbornemisza-museum-madrid-spain | Thyssen-Bornemisza Museum, Madrid | Madrid | Spain | 27 | 6 |
@@ -47,37 +47,37 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 
 | Status | Slug | Name | City | Country | Artworks | FAQs |
 |--------|------|------|------|---------|----------|------|
-| TODO | birmingham-museum-and-art-gallery-birmingham-uk | Birmingham Museum and Art Gallery, Birmingham | Birmingham | UK | 19 | 0 |
+| DONE | birmingham-museum-and-art-gallery-birmingham-uk | Birmingham Museum and Art Gallery, Birmingham | Birmingham | UK | 19 | 6 |
 | DONE | palazzo-pitti | Palazzo Pitti | Florence | Italy | 19 | 6 |
 | DONE | alte-pinakothek | Alte Pinakothek | Munich | Germany | 19 | 6 |
 | DONE | budapest-museum-of-fine-arts-budapest-hungary | Budapest Museum of Fine Arts, Budapest | Budapest | Hungary | 18 | 6 |
 | DONE | british-museum | British Museum | London | United Kingdom | 17 | 6 |
 | DONE | j-paul-getty-museum-los-angeles-ca-us | J. Paul Getty Museum, Los Angeles, CA | Los Angeles | US | 17 | 6 |
-| TODO | saint-louis-art-museum-st-louis-mo-us | Saint Louis Art Museum, St. Louis, MO | St. Louis | US | 15 | 0 |
-| TODO | brooklyn-museum | Brooklyn Museum | New York | United States | 15 | 0 |
+| DONE | saint-louis-art-museum-st-louis-mo-us | Saint Louis Art Museum, St. Louis, MO | St. Louis | US | 15 | 6 |
+| DONE | brooklyn-museum | Brooklyn Museum | New York | United States | 15 | 6 |
 | DONE | ashmolean-museum-oxford-uk | Ashmolean Museum, Oxford | Oxford | UK | 15 | 6 |
-| TODO | national-gallery-oslo | National Gallery of Norway | Oslo | Norway | 14 | 0 |
+| DONE | national-gallery-oslo | National Gallery of Norway | Oslo | Norway | 14 | 6 |
 | TODO | mus233e-fabre-montpellier-france | Musée Fabre, Montpellier | Montpellier | France | 14 | 0 |
 | DONE | nationalmuseum-stockholm-sweden | Nationalmuseum, Stockholm | Stockholm | Sweden | 14 | 6 |
 | TODO | yale-centre-for-british-art-yale-university-new-ha | Yale Centre For British Art (Yale University), New Haven, CT | US | Unknown | 14 | 0 |
 | TODO | wadsworth-atheneum | Wadsworth Atheneum | Hartford | United States | 14 | 0 |
 | TODO | pinacoteca-di-brera | Pinacoteca di Brera | Milan | Italy | 14 | 0 |
 | TODO | mus233e-national-gustave-moreau-paris-france | Musée National Gustave Moreau, Paris | Paris | France | 14 | 0 |
-| TODO | gem228ldegalerie-alte-meister-dresden-germany | Gemäldegalerie Alte Meister, Dresden | Dresden | Germany | 14 | 0 |
-| TODO | wallace-collection | Wallace Collection | London | United Kingdom | 13 | 0 |
-| TODO | van-gogh-museum | Van Gogh Museum | Amsterdam | Netherlands | 13 | 0 |
-| TODO | royal-museums-belgium | Royal Museums of Fine Arts of Belgium | Brussels | Belgium | 13 | 0 |
-| TODO | fitzwilliam-museum-university-of-cambridge-cambrid | Fitzwilliam Museum (University of Cambridge), Cambridge | Cambridge | UK | 13 | 0 |
-| TODO | st-bavo-cathedral-ghent-belgium | St. Bavo Cathedral, Ghent | Ghent | Belgium | 13 | 0 |
-| TODO | mauritshuis | Mauritshuis | The Hague | Netherlands | 12 | 0 |
-| TODO | neue-pinakothek | Neue Pinakothek | Munich | Germany | 11 | 0 |
-| TODO | gemeentemuseum-den-haag-hague-netherlands | Gemeentemuseum den Haag, Hague | The Hague | Netherlands | 11 | 0 |
-| TODO | kroeller-mueller-museum | Kröller-Müller Museum | Otterlo | Netherlands | 11 | 0 |
-| TODO | national-gallery-of-denmark-statens-museum-for-kun | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | Denmark | Unknown | 11 | 0 |
-| TODO | musee-bonnat | Musée Bonnat-Helleu | Bayonne | France | 10 | 0 |
-| TODO | palais-des-beauxarts-de-lille-lille-france | Palais des Beaux-Arts de Lille, Lille | Lille | France | 10 | 0 |
-| TODO | kunsthaus-zurich | Kunsthaus Zürich | Zurich | Switzerland | 10 | 0 |
-| TODO | frick-collection | Frick Collection | Unknown | Unknown | 10 | 0 |
+| DONE | gem228ldegalerie-alte-meister-dresden-germany | Gemäldegalerie Alte Meister, Dresden | Dresden | Germany | 14 | 6 |
+| DONE | wallace-collection | Wallace Collection | London | United Kingdom | 13 | 6 |
+| DONE | van-gogh-museum | Van Gogh Museum | Amsterdam | Netherlands | 13 | 6 |
+| DONE | royal-museums-belgium | Royal Museums of Fine Arts of Belgium | Brussels | Belgium | 13 | 6 |
+| DONE | fitzwilliam-museum-university-of-cambridge-cambrid | Fitzwilliam Museum (University of Cambridge), Cambridge | Cambridge | UK | 13 | 6 |
+| DONE | st-bavo-cathedral-ghent-belgium | St. Bavo Cathedral, Ghent | Ghent | Belgium | 13 | 6 |
+| DONE | mauritshuis | Mauritshuis | The Hague | Netherlands | 12 | 6 |
+| DONE | neue-pinakothek | Neue Pinakothek | Munich | Germany | 11 | 6 |
+| DONE | gemeentemuseum-den-haag-hague-netherlands | Gemeentemuseum den Haag, Hague | The Hague | Netherlands | 11 | 6 |
+| DONE | kroeller-mueller-museum | Kröller-Müller Museum | Otterlo | Netherlands | 11 | 6 |
+| DONE | national-gallery-of-denmark-statens-museum-for-kun | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | Denmark | Unknown | 11 | 6 |
+| DONE | musee-bonnat | Musée Bonnat-Helleu | Bayonne | France | 10 | 6 |
+| DONE | palais-des-beauxarts-de-lille-lille-france | Palais des Beaux-Arts de Lille, Lille | Lille | France | 10 | 6 |
+| DONE | kunsthaus-zurich | Kunsthaus Zürich | Zurich | Switzerland | 10 | 6 |
+| DONE | frick-collection | Frick Collection | Unknown | Unknown | 10 | 6 |
 | TODO | lenbachhaus | Lenbachhaus | Munich | Germany | 10 | 0 |
 | TODO | museum-boijmans-van-beuningen-rotterdam-netherland | Museum Boijmans van Beuningen, Rotterdam | Rotterdam | Netherlands | 10 | 0 |
 | TODO | gallerie-dell-accademia-venice | Gallerie dell'Accademia | Venice | Italy | 10 | 0 |
