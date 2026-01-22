@@ -3,14 +3,14 @@ export default function CityLoading() {
     <div className="bg-white min-h-screen">
       {/* Header skeleton */}
       <div className="bg-neutral-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="h-10 w-40 bg-neutral-700 rounded animate-pulse mb-2" />
           <div className="h-6 w-24 bg-neutral-700 rounded animate-pulse mb-4" />
           <div className="h-4 w-48 bg-neutral-700 rounded animate-pulse" />
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb skeleton */}
         <div className="flex gap-2 mb-8">
           <div className="h-4 w-12 bg-neutral-200 rounded animate-pulse" />

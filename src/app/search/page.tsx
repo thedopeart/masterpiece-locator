@@ -188,7 +188,7 @@ export default async function SearchPage({ searchParams }: Props) {
     <div className="bg-white min-h-screen">
       {/* Header */}
       <div style={{ backgroundColor: '#000', color: '#fff' }} className="py-8">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="text-sm mb-4">
             <Link href="/" style={{ color: '#999' }} className="hover:text-white">
@@ -227,7 +227,7 @@ export default async function SearchPage({ searchParams }: Props) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
 
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}

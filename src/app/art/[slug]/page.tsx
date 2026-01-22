@@ -312,8 +312,8 @@ export default async function ArtworkPage({ params }: Props) {
       />
       <BreadcrumbSchema items={breadcrumbItems} />
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* Breadcrumb */}
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
+        {/* Breadcrumb - full width */}
         <nav className="text-sm text-neutral-600 mb-6">
           <Link href="/" className="hover:text-neutral-900 hover:underline">
             Home
@@ -333,275 +333,429 @@ export default async function ArtworkPage({ params }: Props) {
           <span className="font-medium text-neutral-900">{artwork.title}</span>
         </nav>
 
-        {/* Hero Image */}
-        {artwork.imageUrl ? (
-          <div className="mb-8">
-            <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-lg overflow-hidden bg-neutral-100">
-              <Image
-                src={artwork.imageUrl}
-                alt={altText}
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 768px) 100vw, 800px"
-                unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
-              />
-            </div>
-            {artwork.imageAttribution && (
-              <p className="text-sm text-neutral-500 mt-2 text-center">
-                {artwork.imageAttribution}
-              </p>
-            )}
-          </div>
-        ) : (
-          <div className="mb-8 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-lg p-12 text-center border border-neutral-300">
-            <div className="text-7xl font-light text-neutral-300 mb-4">
-              {artwork.title.charAt(0)}
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
-              <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
-            </div>
-            <p className="text-neutral-500 text-sm max-w-md mx-auto">
-              This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
-            </p>
-            {artwork.museum && (
-              <p className="text-neutral-600 text-sm mt-4 font-medium">
-                See the original at {artwork.museum.name} in {artwork.museum.city}
-              </p>
-            )}
-          </div>
-        )}
-
-        {/* Title & Basic Info */}
-        <header className="mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
-            {artwork.title}
-          </h1>
-          <p className="text-xl text-neutral-600">
-            by{" "}
-            {artwork.artist ? (
-              <Link href={`/artist/${artwork.artist.slug}`} className="hover:text-[#C9A84C] transition-colors">
-                {artwork.artist.name}
-              </Link>
-            ) : (
-              "Unknown Artist"
-            )}
-            {artwork.year && <>, {artwork.year}</>}
-          </p>
-          {/* Movement badges */}
-          {artwork.artist?.movements && artwork.artist.movements.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-3">
-              {artwork.artist.movements.map((movement) => (
-                <Link
-                  key={movement.slug}
-                  href={`/movement/${movement.slug}`}
-                  className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm hover:bg-amber-200 transition-colors"
-                >
-                  {movement.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </header>
-
-        {/* Only show description if we have real content from the database */}
-        {artwork.description && (
-          <section className="mb-8">
-            <div
-              className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-p:mb-4"
-              dangerouslySetInnerHTML={{ __html: artwork.description }}
-            />
-          </section>
-        )}
-
-        {/* Where to See It */}
-        {artwork.museum && (
-          <section className="bg-neutral-100 rounded-xl p-6 mb-8 border border-neutral-200">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-              Visit {artwork.title} in Person
-            </h2>
-            <div>
-              <h3 className="text-lg mb-1">
-                <Link
-                  href={`/museum/${artwork.museum.slug}`}
-                  className="font-medium text-neutral-900 hover:text-[#C9A84C] transition-colors"
-                >
-                  {artwork.museum.name}
-                </Link>
-              </h3>
-              {artwork.museum.address && (
-                <p className="text-neutral-600 mt-1">{artwork.museum.address}</p>
-              )}
-              <p className="text-neutral-600">
-                {artwork.museum.city}, {artwork.museum.country}
-              </p>
-              {artwork.galleryRoom && (
-                <p className="mt-3 text-neutral-800 font-medium">
-                  Gallery: {artwork.galleryRoom}
-                </p>
-              )}
-              <div className="mt-4 flex flex-wrap gap-3">
-                {artwork.museum.websiteUrl && (
-                  <a
-                    href={artwork.museum.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-700 hover:text-black transition-colors"
-                  >
-                    Museum Website
-                  </a>
-                )}
-                {artwork.museum.ticketUrl && (
-                  <a
-                    href={artwork.museum.ticketUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-black text-white px-4 py-2 rounded hover:bg-neutral-800 transition-colors"
-                  >
-                    Buy Tickets
-                  </a>
+        {/* Two-column layout */}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main Content */}
+          <div className="flex-1 min-w-0 lg:max-w-[65%]">
+            {/* Hero Image */}
+            {artwork.imageUrl ? (
+              <div className="mb-6">
+                <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-lg overflow-hidden bg-neutral-100">
+                  <Image
+                    src={artwork.imageUrl}
+                    alt={altText}
+                    fill
+                    className="object-contain"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 900px"
+                    unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                  />
+                </div>
+                {artwork.imageAttribution && (
+                  <p className="text-sm text-neutral-500 mt-2 text-center">
+                    {artwork.imageAttribution}
+                  </p>
                 )}
               </div>
-            </div>
-            {artwork.isPermanent && (
-              <p className="mt-4 text-sm text-neutral-600 flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Permanently housed. This work does not travel.
-              </p>
+            ) : (
+              <div className="mb-6 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-lg p-12 text-center border border-neutral-300">
+                <div className="text-7xl font-light text-neutral-300 mb-4">
+                  {artwork.title.charAt(0)}
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
+                  <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
+                </div>
+                <p className="text-neutral-500 text-sm max-w-md mx-auto">
+                  This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
+                </p>
+                {artwork.museum && (
+                  <p className="text-neutral-600 text-sm mt-4 font-medium">
+                    See the original at {artwork.museum.name} in {artwork.museum.city}
+                  </p>
+                )}
+              </div>
             )}
-          </section>
-        )}
 
-
-        {/* Historical Significance */}
-        {artwork.historicalSignificance && (
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              Historical Significance
-            </h2>
-            <div className="prose max-w-none text-neutral-700 leading-relaxed">
-              <p>{artwork.historicalSignificance}</p>
-            </div>
-          </section>
-        )}
-
-        {/* Technical Details - only show medium and dimensions (year/artist already in header) */}
-        {(artwork.medium || artwork.dimensions) && (
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              Details
-            </h2>
-            <dl className="grid grid-cols-2 gap-4 text-sm bg-neutral-50 rounded-lg p-4">
-              {artwork.medium && (
-                <>
-                  <dt className="text-neutral-500 font-medium">Medium</dt>
-                  <dd className="text-neutral-900">{artwork.medium}</dd>
-                </>
+            {/* Title & Basic Info */}
+            <header className="mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
+                {artwork.title}
+              </h1>
+              <p className="text-xl text-neutral-600">
+                by{" "}
+                {artwork.artist ? (
+                  <Link href={`/artist/${artwork.artist.slug}`} className="hover:text-[#C9A84C] transition-colors">
+                    {artwork.artist.name}
+                  </Link>
+                ) : (
+                  "Unknown Artist"
+                )}
+                {artwork.year && <>, {artwork.year}</>}
+              </p>
+              {/* Movement badges */}
+              {artwork.artist?.movements && artwork.artist.movements.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {artwork.artist.movements.map((movement) => (
+                    <Link
+                      key={movement.slug}
+                      href={`/movement/${movement.slug}`}
+                      className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm hover:bg-amber-200 transition-colors"
+                    >
+                      {movement.name}
+                    </Link>
+                  ))}
+                </div>
               )}
-              {artwork.dimensions && (
-                <>
-                  <dt className="text-neutral-500 font-medium">Dimensions</dt>
-                  <dd className="text-neutral-900">{artwork.dimensions}</dd>
-                </>
+            </header>
+
+            {/* Mobile sidebar - shown on small screens */}
+            <div className="lg:hidden space-y-4 mb-8">
+              {/* Quick Facts */}
+              {(artwork.year || artwork.medium || artwork.dimensions || artwork.galleryRoom) && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-3">Details</h3>
+                  <dl className="space-y-2 text-sm">
+                    {artwork.year && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Year</dt>
+                        <dd className="text-neutral-900 font-medium">{artwork.year}</dd>
+                      </div>
+                    )}
+                    {artwork.medium && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Medium</dt>
+                        <dd className="text-neutral-900 font-medium text-right">{artwork.medium}</dd>
+                      </div>
+                    )}
+                    {artwork.dimensions && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Size</dt>
+                        <dd className="text-neutral-900 font-medium">{artwork.dimensions}</dd>
+                      </div>
+                    )}
+                    {artwork.galleryRoom && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Gallery</dt>
+                        <dd className="text-neutral-900 font-medium">{artwork.galleryRoom}</dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
               )}
-            </dl>
-          </section>
-        )}
 
-        {/* About the Artist - only show if we have real bio content */}
-        {artwork.artist && artwork.artist.bioShort && (
-          <section className="mb-8 border-t pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              About {artwork.artist.name}
-            </h2>
-            <p className="text-neutral-700 mb-4 leading-relaxed">{artwork.artist.bioShort}</p>
-            <Link
-              href={`/artist/${artwork.artist.slug}`}
-              className="text-[#C9A84C] hover:underline font-medium"
-            >
-              View all works by {artwork.artist.name} →
-            </Link>
-          </section>
-        )}
+              {/* Museum Card - Mobile */}
+              {artwork.museum && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-2">Where to See It</h3>
+                  <Link
+                    href={`/museum/${artwork.museum.slug}`}
+                    className="font-medium text-neutral-900 hover:text-[#C9A84C] transition-colors"
+                  >
+                    {artwork.museum.name}
+                  </Link>
+                  <p className="text-neutral-600 text-sm mt-1">
+                    {artwork.museum.city}, {artwork.museum.country}
+                  </p>
+                  {artwork.isPermanent && (
+                    <p className="text-xs text-green-700 mt-2 flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Permanently housed
+                    </p>
+                  )}
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {artwork.museum.websiteUrl && (
+                      <a
+                        href={artwork.museum.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-neutral-700 hover:text-black transition-colors underline"
+                      >
+                        Museum Website
+                      </a>
+                    )}
+                    {artwork.museum.ticketUrl && (
+                      <a
+                        href={artwork.museum.ticketUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm bg-black text-white px-3 py-1 rounded hover:bg-neutral-800 transition-colors"
+                      >
+                        Buy Tickets
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
 
-        {/* Series Variations - no templated description, just the artworks */}
-        {seriesVariations.length > 0 && artwork.artist && seriesName && (
-          <section className="mb-8 border-t border-neutral-200 pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-              {seriesName} Series by {artwork.artist.name}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {seriesVariations.map((item) => (
-                <ArtworkCard key={item.id} artwork={item} />
-              ))}
+              {/* Artist Card - Mobile */}
+              {artwork.artist && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-2">The Artist</h3>
+                  <Link
+                    href={`/artist/${artwork.artist.slug}`}
+                    className="font-medium text-neutral-900 hover:text-[#C9A84C] transition-colors"
+                  >
+                    {artwork.artist.name}
+                  </Link>
+                  {(artwork.artist.birthYear || artwork.artist.deathYear) && (
+                    <p className="text-neutral-600 text-sm mt-1">
+                      {artwork.artist.birthYear && artwork.artist.deathYear
+                        ? `${artwork.artist.birthYear}–${artwork.artist.deathYear}`
+                        : artwork.artist.birthYear
+                        ? `Born ${artwork.artist.birthYear}`
+                        : `Died ${artwork.artist.deathYear}`}
+                    </p>
+                  )}
+                  {artwork.artist.nationality && (
+                    <p className="text-neutral-500 text-sm">{artwork.artist.nationality}</p>
+                  )}
+                  <Link
+                    href={`/artist/${artwork.artist.slug}`}
+                    className="text-sm text-[#C9A84C] hover:underline mt-2 inline-block"
+                  >
+                    View all works →
+                  </Link>
+                </div>
+              )}
             </div>
-          </section>
-        )}
 
-        {/* More by this Artist - no templated description */}
-        {filteredMoreByArtist.length > 0 && artwork.artist && (
-          <section className="mb-8 border-t border-neutral-200 pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-              More by {artwork.artist.name}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {filteredMoreByArtist.map((item) => (
-                <ArtworkCard key={item.id} artwork={item} />
-              ))}
-            </div>
-          </section>
-        )}
+            {/* Description */}
+            {artwork.description && (
+              <section className="mb-8">
+                <div
+                  className="text-neutral-600 leading-relaxed prose prose-neutral max-w-none prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-p:mb-4"
+                  dangerouslySetInnerHTML={{ __html: artwork.description }}
+                />
+              </section>
+            )}
 
-        {/* Other Works at This Museum - no templated description */}
-        {nearbyArtworks.length > 0 && artwork.museum && (
-          <section className="mb-8 border-t border-neutral-200 pt-8">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-              Also at {artwork.museum.name}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {nearbyArtworks.map((item) => (
-                <ArtworkCard key={item.id} artwork={item} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* FAQ Section - use stored FAQs from database */}
-        {(() => {
-          // Use stored FAQs if available, otherwise fall back to generated location FAQ
-          const storedFaqs = rawArtwork.faqs as Array<{question: string; answer: string}> | null;
-          const faqs = storedFaqs && storedFaqs.length > 0
-            ? storedFaqs
-            : generateArtworkFAQ(artwork);
-          return faqs.length > 0 ? (
-            <>
-              <FAQSchema items={faqs} />
-              <FAQ items={faqs} title={`About ${artwork.title}`} />
-            </>
-          ) : null;
-        })()}
-
-        {/* CTA */}
-        <section className="border-t border-neutral-200 pt-8">
-          <div className="bg-black rounded-xl p-8 text-center">
-            <h2 className="text-xl font-semibold text-white mb-2">
-              Own Art Like This
-            </h2>
-            <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-              Gallery-quality canvas prints with the same mood and energy. No museum crowds required.
-            </p>
-            <Link
-              href="https://luxurywallart.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
-            >
-              Browse Collection
-            </Link>
+            {/* Historical Significance */}
+            {artwork.historicalSignificance && (
+              <section className="mb-8">
+                <h2 className="text-xl font-semibold text-neutral-900 mb-3">
+                  Historical Significance
+                </h2>
+                <div className="prose max-w-none text-neutral-700 leading-relaxed">
+                  <p>{artwork.historicalSignificance}</p>
+                </div>
+              </section>
+            )}
           </div>
-        </section>
+
+          {/* Sidebar - Desktop only */}
+          <aside className="hidden lg:block lg:w-80 shrink-0">
+            <div className="lg:sticky lg:top-20 space-y-6">
+              {/* Quick Facts */}
+              {(artwork.year || artwork.medium || artwork.dimensions || artwork.galleryRoom) && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-3">Details</h3>
+                  <dl className="space-y-3 text-sm">
+                    {artwork.year && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Year</dt>
+                        <dd className="text-neutral-900 font-medium">{artwork.year}</dd>
+                      </div>
+                    )}
+                    {artwork.medium && (
+                      <div className="flex justify-between gap-4">
+                        <dt className="text-neutral-500 shrink-0">Medium</dt>
+                        <dd className="text-neutral-900 font-medium text-right">{artwork.medium}</dd>
+                      </div>
+                    )}
+                    {artwork.dimensions && (
+                      <div className="flex justify-between">
+                        <dt className="text-neutral-500">Size</dt>
+                        <dd className="text-neutral-900 font-medium">{artwork.dimensions}</dd>
+                      </div>
+                    )}
+                    {artwork.galleryRoom && (
+                      <div className="flex justify-between gap-4">
+                        <dt className="text-neutral-500 shrink-0">Gallery</dt>
+                        <dd className="text-neutral-900 font-medium text-right">{artwork.galleryRoom}</dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
+              )}
+
+              {/* Museum Card */}
+              {artwork.museum && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-2">Where to See It</h3>
+                  <Link
+                    href={`/museum/${artwork.museum.slug}`}
+                    className="font-medium text-neutral-900 hover:text-[#C9A84C] transition-colors block"
+                  >
+                    {artwork.museum.name}
+                  </Link>
+                  <p className="text-neutral-600 text-sm mt-1">
+                    {artwork.museum.city}, {artwork.museum.country}
+                  </p>
+                  {artwork.museum.address && (
+                    <p className="text-neutral-500 text-xs mt-1">{artwork.museum.address}</p>
+                  )}
+                  {artwork.isPermanent && (
+                    <p className="text-xs text-green-700 mt-3 flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Permanently housed
+                    </p>
+                  )}
+                  <div className="mt-4 flex flex-col gap-2">
+                    {artwork.museum.ticketUrl && (
+                      <a
+                        href={artwork.museum.ticketUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-black text-white px-4 py-2 rounded text-sm text-center hover:bg-neutral-800 transition-colors"
+                      >
+                        Buy Tickets
+                      </a>
+                    )}
+                    {artwork.museum.websiteUrl && (
+                      <a
+                        href={artwork.museum.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-neutral-700 hover:text-black transition-colors text-center"
+                      >
+                        Museum Website
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Artist Card */}
+              {artwork.artist && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-2">The Artist</h3>
+                  <Link
+                    href={`/artist/${artwork.artist.slug}`}
+                    className="font-medium text-neutral-900 hover:text-[#C9A84C] transition-colors block"
+                  >
+                    {artwork.artist.name}
+                  </Link>
+                  {(artwork.artist.birthYear || artwork.artist.deathYear) && (
+                    <p className="text-neutral-600 text-sm mt-1">
+                      {artwork.artist.birthYear && artwork.artist.deathYear
+                        ? `${artwork.artist.birthYear}–${artwork.artist.deathYear}`
+                        : artwork.artist.birthYear
+                        ? `Born ${artwork.artist.birthYear}`
+                        : `Died ${artwork.artist.deathYear}`}
+                    </p>
+                  )}
+                  {artwork.artist.nationality && (
+                    <p className="text-neutral-500 text-sm">{artwork.artist.nationality}</p>
+                  )}
+                  <Link
+                    href={`/artist/${artwork.artist.slug}`}
+                    className="text-sm text-[#C9A84C] hover:underline mt-3 inline-block"
+                  >
+                    View all works →
+                  </Link>
+                </div>
+              )}
+
+              {/* Wikipedia Link */}
+              {artwork.wikipediaUrl && (
+                <a
+                  href={artwork.wikipediaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.812-.24l-.201-.021c-.052 0-.098-.015-.145-.051-.045-.031-.067-.076-.067-.129v-.427l.061-.045c1.247-.008 4.043 0 4.043 0l.059.045v.436c0 .121-.059.178-.193.178-.646.03-.782.095-1.023.439-.12.186-.375.589-.646 1.039l-2.301 4.273-.065.135 2.792 5.712.17.048 4.396-10.438c.154-.422.129-.722-.064-.895-.197-.172-.346-.273-.857-.295l-.42-.016c-.061 0-.105-.014-.152-.045-.043-.029-.072-.075-.072-.119v-.436l.059-.045h4.961l.041.045v.437c0 .119-.074.18-.209.18-.648.03-1.127.18-1.443.421-.314.255-.557.616-.736 1.067 0 0-4.043 9.258-5.426 12.339-.525 1.007-1.053.917-1.503-.031-.571-1.171-1.773-3.786-2.646-5.71l.053-.036z"/>
+                  </svg>
+                  Read on Wikipedia
+                </a>
+              )}
+            </div>
+          </aside>
+        </div>
+
+        {/* Full-width sections */}
+        <div className="mt-12">
+          {/* Series Variations */}
+          {seriesVariations.length > 0 && artwork.artist && seriesName && (
+            <section className="mb-12 border-t border-neutral-200 pt-8">
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+                {seriesName} Series by {artwork.artist.name}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                {seriesVariations.map((item) => (
+                  <ArtworkCard key={item.id} artwork={item} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* More by this Artist */}
+          {filteredMoreByArtist.length > 0 && artwork.artist && (
+            <section className="mb-12 border-t border-neutral-200 pt-8">
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+                More by {artwork.artist.name}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                {filteredMoreByArtist.map((item) => (
+                  <ArtworkCard key={item.id} artwork={item} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Other Works at This Museum */}
+          {nearbyArtworks.length > 0 && artwork.museum && (
+            <section className="mb-12 border-t border-neutral-200 pt-8">
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+                Also at {artwork.museum.name}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                {nearbyArtworks.map((item) => (
+                  <ArtworkCard key={item.id} artwork={item} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* FAQ Section */}
+          {(() => {
+            const storedFaqs = rawArtwork.faqs as Array<{question: string; answer: string}> | null;
+            const faqs = storedFaqs && storedFaqs.length > 0
+              ? storedFaqs
+              : generateArtworkFAQ(artwork);
+            return faqs.length > 0 ? (
+              <section className="mb-12 border-t border-neutral-200 pt-8">
+                <FAQSchema items={faqs} />
+                <FAQ items={faqs} title={`About ${artwork.title}`} />
+              </section>
+            ) : null;
+          })()}
+
+          {/* CTA */}
+          <section className="border-t border-neutral-200 pt-8">
+            <div className="bg-black rounded-xl p-8 text-center">
+              <h2 className="text-xl font-semibold text-white mb-2">
+                Own Art Like This
+              </h2>
+              <p className="text-neutral-400 mb-6 max-w-md mx-auto">
+                Gallery-quality canvas prints with the same mood and energy. No museum crowds required.
+              </p>
+              <Link
+                href="https://luxurywallart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
+              >
+                Browse Collection
+              </Link>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ export default function SearchLoading() {
     <div className="bg-white min-h-screen">
       {/* Header skeleton */}
       <div className="bg-neutral-900 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="h-8 w-48 bg-neutral-700 rounded animate-pulse mb-4" />
           {/* Search form skeleton */}
           <div className="max-w-2xl">
@@ -12,7 +12,7 @@ export default function SearchLoading() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb skeleton */}
         <div className="flex gap-2 mb-6">
           <div className="h-4 w-12 bg-neutral-200 rounded animate-pulse" />

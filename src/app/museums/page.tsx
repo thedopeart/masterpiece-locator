@@ -9,6 +9,8 @@ import {
   isCountryNotCity,
   isPrivateCollection,
 } from "@/lib/text";
+import CountrySidebar from "./CountrySidebar";
+import MobileCountrySelect from "./MobileCountrySelect";
 
 const museumFAQs = [
   {
@@ -101,13 +103,29 @@ export default async function MuseumsPage() {
     {} as Record<string, typeof museums>
   );
 
-  const countries = Object.keys(byCountry).sort();
+  // Sort countries by total artwork count (descending)
+  const countriesWithData = Object.entries(byCountry)
+    .map(([country, countryMuseums]) => ({
+      name: country,
+      slug: country.toLowerCase().replace(/\s+/g, '-'),
+      museums: countryMuseums,
+      totalArtworks: countryMuseums.reduce((sum, m) => sum + m._count.artworks, 0),
+      museumCount: countryMuseums.length,
+    }))
+    .sort((a, b) => b.totalArtworks - a.totalArtworks);
+
+  const countries = countriesWithData.map(c => c.name);
+
+  // Featured museums - top 3 by artwork count
+  const featuredMuseums = [...museums]
+    .sort((a, b) => b._count.artworks - a._count.artworks)
+    .slice(0, 3);
 
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
       <div style={{ backgroundColor: '#000', color: '#fff' }} className="py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="text-sm mb-6">
             <Link href="/" style={{ color: '#999' }} className="hover:text-white">
@@ -154,120 +172,225 @@ export default async function MuseumsPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Museums by Country */}
-        {countries.map((country) => (
-          <section key={country} className="mb-12">
-            <h2 className="text-2xl font-semibold text-neutral-900 mb-6 pb-2 border-b">
-              {country}
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {byCountry[country].map((museum) => (
-                <Link
-                  key={museum.id}
-                  href={`/museum/${museum.slug}`}
-                  className="group bg-white rounded-xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-shadow"
-                >
-                  {/* Preview Images */}
-                  <div className="h-32 bg-neutral-100 relative overflow-hidden">
-                    {museum.artworks.length > 0 ? (
-                      <div className="flex h-full">
-                        {museum.artworks.map((artwork, idx) => (
-                          <div
-                            key={idx}
-                            className="flex-1 relative"
-                            style={{
-                              width: `${100 / museum.artworks.length}%`,
-                            }}
-                          >
-                            {artwork.imageUrl && (
-                              <Image
-                                src={artwork.imageUrl}
-                                alt={artwork.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 33vw, 20vw"
-                                unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
-                              />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    ) : museum.imageUrl ? (
-                      <Image
-                        src={museum.imageUrl}
-                        alt={museum.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
-                        <span className="text-4xl font-light text-neutral-400">{museum.name.charAt(0)}</span>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  </div>
-
-                  <div className="p-4">
-                    <h3 className="font-semibold text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
-                      {museum.name}
-                    </h3>
-                    <p className="text-sm text-neutral-500 mt-1">{museum.city}</p>
-                    <div className="flex items-center justify-between mt-3">
-                      <span className="text-sm text-neutral-600">
-                        {museum._count.artworks} masterpiece
-                        {museum._count.artworks !== 1 ? "s" : ""}
-                      </span>
-                      <span className="text-neutral-500 text-sm group-hover:text-black transition-colors">
-                        View
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ))}
-
-        {/* About Section */}
-        <section className="mt-16 mb-12">
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-6">
-            About This Directory
+      {/* Featured Museums Section */}
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
+        <section className="mb-12">
+          <h2 className="text-xl font-semibold text-neutral-900 mb-6">
+            World&apos;s Most Famous Museums
           </h2>
-          <div className="prose max-w-none text-neutral-700">
-            <p className="mb-4">
-              Each museum page shows you what&apos;s on display, ticket prices, official website links, and address info. Click into any museum to see the specific paintings they have and which artists are represented.
-            </p>
-            <p>
-              We&apos;ve organized everything by country. Scroll down or use the search if you&apos;re looking for somewhere specific.
-            </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {featuredMuseums.map((museum) => (
+              <Link
+                key={museum.id}
+                href={`/museum/${museum.slug}`}
+                className="group bg-white rounded-xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                {/* Featured Preview Images - taller */}
+                <div className="h-48 bg-neutral-100 relative overflow-hidden">
+                  {museum.artworks.length > 0 ? (
+                    <div className="flex h-full">
+                      {museum.artworks.map((artwork, idx) => (
+                        <div
+                          key={idx}
+                          className="flex-1 relative"
+                          style={{
+                            width: `${100 / museum.artworks.length}%`,
+                          }}
+                        >
+                          {artwork.imageUrl && (
+                            <Image
+                              src={artwork.imageUrl}
+                              alt={artwork.title}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 50vw, 33vw"
+                              unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : museum.imageUrl ? (
+                    <Image
+                      src={museum.imageUrl}
+                      alt={museum.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
+                      <span className="text-5xl font-light text-neutral-400">{museum.name.charAt(0)}</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <span className="inline-block bg-[#C9A84C] text-black text-xs font-semibold px-2 py-1 rounded">
+                      {museum._count.artworks.toLocaleString()} masterpieces
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                    {museum.name}
+                  </h3>
+                  <p className="text-sm text-neutral-500 mt-1">
+                    {museum.city}, {museum.country}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
-
-        {/* FAQ Section */}
-        <FAQSchema items={museumFAQs} />
-        <FAQ items={museumFAQs} title="Common Questions" />
-
-        {/* CTA */}
-        <section className="mt-12 bg-black rounded-xl p-8 text-center">
-          <h2 className="text-xl font-semibold text-white mb-2">
-            Can&apos;t Visit in Person?
-          </h2>
-          <p className="text-neutral-400 mb-4">
-            Gallery-quality canvas prints, delivered to your door.
-          </p>
-          <a
-            href="https://luxurywallart.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
-          >
-            Browse Collection
-          </a>
-        </section>
       </div>
+
+      {/* Main Content with Sidebar */}
+      <div className="max-w-[1400px] mx-auto px-4 pb-8">
+        <div className="flex gap-8">
+          {/* Sidebar - Desktop Only */}
+          <CountrySidebar countries={countriesWithData} />
+
+          {/* Museums by Country */}
+          <div className="flex-1 min-w-0">
+            {/* Mobile Country Selector */}
+            <MobileCountrySelect countries={countriesWithData} />
+
+            {countriesWithData.map((countryData) => (
+              <section
+                key={countryData.name}
+                id={countryData.slug}
+                className="mb-12 scroll-mt-4"
+              >
+                <div className="flex items-center justify-between mb-6 pb-2 border-b">
+                  <h2 className="text-2xl font-semibold text-neutral-900">
+                    {countryData.name}
+                  </h2>
+                  <span className="text-sm text-neutral-500 bg-neutral-100 px-2 py-1 rounded">
+                    {countryData.totalArtworks.toLocaleString()} artworks
+                  </span>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {countryData.museums.map((museum) => (
+                    <Link
+                      key={museum.id}
+                      href={`/museum/${museum.slug}`}
+                      className="group bg-white rounded-xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-shadow"
+                    >
+                      {/* Preview Images */}
+                      <div className="h-32 bg-neutral-100 relative overflow-hidden">
+                        {museum.artworks.length > 0 ? (
+                          <div className="flex h-full">
+                            {museum.artworks.map((artwork, idx) => (
+                              <div
+                                key={idx}
+                                className="flex-1 relative"
+                                style={{
+                                  width: `${100 / museum.artworks.length}%`,
+                                }}
+                              >
+                                {artwork.imageUrl && (
+                                  <Image
+                                    src={artwork.imageUrl}
+                                    alt={artwork.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 33vw, 20vw"
+                                    unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                                  />
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : museum.imageUrl ? (
+                          <Image
+                            src={museum.imageUrl}
+                            alt={museum.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+                          />
+                        ) : (
+                          <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
+                            <span className="text-4xl font-light text-neutral-400">{museum.name.charAt(0)}</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                      </div>
+
+                      <div className="p-4">
+                        <h3 className="font-semibold text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                          {museum.name}
+                        </h3>
+                        <p className="text-sm text-neutral-500 mt-1">{museum.city}</p>
+                        <div className="flex items-center justify-between mt-3">
+                          <span className="text-sm text-neutral-600">
+                            {museum._count.artworks} masterpiece
+                            {museum._count.artworks !== 1 ? "s" : ""}
+                          </span>
+                          <span className="text-neutral-500 text-sm group-hover:text-black transition-colors">
+                            View
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ))}
+
+            {/* About Section */}
+            <section className="mt-16 mb-12">
+              <h2 className="text-2xl font-semibold text-neutral-900 mb-6">
+                About This Directory
+              </h2>
+              <div className="prose max-w-none text-neutral-700">
+                <p className="mb-4">
+                  Each museum page shows you what&apos;s on display, ticket prices, official website links, and address info. Click into any museum to see the specific paintings they have and which artists are represented.
+                </p>
+                <p>
+                  We&apos;ve organized museums by country, sorted by total artwork count. Use the sidebar to jump to a specific country, or scroll through the full list.
+                </p>
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <FAQSchema items={museumFAQs} />
+            <FAQ items={museumFAQs} title="Common Questions" />
+
+            {/* CTA */}
+            <section className="mt-12 bg-black rounded-xl p-8 text-center">
+              <h2 className="text-xl font-semibold text-white mb-2">
+                Can&apos;t Visit in Person?
+              </h2>
+              <p className="text-neutral-400 mb-4">
+                Gallery-quality canvas prints, delivered to your door.
+              </p>
+              <a
+                href="https://luxurywallart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
+              >
+                Browse Collection
+              </a>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/* Back to Top Button */}
+      <a
+        href="#"
+        className="fixed bottom-6 right-6 bg-black text-white p-3 rounded-full shadow-lg hover:bg-neutral-800 transition-colors hidden lg:block"
+        aria-label="Back to top"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </a>
     </div>
   );
 }

@@ -3,7 +3,7 @@ export default function MovementsLoading() {
     <div className="bg-white min-h-screen">
       {/* Header skeleton */}
       <div className="bg-black py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           {/* Breadcrumb */}
           <div className="flex gap-2 mb-6">
             <div className="h-4 w-12 bg-neutral-700 rounded animate-pulse" />
@@ -16,7 +16,7 @@ export default function MovementsLoading() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Timeline skeleton */}
         <div className="relative">
           {/* Timeline line */}
