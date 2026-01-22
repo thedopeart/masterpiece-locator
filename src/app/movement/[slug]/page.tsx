@@ -162,7 +162,7 @@ export default async function MovementPage({ params }: Props) {
     <div className="bg-white min-h-screen">
       {/* Header */}
       <div className="bg-neutral-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="text-amber-400 font-medium mb-2">
             {movement.startYear}
             {movement.endYear ? ` - ${movement.endYear}` : " - Present"}
@@ -178,7 +178,7 @@ export default async function MovementPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-8">
           <Link href="/" className="hover:text-neutral-900 hover:underline">

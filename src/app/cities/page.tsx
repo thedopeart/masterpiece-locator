@@ -123,7 +123,7 @@ export default async function CitiesPage() {
     <div className="bg-white min-h-screen">
       {/* Header */}
       <div style={{ backgroundColor: '#000', color: '#fff' }} className="py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="text-sm mb-6">
             <Link href="/" style={{ color: '#999' }} className="hover:text-white">
@@ -164,7 +164,7 @@ export default async function CitiesPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Section Header */}
         <h2 className="text-2xl font-semibold text-neutral-900 mb-6">
           Browse by Destination

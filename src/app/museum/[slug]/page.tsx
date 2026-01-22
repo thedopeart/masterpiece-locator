@@ -218,7 +218,7 @@ export default async function MuseumPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-r from-neutral-800 to-neutral-900" />
         )}
         <div className="absolute inset-0 flex items-end">
-          <div className="max-w-6xl mx-auto px-4 pb-8 w-full">
+          <div className="max-w-[1400px] mx-auto px-4 pb-8 w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {museum.name}
             </h1>
@@ -229,7 +229,7 @@ export default async function MuseumPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-6">
           <Link href="/" className="hover:text-neutral-900 hover:underline">

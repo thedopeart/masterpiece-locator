@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   // basePath ensures all internal links include /apps/masterpieces prefix
   basePath: "/apps/masterpieces",
 
   // assetPrefix serves static assets from Vercel directly (not through Shopify proxy)
-  assetPrefix: "https://masterpiece-locator.vercel.app/apps/masterpieces",
+  // Only apply in production - in dev, serve locally
+  assetPrefix: isProd
+    ? "https://masterpiece-locator.vercel.app/apps/masterpieces"
+    : undefined,
 
   // Required for Shopify proxy to work correctly
   async headers() {

@@ -3,13 +3,13 @@ export default function ArtistsLoading() {
     <div className="bg-white min-h-screen">
       {/* Header skeleton */}
       <div className="bg-neutral-900 py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="h-10 w-64 bg-neutral-700 rounded animate-pulse mb-4" />
           <div className="h-5 w-96 bg-neutral-700 rounded animate-pulse" />
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb skeleton */}
         <div className="flex gap-2 mb-8">
           <div className="h-4 w-12 bg-neutral-200 rounded animate-pulse" />

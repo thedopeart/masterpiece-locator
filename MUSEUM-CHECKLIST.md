@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete (5+ FAQs).
 
-**Last Updated:** 2026-01-22T00:26
+**Last Updated:** 2026-01-22T00:30
 
-**Progress:** 51/440 complete
+**Progress:** 56/440 complete
 
 ---
 
@@ -57,12 +57,12 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | DONE | brooklyn-museum | Brooklyn Museum | New York | United States | 15 | 6 |
 | DONE | ashmolean-museum-oxford-uk | Ashmolean Museum, Oxford | Oxford | UK | 15 | 6 |
 | DONE | national-gallery-oslo | National Gallery of Norway | Oslo | Norway | 14 | 6 |
-| TODO | mus233e-fabre-montpellier-france | Musée Fabre, Montpellier | Montpellier | France | 14 | 0 |
+| DONE | mus233e-fabre-montpellier-france | Musée Fabre, Montpellier | Montpellier | France | 14 | 6 |
 | DONE | nationalmuseum-stockholm-sweden | Nationalmuseum, Stockholm | Stockholm | Sweden | 14 | 6 |
-| TODO | yale-centre-for-british-art-yale-university-new-ha | Yale Centre For British Art (Yale University), New Haven, CT | US | Unknown | 14 | 0 |
-| TODO | wadsworth-atheneum | Wadsworth Atheneum | Hartford | United States | 14 | 0 |
-| TODO | pinacoteca-di-brera | Pinacoteca di Brera | Milan | Italy | 14 | 0 |
-| TODO | mus233e-national-gustave-moreau-paris-france | Musée National Gustave Moreau, Paris | Paris | France | 14 | 0 |
+| DONE | yale-centre-for-british-art-yale-university-new-ha | Yale Centre For British Art (Yale University), New Haven, CT | New Haven | United States | 14 | 6 |
+| DONE | wadsworth-atheneum | Wadsworth Atheneum | Hartford | United States | 14 | 6 |
+| DONE | pinacoteca-di-brera | Pinacoteca di Brera | Milan | Italy | 14 | 6 |
+| DONE | mus233e-national-gustave-moreau-paris-france | Musée National Gustave Moreau, Paris | Paris | France | 14 | 6 |
 | DONE | gem228ldegalerie-alte-meister-dresden-germany | Gemäldegalerie Alte Meister, Dresden | Dresden | Germany | 14 | 6 |
 | DONE | wallace-collection | Wallace Collection | London | United Kingdom | 13 | 6 |
 | DONE | van-gogh-museum | Van Gogh Museum | Amsterdam | Netherlands | 13 | 6 |
@@ -73,21 +73,21 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | DONE | neue-pinakothek | Neue Pinakothek | Munich | Germany | 11 | 6 |
 | DONE | gemeentemuseum-den-haag-hague-netherlands | Gemeentemuseum den Haag, Hague | The Hague | Netherlands | 11 | 6 |
 | DONE | kroeller-mueller-museum | Kröller-Müller Museum | Otterlo | Netherlands | 11 | 6 |
-| DONE | national-gallery-of-denmark-statens-museum-for-kun | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | Denmark | Unknown | 11 | 6 |
+| DONE | national-gallery-of-denmark-statens-museum-for-kun | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | Copenhagen | Denmark | 11 | 6 |
 | DONE | musee-bonnat | Musée Bonnat-Helleu | Bayonne | France | 10 | 6 |
 | DONE | palais-des-beauxarts-de-lille-lille-france | Palais des Beaux-Arts de Lille, Lille | Lille | France | 10 | 6 |
 | DONE | kunsthaus-zurich | Kunsthaus Zürich | Zurich | Switzerland | 10 | 6 |
-| DONE | frick-collection | Frick Collection | Unknown | Unknown | 10 | 6 |
+| DONE | frick-collection | Frick Collection | New York | United States | 10 | 6 |
 | TODO | lenbachhaus | Lenbachhaus | Munich | Germany | 10 | 0 |
 | TODO | museum-boijmans-van-beuningen-rotterdam-netherland | Museum Boijmans van Beuningen, Rotterdam | Rotterdam | Netherlands | 10 | 0 |
 | TODO | gallerie-dell-accademia-venice | Gallerie dell'Accademia | Venice | Italy | 10 | 0 |
 | TODO | groeningemuseum | Groeningemuseum | Bruges | Belgium | 10 | 0 |
-| TODO | national-gallery-of-umbria-palazzo-dei-priori-peru | National Gallery of Umbria (Palazzo dei Priori), Perugia | Italy | Unknown | 10 | 0 |
-| TODO | scottish-national-gallery | Scottish National Gallery | Unknown | Unknown | 9 | 0 |
+| TODO | national-gallery-of-umbria-palazzo-dei-priori-peru | National Gallery of Umbria (Palazzo dei Priori), Perugia | Perugia | Italy | 10 | 0 |
+| TODO | scottish-national-gallery | Scottish National Gallery | Edinburgh | UK | 9 | 0 |
 | TODO | petit-palais-paris-france | Petit Palais, Paris | Paris | France | 9 | 0 |
 | TODO | dulwich-picture-gallery | Dulwich Picture Gallery | London | United Kingdom | 9 | 0 |
 | TODO | kimbell-art-museum | Kimbell Art Museum | Fort Worth | United States | 9 | 0 |
-| TODO | pushkin-museum | Pushkin Museum | Unknown | Unknown | 9 | 0 |
+| TODO | pushkin-museum | Pushkin Museum | Moscow | Russia | 9 | 0 |
 | TODO | belvedere | Belvedere Museum | Vienna | Austria | 9 | 0 |
 | TODO | clark-art-institute | Clark Art Institute | Williamstown | United States | 9 | 0 |
 | TODO | borghese-gallery-rome-italy | Borghese Gallery, Rome | Rome | Italy | 9 | 0 |
@@ -96,7 +96,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | museum-of-fine-arts-of-seville-seville-spain | Museum of Fine Arts of Seville, Seville | Seville | Spain | 8 | 0 |
 | TODO | musee-toulouse-lautrec | Musée Toulouse-Lautrec | Albi | France | 8 | 0 |
 | TODO | hamburger-kunsthalle | Hamburger Kunsthalle | Hamburg | Germany | 8 | 0 |
-| TODO | 201cole-nationale-sup233rieure-des-beauxarts-ensba | École nationale supérieure des Beaux-Arts (ENSBA), Paris | France | Unknown | 8 | 0 |
+| TODO | 201cole-nationale-sup233rieure-des-beauxarts-ensba | École nationale supérieure des Beaux-Arts (ENSBA), Paris | Paris | France | 8 | 0 |
 | TODO | los-angeles-county-museum-of-art-lacma-los-angeles | Los Angeles County Museum of Art (LACMA), Los Angeles, CA | Los Angeles | US | 8 | 0 |
 | TODO | royal-collection-uk | Royal Collection | London | United Kingdom | 8 | 0 |
 | TODO | national-gallery-victoria | National Gallery of Victoria | Melbourne | Australia | 8 | 0 |
@@ -158,10 +158,10 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | mus233e-des-beauxarts-de-nantes-nantes-france | Musée des Beaux-Arts de Nantes, Nantes | Nantes | France | 4 | 0 |
 | TODO | museo-de-arte-de-sao-paulo-masp-sao-paulo-brazil | Museo de Arte de Sao Paulo (MASP), Sao Paulo | São Paulo | Brazil | 4 | 0 |
 | TODO | academy-of-fine-arts-vienna-vienna-austria | Academy of Fine Arts Vienna, Vienna | Vienna | Austria | 3 | 0 |
-| TODO | museo-civico-di-sansepolcro-sansepolcro-italy | Museo Civico di Sansepolcro, Sansepolcro | Italy | Unknown | 3 | 0 |
+| TODO | museo-civico-di-sansepolcro-sansepolcro-italy | Museo Civico di Sansepolcro, Sansepolcro | Sansepolcro | Italy | 3 | 0 |
 | TODO | muse-marmottan-monet-paris | Musée Marmottan Monet | Paris | Unknown | 3 | 0 |
 | TODO | art-gallery-of-new-south-wales-agnsw-sydney-austra | Art Gallery of New South Wales (AGNSW), Sydney | Sydney | Australia | 3 | 0 |
-| TODO | rhode-island-school-of-design-museum-risd-museum-p | Rhode Island School of Design Museum (RISD Museum), Providence, RI | US | Unknown | 3 | 0 |
+| TODO | rhode-island-school-of-design-museum-risd-museum-p | Rhode Island School of Design Museum (RISD Museum), Providence, RI | Providence | United States | 3 | 0 |
 | TODO | fries-museum-leeuwarden-netherlands | Fries Museum, Leeuwarden | Leeuwarden | Netherlands | 3 | 0 |
 | TODO | mus233e-calvet-avignon-france | Musée Calvet, Avignon | Avignon | France | 3 | 0 |
 | TODO | mus233e-des-beauxarts-de-dijon-dijon-france | Musée des Beaux-Arts de Dijon, Dijon | Dijon | France | 3 | 0 |
@@ -170,7 +170,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | ateneum | Ateneum Art Museum | Helsinki | Finland | 3 | 0 |
 | TODO | national-gallery-of-ancient-art-gnaa-rome-italy | National Gallery of Ancient Art (GNAA), Rome | Rome | Italy | 3 | 0 |
 | TODO | national-gallery-ireland | National Gallery of Ireland | Dublin | Ireland | 3 | 0 |
-| TODO | princeton-university-art-museum-puam-princeton-nj- | Princeton University Art Museum (PUAM), Princeton, NJ | US | Unknown | 3 | 0 |
+| TODO | princeton-university-art-museum-puam-princeton-nj- | Princeton University Art Museum (PUAM), Princeton, NJ | Princeton | United States | 3 | 0 |
 | TODO | kunsthalle-bremen | Kunsthalle Bremen | Bremen | Germany | 3 | 0 |
 | TODO | duomo-di-siena-siena-italy | Duomo di Siena, Siena | Siena | Italy | 3 | 0 |
 | TODO | cooper-hewitt-smithsonian-design-museum-new-york-c | Cooper Hewitt (Smithsonian Design) Museum, New York City, NY | New York | US | 3 | 0 |
@@ -180,7 +180,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | basilica-of-st-domenico-bologna-italy | Basilica of St. Domenico, Bologna | Bologna | Italy | 3 | 0 |
 | TODO | casa-buonarroti-florence-italy | Casa Buonarroti, Florence | Florence | Italy | 3 | 0 |
 | TODO | toledo-museum-of-art-toledo-oh-us | Toledo Museum of Art, Toledo, OH | Toledo | US | 3 | 0 |
-| TODO | real-academia-de-bellas-artes-de-san-fernando-madr | Real Academia de Bellas Artes de San Fernando, Madrid | Spain | Unknown | 3 | 0 |
+| TODO | real-academia-de-bellas-artes-de-san-fernando-madr | Real Academia de Bellas Artes de San Fernando, Madrid | Madrid | Spain | 3 | 0 |
 | TODO | albright-knox | Albright-Knox Art Gallery | Buffalo | United States | 3 | 0 |
 | TODO | br252cke-museum-berlin-germany | Brücke Museum, Berlin | Berlin | Germany | 3 | 0 |
 | TODO | isabella-stewart-gardner | Isabella Stewart Gardner Museum | Boston | United States | 3 | 0 |
@@ -199,11 +199,11 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | national-museum-of-san-matteo-pisa-italy | National Museum of San Matteo, Pisa | Pisa | Italy | 2 | 0 |
 | TODO | mus233e-des-beauxarts-de-bordeaux-bordeaux-france | Musée des Beaux-Arts de Bordeaux, Bordeaux | Bordeaux | France | 2 | 0 |
 | TODO | folkwang-museum-essen-germany | Folkwang Museum, Essen | Essen | Germany | 2 | 0 |
-| TODO | eg-b252hrle-foundation-z252rich-switzerland | E.G. Bührle Foundation, Zürich | Switzerland | Unknown | 2 | 0 |
+| TODO | eg-b252hrle-foundation-z252rich-switzerland | E.G. Bührle Foundation, Zürich | Zürich | Switzerland | 2 | 0 |
 | TODO | bredius-museum-hague-netherlands | Bredius Museum, Hague | The Hague | Netherlands | 2 | 0 |
 | TODO | sheffield-galleries-and-museums-sheffield-uk | Sheffield Galleries and Museums, Sheffield | Sheffield | UK | 2 | 0 |
 | TODO | historical-museum-of-crete-heraclion-greece | Historical Museum of Crete, Heraclion | Heraklion | Greece | 2 | 0 |
-| TODO | kenwood-house | Kenwood House | Unknown | Unknown | 2 | 0 |
+| TODO | kenwood-house | Kenwood House | London | UK | 2 | 0 |
 | TODO | sabauda-gallery-turin-italy | Sabauda Gallery, Turin | Turin | Italy | 2 | 0 |
 | TODO | apsley-house-wellington-museum-london-uk | Apsley House, (Wellington Museum), London | London | UK | 2 | 0 |
 | TODO | kunstmuseum-liechtenstein-vaduz-liechtenstein | Kunstmuseum Liechtenstein, Vaduz | Liechtenstein | Unknown | 2 | 0 |
@@ -211,16 +211,16 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | hecht-museum-university-of-haifa-haifa-israel | Hecht Museum (University of Haifa), Haifa | Israel | Unknown | 2 | 0 |
 | TODO | germanisches-nationalmuseum-nuremberg-germany | Germanisches Nationalmuseum, Nuremberg | Nuremberg | Germany | 2 | 0 |
 | TODO | whitworth-art-gallery-university-of-manchester-man | Whitworth Art Gallery (University of Manchester), Manchester | Manchester | UK | 2 | 0 |
-| TODO | national-museum-pozna-poland | National Museum, Poznań | Poland | Unknown | 2 | 0 |
+| TODO | national-museum-pozna-poland | National Museum, Poznań | Poznań | Poland | 2 | 0 |
 | TODO | schloss-charlottenburg-berlin-germany | Schloss Charlottenburg, Berlin | Berlin | Germany | 2 | 0 |
 | TODO | mus233e-des-beauxarts-de-strasbourg-strasbourg-fra | Musée des Beaux-Arts de Strasbourg, Strasbourg | Strasbourg | France | 2 | 0 |
 | TODO | mus233e-cognacqjay-paris-france | Musée Cognacq-Jay, Paris | Paris | France | 2 | 0 |
 | TODO | musee-ostende | Mu.ZEE | Ostend | Belgium | 2 | 0 |
 | TODO | kunstmuseum-bonn-bonn-germany | Kunstmuseum Bonn, Bonn | Bonn | Germany | 2 | 0 |
-| TODO | mus233e-des-beauxarts-de-dole-dole-france | Musée des Beaux-Arts de Dole, Dole | France | Unknown | 2 | 0 |
-| TODO | virginia-museum-of-fine-arts-richmond-va-us | Virginia Museum of Fine Arts, Richmond, VA | US | Unknown | 2 | 0 |
+| TODO | mus233e-des-beauxarts-de-dole-dole-france | Musée des Beaux-Arts de Dole, Dole | Dole | France | 2 | 0 |
+| TODO | virginia-museum-of-fine-arts-richmond-va-us | Virginia Museum of Fine Arts, Richmond, VA | Richmond | United States | 2 | 0 |
 | TODO | timken-museum-of-art-san-diego-ca-us | Timken Museum of Art, San Diego, CA | San Diego | US | 2 | 0 |
-| TODO | musee-d39art-moderne-de-troyes-troyes-france | Musee d'Art Moderne de Troyes, Troyes | France | Unknown | 2 | 0 |
+| TODO | musee-d39art-moderne-de-troyes-troyes-france | Musee d'Art Moderne de Troyes, Troyes | Troyes | France | 2 | 0 |
 | TODO | auckland-art-gallery-auckland-new-zealand | Auckland Art Gallery, Auckland | New Zealand | Unknown | 2 | 0 |
 | TODO | cincinnati-art-museum-cincinnati-oh-us | Cincinnati Art Museum, Cincinnati, OH | Cincinnati | US | 2 | 0 |
 | TODO | turku-art-museum-turku-finland | Turku Art Museum, Turku | Turku | Finland | 2 | 0 |
@@ -230,7 +230,7 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | national-portrait-gallery-washington-dc-usa | National Portrait Gallery, Washington, DC | Washington, D.C. | USA | 2 | 0 |
 | TODO | hirschsprung-collection-copenhagen-denmark | Hirschsprung Collection, Copenhagen | Copenhagen | Denmark | 2 | 0 |
 | TODO | ca39-rezzonico-museo-del-settecento-venice-italy | Ca' Rezzonico (Museo del Settecento), Venice | Venice | Italy | 2 | 0 |
-| TODO | columbus-museum-of-art-columbus-oh-us | Columbus Museum of Art, Columbus, OH | US | Unknown | 2 | 0 |
+| TODO | columbus-museum-of-art-columbus-oh-us | Columbus Museum of Art, Columbus, OH | Columbus | United States | 2 | 0 |
 | TODO | scuola-grande-di-san-rocco-venice-italy | Scuola Grande di San Rocco, Venice | Venice | Italy | 2 | 0 |
 | TODO | leighton-house-museum-london-uk | Leighton House Museum, London | London | UK | 2 | 0 |
 | TODO | museo-poldi-pezzoli-milan-italy | Museo Poldi Pezzoli, Milan | Milan | Italy | 2 | 0 |
@@ -242,43 +242,43 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | convent-of-san-paolo-parma-italy | Convent of San Paolo, Parma | Parma | Italy | 2 | 0 |
 | TODO | capitoline-museums-rome-italy | Capitoline Museums, Rome | Rome | Italy | 2 | 0 |
 | TODO | national-museum-western-art-tokyo | National Museum of Western Art | Tokyo | Japan | 2 | 0 |
-| TODO | dumbarton-oaks-research-library-and-collection-was | Dumbarton Oaks Research Library and Collection, Washington, DC | US | Unknown | 2 | 0 |
+| TODO | dumbarton-oaks-research-library-and-collection-was | Dumbarton Oaks Research Library and Collection, Washington, DC | Washington, D.C. | United States | 2 | 0 |
 | TODO | musee-royal-beaux-arts-antwerp | Musée Royal des Beaux-Arts | Antwerp | Belgium | 2 | 0 |
 | TODO | national-galleries-scotland | National Galleries of Scotland | Edinburgh | United Kingdom | 2 | 0 |
 | TODO | museo-nacional-de-bellas-artes-mnba-buenos-aires-a | Museo Nacional de Bellas Artes (MNBA), Buenos Aires | Buenos Aires | Argentina | 2 | 0 |
 | TODO | alte-nationalgalerie | Alte Nationalgalerie | Berlin | Germany | 2 | 0 |
 | TODO | sorolla-museum | Sorolla Museum | Madrid | Spain | 2 | 0 |
 | TODO | mus233e-des-beauxarts-de-rennes-rennes-france | Musée des Beaux-Arts de Rennes, Rennes | Rennes | France | 2 | 0 |
-| TODO | indianapolis-museum-of-art-ima-indianapolis-in-us | Indianapolis Museum of Art (IMA), Indianapolis, IN | US | Unknown | 2 | 0 |
-| TODO | barbara-piaseckajohnson-collection-princeton-unive | Barbara Piasecka-Johnson Collection (Princeton Univercity), Princeton, NJ | US | Unknown | 2 | 0 |
+| TODO | indianapolis-museum-of-art-ima-indianapolis-in-us | Indianapolis Museum of Art (IMA), Indianapolis, IN | Indianapolis | United States | 2 | 0 |
+| TODO | barbara-piaseckajohnson-collection-princeton-unive | Barbara Piasecka-Johnson Collection (Princeton Univercity), Princeton, NJ | Princeton | United States | 2 | 0 |
 | TODO | san-stae-venice-italy | San Stae, Venice | Venice | Italy | 1 | 0 |
 | TODO | mus233e-des-beauxarts-de-marseille-marseille-franc | Musée des beaux-arts de Marseille, Marseille | Marseille | France | 1 | 0 |
 | TODO | querini-stampalia-foundation-venice-italy | Querini Stampalia Foundation, Venice | Venice | Italy | 1 | 0 |
 | TODO | sudley-art-gallery-liverpool-uk | Sudley Art Gallery, Liverpool | Liverpool | UK | 1 | 0 |
-| TODO | g246sta-serlachius-fine-arts-foundation-m228ntt228 | Gösta Serlachius Fine Arts Foundation, Mänttä | Finland | Unknown | 1 | 0 |
+| TODO | g246sta-serlachius-fine-arts-foundation-m228ntt228 | Gösta Serlachius Fine Arts Foundation, Mänttä | Mänttä | Finland | 1 | 0 |
 | TODO | christ-church-oxford-uk | Christ Church, Oxford | Oxford | UK | 1 | 0 |
-| TODO | smithsonians-national-portrait-gallery | Smithsonian's National Portrait Gallery | Unknown | Unknown | 1 | 0 |
+| TODO | smithsonians-national-portrait-gallery | Smithsonian's National Portrait Gallery | Washington, D.C. | United States | 1 | 0 |
 | TODO | san-giorogio-alla-costa-florence-italy | San Giorogio alla Costa, Florence | Florence | Italy | 1 | 0 |
-| TODO | duomo-di-castelfranco-veneto-castelfranco-veneto-i | Duomo di Castelfranco Veneto, Castelfranco Veneto | Italy | Unknown | 1 | 0 |
+| TODO | duomo-di-castelfranco-veneto-castelfranco-veneto-i | Duomo di Castelfranco Veneto, Castelfranco Veneto | Castelfranco Veneto | Italy | 1 | 0 |
 | TODO | church-of-our-lady-bruges-belgium | Church of Our Lady, Bruges | Bruges | Belgium | 1 | 0 |
 | TODO | accademia-albertina-turin-italy | Accademia Albertina, Turin | Turin | Italy | 1 | 0 |
 | TODO | vittorio-cini-collection-venice-italy | Vittorio Cini Collection, Venice | Venice | Italy | 1 | 0 |
 | TODO | tyrolean-state-museum-innsbruck-austria | Tyrolean State Museum, Innsbruck | Innsbruck | Austria | 1 | 0 |
-| TODO | masaccio-museum-cascia-di-reggello-reggello-italy | Masaccio Museum (Cascia di Reggello), Reggello | Italy | Unknown | 1 | 0 |
-| TODO | butler-institute-of-american-art-youngstown-oh-us | Butler Institute of American Art, Youngstown, OH | US | Unknown | 1 | 0 |
-| TODO | albany-institute-of-history-and-art-albany-ny-us | Albany Institute of History and Art, Albany, NY | US | Unknown | 1 | 0 |
+| TODO | masaccio-museum-cascia-di-reggello-reggello-italy | Masaccio Museum (Cascia di Reggello), Reggello | Reggello | Italy | 1 | 0 |
+| TODO | butler-institute-of-american-art-youngstown-oh-us | Butler Institute of American Art, Youngstown, OH | Youngstown | United States | 1 | 0 |
+| TODO | albany-institute-of-history-and-art-albany-ny-us | Albany Institute of History and Art, Albany, NY | Albany | United States | 1 | 0 |
 | TODO | basilica-of-san-domenico-arezzo-italy | Basilica of San Domenico, Arezzo | Arezzo | Italy | 1 | 0 |
-| TODO | morgan-library-and-museum-pierpont-morgan-library- | Morgan Library and Museum (Pierpont Morgan Library), New York City, NY | US | Unknown | 1 | 0 |
-| TODO | mus233e-des-beauxarts-de-li232ge-bal-li232ge-belgi | Musée des Beaux-Arts de Liège (BAL), Liège | Belgium | Unknown | 1 | 0 |
+| TODO | morgan-library-and-museum-pierpont-morgan-library- | Morgan Library and Museum (Pierpont Morgan Library), New York City, NY | New York | United States | 1 | 0 |
+| TODO | mus233e-des-beauxarts-de-li232ge-bal-li232ge-belgi | Musée des Beaux-Arts de Liège (BAL), Liège | Liège | Belgium | 1 | 0 |
 | TODO | bristol-city-museum-and-art-gallery-bristol-uk | Bristol City Museum and Art Gallery, Bristol | Bristol | UK | 1 | 0 |
-| TODO | aivazovsky-national-art-gallery-feodosiya-ukraine | Aivazovsky National Art Gallery, Feodosiya | Ukraine | Unknown | 1 | 0 |
+| TODO | aivazovsky-national-art-gallery-feodosiya-ukraine | Aivazovsky National Art Gallery, Feodosiya | Feodosiya | Ukraine | 1 | 0 |
 | TODO | kelvingrove-art-gallery-and-museum-glasgow-uk | Kelvingrove Art Gallery and Museum, Glasgow | Glasgow | UK | 1 | 0 |
 | TODO | helsinki-city-museum-helsinki-finland | Helsinki City Museum, Helsinki | Helsinki | Finland | 1 | 0 |
 | TODO | pinacoteca-giovanni-e-marella-agnelli-turin-italy | Pinacoteca Giovanni e Marella Agnelli, Turin | Turin | Italy | 1 | 0 |
 | TODO | towneley-hall-art-gallery-and-museum-burnley-uk | Towneley Hall Art Gallery and Museum, Burnley | Burnley | UK | 1 | 0 |
-| TODO | museu-nacional-de-belas-artes-rio-de-janeiro-brazi | Museu Nacional de Belas Artes, Rio de Janeiro | Brazil | Unknown | 1 | 0 |
+| TODO | museu-nacional-de-belas-artes-rio-de-janeiro-brazi | Museu Nacional de Belas Artes, Rio de Janeiro | Rio de Janeiro | Brazil | 1 | 0 |
 | TODO | abeggstiftung-bern-switzerland | Abegg-Stiftung, Bern | Bern | Switzerland | 1 | 0 |
-| TODO | newark-museum-newark-nj-us | Newark Museum, Newark, NJ | US | Unknown | 1 | 0 |
+| TODO | newark-museum-newark-nj-us | Newark Museum, Newark, NJ | Newark | United States | 1 | 0 |
 | TODO | hampton-court-palace-london-uk | Hampton Court Palace, London | London | UK | 1 | 0 |
 | TODO | tempio-malatestiano-rimini-italy | Tempio Malatestiano, Rimini | Rimini | Italy | 1 | 0 |
 | TODO | national-gallery-in-prague-prague-czech-republic | National Gallery in Prague, Prague | Prague | Czech Republic | 1 | 0 |
@@ -290,11 +290,11 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | museum-of-applied-arts-vienna-austria | Museum of Applied Arts, Vienna | Vienna | Austria | 1 | 0 |
 | TODO | parma-national-gallery-parma-italy | Parma National Gallery, Parma | Parma | Italy | 1 | 0 |
 | TODO | royal-academy-of-arts-ra-london-uk | Royal Academy of Arts (RA), London | London | UK | 1 | 0 |
-| TODO | mus233e-granet-aixenprovence-france | Musée Granet, Aix-en-Provence | France | Unknown | 1 | 0 |
+| TODO | mus233e-granet-aixenprovence-france | Musée Granet, Aix-en-Provence | Aix-en-Provence | France | 1 | 0 |
 | TODO | national-museum-of-art-of-romania-bucharest-romani | National Museum of Art of Romania, Bucharest | Bucharest | Romania | 1 | 0 |
 | TODO | santa-maria-della-salute-venice-italy | Santa Maria della Salute, Venice | Venice | Italy | 1 | 0 |
 | TODO | southampton-city-art-gallery-southampton-uk | Southampton City Art Gallery, Southampton | Southampton | UK | 1 | 0 |
-| TODO | mead-art-museum-amherst-ma-us | Mead Art Museum, Amherst, MA | US | Unknown | 1 | 0 |
+| TODO | mead-art-museum-amherst-ma-us | Mead Art Museum, Amherst, MA | Amherst | United States | 1 | 0 |
 | TODO | mus233e-grobetlabadi233-marseille-france | Musée Grobet-Labadié, Marseille | Marseille | France | 1 | 0 |
 | TODO | allen-memorial-art-museum-amam-oberlin-oh-us | Allen Memorial Art Museum (AMAM), Oberlin, OH | Berlin | US | 1 | 0 |
 | TODO | school-of-medicine-san-francisco-university-of-cal | School of Medicine San Francisco (University of California), Los Angeles, CA | San Francisco | US | 1 | 0 |
@@ -302,31 +302,31 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | bargello-palazzo-del-popolo-florence-italy | Bargello (Palazzo del Popolo), Florence | Florence | Italy | 1 | 0 |
 | TODO | mus233e-d39art-moderne-de-la-ville-de-paris-paris- | Musée d'Art Moderne de la Ville de Paris, Paris | Paris | France | 1 | 0 |
 | TODO | maria-rodriquez-de-reyero-collection-new-york-city | Maria Rodriquez de Reyero Collection, New York City, NY | New York | US | 1 | 0 |
-| TODO | mcnay-art-museum-san-antonio-tx-us | McNay Art Museum, San Antonio, TX | US | Unknown | 1 | 0 |
+| TODO | mcnay-art-museum-san-antonio-tx-us | McNay Art Museum, San Antonio, TX | San Antonio | United States | 1 | 0 |
 | TODO | reformed-church-collection-budapest-hungary | Reformed Church Collection, Budapest | Budapest | Hungary | 1 | 0 |
-| TODO | schlesisches-museum-zu-g246rlitz-g246rlitz-germany | Schlesisches Museum zu Görlitz, Görlitz | Germany | Unknown | 1 | 0 |
-| TODO | schleissheim-palace-oberschleissheim-germany | Schleissheim Palace, Oberschleissheim | Germany | Unknown | 1 | 0 |
+| TODO | schlesisches-museum-zu-g246rlitz-g246rlitz-germany | Schlesisches Museum zu Görlitz, Görlitz | Görlitz | Germany | 1 | 0 |
+| TODO | schleissheim-palace-oberschleissheim-germany | Schleissheim Palace, Oberschleissheim | Oberschleissheim | Germany | 1 | 0 |
 | TODO | mus233e-des-beauxarts-de-reims-reims-france | Musée des Beaux-Arts de Reims, Reims | Reims | France | 1 | 0 |
 | TODO | st-cyril39s-monastery-kyiv-ukraine | St. Cyril's Monastery, Kyiv | Kyiv | Ukraine | 1 | 0 |
 | TODO | pinacoteca-malaspina-pavia-italy | Pinacoteca Malaspina, Pavia | Pavia | Italy | 1 | 0 |
 | TODO | mus233e-d39art-moderne-de-c233ret-ceret-france | Musée d'Art moderne de Céret, Ceret | Céret | France | 1 | 0 |
 | TODO | yoshii-gallery-tokyo-japan | Yoshii Gallery, Tokyo | Tokyo | Japan | 1 | 0 |
-| TODO | ca39-pesaro-international-gallery-of-modern-art-ve | Ca' Pesaro (International Gallery of Modern Art), Venice | Italy | Unknown | 1 | 0 |
-| TODO | delaware-art-museum-wilmington-de-us | Delaware Art Museum, Wilmington, DE | US | Unknown | 1 | 0 |
+| TODO | ca39-pesaro-international-gallery-of-modern-art-ve | Ca' Pesaro (International Gallery of Modern Art), Venice | Venice | Italy | 1 | 0 |
+| TODO | delaware-art-museum-wilmington-de-us | Delaware Art Museum, Wilmington, DE | Wilmington | United States | 1 | 0 |
 | TODO | taganrog-museum-of-fine-arts-taganrog-russia | Taganrog Museum of Fine Arts, Taganrog | Taganrog | Russia | 1 | 0 |
-| TODO | kemper-art-museum | Kemper Art Museum | Unknown | Unknown | 1 | 0 |
+| TODO | kemper-art-museum | Kemper Art Museum | St. Louis | United States | 1 | 0 |
 | TODO | museum-of-fine-arts-ghent-belgium | Museum of Fine Arts, Ghent | Ghent | Belgium | 1 | 0 |
-| TODO | noordbrabants-museum-39shertogenbosch-netherlands | Noordbrabants Museum, 's-Hertogenbosch | Netherlands | Unknown | 1 | 0 |
+| TODO | noordbrabants-museum-39shertogenbosch-netherlands | Noordbrabants Museum, 's-Hertogenbosch | 's-Hertogenbosch | Netherlands | 1 | 0 |
 | TODO | tula-regional-museum-of-fine-arts-tula-russia | Tula Regional Museum of Fine Arts, Tula | Tula | Russia | 1 | 0 |
 | TODO | national-museum-cardiff-cardiff-uk | National Museum Cardiff, Cardiff | Cardiff | UK | 1 | 0 |
 | TODO | santa-maria-del-carmine-florence-italy | Santa Maria del Carmine, Florence | Florence | Italy | 1 | 0 |
-| TODO | biblioteca-museu-v237ctor-balaguer-vilanova-i-la-g | Biblioteca Museu Víctor Balaguer, Vilanova i la Geltrú | Spain | Unknown | 1 | 0 |
+| TODO | biblioteca-museu-v237ctor-balaguer-vilanova-i-la-g | Biblioteca Museu Víctor Balaguer, Vilanova i la Geltrú | Vilanova i la Geltrú | Spain | 1 | 0 |
 | TODO | national-museum-of-fine-arts-of-algiers-algiers-al | National Museum of Fine Arts of Algiers, Algiers | Algeria | Unknown | 1 | 0 |
 | TODO | palazzo-d39accursio-palazzo-comunale-bologna-italy | Palazzo d'Accursio (Palazzo Comunale), Bologna | Bologna | Italy | 1 | 0 |
 | TODO | laing-art-gallery-newcastle-upon-tyne-uk | Laing Art Gallery, Newcastle upon Tyne | Newcastle upon Tyne | UK | 1 | 0 |
-| TODO | schloss-weissenstein-pommersfelden-germany | Schloss Weissenstein, Pommersfelden | Germany | Unknown | 1 | 0 |
-| TODO | new-britain-museum-of-american-art-new-britain-ct- | New Britain Museum of American Art, New Britain, CT | US | Unknown | 1 | 0 |
-| TODO | museum-kunstpalast-d252sseldorf-germany | Museum Kunstpalast, Düsseldorf | Germany | Unknown | 1 | 0 |
+| TODO | schloss-weissenstein-pommersfelden-germany | Schloss Weissenstein, Pommersfelden | Pommersfelden | Germany | 1 | 0 |
+| TODO | new-britain-museum-of-american-art-new-britain-ct- | New Britain Museum of American Art, New Britain, CT | New Britain | United States | 1 | 0 |
+| TODO | museum-kunstpalast-d252sseldorf-germany | Museum Kunstpalast, Düsseldorf | Düsseldorf | Germany | 1 | 0 |
 | TODO | dordrechts-museum-dordrecht-netherlands | Dordrechts Museum, Dordrecht | Netherlands, | Unknown | 1 | 0 |
 | TODO | convent-of-san-domenico-fiesole-italy | Convent of San Domenico, Fiesole | Fiesole | Italy | 1 | 0 |
 | TODO | turin-city-museum-of-ancient-art-turin-italy | Turin City Museum of Ancient Art, Turin | Turin | Italy | 1 | 0 |
@@ -339,13 +339,13 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | st-peter39s-basilica-vatican | St. Peter's Basilica | Vatican | Unknown | 1 | 0 |
 | TODO | cranachh246fe-wittenberg-germany | Cranach-Höfe, Wittenberg | Wittenberg | Germany | 1 | 0 |
 | TODO | museum-mayer-van-den-bergh-antwerp-belgium | Museum Mayer van den Bergh, Antwerp | Antwerp | Belgium | 1 | 0 |
-| TODO | dayton-art-institute-dai-dayton-oh-us | Dayton Art Institute (DAI), Dayton, OH | US | Unknown | 1 | 0 |
-| TODO | skokloster-castle-h229bo-municipality-sweden | Skokloster Castle, Håbo Municipality | Sweden | Unknown | 1 | 0 |
+| TODO | dayton-art-institute-dai-dayton-oh-us | Dayton Art Institute (DAI), Dayton, OH | Dayton | United States | 1 | 0 |
+| TODO | skokloster-castle-h229bo-municipality-sweden | Skokloster Castle, Håbo Municipality | Håbo | Sweden | 1 | 0 |
 | TODO | museum-ludwig-cologne-germany | Museum Ludwig, Cologne | Cologne | Germany | 1 | 0 |
-| TODO | arp-museum-bahnhof-rolandseck-remagen-germany | Arp Museum Bahnhof Rolandseck, Remagen | Germany | Unknown | 1 | 0 |
+| TODO | arp-museum-bahnhof-rolandseck-remagen-germany | Arp Museum Bahnhof Rolandseck, Remagen | Remagen | Germany | 1 | 0 |
 | TODO | cathedral-of-our-lady-antwerp-belgium | Cathedral of Our Lady, Antwerp | Antwerp | Belgium | 1 | 0 |
-| TODO | reynolda-house-museum-of-american-art-winstonsalem | Reynolda House Museum of American Art, Winston-Salem, NC | US | Unknown | 1 | 0 |
-| TODO | museu-de-arte-assis-chateaubriand-mac-campina-gran | Museu de Arte Assis Chateaubriand (MAC), Campina Grande | Brazil | Unknown | 1 | 0 |
+| TODO | reynolda-house-museum-of-american-art-winstonsalem | Reynolda House Museum of American Art, Winston-Salem, NC | Winston-Salem | United States | 1 | 0 |
+| TODO | museu-de-arte-assis-chateaubriand-mac-campina-gran | Museu de Arte Assis Chateaubriand (MAC), Campina Grande | Campina Grande | Brazil | 1 | 0 |
 | TODO | palazzo-bianco-genoa-italy | Palazzo Bianco, Genoa | Genoa | Italy | 1 | 0 |
 | TODO | lehmbruck-museum-duisburg-germany | Lehmbruck Museum, Duisburg | Duisburg | Germany | 1 | 0 |
 | TODO | toledo-cathedral-toledo-spain | Toledo Cathedral, Toledo | Toledo | Spain | 1 | 0 |
@@ -353,20 +353,20 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | mus233e-national-d39art-moderne-paris-france | Musée National d'Art Moderne, Paris | Paris | France | 1 | 0 |
 | TODO | bilbao-fine-arts-museum-bilbao-spain | Bilbao Fine Arts Museum, Bilbao | Bilbao | Spain | 1 | 0 |
 | TODO | tokyo-fuji-art-museum-tokyo-japan | Tokyo Fuji Art Museum, Tokyo | Tokyo | Japan | 1 | 0 |
-| TODO | joslyn-art-museumomaha-ne-us | Joslyn Art Museum,Omaha, NE | US | Unknown | 1 | 0 |
-| TODO | ch226teau-de-compi232gne-compi232gne-france | Château de Compiègne, Compiègne | France | Unknown | 1 | 0 |
-| TODO | beauxarts-museum-of-mons | Beaux-Arts Museum of Mons | Unknown | Unknown | 1 | 0 |
+| TODO | joslyn-art-museumomaha-ne-us | Joslyn Art Museum,Omaha, NE | Omaha | United States | 1 | 0 |
+| TODO | ch226teau-de-compi232gne-compi232gne-france | Château de Compiègne, Compiègne | Compiègne | France | 1 | 0 |
+| TODO | beauxarts-museum-of-mons | Beaux-Arts Museum of Mons | Mons | Belgium | 1 | 0 |
 | TODO | israel-museum-jerusalem-israel | Israel Museum, Jerusalem | Israel | Unknown | 1 | 0 |
 | TODO | villa-colloredo-mels-museum-recanati-italy | Villa Colloredo Mels Museum, Recanati | Recanati | Italy | 1 | 0 |
 | TODO | museumslandschaft-hessen-kassel-kassel-germany | Museumslandschaft Hessen Kassel, Kassel | Essen | Germany | 1 | 0 |
-| TODO | herzog-anton-ulrich-museum | Herzog Anton Ulrich Museum | Unknown | Unknown | 1 | 0 |
+| TODO | herzog-anton-ulrich-museum | Herzog Anton Ulrich Museum | Braunschweig | Germany | 1 | 0 |
 | TODO | harvard-art-museums-cambridge-ma-us | Harvard Art Museums, Cambridge, MA | Cambridge | US | 1 | 0 |
 | TODO | bowes-museum-barnard-castle-uk | Bowes Museum, Barnard Castle | Barnard Castle | UK | 1 | 0 |
 | TODO | palazzo-rosso-genoa-italy | Palazzo Rosso, Genoa | Genoa | Italy | 1 | 0 |
 | TODO | kunsthalle-mannheim-mannheim-germany | Kunsthalle Mannheim, Mannheim | Mannheim | Germany | 1 | 0 |
 | TODO | chatsworth-house-derbyshire-uk | Chatsworth House, Derbyshire | Derbyshire | UK | 1 | 0 |
-| TODO | kunstmuseum-gelsenkirchen-gelsenkirchenbuer-german | Kunstmuseum Gelsenkirchenб Gelsenkirchen-Buer | Germany | Unknown | 1 | 0 |
-| TODO | arnot-art-museum-elmira-ny-us | Arnot Art Museum, Elmira, NY | US | Unknown | 1 | 0 |
+| TODO | kunstmuseum-gelsenkirchen-gelsenkirchenbuer-german | Kunstmuseum Gelsenkirchenб Gelsenkirchen-Buer | Gelsenkirchen | Germany | 1 | 0 |
+| TODO | arnot-art-museum-elmira-ny-us | Arnot Art Museum, Elmira, NY | Elmira | United States | 1 | 0 |
 | TODO | birmingham-museum-of-art-birmingham-al-us | Birmingham Museum of Art, Birmingham, AL | Birmingham | US | 1 | 0 |
 | TODO | santa-maria-sopra-minerva-rome-italy | Santa Maria sopra Minerva, Rome | Rome | Italy | 1 | 0 |
 | TODO | biblioth232que-nationale-de-france-bnf-paris-franc | Bibliothèque nationale de France (BnF), Paris | Paris | France | 1 | 0 |
@@ -375,12 +375,12 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | rudolph-staechelin-family-foundation-basel-switzer | Rudolph Staechelin Family Foundation, Basel | Basel | Switzerland | 1 | 0 |
 | TODO | carnegie-museum-of-art-pittsburgh-pa-us | Carnegie Museum of Art, Pittsburgh, PA | Pittsburgh | US | 1 | 0 |
 | TODO | lviv-national-art-gallery-lviv-ukraine | Lviv National Art Gallery, Lviv | Lviv | Ukraine | 1 | 0 |
-| TODO | worcester-art-museum-wam-worcester-ma-uk | Worcester Art Museum (WAM), Worcester, MA | UK | Unknown | 1 | 0 |
-| TODO | mus233e-des-beauxarts-et-d39arch233ologie-de-besan | Musée des Beaux-Arts et d'archéologie de Besançon, Besançon | France | Unknown | 1 | 0 |
+| TODO | worcester-art-museum-wam-worcester-ma-uk | Worcester Art Museum (WAM), Worcester, MA | Worcester | United States | 1 | 0 |
+| TODO | mus233e-des-beauxarts-et-d39arch233ologie-de-besan | Musée des Beaux-Arts et d'archéologie de Besançon, Besançon | Besançon | France | 1 | 0 |
 | TODO | national-gallery-for-foreign-art-sofia-bulgaria | National Gallery for Foreign Art, Sofia | Bulgaria | Unknown | 1 | 0 |
 | TODO | kirkcaldy-galleries-kirkcaldy-uk | Kirkcaldy Galleries, Kirkcaldy | Kirkcaldy | UK | 1 | 0 |
-| TODO | smith-college-museum-of-art-scma-northampton-ma-us | Smith College Museum of Art (SCMA), Northampton, MA | US | Unknown | 1 | 0 |
-| TODO | american-museum-of-western-art-anschutz-collection | American Museum of Western Art (Anschutz Collection), Denver, CO | US | Unknown | 1 | 0 |
+| TODO | smith-college-museum-of-art-scma-northampton-ma-us | Smith College Museum of Art (SCMA), Northampton, MA | Northampton | United States | 1 | 0 |
+| TODO | american-museum-of-western-art-anschutz-collection | American Museum of Western Art (Anschutz Collection), Denver, CO | Denver | United States | 1 | 0 |
 | TODO | museo-civico-giovanni-fattori-livorno-italy | Museo civico Giovanni Fattori, Livorno | Livorno | Italy | 1 | 0 |
 | TODO | reina-sofia | Museo Reina Sofía | Madrid | Spain | 1 | 0 |
 | TODO | neue-galerie | Neue Galerie | New York | USA | 1 | 0 |
@@ -427,10 +427,10 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | southampton-city-art-gallery | Southampton City Art Gallery | Southampton | United Kingdom | 1 | 0 |
 | TODO | de-morgan-collection | De Morgan Collection | London | United Kingdom | 1 | 0 |
 | TODO | reynolda-house | Reynolda House Museum of American Art | Winston-Salem | United States | 1 | 0 |
-| TODO | kingston-lacy-wimborne-minster-uk | Kingston Lacy, Wimborne Minster | UK | Unknown | 1 | 0 |
-| TODO | national-museum-of-women-in-the-arts-nmwa-washingt | National Museum of Women in the Arts (NMWA), Washington, DC | US | Unknown | 1 | 0 |
+| TODO | kingston-lacy-wimborne-minster-uk | Kingston Lacy, Wimborne Minster | Wimborne Minster | UK | 1 | 0 |
+| TODO | national-museum-of-women-in-the-arts-nmwa-washingt | National Museum of Women in the Arts (NMWA), Washington, DC | Washington, D.C. | United States | 1 | 0 |
 | TODO | rijksmuseum-amsterdam-collection-since-1960 | Rijksmuseum Amsterdam collection since 1960 | Amsterdam | Unknown | 1 | 0 |
-| TODO | national-art-gallery-alexandros-soutzos-museum-ath | National Art Gallery (Alexandros Soutzos Museum), Athens | Greece | Unknown | 1 | 0 |
+| TODO | national-art-gallery-alexandros-soutzos-museum-ath | National Art Gallery (Alexandros Soutzos Museum), Athens | Athens | Greece | 1 | 0 |
 | TODO | national-museum-of-western-art-tokyo-japan | National Museum of Western Art, Tokyo | Tokyo | Japan | 1 | 0 |
 | TODO | bradford-museums-and-galleries-bradford-uk | Bradford Museums and Galleries, Bradford | Bradford | UK | 1 | 0 |
 | TODO | musee-des-beauxarts-de-caen-caen-france | Musee des Beaux-Arts de Caen, Caen | Caen | France | 1 | 0 |
@@ -449,17 +449,17 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | TODO | national-museum-of-ancient-art-mnaa-lisbon-portuga | National Museum of Ancient Art (MNAA), Lisbon | Lisbon | Portugal | 1 | 0 |
 | TODO | palazzo-chiericati-vicenza-italy | Palazzo Chiericati, Vicenza | Vicenza | Italy | 1 | 0 |
 | TODO | amsterdams-historisch-museum-amsterdam-netherlands | Amsterdams Historisch Museum, Amsterdam | Amsterdam | Netherlands | 1 | 0 |
-| TODO | lady-lever-art-gallery-port-sunlight-uk | Lady Lever Art Gallery, Port Sunlight | UK | Unknown | 1 | 0 |
-| TODO | sprengel-museum-hanover-germany | Sprengel Museum, Hanover | Germany | Unknown | 1 | 0 |
+| TODO | lady-lever-art-gallery-port-sunlight-uk | Lady Lever Art Gallery, Port Sunlight | Port Sunlight | UK | 1 | 0 |
+| TODO | sprengel-museum-hanover-germany | Sprengel Museum, Hanover | Hanover | Germany | 1 | 0 |
 | TODO | casino-di-villa-boncompagni-ludovisi-rome-italy | Casino di Villa Boncompagni Ludovisi, Rome | Rome | Italy | 1 | 0 |
 | TODO | university-of-pennsylvania-upenn-philadelphia-pa-u | University of Pennsylvania (UPenn), Philadelphia, PA | Philadelphia | US | 1 | 0 |
 | TODO | palazzo-venezia-rome-italy | Palazzo Venezia, Rome | Rome | Italy | 1 | 0 |
-| TODO | art-gallery-of-south-australia-agsa-adelaide-austr | Art Gallery of South Australia (AGSA), Adelaide | Australia | Unknown | 1 | 0 |
+| TODO | art-gallery-of-south-australia-agsa-adelaide-austr | Art Gallery of South Australia (AGSA), Adelaide | Adelaide | Australia | 1 | 0 |
 | TODO | guildhall-art-gallery-london-uk | Guildhall Art Gallery, London | London | UK | 1 | 0 |
-| TODO | holy-cathedral-of-the-dormition-of-the-virgin-ermo | Holy Cathedral of the Dormition of the Virgin, Ermoupoli | Greece | Unknown | 1 | 0 |
-| TODO | polenovo-polenov-museum-polenovo-russia | Polenovo (Polenov Museum), Polenovo | Russia | Unknown | 1 | 0 |
-| TODO | basilica-dei-santi-giovanni-e-paolo-san-zanipolo-v | Basilica dei Santi Giovanni e Paolo (San Zanipolo), Venice | Italy | Unknown | 1 | 0 |
+| TODO | holy-cathedral-of-the-dormition-of-the-virgin-ermo | Holy Cathedral of the Dormition of the Virgin, Ermoupoli | Ermoupoli | Greece | 1 | 0 |
+| TODO | polenovo-polenov-museum-polenovo-russia | Polenovo (Polenov Museum), Polenovo | Polenovo | Russia | 1 | 0 |
+| TODO | basilica-dei-santi-giovanni-e-paolo-san-zanipolo-v | Basilica dei Santi Giovanni e Paolo (San Zanipolo), Venice | Venice | Italy | 1 | 0 |
 | TODO | musee-fesch-ajaccio-france | Musee Fesch, Ajaccio | Ajaccio | France | 1 | 0 |
-| TODO | santa-barbara-museum-of-art-sbma-santa-barbara-ca- | Santa Barbara Museum of Art (SBMA), Santa Barbara, CA | US | Unknown | 1 | 0 |
+| TODO | santa-barbara-museum-of-art-sbma-santa-barbara-ca- | Santa Barbara Museum of Art (SBMA), Santa Barbara, CA | Santa Barbara | United States | 1 | 0 |
 | DONE | tretyakov-gallery | Tretyakov Gallery | Moscow | Russia | 0 | 6 |
 

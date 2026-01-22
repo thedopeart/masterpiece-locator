@@ -14,7 +14,7 @@ export default function HomeLoading() {
       </section>
 
       {/* Featured Artworks skeleton */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
+      <section className="max-w-[1400px] mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
           <div className="h-8 w-64 bg-neutral-200 rounded animate-pulse" />
           <div className="h-5 w-16 bg-neutral-200 rounded animate-pulse" />
@@ -39,7 +39,7 @@ export default function HomeLoading() {
 
       {/* Browse by Artist & Museum skeleton */}
       <section className="bg-white py-12 border-y border-neutral-100">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Artists skeleton */}
             <div>
@@ -83,7 +83,7 @@ export default function HomeLoading() {
       </section>
 
       {/* CTA Section skeleton */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-[1400px] mx-auto px-4 py-16">
         <div className="bg-neutral-800 rounded-2xl p-8 md:p-12 text-center animate-pulse">
           <div className="h-8 w-64 bg-neutral-700 rounded mx-auto mb-4" />
           <div className="h-5 w-80 bg-neutral-700 rounded mx-auto mb-8" />

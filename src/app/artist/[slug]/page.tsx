@@ -249,7 +249,7 @@ export default async function ArtistPage({ params }: Props) {
       />
       <BreadcrumbSchema items={breadcrumbItems} />
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-6">
           <Link href="/" className="hover:text-neutral-900 hover:underline">

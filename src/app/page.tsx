@@ -147,7 +147,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Artworks */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
+      <section className="max-w-[1400px] mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-neutral-900">
             Most Searched Masterpieces
@@ -178,7 +178,7 @@ export default async function Home() {
 
       {/* Browse by Artist & Museum */}
       <section className="bg-white py-12 border-y border-neutral-100">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Artists */}
             <div>
@@ -232,7 +232,7 @@ export default async function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-[1400px] mx-auto px-4 py-16">
         <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Own Art That Moves You

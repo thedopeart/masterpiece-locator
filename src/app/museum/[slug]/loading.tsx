@@ -4,7 +4,7 @@ export default function MuseumLoading() {
       {/* Hero skeleton */}
       <div className="h-64 md:h-80 bg-neutral-300 animate-pulse" />
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb skeleton */}
         <div className="flex gap-2 mb-6">
           <div className="h-4 w-12 bg-neutral-200 rounded animate-pulse" />

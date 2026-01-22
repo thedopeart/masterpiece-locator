@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
-      <nav className="max-w-6xl mx-auto px-4 py-4">
+      <nav className="max-w-[1400px] mx-auto px-4 py-4">
         <div className="flex items-center">
           {/* Logo - fixed width on desktop for centering */}
           <div className="md:w-48">
