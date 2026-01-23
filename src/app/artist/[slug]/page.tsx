@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artistMetaTitle, artistMetaDescription } from "@/lib/seo";
@@ -359,9 +359,9 @@ export default async function ArtistPage({ params }: Props) {
               : "No artworks catalogued yet"}
           </p>
           {artist.artworks.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="masonry-grid">
               {artist.artworks.map((artwork) => (
-                <ArtworkCard key={artwork.id} artwork={artwork} />
+                <MasonryArtworkCard key={artwork.id} artwork={artwork} />
               ))}
             </div>
           ) : (

@@ -169,3 +169,28 @@ a[href*="luxurywallart.com"] strong {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background-color: #9ca3af;
 }
+
+/* Masonry layout for artwork grids */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+    column-gap: 1.5rem;
+  }
+}

@@ -1,0 +1,835 @@
+[
+  {
+    "id": "f8b0585f-9ffe-4b64-98b1-420b6a4c778c",
+    "slug": "edgar-degas-before-the-race",
+    "title": "Before the Race",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads3.wikiart.org/images/edgar-degas/before-the-race-1872.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "3b28eeb2-9976-42cc-bfa6-e57dd5d4d673",
+    "slug": "edgar-degas-after-the-bath",
+    "title": "After the Bath",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/edgar-degas/after-the-bath-1.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "6d3ff12c-9060-44ec-abf5-62a9fd7b02a3",
+    "slug": "edgar-degas-ballet-dancers",
+    "title": "Ballet Dancers",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads6.wikiart.org/images/edgar-degas/ballet-dancers.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "160beab8-abdc-4e22-8792-b5a49af42769",
+    "slug": "rembrandt-the-return-of-the-prodigal-son",
+    "title": "The return of the prodigal son",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads7.wikiart.org/images/rembrandt/the-return-of-the-prodigal-son-1636.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "bcce378f-58c9-4097-8ce2-5591351db855",
+    "slug": "rembrandt-the-strolling-musicians",
+    "title": "The strolling musicians",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/rembrandt/the-strolling-musicians-1635.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "3ad9a651-faa1-44a5-9abb-2a96dd564aa6",
+    "slug": "rembrandt-the-three-trees",
+    "title": "The Three Trees",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads1.wikiart.org/images/rembrandt/the-three-trees-1643.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "4f00ff8d-38b6-436a-a804-25ed62ababfd",
+    "slug": "adriaen-van-ostade-the-smoker",
+    "title": "The Smoker",
+    "artist": "Adriaen van Ostade",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/adriaen-van-ostade/the-smoker.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "298f6f1e-63d6-4f04-a8bb-83e1ffb2543c",
+    "slug": "rembrandt-st-jerome-reading",
+    "title": "St. Jerome reading",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads3.wikiart.org/images/rembrandt/st-jerome-reading-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "874461bf-f77b-4c2b-ad4d-ba9b438644f2",
+    "slug": "rembrandt-jan-cornelis-sylvius",
+    "title": "Jan Cornelis Sylvius",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads6.wikiart.org/images/rembrandt/jan-cornelis-sylvius-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "fc93f143-f5d0-4526-95ef-675c10f8ee8a",
+    "slug": "rembrandt-the-large-lion-hunt",
+    "title": "The large lion hunt",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads5.wikiart.org/images/rembrandt/the-large-lion-hunt-1641.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "b759dc0d-182e-474c-be78-379707c357f9",
+    "slug": "edgar-degas-diego-martelli",
+    "title": "Diego Martelli",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/edgar-degas/diego-martelli-1879.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "a6cf945e-fb38-4d18-9725-66c2c0bae646",
+    "slug": "edgar-degas-three-dancers-in-pink",
+    "title": "Three Dancers in Pink",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads4.wikiart.org/images/edgar-degas/three-dancers-in-pink.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "ab4ba4c2-a759-41bf-8c5f-608bd9dfae09",
+    "slug": "edgar-degas-three-dancers",
+    "title": "Three Dancers",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads7.wikiart.org/images/edgar-degas/three-dancers-1.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "8f555e39-d46d-4058-941d-2a49e44b0989",
+    "slug": "edgar-degas-three-ballet-dancers",
+    "title": "Three Ballet Dancers",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/edgar-degas/three-ballet-dancers-1879.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "f0f9faca-5106-401b-b102-ee11d468fe17",
+    "slug": "edgar-degas-pink-dancers",
+    "title": "Pink Dancers",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads4.wikiart.org/images/edgar-degas/pink-dancers.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "82b42d1e-f189-4350-b950-af8feda6a83c",
+    "slug": "edgar-degas-ballet-dancers-in-the-wings",
+    "title": "Ballet Dancers in the Wings",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads6.wikiart.org/images/edgar-degas/ballet-dancers-in-the-wings-1900.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "62582788-092d-4822-9ef8-ddb1a8e835d3",
+    "slug": "rembrandt-selfportrait-frowning-bust",
+    "title": "Self-portrait frowning Bust",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/rembrandt/self-portrait-frowning-bust.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "c2c235d7-1fe6-4720-b51a-1323645d75cf",
+    "slug": "rembrandt-portrait-of-a-woman",
+    "title": "Portrait Of A Woman",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads5.wikiart.org/images/rembrandt/portrait-of-a-woman-1632.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "48f98821-6083-4a61-9661-3e4bd8785a5c",
+    "slug": "rembrandt-christ-at-emmaus",
+    "title": "Christ at Emmaus",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/rembrandt/christ-at-emmaus-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "7f45577b-76af-4990-a303-1d87b2ce8332",
+    "slug": "rembrandt-ecce-homo",
+    "title": "Ecce Homo",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads4.wikiart.org/images/rembrandt/ecce-homo-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "a0d889fe-2f16-49be-a54d-a273fa4153d1",
+    "slug": "rembrandt-the-pancake-woman",
+    "title": "The pancake woman",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads3.wikiart.org/images/rembrandt/the-pancake-woman-1635.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2010.238/2010.238_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2010.238/2010.238_full.tif",
+      "clevelandId": 168486,
+      "title": "Cabinet Plate",
+      "artist": "W. T. Copeland & Sons (British)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/168486",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "a846448c-7f8e-4081-9b07-86533d0392ea",
+    "slug": "rembrandt-faust",
+    "title": "Faust",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads4.wikiart.org/images/rembrandt/faust.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "1196ce64-d965-42e9-b793-e53270c1be55",
+    "slug": "rembrandt-woman-sitting-half-dressed-beside-a-stove",
+    "title": "Woman Sitting Half Dressed Beside a Stove",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/rembrandt/woman-sitting-half-dressed-beside-a-stove-1658.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_full.tif",
+      "clevelandId": 123011,
+      "title": "Eighteen Views of Rome: The Ponte Rotto",
+      "artist": "Lievin Cruyl (Flemish, c. 1640-c. 1720)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/123011",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "c7b499b5-e7b8-4cbf-af5f-4284f679f976",
+    "slug": "rembrandt-christ-appearing-to-the-apostles",
+    "title": "Christ appearing to the apostles",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/rembrandt/christ-appearing-to-the-apostles-1656.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "0b6cf70d-c04a-404b-8f9b-212a639214b0",
+    "slug": "ernest-meissonier-a-painter",
+    "title": "A Painter",
+    "artist": "Ernest Meissonier",
+    "oldImageUrl": "https://uploads1.wikiart.org/00523/images/ernest-meissonier/1982-247-print.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_full.tif",
+      "clevelandId": 123011,
+      "title": "Eighteen Views of Rome: The Ponte Rotto",
+      "artist": "Lievin Cruyl (Flemish, c. 1640-c. 1720)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/123011",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "75bb35e6-892f-421f-9b15-fc31e2c24f4a",
+    "slug": "jacob-van-ruisdael-landscape-with-a-church-by-a-torrent",
+    "title": "Landscape with a Church by a Torrent",
+    "artist": "Jacob van Ruisdael",
+    "oldImageUrl": "https://uploads6.wikiart.org/images/jacob-isaakszoon-van-ruisdael/landscape-with-a-church-by-a-torrent-1670.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "3615b7d4-210c-4ad9-a9b7-c81797d3b2ab",
+    "slug": "rembrandt-the-portrait-of-jan-six",
+    "title": "The Portrait of Jan Six",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/rembrandt/the-portrait-of-jan-six-1647.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "95ddd836-4a14-4b59-b14f-ea2c4c0cd0cf",
+    "slug": "rembrandt-jan-six",
+    "title": "Jan Six",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/rembrandt/jan-six-1654.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "fe7fd641-8fad-4a4d-a976-99e698d15e1e",
+    "slug": "rembrandt-selfportrait-frowning",
+    "title": "Self-portrait, Frowning",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/rembrandt/self-portrait-frowning-1630.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2010.238/2010.238_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2010.238/2010.238_full.tif",
+      "clevelandId": 168486,
+      "title": "Cabinet Plate",
+      "artist": "W. T. Copeland & Sons (British)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/168486",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "5bdd75f4-d3ed-43b3-88c0-80d6c4e0e569",
+    "slug": "edgar-degas-dancers-in-pink",
+    "title": "Dancers in Pink",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/edgar-degas/dancers-in-pink-1885.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "4c1648b3-1340-47b3-bb70-67881fb6e481",
+    "slug": "rembrandt-the-three-crosses",
+    "title": "The Three Crosses",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads3.wikiart.org/images/rembrandt/the-three-crosses-1653.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1943.269/1943.269_full.tif",
+      "clevelandId": 123011,
+      "title": "Eighteen Views of Rome: The Ponte Rotto",
+      "artist": "Lievin Cruyl (Flemish, c. 1640-c. 1720)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/123011",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "307f8be4-2682-4885-95fd-a41d587dabaa",
+    "slug": "rembrandt-christ-presented-to-the-people",
+    "title": "Christ Presented to the People",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads7.wikiart.org/images/rembrandt/christ-presented-to-the-people-1655.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "1cd955c8-130e-4d97-86f2-d5a84426f61e",
+    "slug": "rembrandt-selfportrait-drawing-at-a-window",
+    "title": "Self-portrait drawing at a window",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads1.wikiart.org/images/rembrandt/self-portrait-drawing-at-a-window-1648.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1937.565/1937.565_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1937.565/1937.565_full.tif",
+      "clevelandId": 117019,
+      "title": "Design for a Gothic Fountain",
+      "artist": "Master W with the Key (Flemish)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/117019",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "b0feb8e2-9f71-4289-8752-f732ae2d0302",
+    "slug": "rembrandt-the-blindness-of-tobit",
+    "title": "The blindness of Tobit",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/rembrandt/the-blindness-of-tobit-1629.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1949.187.2/1949.187.2_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1949.187.2/1949.187.2_full.tif",
+      "clevelandId": 126772,
+      "title": "Pontifical Ceremony in SS. Giovanni e Paolo, Venice, 1782",
+      "artist": "Francesco Guardi (Italian, 1712–1793)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/126772",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "056ab2e2-7cb8-46a9-a8f5-a5b306df2468",
+    "slug": "edgar-degas-the-conversation",
+    "title": "The Conversation",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/edgar-degas/the-conversation.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "9496ffb5-fab2-4521-825a-caed1d46fbc7",
+    "slug": "rembrandt-the-circumcision-small-plate",
+    "title": "The circumcision small plate",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/rembrandt/the-circumcision-small-plate.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "933ad69c-b1db-42e1-8a14-9d89c892031a",
+    "slug": "rembrandt-the-tribute-money",
+    "title": "The tribute money",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads3.wikiart.org/images/rembrandt/the-tribute-money-1635.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/1915.534/1915.534_full.tif",
+      "clevelandId": 94979,
+      "title": "Nathaniel Hurd",
+      "artist": "John Singleton Copley (American, 1738–1815)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/94979",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "275523f5-1a09-4d75-a08d-ae6ed142fd2f",
+    "slug": "rembrandt-st-francis-beneath-a-tree-praying",
+    "title": "St. Francis beneath a tree praying",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads1.wikiart.org/images/rembrandt/st-francis-beneath-a-tree-praying-1657.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "f47ef39d-a7a0-4560-a54c-32197b932c58",
+    "slug": "edgar-degas-the-bath",
+    "title": "The Bath",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/edgar-degas/the-bath.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "43c23136-6458-48ea-93d4-41a9d404cee2",
+    "slug": "rembrandt-selfportrait-wearing-a-soft-cap-full-face-head-onl",
+    "title": "Self-portrait wearing a soft cap full face, head only",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/rembrandt/self-portrait-wearing-a-soft-cap-full-face-head-only-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "37d66f55-d18f-4987-bbe5-4c1dee5372a4",
+    "slug": "rembrandt-the-circumcision-in-the-stable",
+    "title": "The circumcision in the stable",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads7.wikiart.org/images/rembrandt/the-circumcision-in-the-stable-1654.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "8514bbfb-2333-4516-b89b-1247463a9304",
+    "slug": "rembrandt-the-circumcision",
+    "title": "The Circumcision",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads1.wikiart.org/images/rembrandt/the-circumcision-1661.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "b4e2e5d5-a239-447a-9329-25e9f91bd00e",
+    "slug": "rembrandt-the-angel-appearing-to-the-shepherds",
+    "title": "The angel appearing to the shepherds",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads4.wikiart.org/images/rembrandt/the-angel-appearing-to-the-shepherds-1634.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "ea2ed1f4-d259-4816-96ad-f912d3c4f466",
+    "slug": "rembrandt-a-study-for-the-great-jewish-bride",
+    "title": "A Study for The Great Jewish Bride",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads6.wikiart.org/images/rembrandt/a-study-for-the-great-jewish-bride.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "b78d682c-4038-4e66-8150-a46db6b93c80",
+    "slug": "edgar-degas-conversation",
+    "title": "Conversation",
+    "artist": "Edgar Degas",
+    "oldImageUrl": "https://uploads0.wikiart.org/images/edgar-degas/conversation-1895.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "10bb589b-58e0-4810-8543-bf6d7bcb947e",
+    "slug": "rembrandt-christ-disputing-with-the-doctors",
+    "title": "Christ disputing with the doctors",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads1.wikiart.org/images/rembrandt/christ-disputing-with-the-doctors-1630.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "272641f6-0ea0-4b10-ab60-5352480c5961",
+    "slug": "rembrandt-christ-preaching",
+    "title": "Christ preaching",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/rembrandt/christ-preaching-1652.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2014.12/2014.12_full.tif",
+      "clevelandId": 171296,
+      "title": "Vale of Kashmir",
+      "artist": "Robert S. Duncanson (American, 1821–1872)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171296",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "68fa25bc-be47-4b7c-8a49-51f2b401d317",
+    "slug": "rembrandt-christ-returning-from-the-temple-with-his-parents",
+    "title": "Christ returning from the Temple with his parents",
+    "artist": "Rembrandt van Rijn",
+    "oldImageUrl": "https://uploads8.wikiart.org/images/rembrandt/christ-returning-from-the-temple-with-his-parents-1654.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  },
+  {
+    "id": "218e4156-7e9f-45fa-81d9-7f2fa5ec47e9",
+    "slug": "frederic-edwin-church-storm-in-the-mountains",
+    "title": "Storm in the Mountains",
+    "artist": "Frederic Edwin Church",
+    "oldImageUrl": "https://uploads2.wikiart.org/images/frederic-edwin-church/storm-in-the-mountains-1847.jpg!Large.jpg",
+    "newImage": {
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_web.jpg",
+      "imageUrlFull": "https://openaccess-cdn.clevelandart.org/2013.99/2013.99_full.tif",
+      "clevelandId": 171267,
+      "title": "Paper Knife",
+      "artist": "George W. Shiebler & Co. (American)",
+      "source": "cleveland-museum-of-art",
+      "sourceUrl": "https://www.clevelandart.org/art/171267",
+      "license": "CC0"
+    }
+  }
+]
