@@ -269,7 +269,7 @@ export default async function MovementPage({ params }: Props) {
                           fill
                           className="object-cover"
                           sizes="56px"
-                          unoptimized={artist.imageUrl.includes('wikimedia.org') || artist.imageUrl.includes('wikiart.org')}
+                          unoptimized={true}
                         />
                       ) : artist.artworks[0]?.imageUrl ? (
                         <Image
@@ -278,7 +278,7 @@ export default async function MovementPage({ params }: Props) {
                           fill
                           className="object-cover"
                           sizes="56px"
-                          unoptimized={artist.artworks[0].imageUrl.includes('wikimedia.org') || artist.artworks[0].imageUrl.includes('wikiart.org')}
+                          unoptimized={true}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-lg font-medium text-neutral-400 bg-gradient-to-br from-neutral-100 to-neutral-200">

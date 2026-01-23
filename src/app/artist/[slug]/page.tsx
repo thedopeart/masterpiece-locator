@@ -275,7 +275,7 @@ export default async function ArtistPage({ params }: Props) {
                   fill
                   className="object-cover"
                   sizes="192px"
-                  unoptimized={artist.imageUrl.includes('wikimedia.org') || artist.imageUrl.includes('wikiart.org')}
+                  unoptimized={true}
                 />
               ) : artist.artworks[0]?.imageUrl ? (
                 <>
@@ -285,7 +285,7 @@ export default async function ArtistPage({ params }: Props) {
                     fill
                     className="object-cover"
                     sizes="192px"
-                    unoptimized={artist.artworks[0].imageUrl.includes('wikimedia.org') || artist.artworks[0].imageUrl.includes('wikiart.org')}
+                    unoptimized={true}
                   />
                   {/* No Portrait Available tag */}
                   <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
@@ -399,7 +399,7 @@ export default async function ArtistPage({ params }: Props) {
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 33vw, 15vw"
-                            unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                            unoptimized={true}
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-neutral-300">
