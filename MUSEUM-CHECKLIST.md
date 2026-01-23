@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete (5+ FAQs).
 
-**Last Updated:** 2026-01-22T00:30
+**Last Updated:** 2026-01-22T05:26
 
-**Progress:** 56/440 complete
+**Progress:** 136/440 complete
 
 ---
 
@@ -78,86 +78,86 @@ Track progress across workers. Mark as DONE when complete (5+ FAQs).
 | DONE | palais-des-beauxarts-de-lille-lille-france | Palais des Beaux-Arts de Lille, Lille | Lille | France | 10 | 6 |
 | DONE | kunsthaus-zurich | Kunsthaus Zürich | Zurich | Switzerland | 10 | 6 |
 | DONE | frick-collection | Frick Collection | New York | United States | 10 | 6 |
-| TODO | lenbachhaus | Lenbachhaus | Munich | Germany | 10 | 0 |
-| TODO | museum-boijmans-van-beuningen-rotterdam-netherland | Museum Boijmans van Beuningen, Rotterdam | Rotterdam | Netherlands | 10 | 0 |
-| TODO | gallerie-dell-accademia-venice | Gallerie dell'Accademia | Venice | Italy | 10 | 0 |
-| TODO | groeningemuseum | Groeningemuseum | Bruges | Belgium | 10 | 0 |
-| TODO | national-gallery-of-umbria-palazzo-dei-priori-peru | National Gallery of Umbria (Palazzo dei Priori), Perugia | Perugia | Italy | 10 | 0 |
-| TODO | scottish-national-gallery | Scottish National Gallery | Edinburgh | UK | 9 | 0 |
-| TODO | petit-palais-paris-france | Petit Palais, Paris | Paris | France | 9 | 0 |
-| TODO | dulwich-picture-gallery | Dulwich Picture Gallery | London | United Kingdom | 9 | 0 |
-| TODO | kimbell-art-museum | Kimbell Art Museum | Fort Worth | United States | 9 | 0 |
-| TODO | pushkin-museum | Pushkin Museum | Moscow | Russia | 9 | 0 |
-| TODO | belvedere | Belvedere Museum | Vienna | Austria | 9 | 0 |
-| TODO | clark-art-institute | Clark Art Institute | Williamstown | United States | 9 | 0 |
-| TODO | borghese-gallery-rome-italy | Borghese Gallery, Rome | Rome | Italy | 9 | 0 |
-| TODO | munch-museum | Munch Museum | Oslo | Norway | 9 | 0 |
-| TODO | national-portrait-gallery-london-uk | National Portrait Gallery, London | London | UK | 8 | 0 |
-| TODO | museum-of-fine-arts-of-seville-seville-spain | Museum of Fine Arts of Seville, Seville | Seville | Spain | 8 | 0 |
-| TODO | musee-toulouse-lautrec | Musée Toulouse-Lautrec | Albi | France | 8 | 0 |
-| TODO | hamburger-kunsthalle | Hamburger Kunsthalle | Hamburg | Germany | 8 | 0 |
-| TODO | 201cole-nationale-sup233rieure-des-beauxarts-ensba | École nationale supérieure des Beaux-Arts (ENSBA), Paris | Paris | France | 8 | 0 |
-| TODO | los-angeles-county-museum-of-art-lacma-los-angeles | Los Angeles County Museum of Art (LACMA), Los Angeles, CA | Los Angeles | US | 8 | 0 |
-| TODO | royal-collection-uk | Royal Collection | London | United Kingdom | 8 | 0 |
-| TODO | national-gallery-victoria | National Gallery of Victoria | Melbourne | Australia | 8 | 0 |
-| TODO | museu-de-belles-arts-de-val232ncia-valencia-spain | Museu de Belles Arts de València, Valencia | Valencia | Spain | 8 | 0 |
-| TODO | norton-simon-museum-pasadena-ca-us | Norton Simon Museum, Pasadena, CA | Pasadena | US | 7 | 0 |
-| TODO | mus233e-cond233-chantilly-france | Musée Condé, Chantilly | Chantilly | France | 7 | 0 |
-| TODO | georges-pompidou-center-paris-france | Georges Pompidou Center, Paris | Paris | France | 7 | 0 |
-| TODO | dolores-olmedo-collection-mexico-city-mexico | Dolores Olmedo Collection, Mexico City | Mexico City | Mexico | 7 | 0 |
-| TODO | mus233e-thomashenry-cherbourg-france | Musée Thomas-Henry, Cherbourg | Cherbourg | France | 7 | 0 |
-| TODO | basilica-della-santissima-annunziata-florence-ital | Basilica della Santissima Annunziata, Florence | Florence | Italy | 7 | 0 |
-| TODO | albertina-vienna-austria | Albertina, Vienna | Vienna | Austria | 7 | 0 |
-| TODO | walker-art-gallery | Walker Art Gallery | Liverpool | UK | 7 | 0 |
-| TODO | finnish-national-gallery-helsinki-finland | Finnish National Gallery, Helsinki | Helsinki | Finland | 6 | 0 |
-| TODO | biblioteca-ambrosiana-milan-italy | Biblioteca Ambrosiana, Milan | Milan | Italy | 6 | 0 |
-| TODO | detroit-institute-of-arts | Detroit Institute of Arts | Detroit | United States | 6 | 0 |
-| TODO | museo-correr-venice-italy | Museo Correr, Venice | Venice | Italy | 6 | 0 |
-| TODO | basilica-di-san-marco-florence-italy | Basilica di San Marco, Florence | Florence | Italy | 6 | 0 |
-| TODO | oskar-reinhart-foundation-winterthur-switzerland | Oskar Reinhart Foundation, Winterthur | Winterthur | Switzerland | 6 | 0 |
-| TODO | mus233e-ingres-montauban-france | Musée Ingres, Montauban | Montauban | France | 6 | 0 |
-| TODO | smithsonian-american-art | Smithsonian American Art Museum | Washington D.C. | United States | 6 | 0 |
-| TODO | royal-museum-of-fine-arts-antwerp-dutch-koninklijk | Royal Museum of Fine Arts Antwerp | Antwerp | Belgium | 6 | 0 |
-| TODO | national-gallery-of-canada-ottawa-canada | National Gallery of Canada, Ottawa | Ottawa | Canada | 6 | 0 |
-| TODO | dallas-museum-of-art | Dallas Museum of Art | Dallas | United States | 6 | 0 |
-| TODO | mus233e-des-beauxarts-de-rouen-rouen-france | Musée des Beaux-Arts de Rouen, Rouen | Rouen | France | 6 | 0 |
-| TODO | alte-nationalgalerie-berlin-germany | Alte Nationalgalerie, Berlin | Berlin | Germany | 6 | 0 |
-| TODO | accademia-carrara-bergamo-italy | Accademia Carrara, Bergamo | Bergamo | Italy | 5 | 0 |
-| TODO | phillips-collection | The Phillips Collection | Washington, D.C. | United States | 5 | 0 |
-| TODO | mus233e-des-beauxarts-de-lyon-lyon-france | Musée des Beaux-Arts de Lyon, Lyon | Lyon | France | 5 | 0 |
-| TODO | barberini | Galleria Nazionale d'Arte Antica (Palazzo Barberini) | Rome | Italy | 5 | 0 |
-| TODO | galleria-doria-pamphilj | Galleria Doria Pamphilj | Rome | Italy | 5 | 0 |
-| TODO | walters-art-museum-baltimore-md-us | Walters Art Museum, Baltimore, MD | Baltimore | US | 5 | 0 |
-| TODO | vienna-museum-vienna-austria | Vienna Museum, Vienna | Vienna | Austria | 5 | 0 |
-| TODO | minneapolis-institute-of-art | Minneapolis Institute of Art | Minneapolis | United States | 5 | 0 |
-| TODO | manchester-art-gallery | Manchester Art Gallery | Manchester | United Kingdom | 5 | 0 |
-| TODO | basilica-della-santa-casa-loreto-italy | Basilica della Santa Casa, Loreto | Loreto | Italy | 5 | 0 |
-| TODO | mus233e-d39art-et-d39histoire-geneva-switzerland | Musée d'Art et d'Histoire, Geneva | Geneva | Switzerland | 5 | 0 |
-| TODO | fogg-museum-harvard-art-museums-cambridge-ma-us | Fogg Museum (Harvard Art Museums), Cambridge, MA | Cambridge | US | 5 | 0 |
-| TODO | basilica-of-san-francesco-arezzo-italy | Basilica of San Francesco, Arezzo | Arezzo | Italy | 5 | 0 |
-| TODO | staatliche-kunsthalle-karlsruhe-karlsruhe-germany | Staatliche Kunsthalle Karlsruhe, Karlsruhe | Karlsruhe | Germany | 5 | 0 |
-| TODO | rasmus-meyer-collection-bergen-norway | Rasmus Meyer Collection, Bergen | Bergen | Norway | 5 | 0 |
-| TODO | ch226teau-de-versailles-versailles-france | Château de Versailles, Versailles | Versailles | France | 5 | 0 |
-| TODO | museum-of-russian-art-tereshchenko-museum-kyiv-ukr | Museum of Russian Art (Tereshchenko Museum), Kyiv | Kyiv | Ukraine | 5 | 0 |
-| TODO | frans-hals-museum-haarlem-netherlands | Frans Hals Museum, Haarlem | Haarlem | Netherlands | 4 | 0 |
-| TODO | musee-national-fernand-leger-biot-france | Musee National Fernand Leger, Biot | Biot | France | 4 | 0 |
-| TODO | mus233e-des-beauxarts-d39orl233ans-orleans-france | Musée des Beaux-Arts d'Orléans, Orleans | Orléans | France | 4 | 0 |
-| TODO | bavarian-state-painting-collections-munich-germany | Bavarian State Painting Collections, Munich | Munich | Germany | 4 | 0 |
-| TODO | guggenheim | Solomon R. Guggenheim Museum | New York | USA | 4 | 0 |
-| TODO | pinacoteca-nazionale-di-bologna-bologna-italy | Pinacoteca Nazionale di Bologna, Bologna | Bologna | Italy | 4 | 0 |
-| TODO | musee-de-lorangerie | Musée de l'Orangerie | Paris | France | 4 | 0 |
-| TODO | yale-art-gallery | Yale University Art Gallery | New Haven | United States | 4 | 0 |
-| TODO | ny-carlsberg-glyptotek | Ny Carlsberg Glyptotek | Copenhagen | Denmark | 4 | 0 |
-| TODO | staatsgalerie-stuttgart-stuttgart-germany | Staatsgalerie Stuttgart, Stuttgart | Stuttgart | Germany | 4 | 0 |
-| TODO | calouste-gulbenkian-museum-lisbon-portugal | Calouste Gulbenkian Museum, Lisbon | Lisbon | Portugal | 4 | 0 |
-| TODO | sammlung-karsch-berlin-germany | Sammlung Karsch, Berlin | Berlin | Germany | 4 | 0 |
-| TODO | wallrafrichartz-museum-cologne-germany | Wallraf-Richartz Museum, Cologne | Cologne | Germany | 4 | 0 |
-| TODO | pinacoteca-vaticana-vatican | Pinacoteca Vaticana | Vatican | Unknown | 4 | 0 |
-| TODO | residenzgalerie-salzburg-austria | Residenzgalerie, Salzburg | Salzburg | Austria | 4 | 0 |
-| TODO | guimet-museum-paris-france | Guimet Museum, Paris | Paris | France | 4 | 0 |
-| TODO | mus233e-des-beauxarts-de-nantes-nantes-france | Musée des Beaux-Arts de Nantes, Nantes | Nantes | France | 4 | 0 |
-| TODO | museo-de-arte-de-sao-paulo-masp-sao-paulo-brazil | Museo de Arte de Sao Paulo (MASP), Sao Paulo | São Paulo | Brazil | 4 | 0 |
-| TODO | academy-of-fine-arts-vienna-vienna-austria | Academy of Fine Arts Vienna, Vienna | Vienna | Austria | 3 | 0 |
+| DONE | lenbachhaus | Lenbachhaus | Munich | Germany | 10 | 5 |
+| DONE | museum-boijmans-van-beuningen-rotterdam-netherland | Museum Boijmans van Beuningen, Rotterdam | Rotterdam | Netherlands | 10 | 5 |
+| DONE | gallerie-dell-accademia-venice | Gallerie dell'Accademia | Venice | Italy | 10 | 5 |
+| DONE | groeningemuseum | Groeningemuseum | Bruges | Belgium | 10 | 5 |
+| DONE | national-gallery-of-umbria-palazzo-dei-priori-peru | National Gallery of Umbria (Palazzo dei Priori), Perugia | Perugia | Italy | 10 | 5 |
+| DONE | scottish-national-gallery | Scottish National Gallery | Edinburgh | UK | 9 | 5 |
+| DONE | petit-palais-paris-france | Petit Palais, Paris | Paris | France | 9 | 5 |
+| DONE | dulwich-picture-gallery | Dulwich Picture Gallery | London | United Kingdom | 9 | 5 |
+| DONE | kimbell-art-museum | Kimbell Art Museum | Fort Worth | United States | 9 | 5 |
+| DONE | pushkin-museum | Pushkin Museum | Moscow | Russia | 9 | 5 |
+| DONE | belvedere | Belvedere Museum | Vienna | Austria | 9 | 5 |
+| DONE | clark-art-institute | Clark Art Institute | Williamstown | United States | 9 | 5 |
+| DONE | borghese-gallery-rome-italy | Borghese Gallery, Rome | Rome | Italy | 9 | 5 |
+| DONE | munch-museum | Munch Museum | Oslo | Norway | 9 | 5 |
+| DONE | national-portrait-gallery-london-uk | National Portrait Gallery, London | London | UK | 8 | 5 |
+| DONE | museum-of-fine-arts-of-seville-seville-spain | Museum of Fine Arts of Seville, Seville | Seville | Spain | 8 | 5 |
+| DONE | musee-toulouse-lautrec | Musée Toulouse-Lautrec | Albi | France | 8 | 5 |
+| DONE | hamburger-kunsthalle | Hamburger Kunsthalle | Hamburg | Germany | 8 | 5 |
+| DONE | 201cole-nationale-sup233rieure-des-beauxarts-ensba | École nationale supérieure des Beaux-Arts (ENSBA), Paris | Paris | France | 8 | 5 |
+| DONE | los-angeles-county-museum-of-art-lacma-los-angeles | Los Angeles County Museum of Art (LACMA), Los Angeles, CA | Los Angeles | US | 8 | 5 |
+| DONE | royal-collection-uk | Royal Collection | London | United Kingdom | 8 | 6 |
+| DONE | national-gallery-victoria | National Gallery of Victoria | Melbourne | Australia | 8 | 6 |
+| DONE | museu-de-belles-arts-de-val232ncia-valencia-spain | Museu de Belles Arts de València, Valencia | Valencia | Spain | 8 | 6 |
+| DONE | norton-simon-museum-pasadena-ca-us | Norton Simon Museum, Pasadena, CA | Pasadena | US | 7 | 6 |
+| DONE | mus233e-cond233-chantilly-france | Musée Condé, Chantilly | Chantilly | France | 7 | 6 |
+| DONE | georges-pompidou-center-paris-france | Georges Pompidou Center, Paris | Paris | France | 7 | 6 |
+| DONE | dolores-olmedo-collection-mexico-city-mexico | Dolores Olmedo Collection, Mexico City | Mexico City | Mexico | 7 | 6 |
+| DONE | mus233e-thomashenry-cherbourg-france | Musée Thomas-Henry, Cherbourg | Cherbourg | France | 7 | 6 |
+| DONE | basilica-della-santissima-annunziata-florence-ital | Basilica della Santissima Annunziata, Florence | Florence | Italy | 7 | 6 |
+| DONE | albertina-vienna-austria | Albertina, Vienna | Vienna | Austria | 7 | 6 |
+| DONE | walker-art-gallery | Walker Art Gallery | Liverpool | UK | 7 | 6 |
+| DONE | finnish-national-gallery-helsinki-finland | Finnish National Gallery, Helsinki | Helsinki | Finland | 6 | 6 |
+| DONE | biblioteca-ambrosiana-milan-italy | Biblioteca Ambrosiana, Milan | Milan | Italy | 6 | 6 |
+| DONE | detroit-institute-of-arts | Detroit Institute of Arts | Detroit | United States | 6 | 6 |
+| DONE | museo-correr-venice-italy | Museo Correr, Venice | Venice | Italy | 6 | 6 |
+| DONE | basilica-di-san-marco-florence-italy | Basilica di San Marco, Florence | Florence | Italy | 6 | 6 |
+| DONE | oskar-reinhart-foundation-winterthur-switzerland | Oskar Reinhart Foundation, Winterthur | Winterthur | Switzerland | 6 | 6 |
+| DONE | mus233e-ingres-montauban-france | Musée Ingres, Montauban | Montauban | France | 6 | 6 |
+| DONE | smithsonian-american-art | Smithsonian American Art Museum | Washington D.C. | United States | 6 | 6 |
+| DONE | royal-museum-of-fine-arts-antwerp-dutch-koninklijk | Royal Museum of Fine Arts Antwerp | Antwerp | Belgium | 6 | 6 |
+| DONE | national-gallery-of-canada-ottawa-canada | National Gallery of Canada, Ottawa | Ottawa | Canada | 6 | 6 |
+| DONE | dallas-museum-of-art | Dallas Museum of Art | Dallas | United States | 6 | 6 |
+| DONE | mus233e-des-beauxarts-de-rouen-rouen-france | Musée des Beaux-Arts de Rouen, Rouen | Rouen | France | 6 | 6 |
+| DONE | alte-nationalgalerie-berlin-germany | Alte Nationalgalerie, Berlin | Berlin | Germany | 6 | 6 |
+| DONE | accademia-carrara-bergamo-italy | Accademia Carrara, Bergamo | Bergamo | Italy | 5 | 6 |
+| DONE | phillips-collection | The Phillips Collection | Washington, D.C. | United States | 5 | 6 |
+| DONE | mus233e-des-beauxarts-de-lyon-lyon-france | Musée des Beaux-Arts de Lyon, Lyon | Lyon | France | 5 | 6 |
+| DONE | barberini | Galleria Nazionale d'Arte Antica (Palazzo Barberini) | Rome | Italy | 5 | 6 |
+| DONE | galleria-doria-pamphilj | Galleria Doria Pamphilj | Rome | Italy | 5 | 6 |
+| DONE | walters-art-museum-baltimore-md-us | Walters Art Museum, Baltimore, MD | Baltimore | US | 5 | 6 |
+| DONE | vienna-museum-vienna-austria | Vienna Museum, Vienna | Vienna | Austria | 5 | 6 |
+| DONE | minneapolis-institute-of-art | Minneapolis Institute of Art | Minneapolis | United States | 5 | 6 |
+| DONE | manchester-art-gallery | Manchester Art Gallery | Manchester | United Kingdom | 5 | 6 |
+| DONE | basilica-della-santa-casa-loreto-italy | Basilica della Santa Casa, Loreto | Loreto | Italy | 5 | 6 |
+| DONE | mus233e-d39art-et-d39histoire-geneva-switzerland | Musée d'Art et d'Histoire, Geneva | Geneva | Switzerland | 5 | 6 |
+| DONE | fogg-museum-harvard-art-museums-cambridge-ma-us | Fogg Museum (Harvard Art Museums), Cambridge, MA | Cambridge | US | 5 | 6 |
+| DONE | basilica-of-san-francesco-arezzo-italy | Basilica of San Francesco, Arezzo | Arezzo | Italy | 5 | 6 |
+| DONE | staatliche-kunsthalle-karlsruhe-karlsruhe-germany | Staatliche Kunsthalle Karlsruhe, Karlsruhe | Karlsruhe | Germany | 5 | 6 |
+| DONE | rasmus-meyer-collection-bergen-norway | Rasmus Meyer Collection, Bergen | Bergen | Norway | 5 | 6 |
+| DONE | ch226teau-de-versailles-versailles-france | Château de Versailles, Versailles | Versailles | France | 5 | 6 |
+| DONE | museum-of-russian-art-tereshchenko-museum-kyiv-ukr | Museum of Russian Art (Tereshchenko Museum), Kyiv | Kyiv | Ukraine | 5 | 6 |
+| DONE | frans-hals-museum-haarlem-netherlands | Frans Hals Museum, Haarlem | Haarlem | Netherlands | 4 | 6 |
+| DONE | musee-national-fernand-leger-biot-france | Musee National Fernand Leger, Biot | Biot | France | 4 | 6 |
+| DONE | mus233e-des-beauxarts-d39orl233ans-orleans-france | Musée des Beaux-Arts d'Orléans, Orleans | Orléans | France | 4 | 6 |
+| DONE | bavarian-state-painting-collections-munich-germany | Bavarian State Painting Collections, Munich | Munich | Germany | 4 | 6 |
+| DONE | guggenheim | Solomon R. Guggenheim Museum | New York | USA | 4 | 6 |
+| DONE | pinacoteca-nazionale-di-bologna-bologna-italy | Pinacoteca Nazionale di Bologna, Bologna | Bologna | Italy | 4 | 6 |
+| DONE | musee-de-lorangerie | Musée de l'Orangerie | Paris | France | 4 | 6 |
+| DONE | yale-art-gallery | Yale University Art Gallery | New Haven | United States | 4 | 6 |
+| DONE | ny-carlsberg-glyptotek | Ny Carlsberg Glyptotek | Copenhagen | Denmark | 4 | 6 |
+| DONE | staatsgalerie-stuttgart-stuttgart-germany | Staatsgalerie Stuttgart, Stuttgart | Stuttgart | Germany | 4 | 6 |
+| DONE | calouste-gulbenkian-museum-lisbon-portugal | Calouste Gulbenkian Museum, Lisbon | Lisbon | Portugal | 4 | 6 |
+| DONE | sammlung-karsch-berlin-germany | Sammlung Karsch, Berlin | Berlin | Germany | 4 | 6 |
+| DONE | wallrafrichartz-museum-cologne-germany | Wallraf-Richartz Museum, Cologne | Cologne | Germany | 4 | 6 |
+| DONE | pinacoteca-vaticana-vatican | Pinacoteca Vaticana | Vatican | Unknown | 4 | 6 |
+| DONE | residenzgalerie-salzburg-austria | Residenzgalerie, Salzburg | Salzburg | Austria | 4 | 6 |
+| DONE | guimet-museum-paris-france | Guimet Museum, Paris | Paris | France | 4 | 6 |
+| DONE | mus233e-des-beauxarts-de-nantes-nantes-france | Musée des Beaux-Arts de Nantes, Nantes | Nantes | France | 4 | 6 |
+| DONE | museo-de-arte-de-sao-paulo-masp-sao-paulo-brazil | Museo de Arte de Sao Paulo (MASP), Sao Paulo | São Paulo | Brazil | 4 | 6 |
+| DONE | academy-of-fine-arts-vienna-vienna-austria | Academy of Fine Arts Vienna, Vienna | Vienna | Austria | 3 | 6 |
 | TODO | museo-civico-di-sansepolcro-sansepolcro-italy | Museo Civico di Sansepolcro, Sansepolcro | Sansepolcro | Italy | 3 | 0 |
 | TODO | muse-marmottan-monet-paris | Musée Marmottan Monet | Paris | Unknown | 3 | 0 |
 | TODO | art-gallery-of-new-south-wales-agnsw-sydney-austra | Art Gallery of New South Wales (AGNSW), Sydney | Sydney | Australia | 3 | 0 |
