@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete.
 
-**Last Updated:** 2026-01-21T16:35
+**Last Updated:** 2026-01-22T05:26
 
-**Progress:** 303/312 complete
+**Progress:** 312/312 complete
 
 ---
 
@@ -106,13 +106,13 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | hieronymus-bosch | Hieronymus Bosch | 16 | Dutch | 1450-1516 | Northern Renaissance | [Link](https://en.wikipedia.org/wiki/Hieronymus_Bosch) |
 | DONE | petrus-christus | Petrus Christus | 16 | Flemish | 1410-1475 | - | - |
 | DONE | caspar-david-friedrich | Caspar David Friedrich | 15 | German | 1774-1840 | Romanticism | [Link](https://en.wikipedia.org/wiki/Caspar_David_Friedrich) |
-| TODO | claude-lorrain | Claude Lorrain | 15 | French | 1600-1682 | - | - |
+| DONE | claude-lorrain | Claude Lorrain | 15 | French | 1600-1682 | - | - |
 | DONE | giovanni-bellini | Giovanni Bellini | 15 | Italian | 1430-1516 | Renaissance | - |
 | DONE | hans-memling | Hans Memling | 15 | Flemish | 1430-1494 | - | - |
-| TODO | jean-baptiste-simeon-chardin | Jean-Baptiste-Siméon Chardin | 15 | French | 1699-1779 | Rococo | - |
-| TODO | joachim-patinir | Joachim Patinir | 15 | Flemish | 1480-1524 | - | - |
-| TODO | juan-de-juanes | Juan de Juanes | 15 | Spanish | 1510-1579 | Renaissance | - |
-| TODO | lucas-cranach-elder | Lucas Cranach the Elder | 15 | German | 1472-1553 | - | - |
+| DONE | jean-baptiste-simeon-chardin | Jean-Baptiste-Siméon Chardin | 15 | French | 1699-1779 | Rococo | - |
+| DONE | joachim-patinir | Joachim Patinir | 15 | Flemish | 1480-1524 | - | - |
+| DONE | juan-de-juanes | Juan de Juanes | 15 | Spanish | 1510-1579 | Renaissance | - |
+| DONE | lucas-cranach-elder | Lucas Cranach the Elder | 15 | German | 1472-1553 | - | - |
 | DONE | pietro-da-cortona | Pietro da Cortona | 15 | Italian | 1596-1669 | - | - |
 | DONE | quentin-matsys | Quentin Matsys | 15 | Flemish | 1466-1530 | - | - |
 | DONE | raoul-dufy | Raoul Dufy | 15 | French | 1877-1953 | - | - |
@@ -125,8 +125,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | edward-burne-jones | Edward Burne-Jones | 14 | British | 1833-1898 | Pre-Raphaelite Brotherhood | - |
 | DONE | ernest-meissonier | Ernest Meissonier | 14 | French | 1815-1891 | Academic Art | - |
 | DONE | gerard-david | Gerard David | 14 | Flemish | 1460-1523 | - | - |
-| TODO | henri-fantin-latour | Henri Fantin-Latour | 14 | French | 1836-1904 | - | - |
-| TODO | alphonse-mucha | Alphonse Mucha | 13 | Czech | 1860-1939 | - | - |
+| DONE | henri-fantin-latour | Henri Fantin-Latour | 14 | French | 1836-1904 | - | - |
+| DONE | alphonse-mucha | Alphonse Mucha | 13 | Czech | 1860-1939 | - | - |
 | DONE | anthony-van-dyck | Anthony van Dyck | 13 | Flemish | 1599-1641 | Baroque | - |
 | DONE | francois-boucher | François Boucher | 13 | French | 1703-1770 | - | - |
 | DONE | frederic-bazille | Frédéric Bazille | 13 | French | 1841-1870 | - | - |
@@ -142,7 +142,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | annibale-carracci | Annibale Carracci | 12 | Italian | 1560-1609 | - | - |
 | DONE | arnold-bocklin | Arnold Böcklin | 12 | Swiss | 1827-1901 | - | - |
 | DONE | john-constable | John Constable | 12 | British | 1776-1837 | Romanticism | - |
-| TODO | john-singer-sargent | John Singer Sargent | 12 | American | 1856-1925 | - | - |
+| DONE | john-singer-sargent | John Singer Sargent | 12 | American | 1856-1925 | - | - |
 | DONE | konstantin-korovin | Konstantin Korovin | 12 | Russian | 1861-1939 | Impressionism | - |
 | DONE | maurice-quentin-de-la-tour | Maurice Quentin de La Tour | 12 | French | 1704-1788 | Rococo | - |
 | DONE | artemisia-gentileschi | Artemisia Gentileschi | 11 | Italian | 1593-1656 | - | - |
@@ -170,7 +170,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | fernand-leger | Fernand Léger | 9 | French | 1881-1955 | - | - |
 | DONE | franz-von-stuck | Franz von Stuck | 9 | German | 1863-1928 | - | - |
 | DONE | hugo-van-der-goes | Hugo van der Goes | 9 | Flemish | 1440-1482 | - | - |
-| TODO | isaac-levitan | Isaac Levitan | 9 | Russian | 1860-1900 | Impressionism | - |
+| DONE | isaac-levitan | Isaac Levitan | 9 | Russian | 1860-1900 | Impressionism | - |
 | DONE | jean-leon-gerome | Jean-Léon Gérôme | 9 | French | 1824-1904 | - | - |
 | DONE | leon-bonnat | Léon Bonnat | 9 | French | 1833-1922 | Academic Art | - |
 | DONE | lorenzo-lotto | Lorenzo Lotto | 9 | Italian | 1480-1556 | - | - |
