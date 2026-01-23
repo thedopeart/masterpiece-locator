@@ -28,7 +28,7 @@ export default function MuseumCard({ museum }: MuseumCardProps) {
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+            unoptimized={true}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-neutral-400">

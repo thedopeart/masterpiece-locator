@@ -204,7 +204,7 @@ export default async function MuseumsPage() {
                               fill
                               className="object-cover"
                               sizes="(max-width: 768px) 50vw, 33vw"
-                              unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                              unoptimized={true}
                             />
                           )}
                         </div>
@@ -217,7 +217,7 @@ export default async function MuseumsPage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+                      unoptimized={true}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
@@ -297,7 +297,7 @@ export default async function MuseumsPage() {
                                     fill
                                     className="object-cover"
                                     sizes="(max-width: 768px) 33vw, 20vw"
-                                    unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                                    unoptimized={true}
                                   />
                                 )}
                               </div>
@@ -310,7 +310,7 @@ export default async function MuseumsPage() {
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, 33vw"
-                            unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+                            unoptimized={true}
                           />
                         ) : (
                           <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">

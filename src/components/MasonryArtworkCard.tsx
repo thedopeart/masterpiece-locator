@@ -45,7 +45,7 @@ export default function MasonryArtworkCard({ artwork }: MasonryArtworkCardProps)
                 imageLoaded ? "opacity-100" : "opacity-0 absolute top-0 left-0"
               }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+              unoptimized={true}
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
             />

@@ -348,7 +348,7 @@ export default async function ArtworkPage({ params }: Props) {
                     className="object-contain"
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 900px"
-                    unoptimized={artwork.imageUrl.includes('wikimedia.org') || artwork.imageUrl.includes('wikiart.org')}
+                    unoptimized={true}
                   />
                 </div>
                 {artwork.imageAttribution && (

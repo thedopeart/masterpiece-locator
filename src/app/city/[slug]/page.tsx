@@ -205,7 +205,7 @@ export default async function CityPage({ params }: Props) {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized={museum.imageUrl.includes('wikimedia.org') || museum.imageUrl.includes('wikiart.org')}
+                      unoptimized={true}
                     />
                   ) : museum.artworks[0]?.imageUrl ? (
                     <Image
@@ -214,7 +214,7 @@ export default async function CityPage({ params }: Props) {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized={museum.artworks[0].imageUrl.includes('wikimedia.org') || museum.artworks[0].imageUrl.includes('wikiart.org')}
+                      unoptimized={true}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
@@ -272,7 +272,7 @@ export default async function CityPage({ params }: Props) {
                         fill
                         className="object-cover"
                         sizes="24px"
-                        unoptimized={artist.imageUrl.includes('wikimedia.org') || artist.imageUrl.includes('wikiart.org')}
+                        unoptimized={true}
                       />
                     </div>
                   )}

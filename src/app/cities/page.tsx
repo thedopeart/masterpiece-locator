@@ -195,7 +195,7 @@ export default async function CitiesPage() {
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 25vw, 15vw"
-                            unoptimized={url.includes('wikimedia.org') || url.includes('wikiart.org')}
+                            unoptimized={true}
                           />
                         </div>
                       ))}
