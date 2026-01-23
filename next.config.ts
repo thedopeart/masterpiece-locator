@@ -59,6 +59,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.wikiart.org",
       },
+      {
+        protocol: "https",
+        hostname: "**.supabase.co",
+      },
     ],
   },
 };
