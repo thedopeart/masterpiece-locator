@@ -10,6 +10,8 @@ interface MasonryArtworkCardProps {
     title: string;
     year: number | null;
     imageUrl: string | null;
+    imageWidth?: number | null;
+    imageHeight?: number | null;
     artist: {
       name: string;
     } | null;
@@ -18,11 +20,22 @@ interface MasonryArtworkCardProps {
       city: string;
     } | null;
   };
+  priority?: boolean;
 }
 
-export default function MasonryArtworkCard({ artwork }: MasonryArtworkCardProps) {
+export default function MasonryArtworkCard({ artwork, priority = false }: MasonryArtworkCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+
+  // Calculate aspect ratio from stored dimensions, fallback to 4:3
+  const hasStoredDimensions = artwork.imageWidth && artwork.imageHeight;
+  const aspectRatio = hasStoredDimensions
+    ? artwork.imageWidth! / artwork.imageHeight!
+    : 4 / 3;
+
+  // Calculate display dimensions (max width 400px, preserve aspect ratio)
+  const displayWidth = 400;
+  const displayHeight = Math.round(displayWidth / aspectRatio);
 
   return (
     <Link
@@ -32,20 +45,24 @@ export default function MasonryArtworkCard({ artwork }: MasonryArtworkCardProps)
       <div className="relative bg-neutral-100 overflow-hidden">
         {artwork.imageUrl && !imageError ? (
           <>
-            {/* Placeholder while loading */}
+            {/* Placeholder with correct aspect ratio */}
             {!imageLoaded && (
-              <div className="w-full aspect-[4/3] bg-gradient-to-br from-neutral-100 to-neutral-200 animate-pulse" />
+              <div
+                className="w-full bg-gradient-to-br from-neutral-100 to-neutral-200 animate-pulse"
+                style={{ aspectRatio: aspectRatio }}
+              />
             )}
             <Image
               src={artwork.imageUrl}
               alt={`${artwork.title}${artwork.artist ? ` by ${artwork.artist.name}` : ""}`}
-              width={400}
-              height={300}
+              width={displayWidth}
+              height={displayHeight}
               className={`w-full h-auto group-hover:scale-105 transition-transform duration-300 ${
                 imageLoaded ? "opacity-100" : "opacity-0 absolute top-0 left-0"
               }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               unoptimized={true}
+              priority={priority}
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
             />

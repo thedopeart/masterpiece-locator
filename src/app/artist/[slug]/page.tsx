@@ -73,6 +73,7 @@ const getArtist = cache(async (slug: string) => {
           { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first, null last
           { searchVolumeTier: "asc" },
         ],
+        // Note: imageWidth and imageHeight are included automatically via include
       },
     },
   });
@@ -360,8 +361,12 @@ export default async function ArtistPage({ params }: Props) {
           </p>
           {artist.artworks.length > 0 ? (
             <div className="masonry-grid">
-              {artist.artworks.map((artwork) => (
-                <MasonryArtworkCard key={artwork.id} artwork={artwork} />
+              {artist.artworks.map((artwork, index) => (
+                <MasonryArtworkCard
+                  key={artwork.id}
+                  artwork={artwork}
+                  priority={index < 8}
+                />
               ))}
             </div>
           ) : (
