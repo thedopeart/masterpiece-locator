@@ -36,6 +36,8 @@ model Artwork {
   description            String?
   historicalSignificance String?
   imageUrl               String?
+  imageWidth             Int?
+  imageHeight            Int?
   imageAttribution       String?
   isPermanent            Boolean        @default(true)
   galleryRoom            String?
