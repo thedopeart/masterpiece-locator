@@ -704,7 +704,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
             Can&apos;t Make It to {museum.city}?
           </h2>
           <p className="text-neutral-400 mb-4">
-            Bring museum-quality art into your home with gallery-worthy canvas prints.
+            Bring <span className="text-white">luxury art</span> into your home with gallery-worthy canvas prints.
           </p>
           <Link
             href="https://luxurywallart.com"

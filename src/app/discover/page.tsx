@@ -13,28 +13,28 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-// Subject categories with their styleTags
+// Subject categories with their styleTags and LuxuryWallArt collection links
 const SUBJECTS = [
-  { name: "Portraits", tag: "portrait", icon: "👤", color: "bg-rose-100 text-rose-800" },
-  { name: "Landscapes", tag: "landscape", icon: "🏔️", color: "bg-emerald-100 text-emerald-800" },
-  { name: "Religious", tag: "religious", icon: "✝️", color: "bg-amber-100 text-amber-800" },
-  { name: "Mythology", tag: "mythology", icon: "⚡", color: "bg-purple-100 text-purple-800" },
-  { name: "Still Life", tag: "still life", icon: "🍎", color: "bg-orange-100 text-orange-800" },
-  { name: "History", tag: "history", icon: "⚔️", color: "bg-red-100 text-red-800" },
-  { name: "Genre Scenes", tag: "genre", icon: "🎭", color: "bg-blue-100 text-blue-800" },
-  { name: "Nude", tag: "nude", icon: "🎨", color: "bg-pink-100 text-pink-800" },
+  { name: "Portraits", tag: "portrait", icon: "👤", color: "bg-rose-100 text-rose-800", shopUrl: "https://luxurywallart.com/collections/portrait-art" },
+  { name: "Landscapes", tag: "landscape", icon: "🏔️", color: "bg-emerald-100 text-emerald-800", shopUrl: "https://luxurywallart.com/collections/landscapes" },
+  { name: "Religious", tag: "religious", icon: "✝️", color: "bg-amber-100 text-amber-800", shopUrl: "https://luxurywallart.com/collections/spiritual-art" },
+  { name: "Mythology", tag: "mythology", icon: "⚡", color: "bg-purple-100 text-purple-800", shopUrl: null },
+  { name: "Still Life", tag: "still life", icon: "🍎", color: "bg-orange-100 text-orange-800", shopUrl: "https://luxurywallart.com/collections/floral-art" },
+  { name: "History", tag: "history", icon: "⚔️", color: "bg-red-100 text-red-800", shopUrl: null },
+  { name: "Genre Scenes", tag: "genre", icon: "🎭", color: "bg-blue-100 text-blue-800", shopUrl: "https://luxurywallart.com/collections/people-paintings" },
+  { name: "Nude", tag: "nude", icon: "🎨", color: "bg-pink-100 text-pink-800", shopUrl: "https://luxurywallart.com/collections/women-art" },
 ];
 
-// Color categories
+// Color categories with LuxuryWallArt collection links
 const COLORS = [
-  { name: "Blue", color: "#1e40af", bgClass: "bg-blue-700" },
-  { name: "Red", color: "#b91c1c", bgClass: "bg-red-700" },
-  { name: "Green", color: "#15803d", bgClass: "bg-green-700" },
-  { name: "Gold", color: "#ca8a04", bgClass: "bg-yellow-600" },
-  { name: "Brown", color: "#78350f", bgClass: "bg-amber-900" },
-  { name: "Black", color: "#171717", bgClass: "bg-neutral-900" },
-  { name: "White", color: "#f5f5f5", bgClass: "bg-neutral-100 border border-neutral-300" },
-  { name: "Pink", color: "#db2777", bgClass: "bg-pink-600" },
+  { name: "Blue", color: "#1e40af", bgClass: "bg-blue-700", shopUrl: "https://luxurywallart.com/collections/blue-wall-art" },
+  { name: "Red", color: "#b91c1c", bgClass: "bg-red-700", shopUrl: "https://luxurywallart.com/collections/red-wall-art" },
+  { name: "Green", color: "#15803d", bgClass: "bg-green-700", shopUrl: "https://luxurywallart.com/collections/green-wall-art" },
+  { name: "Gold", color: "#ca8a04", bgClass: "bg-yellow-600", shopUrl: "https://luxurywallart.com/collections/gold-art" },
+  { name: "Brown", color: "#78350f", bgClass: "bg-amber-900", shopUrl: "https://luxurywallart.com/collections/brown-art" },
+  { name: "Black", color: "#171717", bgClass: "bg-neutral-900", shopUrl: "https://luxurywallart.com/collections/black-wall-art" },
+  { name: "White", color: "#f5f5f5", bgClass: "bg-neutral-100 border border-neutral-300", shopUrl: "https://luxurywallart.com/collections/neutral-art" },
+  { name: "Pink", color: "#db2777", bgClass: "bg-pink-600", shopUrl: "https://luxurywallart.com/collections/pink-wall-art" },
 ];
 
 export default async function DiscoverPage() {
@@ -244,15 +244,26 @@ export default async function DiscoverPage() {
           {/* More subjects */}
           <div className="flex flex-wrap gap-2 mt-4">
             {subjectCounts.slice(4).map((subject) => (
-              <Link
-                key={subject.tag}
-                href={`/search?q=${encodeURIComponent(subject.tag)}`}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${subject.color} hover:opacity-80 transition-opacity`}
-              >
-                <span>{subject.icon}</span>
-                {subject.name}
-                <span className="opacity-70">({subject.count})</span>
-              </Link>
+              <div key={subject.tag} className="flex items-center gap-1">
+                <Link
+                  href={`/search?q=${encodeURIComponent(subject.tag)}`}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${subject.color} hover:opacity-80 transition-opacity`}
+                >
+                  <span>{subject.icon}</span>
+                  {subject.name}
+                  <span className="opacity-70">({subject.count})</span>
+                </Link>
+                {subject.shopUrl && (
+                  <a
+                    href={subject.shopUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C9A84C] hover:underline"
+                  >
+                    Shop →
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </section>
@@ -291,19 +302,30 @@ export default async function DiscoverPage() {
           <h2 className="text-xl font-semibold text-neutral-900 mb-6">Browse by Color</h2>
           <div className="flex flex-wrap gap-3">
             {colorCounts.map((color) => (
-              <Link
-                key={color.name}
-                href={`/search?q=${encodeURIComponent(color.name.toLowerCase())}`}
-                className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all"
-              >
-                <div className={`w-8 h-8 rounded-full ${color.bgClass}`} />
-                <div>
-                  <p className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
-                    {color.name}
-                  </p>
-                  <p className="text-xs text-neutral-500">{color.count} artworks</p>
-                </div>
-              </Link>
+              <div key={color.name} className="flex items-center gap-2">
+                <Link
+                  href={`/search?q=${encodeURIComponent(color.name.toLowerCase())}`}
+                  className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all"
+                >
+                  <div className={`w-8 h-8 rounded-full ${color.bgClass}`} />
+                  <div>
+                    <p className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                      {color.name}
+                    </p>
+                    <p className="text-xs text-neutral-500">{color.count} artworks</p>
+                  </div>
+                </Link>
+                {color.shopUrl && (
+                  <a
+                    href={color.shopUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#C9A84C] hover:underline whitespace-nowrap"
+                  >
+                    Shop prints →
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </section>

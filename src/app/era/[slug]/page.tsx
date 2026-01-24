@@ -712,7 +712,7 @@ export default async function EraPage({ params }: Props) {
               Bring {era.name} Home
             </h2>
             <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-              Museum-quality canvas prints inspired by these iconic masterpieces.
+              <span className="text-white">Luxury art prints</span> inspired by these iconic masterpieces. Museum-quality canvas for your walls.
             </p>
             <a
               href="https://luxurywallart.com"
