@@ -27,8 +27,8 @@ model Artist {
 }
 
 model Artwork {
-  id                     String         @id
-  slug                   String         @unique
+  id                     String              @id
+  slug                   String              @unique
   title                  String
   year                   Int?
   medium                 String?
@@ -37,28 +37,34 @@ model Artwork {
   historicalSignificance String?
   imageUrl               String?
   imageAttribution       String?
-  isPermanent            Boolean        @default(true)
+  isPermanent            Boolean             @default(true)
   galleryRoom            String?
-  wikidataId             String?        @unique
+  wikidataId             String?             @unique
   wikipediaUrl           String?
-  searchVolumeTier       Int            @default(3)
+  searchVolumeTier       Int                 @default(3)
   artistId               String?
   museumId               String?
   styleTags              String[]
   moodTags               String[]
   primaryColors          String[]
-  createdAt              DateTime       @default(now())
+  createdAt              DateTime            @default(now())
   updatedAt              DateTime
   faqs                   Json?
   imageHeight            Int?
   imageWidth             Int?
-  Artist                 Artist?        @relation(fields: [artistId], references: [id])
-  Museum                 Museum?        @relation(fields: [museumId], references: [id])
+  lastSalePrice          BigInt?
+  lastSaleDate           DateTime?
+  priceCategory          String?
+  Artist                 Artist?             @relation(fields: [artistId], references: [id])
+  Museum                 Museum?             @relation(fields: [museumId], references: [id])
   ProductMatch           ProductMatch[]
+  AuctionSale            AuctionSale[]
+  ArtworkValuation       ArtworkValuation[]
 
   @@index([artistId])
   @@index([museumId])
   @@index([searchVolumeTier])
+  @@index([priceCategory])
 }
 
 model Movement {
@@ -110,4 +116,43 @@ model ProductMatch {
 
   @@unique([artworkId, shopifyProductId])
   @@index([artworkId])
+}
+
+model AuctionSale {
+  id            String   @id @default(cuid())
+  artworkId     String
+  saleDate      DateTime
+  priceUsd      BigInt
+  priceOriginal BigInt?
+  currency      String   @default("USD")
+  auctionHouse  String?
+  saleLocation  String?
+  buyer         String?
+  seller        String?
+  lotNumber     String?
+  isRecord      Boolean  @default(false)
+  sourceUrl     String?
+  notes         String?
+  createdAt     DateTime @default(now())
+  Artwork       Artwork  @relation(fields: [artworkId], references: [id])
+
+  @@index([artworkId])
+  @@index([saleDate])
+  @@index([priceUsd])
+}
+
+model ArtworkValuation {
+  id            String   @id @default(cuid())
+  artworkId     String
+  valuationDate DateTime
+  estimateUsd   BigInt
+  valuationType String
+  source        String?
+  sourceUrl     String?
+  notes         String?
+  createdAt     DateTime @default(now())
+  Artwork       Artwork  @relation(fields: [artworkId], references: [id])
+
+  @@index([artworkId])
+  @@index([valuationType])
 }

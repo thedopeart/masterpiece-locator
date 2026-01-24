@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Revalidate every 60 seconds for fresh data without blocking
-export const revalidate = 60;
+// Use dynamic rendering to avoid connection pool issues during build
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   // Fetch counts for hero stats

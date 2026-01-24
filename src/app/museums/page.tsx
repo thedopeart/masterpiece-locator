@@ -44,7 +44,7 @@ const museumFAQs = [
 ];
 
 // Revalidate every 60 seconds
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Greatest Art Museums in the World | Find Famous Masterpieces",

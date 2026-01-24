@@ -6,7 +6,7 @@ import FAQ, { FAQSchema } from "@/components/FAQ";
 import { decodeHtmlEntities } from "@/lib/text";
 
 // Revalidate every 60 seconds
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 const artistFAQs = [
   {
