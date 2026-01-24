@@ -67,9 +67,30 @@ const getArtwork = cache(async (slug: string) => {
         },
       },
       Museum: true,
+      AuctionSale: {
+        orderBy: { saleDate: "desc" },
+        take: 5,
+      },
+      ArtworkValuation: {
+        orderBy: { estimateUsd: "desc" },
+        take: 1,
+      },
     },
   });
 });
+
+// Format price for display
+function formatPrice(cents: bigint): string {
+  const millions = Number(cents) / 100 / 1000000;
+  if (millions >= 1) {
+    return `$${millions.toFixed(millions % 1 === 0 ? 0 : 1)}M`;
+  }
+  const thousands = Number(cents) / 100 / 1000;
+  if (thousands >= 1) {
+    return `$${thousands.toFixed(0)}K`;
+  }
+  return `$${(Number(cents) / 100).toLocaleString()}`;
+}
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -443,6 +464,37 @@ export default async function ArtworkPage({ params }: Props) {
                 </div>
               )}
 
+              {/* Price / Auction History Card - Mobile */}
+              {(rawArtwork.AuctionSale.length > 0 || rawArtwork.ArtworkValuation.length > 0) && (
+                <div className="bg-amber-50 rounded-xl p-5 border border-amber-200/50">
+                  <h3 className="font-semibold text-neutral-900 mb-2 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {rawArtwork.AuctionSale.length > 0 ? "Auction History" : "Estimated Value"}
+                  </h3>
+                  {rawArtwork.AuctionSale.length > 0 ? (
+                    <>
+                      <div className="text-xl font-bold text-neutral-900">
+                        {formatPrice(rawArtwork.AuctionSale[0].priceUsd)}
+                      </div>
+                      <p className="text-sm text-neutral-600">
+                        {rawArtwork.AuctionSale[0].auctionHouse || "Private Sale"} ({rawArtwork.AuctionSale[0].saleDate.getFullYear()})
+                      </p>
+                    </>
+                  ) : rawArtwork.ArtworkValuation.length > 0 ? (
+                    <>
+                      <div className="text-xl font-bold text-neutral-900">
+                        {formatPrice(rawArtwork.ArtworkValuation[0].estimateUsd)}
+                      </div>
+                      <p className="text-sm text-neutral-600">
+                        {rawArtwork.ArtworkValuation[0].valuationType === "insurance" ? "Insurance valuation" : "Expert estimate"}
+                      </p>
+                    </>
+                  ) : null}
+                </div>
+              )}
+
               {/* Museum Card - Mobile */}
               {artwork.museum && (
                 <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
@@ -577,6 +629,48 @@ export default async function ArtworkPage({ params }: Props) {
                       </div>
                     )}
                   </dl>
+                </div>
+              )}
+
+              {/* Price / Auction History Card */}
+              {(rawArtwork.AuctionSale.length > 0 || rawArtwork.ArtworkValuation.length > 0) && (
+                <div className="bg-amber-50 rounded-xl p-5 border border-amber-200/50">
+                  <h3 className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
+                    <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {rawArtwork.AuctionSale.length > 0 ? "Auction History" : "Estimated Value"}
+                  </h3>
+                  {rawArtwork.AuctionSale.length > 0 ? (
+                    <>
+                      <div className="text-2xl font-bold text-neutral-900">
+                        {formatPrice(rawArtwork.AuctionSale[0].priceUsd)}
+                      </div>
+                      <p className="text-sm text-neutral-600 mt-1">
+                        {rawArtwork.AuctionSale[0].auctionHouse || "Private Sale"} ({rawArtwork.AuctionSale[0].saleDate.getFullYear()})
+                      </p>
+                      {rawArtwork.AuctionSale[0].isRecord && (
+                        <span className="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-xs font-medium">
+                          Record Sale
+                        </span>
+                      )}
+                    </>
+                  ) : rawArtwork.ArtworkValuation.length > 0 ? (
+                    <>
+                      <div className="text-2xl font-bold text-neutral-900">
+                        {formatPrice(rawArtwork.ArtworkValuation[0].estimateUsd)}
+                      </div>
+                      <p className="text-sm text-neutral-600 mt-1">
+                        {rawArtwork.ArtworkValuation[0].valuationType === "insurance" ? "Insurance valuation" : "Expert estimate"}
+                      </p>
+                    </>
+                  ) : null}
+                  <Link
+                    href="/auction-records/most-expensive"
+                    className="text-sm text-[#C9A84C] hover:underline mt-3 inline-block"
+                  >
+                    View all auction records →
+                  </Link>
                 </div>
               )}
 

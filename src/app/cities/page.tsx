@@ -12,7 +12,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 
 // Revalidate every 60 seconds
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Art Cities | Find Museums & Famous Paintings by Location",
