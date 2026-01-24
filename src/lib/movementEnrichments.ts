@@ -11,6 +11,7 @@ export interface MovementFAQ {
 export interface MovementEnrichment {
   slug: string;
   descriptionHtml: string;
+  whatToLookFor: string[];
   faqs: MovementFAQ[];
 }
 
@@ -22,6 +23,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>The name "Impressionism" was coined as an insult. When <a href="/artist/claude-monet"><strong>Monet</strong></a> exhibited <em>Impression, Sunrise</em> in 1874, critics mocked the loose brushwork and unfinished appearance. But what critics dismissed as sloppiness was actually revolutionary technique: visible brushstrokes, pure colors placed side by side, and shadows rendered in <a href="https://luxurywallart.com/collections/blue-wall-art" target="_blank" rel="noopener"><strong>blue and purple</strong></a> rather than brown or black.</p>
 
 <p>The Impressionists painted modern life: cafes, railway stations, ballet dancers, boating parties. They captured movement and atmosphere rather than static poses. <a href="/artist/berthe-morisot"><strong>Berthe Morisot</strong></a> and <a href="/artist/mary-cassatt"><strong>Mary Cassatt</strong></a> brought domestic scenes and women's perspectives to the movement. Today, Impressionist paintings rank among the world's most beloved and valuable artworks, displayed in major museums from the <a href="/museum/musee-dorsay"><strong>Musée d'Orsay</strong></a> to the <a href="/museum/art-institute-of-chicago"><strong>Art Institute of Chicago</strong></a>.</p>`,
+    whatToLookFor: [
+      'Visible, distinct brushstrokes you can see from close up',
+      'Outdoor scenes with dappled sunlight filtering through trees',
+      'Shadows painted in blues and purples, never brown or black',
+      'Everyday subjects: cafes, boating parties, ballet rehearsals, train stations',
+      'Soft, blurred edges rather than sharp outlines',
+      'Colors placed side by side rather than blended on the palette',
+      'Sense of a specific moment in time, a fleeting light condition',
+      'Modern Parisian life: boulevards, gardens, leisure activities'
+    ],
     faqs: [
       {
         question: "What is Impressionism?",
@@ -53,6 +64,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>Florence's Medici family bankrolled much of this explosion. Wealthy patrons competed for the best artists, who became celebrities for the first time in Western history. <a href="/artist/sandro-botticelli"><strong>Botticelli's</strong></a> graceful mythological scenes, <a href="/artist/titian"><strong>Titian's</strong></a> rich Venetian colors, and <a href="/artist/leonardo-da-vinci"><strong>Leonardo's</strong></a> <strong>sfumato</strong> technique (soft, smoky transitions between tones) defined the era. Oil painting, imported from Northern Europe, allowed for luminous glazes impossible with tempera.</p>
 
 <p>The Renaissance wasn't just about technique. <strong>Humanism</strong> placed mankind at the center of inquiry, and <a href="https://luxurywallart.com/collections/portrait-art" target="_blank" rel="noopener"><strong>portraits</strong></a> flourished alongside religious subjects. Artists investigated anatomy by dissecting corpses, studied mathematics for perspective, and viewed painting as an intellectual pursuit rather than mere craft. Works from this period hang in the <a href="/museum/uffizi"><strong>Uffizi Gallery</strong></a>, the <a href="/museum/louvre"><strong>Louvre</strong></a>, and the Vatican Museums.</p>`,
+    whatToLookFor: [
+      'Converging lines in floors, ceilings, and architecture (linear perspective)',
+      'Realistic human anatomy with defined muscles and natural poses',
+      'Soft, hazy edges between light and shadow (sfumato)',
+      'Classical architecture: columns, arches, Roman-style buildings',
+      'Figures with real weight standing firmly on the ground',
+      'Triangular compositions creating balance and stability',
+      'Rich, glowing colors from layered oil glazes',
+      'Both religious subjects and classical mythology side by side'
+    ],
     faqs: [
       {
         question: "What was the Renaissance?",
@@ -84,6 +105,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>The Catholic Church embraced Baroque as counter-Reformation propaganda. Paintings needed to make viewers <em>feel</em> the ecstasy of saints and terror of martyrdom. <a href="/artist/peter-paul-rubens"><strong>Peter Paul Rubens</strong></a> embodied this grandeur with monumental canvases of fleshy figures in swirling motion. Meanwhile, Protestant Holland developed its own Baroque: <a href="/artist/rembrandt"><strong>Rembrandt</strong></a> explored human psychology through light, while <a href="/artist/johannes-vermeer"><strong>Vermeer</strong></a> captured quiet domestic moments with supernatural luminosity.</p>
 
 <p>Spain produced <a href="/artist/diego-velazquez"><strong>Diego Velázquez</strong></a>, court painter to Philip IV, whose <em>Las Meninas</em> remains one of art history's most analyzed paintings. The <a href="/movement/dutch-golden-age"><strong>Dutch Golden Age</strong></a> generated more paintings than any previous era, including <a href="https://luxurywallart.com/collections/landscapes" target="_blank" rel="noopener"><strong>landscapes</strong></a>, still lifes, and genre scenes for merchant-class homes. Today, Baroque masterpieces fill the <a href="/museum/rijksmuseum"><strong>Rijksmuseum</strong></a>, <a href="/museum/prado"><strong>Prado</strong></a>, and Rome's churches.</p>`,
+    whatToLookFor: [
+      'Extreme contrast: bright figures emerging from pitch-black backgrounds',
+      'Diagonal compositions creating dynamic movement and tension',
+      'Theatrical gestures and intense emotional expressions',
+      'Rich reds, golds, and deep velvet shadows',
+      'Figures that seem to push out of the picture toward you',
+      'Swirling drapery and dynamic, twisting poses',
+      'Religious ecstasy or martyrdom depicted with visceral intensity',
+      'Dutch works: soft window light, quiet domestic interiors, still lifes'
+    ],
     faqs: [
       {
         question: "What defines Baroque art?",
@@ -115,6 +146,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>Surrealists used techniques designed to bypass rational thought: automatic drawing, dream journals, and the "exquisite corpse" game where artists collaborated without seeing each other's work. <a href="/artist/salvador-dali"><strong>Dalí</strong></a> called his approach the "paranoiac-critical method," deliberately inducing hallucinatory states. <a href="/artist/joan-miro"><strong>Joan Miró</strong></a> developed biomorphic forms that seemed to float between abstraction and representation.</p>
 
 <p>The movement attracted writers, filmmakers, and photographers alongside painters. <a href="/artist/frida-kahlo"><strong>Frida Kahlo</strong></a> incorporated surrealist elements into deeply personal self-portraits. <a href="https://luxurywallart.com/collections/surrealism-art" target="_blank" rel="noopener"><strong>Surrealist art</strong></a> continues to influence advertising, film, and contemporary art. Major collections exist at the <a href="/museum/moma"><strong>MoMA</strong></a>, <a href="/museum/tate-modern"><strong>Tate Modern</strong></a>, and the Dalí Theatre-Museum in Figueres, Spain.</p>`,
+    whatToLookFor: [
+      'Dreamlike or nightmarish imagery that defies logic',
+      'Impossible combinations: melting clocks, floating objects, hybrid creatures',
+      'Realistic painting technique depicting unreal subjects',
+      'Vast, empty landscapes with strange objects or figures',
+      'Hidden faces or double images within the composition',
+      'Everyday objects in bizarre contexts (Magritte\'s bowler hats, pipes)',
+      'Biomorphic shapes that suggest living organisms',
+      'Symbolic imagery from dreams, Freudian psychology, or the unconscious'
+    ],
     faqs: [
       {
         question: "What is Surrealism?",
@@ -146,6 +187,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p><strong>Analytical Cubism</strong> (1909-1912) broke subjects into geometric facets, nearly dissolving recognizable imagery into abstract grids of <a href="https://luxurywallart.com/collections/brown-art" target="_blank" rel="noopener"><strong>brown</strong></a> and gray. <strong>Synthetic Cubism</strong> (1912-1914) reversed course, building images from flat shapes and incorporating collage elements like newspaper and wallpaper. <a href="/artist/juan-gris"><strong>Juan Gris</strong></a> and Fernand Léger extended the style with brighter colors and distinct personal approaches.</p>
 
 <p>Cubism's influence extended far beyond painting. It transformed sculpture, architecture, and graphic design. The movement demonstrated that art didn't need to mimic how things look, opening the door to <a href="/era/modern"><strong>Modern art's</strong></a> endless experimentation. Today, Cubist masterpieces anchor collections at the <a href="/museum/moma"><strong>MoMA</strong></a>, <a href="/museum/centre-pompidou"><strong>Centre Pompidou</strong></a>, and the <a href="/museum/reina-sofia"><strong>Reina Sofía</strong></a>.</p>`,
+    whatToLookFor: [
+      'Fragmented forms broken into geometric facets and planes',
+      'Objects shown from multiple viewpoints simultaneously',
+      'Muted palette of browns, grays, and ochres (Analytical Cubism)',
+      'Flattened space with no traditional perspective',
+      'Recognizable objects (guitars, bottles, faces) reduced to shapes',
+      'Collage elements: newspaper clippings, wallpaper, sheet music',
+      'Bold outlines defining overlapping planes',
+      'Brighter colors and clearer forms (Synthetic Cubism)'
+    ],
     faqs: [
       {
         question: "What is Cubism?",
@@ -177,6 +228,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>Two main approaches defined the movement. <strong>Action painters</strong> like <a href="/artist/jackson-pollock"><strong>Pollock</strong></a> and <a href="/artist/franz-kline"><strong>Franz Kline</strong></a> used energetic, physical gestures, dripping and splashing paint. <strong>Color Field painters</strong> like <a href="/artist/mark-rothko"><strong>Rothko</strong></a> and Barnett Newman created vast expanses of luminous <a href="https://luxurywallart.com/collections/abstract-wall-art" target="_blank" rel="noopener"><strong>color</strong></a> designed to envelop viewers in contemplative experience. Both rejected European tradition for something raw and American.</p>
 
 <p>The movement flourished in a specific milieu: the Cedar Tavern bar, the Club for artists' discussions, and galleries on Manhattan's 10th Street. Pollock's drip paintings and Rothko's hovering rectangles became icons of postwar American culture. Major collections exist at the <a href="/museum/moma"><strong>MoMA</strong></a>, the <a href="/museum/whitney-museum"><strong>Whitney</strong></a>, and the National Gallery of Art in Washington.</p>`,
+    whatToLookFor: [
+      'Very large canvases meant to engulf and overwhelm the viewer',
+      'No recognizable subject matter, pure abstraction',
+      'Drips, splatters, and poured paint (Pollock)',
+      'Bold, sweeping brushstrokes showing physical gesture',
+      'Hovering rectangles of luminous color (Rothko)',
+      'Black and white compositions with aggressive marks (Kline)',
+      'Raw, unfinished edges and exposed canvas',
+      'Sense of spontaneous, emotional intensity in the paint application'
+    ],
     faqs: [
       {
         question: "What is Abstract Expressionism?",
@@ -208,6 +269,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p><a href="/artist/andy-warhol"><strong>Warhol's</strong></a> silkscreen prints of Campbell's soup and Marilyn Monroe blurred the line between art and advertising. His Factory studio became a hub for celebrities, musicians, and countercultural figures. <a href="/artist/roy-lichtenstein"><strong>Lichtenstein</strong></a> enlarged comic-book panels to monumental scale, complete with Ben-Day dots. Claes Oldenburg created oversized sculptures of everyday objects, from hamburgers to clothespins.</p>
 
 <p>Pop Art questioned what could be art and who got to decide. Was a Brillo box art if Warhol made it? The movement's ironic embrace of <a href="https://luxurywallart.com/collections/pop-culture" target="_blank" rel="noopener"><strong>pop culture</strong></a> and consumerism anticipated our image-saturated digital age. Major collections exist at the <a href="/museum/moma"><strong>MoMA</strong></a>, <a href="/museum/tate-modern"><strong>Tate Modern</strong></a>, and the Andy Warhol Museum in Pittsburgh.</p>`,
+    whatToLookFor: [
+      'Commercial imagery: soup cans, celebrities, brand logos, advertisements',
+      'Ben-Day dots mimicking cheap comic-book printing (Lichtenstein)',
+      'Repeated images in grid patterns (Warhol\'s Marilyn, Elvis)',
+      'Bold, flat colors from commercial printing processes',
+      'Everyday objects elevated to fine art: flags, targets, Brillo boxes',
+      'Silkscreen printing rather than traditional painting',
+      'Ironic or deadpan presentation of consumer culture',
+      'Comic-book speech bubbles and bold outlines'
+    ],
     faqs: [
       {
         question: "What is Pop Art?",
@@ -239,6 +310,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p><a href="/artist/paul-cezanne"><strong>Cézanne</strong></a> flattened space and built forms from geometric color patches, becoming the "father of modern art." <a href="/artist/vincent-van-gogh"><strong>Van Gogh</strong></a> painted emotional intensity with swirling brushwork and <a href="https://luxurywallart.com/collections/colorful-artwork" target="_blank" rel="noopener"><strong>bold colors</strong></a>. <a href="/artist/paul-gauguin"><strong>Gauguin</strong></a> sought escape in Tahiti, using flat colors and symbolic imagery. <a href="/artist/georges-seurat"><strong>Seurat</strong></a> developed <strong>Pointillism</strong>, applying tiny dots of pure color in scientific precision.</p>
 
 <p>These artists worked largely in isolation, often misunderstood in their lifetimes. Van Gogh sold almost nothing before his death at 37. Today, their works command the highest auction prices in art history. Major collections exist at the <a href="/museum/musee-dorsay"><strong>Musée d'Orsay</strong></a>, the <a href="/museum/van-gogh-museum"><strong>Van Gogh Museum</strong></a> in Amsterdam, and the <a href="/museum/art-institute-of-chicago"><strong>Art Institute of Chicago</strong></a>.</p>`,
+    whatToLookFor: [
+      'Swirling, expressive brushstrokes visible from across the room (Van Gogh)',
+      'Forms built from geometric color patches (Cézanne)',
+      'Tiny dots of pure color placed side by side (Pointillism/Seurat)',
+      'Flat areas of bold, non-naturalistic color (Gauguin)',
+      'Bold dark outlines around forms',
+      'Emotional intensity expressed through color choices',
+      'Simplified, almost primitive-looking figures (Gauguin)',
+      'Distorted perspective flattening three-dimensional space'
+    ],
     faqs: [
       {
         question: "What is Post-Impressionism?",
@@ -270,6 +351,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>Two German groups defined the movement. <strong>Die Brücke</strong> (The Bridge), founded in Dresden, included Ernst Ludwig Kirchner and Emil Nolde, who used jagged forms and clashing colors. <strong>Der Blaue Reiter</strong> (The Blue Rider) in Munich included <a href="/artist/wassily-kandinsky"><strong>Wassily Kandinsky</strong></a>, <a href="/artist/franz-marc"><strong>Franz Marc</strong></a>, and <a href="/artist/paul-klee"><strong>Paul Klee</strong></a>, moving toward abstraction while maintaining emotional intensity.</p>
 
 <p>After World War I, <strong>New Objectivity</strong> artists like Otto Dix and George Grosz turned Expressionist distortion toward social criticism, depicting the horrors of war and Weimar decadence. The Nazis condemned Expressionism as "degenerate art," confiscating thousands of works. Today, major collections exist at the <a href="/museum/moma"><strong>MoMA</strong></a>, <a href="https://luxurywallart.com/collections/abstract-wall-art" target="_blank" rel="noopener"><strong>German museums</strong></a>, and the <a href="/museum/tate-modern"><strong>Tate Modern</strong></a>.</p>`,
+    whatToLookFor: [
+      'Distorted, elongated, or exaggerated human figures',
+      'Intense, non-naturalistic colors (green faces, orange skies)',
+      'Jagged, angular lines creating psychological tension',
+      'Visible, aggressive brushwork conveying emotion',
+      'Subjects expressing anxiety, alienation, or inner turmoil',
+      'Urban scenes depicting modern life\'s chaos and isolation',
+      'Simplified, almost woodcut-like forms (Die Brücke)',
+      'Animals and nature rendered with spiritual intensity (Der Blaue Reiter)'
+    ],
     faqs: [
       {
         question: "What is Expressionism?",
@@ -301,6 +392,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>In France, <a href="/artist/eugene-delacroix"><strong>Eugène Delacroix</strong></a> brought Romantic passion to history painting, with swirling compositions and vibrant color. <em>Liberty Leading the People</em> merged political revolution with artistic rebellion. In Britain, <a href="/artist/j-m-w-turner"><strong>J.M.W. Turner</strong></a> dissolved landscapes into light and atmosphere, anticipating <a href="/movement/impressionism"><strong>Impressionism</strong></a>. John Constable painted the English countryside with unprecedented naturalism.</p>
 
 <p>Romanticism was as much about attitude as style: valuing the individual, the emotional, and the mysterious over classical order. <a href="/artist/francisco-goya"><strong>Goya's</strong></a> dark later works explored nightmare visions. The movement influenced literature, music, and philosophy as deeply as visual art. Major collections exist at the <a href="/museum/louvre"><strong>Louvre</strong></a>, <a href="/museum/tate-britain"><strong>Tate Britain</strong></a>, and German museums.</p>`,
+    whatToLookFor: [
+      'Dramatic skies with turbulent clouds, storms, or fiery sunsets',
+      'Tiny human figures dwarfed by vast, overwhelming nature',
+      'Medieval ruins, Gothic architecture, mysterious settings',
+      'Solitary figures viewed from behind, gazing at infinite vistas',
+      'Wild, untamed landscapes: mountains, seas, forests, waterfalls',
+      'Exotic subjects from the Orient, North Africa, or distant lands',
+      'Dramatic lighting and rich, saturated colors',
+      'Scenes evoking strong emotions: terror, awe, melancholy, passion'
+    ],
     faqs: [
       {
         question: "What is Romanticism in art?",
@@ -332,6 +433,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p><a href="/artist/rembrandt"><strong>Rembrandt van Rijn</strong></a> dominated the era with his penetrating portraits and innovative use of light. His <em>Night Watch</em> revolutionized the group portrait. <a href="/artist/johannes-vermeer"><strong>Johannes Vermeer</strong></a> painted quiet domestic interiors with almost supernatural luminosity. Frans Hals captured personalities with loose, energetic brushwork. Landscape specialists like Jacob van Ruisdael and Meindert Hobbema recorded the flat Dutch countryside under dramatic skies.</p>
 
 <p>Genre painters like Jan Steen depicted boisterous tavern scenes, while Willem Claesz Heda and Pieter Claesz created sophisticated still lifes. The period produced more paintings than any previous era, establishing art collecting as a middle-class activity. Today, the <a href="/museum/rijksmuseum"><strong>Rijksmuseum</strong></a> in Amsterdam holds the world's greatest collection of Dutch Golden Age paintings, with major works also at The Hague's Mauritshuis.</p>`,
+    whatToLookFor: [
+      'Soft, diffused light streaming through windows (Vermeer)',
+      'Dark backgrounds with dramatically lit faces (Rembrandt)',
+      'Everyday subjects: domestic interiors, tavern scenes, markets',
+      'Flat Dutch landscapes with big skies and distant horizons',
+      'Still lifes with flowers, food, silverware, and vanitas symbols',
+      'Middle-class subjects in contemporary 17th-century clothing',
+      'Psychological depth in portraits, not just likenesses',
+      'Small-scale paintings designed for private homes, not churches'
+    ],
     faqs: [
       {
         question: "What was the Dutch Golden Age?",
@@ -363,6 +474,16 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 <p>Antoine Watteau pioneered the <em>fête galante</em>, depicting elegant figures in parkland settings. <a href="/artist/jean-honore-fragonard"><strong>Jean-Honoré Fragonard's</strong></a> famous <em>The Swing</em> captures the style perfectly: a young woman kicks off her slipper while a hidden lover watches from the bushes. François Boucher painted mythological scenes with rosy flesh and <a href="https://luxurywallart.com/collections/pink-wall-art" target="_blank" rel="noopener"><strong>pink</strong></a> clouds. In Venice, Tiepolo created dazzling ceiling frescoes.</p>
 
 <p>Rococo extended beyond painting to architecture, furniture, and decorative arts, characterized by asymmetrical curves, shell motifs, and gold leaf. Critics dismissed it as frivolous, and the French Revolution swept it away along with the aristocracy that patronized it. Today, Rococo paintings hang in the <a href="/museum/louvre"><strong>Louvre</strong></a>, the Wallace Collection in London, and the Frick Collection in New York.</p>`,
+    whatToLookFor: [
+      'Pastel colors: soft pinks, powder blues, creamy whites',
+      'Playful, flirtatious subjects: swings, love letters, garden parties',
+      'Cherubs and cupids in abundance',
+      'Asymmetrical, curving compositions',
+      'Elegant aristocrats in silk and satin in parkland settings',
+      'Shell and scroll motifs (rocaille)',
+      'Rosy, porcelain-like flesh tones',
+      'Frivolous mythological subjects: Venus, nymphs, shepherdesses'
+    ],
     faqs: [
       {
         question: "What is Rococo art?",
