@@ -24,10 +24,10 @@ const navLinks = [
     icon: "🏛️",
     subItems: [
       { href: "/museums", label: "All Museums" },
-      { href: "/museum/louvre", label: "The Louvre" },
+      { href: "/museum/louvre-paris-france", label: "The Louvre" },
       { href: "/museum/moma", label: "MoMA" },
       { href: "/museum/met", label: "The Met" },
-      { href: "/museum/uffizi", label: "Uffizi Gallery" },
+      { href: "/museum/uffizi-gallery-florence-italy", label: "Uffizi Gallery" },
       { href: "/museum/rijksmuseum", label: "Rijksmuseum" },
     ]
   },
