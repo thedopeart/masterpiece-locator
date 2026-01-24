@@ -14,6 +14,7 @@ export interface Era {
   shortName: string;
   startYear: number;
   endYear: number;
+  subtitle: string; // Short tagline for hero section
   description: string; // Plain text for meta descriptions
   descriptionHtml: string; // Rich HTML with links and bold keywords
   keywords: string[];
@@ -30,6 +31,7 @@ export const ERAS: Era[] = [
     shortName: 'Medieval',
     startYear: 500,
     endYear: 1399,
+    subtitle: 'Art in service of faith. Byzantine icons, illuminated manuscripts, and Gothic cathedrals.',
     description: 'Medieval art spans nearly a thousand years, from the fall of Rome to the dawn of the Renaissance. Religious devotion drove artistic production, with Byzantine mosaics, Romanesque sculptures, and Gothic cathedrals defining the era.',
     descriptionHtml: `<p><strong>Medieval art</strong> spans nearly a thousand years, from the fall of Rome around 500 CE to the dawn of the <a href="/era/renaissance"><strong>Renaissance</strong></a> in the 1400s. This was art in service of faith. The Catholic Church commissioned virtually everything: <strong>illuminated manuscripts</strong>, altarpieces, mosaics, and the soaring stained glass windows of Gothic cathedrals. Artists worked anonymously, their individual genius less important than glorifying God.</p>
 
@@ -77,6 +79,7 @@ export const ERAS: Era[] = [
     shortName: 'Renaissance',
     startYear: 1400,
     endYear: 1599,
+    subtitle: 'The rebirth of classical ideals. Linear perspective, anatomical mastery, and artistic genius.',
     description: 'The Renaissance marked a rebirth of classical Greek and Roman ideals, beginning in Florence and spreading across Europe. Artists like Leonardo da Vinci, Michelangelo, and Raphael pioneered linear perspective, anatomical accuracy, and naturalistic light.',
     descriptionHtml: `<p>The <strong>Renaissance</strong> means "rebirth," and that's exactly what happened in Florence around 1400. Artists rediscovered classical Greek and Roman ideals, studied ancient sculptures, and developed techniques that would define Western art for centuries. <a href="/artist/leonardo-da-vinci"><strong>Leonardo da Vinci</strong></a>, <a href="/artist/michelangelo"><strong>Michelangelo</strong></a>, and <a href="/artist/raphael"><strong>Raphael</strong></a> didn't just paint. They investigated anatomy, mathematics, and engineering to understand how the world actually worked.</p>
 
@@ -124,6 +127,7 @@ export const ERAS: Era[] = [
     shortName: 'Baroque',
     startYear: 1600,
     endYear: 1799,
+    subtitle: 'Drama, grandeur, and emotional intensity. Caravaggio, Rembrandt, and the Dutch masters.',
     description: 'Baroque art exploded with drama, movement, and emotional intensity. Caravaggio\'s revolutionary chiaroscuro influenced a generation, while Rubens and Bernini created works of theatrical grandeur.',
     descriptionHtml: `<p>If Renaissance art sought harmony and balance, <strong>Baroque art</strong> wanted to overwhelm you. Beginning around 1600, artists like <a href="/artist/caravaggio"><strong>Caravaggio</strong></a> developed <strong>tenebrism</strong>, an extreme form of chiaroscuro where figures emerge from pitch darkness into dramatic spotlight. The Catholic Church, fighting the Protestant Reformation, deployed art as propaganda. Paintings had to move viewers emotionally, to make them feel the ecstasy of saints and the terror of martyrdom.</p>
 
@@ -171,6 +175,7 @@ export const ERAS: Era[] = [
     shortName: '19th Century',
     startYear: 1800,
     endYear: 1899,
+    subtitle: 'From Romanticism to Impressionism. The century that transformed painting forever.',
     description: 'The 19th century witnessed an explosion of artistic movements reacting against academic tradition. Romanticism celebrated emotion and nature. Realism depicted ordinary life without idealization. Impressionism captured fleeting light and modern life.',
     descriptionHtml: `<p>No century transformed art more radically than the 19th. It began with <strong>Neoclassicism</strong> and ended with artists dismantling everything that came before. <a href="/movement/romanticism"><strong>Romanticism</strong></a> arrived first, celebrating emotion, nature, and individual imagination over classical reason. <a href="/artist/eugene-delacroix"><strong>Delacroix's</strong></a> wild brushwork and <a href="/artist/caspar-david-friedrich"><strong>Friedrich's</strong></a> sublime <a href="https://luxurywallart.com/collections/landscapes" target="_blank" rel="noopener"><strong>landscapes</strong></a> placed feeling above technique.</p>
 
@@ -218,6 +223,7 @@ export const ERAS: Era[] = [
     shortName: 'Modern',
     startYear: 1900,
     endYear: 1969,
+    subtitle: 'The break with tradition. Cubism, Surrealism, and the birth of abstraction.',
     description: 'Modern art shattered centuries of tradition in a few explosive decades. Cubism fragmented reality. Expressionism prioritized emotion over accuracy. Surrealism explored the unconscious mind. Abstract art abandoned representation entirely.',
     descriptionHtml: `<p><strong>Modern art</strong> didn't just evolve from what came before. It declared war on it. In 1907, <a href="/artist/pablo-picasso"><strong>Picasso's</strong></a> Les Demoiselles d'Avignon shattered conventional perspective, launching <a href="/movement/cubism"><strong>Cubism</strong></a>. Objects appeared from multiple angles simultaneously. Reality fragmented into geometric planes. Nothing in art would ever be the same.</p>
 
@@ -265,6 +271,7 @@ export const ERAS: Era[] = [
     shortName: 'Contemporary',
     startYear: 1970,
     endYear: 2030, // Future-proof
+    subtitle: 'Art without boundaries. Conceptual, digital, and global perspectives.',
     description: 'Contemporary art defies easy definition, embracing everything from conceptual installations to digital media. Artists question the boundaries between art and life, high culture and popular culture, the gallery and the street.',
     descriptionHtml: `<p><strong>Contemporary art</strong> resists definition, and that's the point. Since around 1970, artists have questioned every assumption about what art is, where it belongs, and who gets to decide. <a href="/movement/pop-art"><strong>Pop Art</strong></a> had already blurred the line between high culture and commercial imagery. <a href="/movement/conceptual-art"><strong>Conceptual art</strong></a> declared that ideas matter more than objects. Performance art made the artist's body the medium. Installation art transformed entire spaces.</p>
 

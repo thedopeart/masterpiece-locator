@@ -226,7 +226,7 @@ export default async function EraPage({ params }: Props) {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
           <div className="flex-1 min-w-0 lg:max-w-[65%]">
-            {/* Hero Header */}
+            {/* Hero Header - Clean and concise */}
             <div
               className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 mb-8 relative overflow-hidden`}
             >
@@ -259,14 +259,22 @@ export default async function EraPage({ params }: Props) {
                   </svg>
                   {formatEraDateRange(era)}
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
                   {era.name}
                 </h1>
-                <div
-                  className="text-neutral-300 text-lg leading-relaxed max-w-2xl [&>p]:mb-4 [&>p:last-child]:mb-0 [&_a]:text-[#C9A84C] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b8973f] [&_strong]:text-white [&_strong]:font-semibold"
-                  dangerouslySetInnerHTML={{ __html: era.descriptionHtml }}
-                />
+                <p className="text-neutral-300 text-lg max-w-xl">
+                  {era.subtitle}
+                </p>
               </div>
+            </div>
+
+            {/* About This Era - Detailed content */}
+            <div className="bg-neutral-50 rounded-xl p-6 mb-8 border border-neutral-200">
+              <h2 className="text-lg font-semibold text-neutral-900 mb-4">About {era.name}</h2>
+              <div
+                className="text-neutral-700 leading-relaxed prose prose-neutral max-w-none [&>p]:mb-4 [&>p:last-child]:mb-0 [&_a]:text-[#C9A84C] [&_a]:no-underline hover:[&_a]:underline [&_strong]:text-neutral-900 [&_strong]:font-semibold"
+                dangerouslySetInnerHTML={{ __html: era.descriptionHtml }}
+              />
             </div>
 
             {/* Mobile sidebar - shown on small screens */}
