@@ -113,6 +113,11 @@ export interface MuseumContact {
   email: string | null;
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface MuseumPracticalData {
   slug: string;
   name: string;
@@ -127,4 +132,5 @@ export interface MuseumPracticalData {
   accessibility: AccessibilityInfo;
   amenities: MuseumAmenities;
   mustSee: MustSeeItem[];
+  faqs?: FAQItem[];
 }

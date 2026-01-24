@@ -139,7 +139,14 @@ export function formatPrice(amount: number, currency: string): string {
 }
 
 // Generate FAQs from practical data
+// Uses custom FAQs if provided in the JSON, otherwise generates basic FAQs
 export function generatePracticalFAQs(data: MuseumPracticalData): { question: string; answer: string }[] {
+  // If custom FAQs are provided in the JSON, use those instead
+  if (data.faqs && data.faqs.length > 0) {
+    return data.faqs;
+  }
+
+  // Otherwise generate basic FAQs from the data
   const faqs = [];
 
   // FAQ 1: Hours
