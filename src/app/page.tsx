@@ -4,7 +4,7 @@ import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import ArtistCard from "@/components/ArtistCard";
 import MuseumCard from "@/components/MuseumCard";
 import SearchBar from "@/components/SearchBar";
-import EraCard from "@/components/EraCard";
+import EraCard, { TimelineEraCard } from "@/components/EraCard";
 import Link from "next/link";
 import { decodeHtmlEntities, isPrivateCollection, isCountryNotCity } from "@/lib/text";
 import { ERAS } from "@/lib/eras";
@@ -241,47 +241,89 @@ export default async function Home() {
     })
   );
 
-  // Filter to eras with content and limit to 6
+  // Filter to eras with content and limit to 4 for timeline layout
   const erasWithContent = eraStats
     .filter((e) => e.movementCount > 0 || e.artistCount > 0)
-    .slice(0, 6);
+    .slice(0, 4);
 
   return (
     <div className="bg-neutral-50">
-      {/* Hero Section - Compact */}
-      <section className="bg-white py-8 md:py-12 border-b border-neutral-100">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-3 tracking-tight">
+      {/* Hero Section - Premium Design */}
+      <section className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-16 md:py-20 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-white/5 to-transparent rounded-full" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-[#C9A84C]/20 border border-[#C9A84C]/30 text-[#C9A84C] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-[#C9A84C] rounded-full animate-pulse" />
+            Free Art Discovery Tool
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
             Where Is That Famous Painting?
           </h1>
-          <p className="text-neutral-600 mb-4 max-w-xl mx-auto">
+          <p className="text-neutral-300 text-lg mb-3 max-w-xl mx-auto">
             Find which museum has the artwork you want to see in person.
           </p>
-          <p className="text-neutral-500 text-sm mb-6 max-w-2xl mx-auto">
-            Search <span className="font-semibold text-[#028161]">{artworkCount}+ paintings</span> across <span className="font-semibold text-[#028161]">{museumCount}+ museums</span> worldwide. We'll tell you the exact location, opening hours, and how to plan your visit.
+          <p className="text-neutral-400 text-sm mb-8 max-w-2xl mx-auto">
+            Search <span className="font-semibold text-[#C9A84C]">{artworkCount.toLocaleString()}+ paintings</span> across <span className="font-semibold text-[#C9A84C]">{museumCount}+ museums</span> worldwide
           </p>
-          <div className="flex justify-center">
+
+          <div className="flex justify-center mb-8">
             <SearchBar />
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-neutral-400 text-sm">
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-[#C9A84C]" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              Always Free
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-[#C9A84C]" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              Real Museum Locations
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-[#C9A84C]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+              </svg>
+              Updated Weekly
+            </span>
           </div>
         </div>
       </section>
 
       {/* Featured Artworks */}
       <section className="max-w-[1400px] mx-auto px-4 py-12">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-neutral-900">
-              Most Searched Masterpieces
-            </h2>
-            <p className="text-neutral-600 mt-1">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">
+                Most Searched Masterpieces
+              </h2>
+            </div>
+            <p className="text-neutral-600 ml-4">
               These are the paintings people search for most. Click any artwork to see its <strong>museum location</strong> and <strong>visiting details</strong>.
             </p>
           </div>
           <Link
             href="/search"
-            className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+            className="flex items-center gap-1 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
           >
             View all
+            <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
 
@@ -301,36 +343,55 @@ export default async function Home() {
         )}
       </section>
 
-      {/* Explore by Era */}
+      {/* Explore by Era - Timeline */}
       {erasWithContent.length > 0 && (
-        <section className="bg-white py-12 border-y border-neutral-100">
+        <section className="bg-gradient-to-b from-white to-neutral-50 py-16 border-y border-neutral-100 overflow-hidden">
           <div className="max-w-[1400px] mx-auto px-4">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h2 className="text-2xl font-bold text-neutral-900">
-                  Explore by Era
-                </h2>
-                <p className="text-neutral-600 mt-1">
-                  Browse <strong>art movements</strong> by time period. Each era links to the artists and styles that defined it, from <strong>Renaissance masters</strong> to <strong>Modern art pioneers</strong>.
-                </p>
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/20 text-[#9a7f3b] px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Journey Through Time
               </div>
-              <Link
-                href="/movements"
-                className="text-neutral-600 hover:text-black text-sm font-medium transition-colors hidden md:block"
-              >
-                View all movements
-              </Link>
+              <h2 className="text-3xl font-bold text-neutral-900 mb-3">
+                Explore Art by Era
+              </h2>
+              <p className="text-neutral-600 max-w-2xl mx-auto">
+                From Renaissance masters to Modern pioneers. Click any era to discover its movements, artists, and masterpieces.
+              </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {erasWithContent.map(({ era, movementCount, artistCount, previewImages }) => (
-                <EraCard
+
+            {/* Timeline Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 relative">
+              {/* Horizontal timeline line for large screens */}
+              <div className="hidden lg:block absolute top-[60px] left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-[#C9A84C]/20 via-[#C9A84C]/60 to-[#C9A84C]/20 rounded-full" />
+
+              {erasWithContent.slice(0, 4).map(({ era, movementCount, artistCount, previewImages }, index) => (
+                <TimelineEraCard
                   key={era.slug}
                   era={era}
                   movementCount={movementCount}
                   artistCount={artistCount}
                   previewImages={previewImages}
+                  isFirst={index === 0}
+                  isLast={index === erasWithContent.slice(0, 4).length - 1}
                 />
               ))}
+            </div>
+
+            {/* View All Link */}
+            <div className="text-center mt-8">
+              <Link
+                href="/movements"
+                className="inline-flex items-center gap-2 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
+              >
+                View all art movements
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           </div>
         </section>
@@ -339,20 +400,26 @@ export default async function Home() {
       {/* Featured Artists */}
       <section className="bg-white py-12 border-y border-neutral-100">
         <div className="max-w-[1400px] mx-auto px-4">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-neutral-900">
-                Featured Artists
-              </h2>
-              <p className="text-neutral-600 mt-1">
-                Find every painting by your favorite artist and which <strong>museums display their work</strong>. Click an artist to see their full catalog with locations.
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+                <h2 className="text-2xl font-bold text-neutral-900">
+                  Featured Artists
+                </h2>
+              </div>
+              <p className="text-neutral-600 ml-4">
+                Find every painting by your favorite artist and which <strong>museums display their work</strong>. Click an artist to see their full catalog.
               </p>
             </div>
             <Link
               href="/artists"
-              className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+              className="flex items-center gap-1 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
             >
               View all
+              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
 
@@ -371,20 +438,26 @@ export default async function Home() {
       {/* Top Museums */}
       <section className="bg-neutral-50 py-12">
         <div className="max-w-[1400px] mx-auto px-4">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-neutral-900">
-                Top Museums
-              </h2>
-              <p className="text-neutral-600 mt-1">
-                The world's best <strong>art museums</strong> and what's inside them. Click a museum to see its <strong>collection highlights</strong>, <strong>location</strong>, and which famous paintings call it home.
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+                <h2 className="text-2xl font-bold text-neutral-900">
+                  Top Museums
+                </h2>
+              </div>
+              <p className="text-neutral-600 ml-4">
+                The world's best <strong>art museums</strong> and what's inside them. Click a museum to see its collection and famous paintings.
               </p>
             </div>
             <Link
               href="/museums"
-              className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+              className="flex items-center gap-1 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
             >
               View all
+              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
 
@@ -404,20 +477,26 @@ export default async function Home() {
       {citiesWithData.length > 0 && (
         <section className="bg-white py-12 border-t border-neutral-100">
           <div className="max-w-[1400px] mx-auto px-4">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-neutral-900">
-                  Top Art Cities
-                </h2>
-                <p className="text-neutral-600 mt-1">
-                  Planning a trip? These cities have the highest concentration of <strong>famous artworks</strong>. See what's in each city before you book.
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+                  <h2 className="text-2xl font-bold text-neutral-900">
+                    Top Art Cities
+                  </h2>
+                </div>
+                <p className="text-neutral-600 ml-4">
+                  Planning a trip? These cities have the highest concentration of <strong>famous artworks</strong>. See what's in each city.
                 </p>
               </div>
               <Link
                 href="/cities"
-                className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+                className="flex items-center gap-1 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
               >
                 View all
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
 

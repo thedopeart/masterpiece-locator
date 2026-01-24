@@ -48,18 +48,18 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
   return (
     <Link
       href={`/art/${artwork.slug}`}
-      className="group block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden mb-4 break-inside-avoid"
+      className="group block bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-neutral-200/50 transition-all duration-300 overflow-hidden mb-4 break-inside-avoid border border-neutral-100"
     >
       <div className="relative bg-neutral-100 overflow-hidden">
         {/* Must-See Highlight Badge */}
         {highlight && (
-          <div className="absolute top-2 left-2 z-10 bg-[#028161] text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
+          <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
             Must-See
           </div>
         )}
         {/* Artwork Type Badge (for non-paintings) */}
         {artwork.artworkType && artwork.artworkType !== "painting" && TYPE_LABELS[artwork.artworkType] && (
-          <div className={`absolute ${highlight ? "top-10" : "top-2"} left-2 z-10 bg-neutral-800/80 text-white text-xs font-medium px-2 py-1 rounded-full`}>
+          <div className={`absolute ${highlight ? "top-10" : "top-2"} left-2 z-10 bg-neutral-900/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full`}>
             {TYPE_LABELS[artwork.artworkType]}
           </div>
         )}
