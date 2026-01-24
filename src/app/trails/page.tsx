@@ -292,11 +292,10 @@ export default async function TrailsPage() {
         {/* CTA */}
         <section className="bg-black rounded-xl p-8 text-center">
           <h2 className="text-xl font-semibold text-white mb-2">
-            Bring Art Home
+            Museum-Quality Canvas Prints
           </h2>
           <p className="text-neutral-400 mb-6">
-            Can&apos;t make the trip? Explore wall art inspired by these great
-            masters.
+            Can&apos;t make the trip? LuxuryWallArt.com offers canvas prints of classic masterpieces for your home.
           </p>
           <a
             href="https://luxurywallart.com"
@@ -304,7 +303,7 @@ export default async function TrailsPage() {
             rel="noopener noreferrer"
             className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
           >
-            Shop Wall Art
+            Shop Canvas Prints
           </a>
         </section>
       </div>
