@@ -250,9 +250,9 @@ export default async function MuseumPage({ params, searchParams }: Props) {
   // Get practical data if available
   const practicalData = getMuseumPracticalData(slug);
 
-  // Generate pagination link helper
+  // Generate pagination link helper - scrolls to artworks section
   const getPaginationLink = (pageNum: number) => {
-    return pageNum === 1 ? `/museum/${slug}` : `/museum/${slug}?page=${pageNum}`;
+    return pageNum === 1 ? `/museum/${slug}#artworks` : `/museum/${slug}?page=${pageNum}#artworks`;
   };
 
   return (
@@ -506,7 +506,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
             )}
 
             {/* Masterpieces */}
-            <section>
+            <section id="artworks" className="scroll-mt-20">
               <div className="flex items-center justify-between mb-2">
                 <h2 className="text-xl font-semibold text-neutral-900">
                   Famous Paintings at {museum.name}

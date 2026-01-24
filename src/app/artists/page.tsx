@@ -166,6 +166,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
       <div className="max-w-[1400px] mx-auto px-4 py-8">
 
         {/* Section Header */}
+        <div id="artists" className="scroll-mt-20">
         <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
           {searchQuery
             ? `Results for "${searchQuery}"`
@@ -183,6 +184,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             <>No artists found</>
           )}
         </p>
+        </div>
 
         {/* Artists Grid */}
         {artists.length > 0 ? (
@@ -289,7 +291,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {/* Previous Button */}
             {currentPage > 1 ? (
               <Link
-                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage - 1}`}
+                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage - 1}#artists`}
                 className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Previous
@@ -320,7 +322,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
                         <span className="px-2 text-neutral-400">...</span>
                       )}
                       <Link
-                        href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${page}`}
+                        href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${page}#artists`}
                         className={`px-4 py-2 rounded-lg transition-colors ${
                           page === currentPage
                             ? "bg-black text-white"
@@ -337,7 +339,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {/* Next Button */}
             {currentPage < totalPages ? (
               <Link
-                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage + 1}`}
+                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage + 1}#artists`}
                 className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Next

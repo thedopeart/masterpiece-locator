@@ -275,7 +275,7 @@ export default async function CityPage({ params, searchParams }: Props) {
         )}
 
         {/* All Masterpieces */}
-        <section>
+        <section id="artworks" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-neutral-900 mb-6">
             Masterpieces in {cityName}
           </h2>
@@ -294,7 +294,7 @@ export default async function CityPage({ params, searchParams }: Props) {
                 <div className="flex items-center justify-center gap-2 mt-8">
                   {currentPage > 1 && (
                     <Link
-                      href={`/city/${slug}?page=${currentPage - 1}`}
+                      href={`/city/${slug}?page=${currentPage - 1}#artworks`}
                       className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                     >
                       Previous
@@ -319,7 +319,7 @@ export default async function CityPage({ params, searchParams }: Props) {
                       pages.push(
                         <Link
                           key={1}
-                          href={`/city/${slug}?page=1`}
+                          href={`/city/${slug}?page=1#artworks`}
                           className="w-10 h-10 flex items-center justify-center text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                         >
                           1
@@ -337,7 +337,7 @@ export default async function CityPage({ params, searchParams }: Props) {
                       pages.push(
                         <Link
                           key={i}
-                          href={`/city/${slug}?page=${i}`}
+                          href={`/city/${slug}?page=${i}#artworks`}
                           className={`w-10 h-10 flex items-center justify-center text-sm font-medium rounded-lg transition-colors ${
                             i === currentPage
                               ? "bg-neutral-900 text-white"
@@ -359,7 +359,7 @@ export default async function CityPage({ params, searchParams }: Props) {
                       pages.push(
                         <Link
                           key={totalPages}
-                          href={`/city/${slug}?page=${totalPages}`}
+                          href={`/city/${slug}?page=${totalPages}#artworks`}
                           className="w-10 h-10 flex items-center justify-center text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                         >
                           {totalPages}
@@ -372,7 +372,7 @@ export default async function CityPage({ params, searchParams }: Props) {
 
                   {currentPage < Math.ceil(allArtworks.length / ARTWORKS_PER_PAGE) && (
                     <Link
-                      href={`/city/${slug}?page=${currentPage + 1}`}
+                      href={`/city/${slug}?page=${currentPage + 1}#artworks`}
                       className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                     >
                       Next
