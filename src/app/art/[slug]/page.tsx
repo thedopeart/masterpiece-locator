@@ -10,6 +10,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
 import PriceComparisonModule from "@/components/PriceComparison";
+import ShareButtons from "@/components/ShareButtons";
 
 // Extract series name from artwork title (e.g., "Rouen Cathedral" from "Rouen Cathedral, West Facade")
 function extractSeriesName(title: string): string | null {
@@ -536,6 +537,10 @@ export default async function ArtworkPage({ params }: Props) {
                   ))}
                 </div>
               )}
+              {/* Share buttons */}
+              <div className="mt-4">
+                <ShareButtons title={`${artwork.title} by ${artwork.artist?.name || "Unknown Artist"}`} />
+              </div>
             </header>
 
             {/* Mobile sidebar - shown on small screens */}

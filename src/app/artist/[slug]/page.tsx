@@ -64,7 +64,7 @@ const getArtist = cache(async (slug: string) => {
   return prisma.artist.findUnique({
     where: { slug },
     include: {
-      Movement: { select: { name: true, slug: true } },
+      Movement: { select: { id: true, name: true, slug: true } },
       Artwork: {
         include: {
           Museum: { select: { name: true, city: true } },
@@ -208,6 +208,31 @@ export default async function ArtistPage({ params }: Props) {
     })),
     _count: { artworks: m._count.Artwork },
   }));
+
+  // Get related artists from same movements
+  const movementIds = rawArtist.Movement.map(m => m.id);
+  const relatedArtists = movementIds.length > 0 ? await prisma.artist.findMany({
+    where: {
+      id: { not: artist.id },
+      Movement: { some: { id: { in: movementIds } } },
+      Artwork: { some: { imageUrl: { not: null } } },
+    },
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      imageUrl: true,
+      nationality: true,
+      Artwork: {
+        where: { imageUrl: { not: null } },
+        take: 1,
+        select: { imageUrl: true },
+      },
+      _count: { select: { Artwork: true } },
+    },
+    orderBy: { Artwork: { _count: "desc" } },
+    take: 6,
+  }) : [];
 
   const lifespan =
     artist.birthYear && artist.deathYear
@@ -539,6 +564,50 @@ export default async function ArtistPage({ params }: Props) {
                       {museum._count.artworks} {museum._count.artworks === 1 ? "work" : "works"} on display
                     </p>
                   </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Artists */}
+        {relatedArtists.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-xl font-semibold text-neutral-900 mb-2">
+              Related Artists
+            </h2>
+            <p className="text-neutral-500 mb-6">
+              Other {artist.movements[0]?.name || ""} artists you might like
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {relatedArtists.map((related) => (
+                <Link
+                  key={related.id}
+                  href={`/artist/${related.slug}`}
+                  className="group"
+                >
+                  <div className="aspect-square relative rounded-lg overflow-hidden bg-neutral-100 mb-2">
+                    {(related.imageUrl || related.Artwork[0]?.imageUrl) ? (
+                      <Image
+                        src={related.imageUrl || related.Artwork[0]?.imageUrl || ""}
+                        alt={related.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 50vw, 16vw"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center">
+                        <span className="text-3xl font-serif text-[#C9A84C]">{related.name.charAt(0)}</span>
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors text-sm truncate">
+                    {decodeHtmlEntities(related.name)}
+                  </h3>
+                  <p className="text-xs text-neutral-500">
+                    {related._count.Artwork} works
+                  </p>
                 </Link>
               ))}
             </div>
