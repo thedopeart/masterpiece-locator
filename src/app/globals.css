@@ -80,52 +80,52 @@ strong {
   margin-bottom: 0;
 }
 
-/* Interlink color differentiation */
+/* Interlink color differentiation - only applies inside .prose content areas */
 /* Green for artist, movement, and artwork links */
-a[href^="/artist/"],
-a[href^="/movement/"],
-a[href^="/art/"],
-a[href*="/apps/masterpieces/artist/"],
-a[href*="/apps/masterpieces/movement/"],
-a[href*="/apps/masterpieces/art/"] {
+.prose a[href^="/artist/"],
+.prose a[href^="/movement/"],
+.prose a[href^="/art/"],
+.prose a[href*="/apps/masterpieces/artist/"],
+.prose a[href*="/apps/masterpieces/movement/"],
+.prose a[href*="/apps/masterpieces/art/"] {
   color: #028161 !important;
 }
 
-a[href^="/artist/"]:hover,
-a[href^="/movement/"]:hover,
-a[href^="/art/"]:hover,
-a[href*="/apps/masterpieces/artist/"]:hover,
-a[href*="/apps/masterpieces/movement/"]:hover,
-a[href*="/apps/masterpieces/art/"]:hover {
+.prose a[href^="/artist/"]:hover,
+.prose a[href^="/movement/"]:hover,
+.prose a[href^="/art/"]:hover,
+.prose a[href*="/apps/masterpieces/artist/"]:hover,
+.prose a[href*="/apps/masterpieces/movement/"]:hover,
+.prose a[href*="/apps/masterpieces/art/"]:hover {
   text-decoration: none;
 }
 
-/* Gold for museum and LuxuryWallArt links (except buttons) */
-a[href^="/museum/"]:not(.inline-block),
-a[href*="/apps/masterpieces/museum/"]:not(.inline-block),
-a[href*="luxurywallart.com"]:not(.inline-block) {
+/* Gold for museum and LuxuryWallArt links - only inside .prose */
+.prose a[href^="/museum/"],
+.prose a[href*="/apps/masterpieces/museum/"],
+.prose a[href*="luxurywallart.com"] {
   color: #C9A84C !important;
 }
 
-a[href^="/museum/"]:not(.inline-block):hover,
-a[href*="/apps/masterpieces/museum/"]:not(.inline-block):hover,
-a[href*="luxurywallart.com"]:not(.inline-block):hover {
+.prose a[href^="/museum/"]:hover,
+.prose a[href*="/apps/masterpieces/museum/"]:hover,
+.prose a[href*="luxurywallart.com"]:hover {
   text-decoration: none;
 }
 
-/* Bold text inside links inherits link color */
-a[href^="/artist/"] strong,
-a[href^="/movement/"] strong,
-a[href^="/art/"] strong,
-a[href*="/apps/masterpieces/artist/"] strong,
-a[href*="/apps/masterpieces/movement/"] strong,
-a[href*="/apps/masterpieces/art/"] strong {
+/* Bold text inside links inherits link color - only inside .prose */
+.prose a[href^="/artist/"] strong,
+.prose a[href^="/movement/"] strong,
+.prose a[href^="/art/"] strong,
+.prose a[href*="/apps/masterpieces/artist/"] strong,
+.prose a[href*="/apps/masterpieces/movement/"] strong,
+.prose a[href*="/apps/masterpieces/art/"] strong {
   color: inherit !important;
 }
 
-a[href^="/museum/"] strong,
-a[href*="/apps/masterpieces/museum/"] strong,
-a[href*="luxurywallart.com"] strong {
+.prose a[href^="/museum/"] strong,
+.prose a[href*="/apps/masterpieces/museum/"] strong,
+.prose a[href*="luxurywallart.com"] strong {
   color: inherit !important;
 }
 
