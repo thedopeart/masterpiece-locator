@@ -110,7 +110,7 @@
         }
       ],
       "paintingsFromHere": [
-        { "slug": "le-moulin-de-la-galette", "title": "Le Moulin de la Galette", "year": 1886 },
+        { "slug": "le-moulin-de-la-galette-van-gogh", "title": "Le Moulin de la Galette", "year": 1886 },
         { "slug": "self-portrait-with-grey-felt-hat", "title": "Self-Portrait with Grey Felt Hat", "year": 1887 }
       ],
       "artworksHereNow": 24
@@ -166,9 +166,9 @@
         { "slug": "sunflowers", "title": "Sunflowers", "year": 1888 },
         { "slug": "the-yellow-house", "title": "The Yellow House", "year": 1888 },
         { "slug": "cafe-terrace-at-night", "title": "Cafe Terrace at Night", "year": 1888 },
-        { "slug": "the-bedroom", "title": "The Bedroom", "year": 1888 },
+        { "slug": "bedroom-in-arles", "title": "Bedroom in Arles", "year": 1888 },
         { "slug": "the-night-cafe", "title": "The Night Cafe", "year": 1888 },
-        { "slug": "starry-night-over-the-rhone", "title": "Starry Night Over the Rhone", "year": 1888 }
+        { "slug": "starry-night-over-rhone", "title": "Starry Night Over the Rhône", "year": 1888 }
       ],
       "artworksHereNow": 0,
       "artworksNote": "Sadly, no original Van Gogh paintings remain in Arles. They are spread across museums worldwide."
@@ -263,7 +263,7 @@
       "paintingsFromHere": [
         { "slug": "the-church-at-auvers", "title": "The Church at Auvers", "year": 1890 },
         { "slug": "wheatfield-with-crows", "title": "Wheatfield with Crows", "year": 1890 },
-        { "slug": "portrait-of-dr-gachet", "title": "Portrait of Dr. Gachet", "year": 1890 }
+        { "slug": "portrait-dr-gachet", "title": "Portrait of Dr. Gachet", "year": 1890 }
       ],
       "artworksHereNow": 0
     }
@@ -280,7 +280,7 @@
         "count": 200,
         "note": "The world's largest Van Gogh collection",
         "coordinates": { "lat": 52.3584, "lng": 4.8811 },
-        "highlights": ["sunflowers", "the-bedroom", "almond-blossom", "the-potato-eaters"]
+        "highlights": ["sunflowers", "bedroom-in-arles", "almond-blossoms", "the-potato-eaters"]
       },
       {
         "slug": "kroller-muller-museum",
@@ -299,7 +299,7 @@
         "country": "France",
         "count": 24,
         "coordinates": { "lat": 48.8600, "lng": 2.3266 },
-        "highlights": ["starry-night-over-the-rhone", "the-church-at-auvers", "self-portrait-1889"]
+        "highlights": ["starry-night-over-rhone", "the-church-at-auvers", "self-portrait-1889"]
       },
       {
         "slug": "moma",

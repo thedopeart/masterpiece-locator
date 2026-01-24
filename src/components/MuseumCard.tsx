@@ -1,6 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Total collection sizes for major museums (approximate figures)
+const museumCollectionSizes: Record<string, string> = {
+  // Major museums (matched to actual database slugs)
+  "louvre-paris-france": "380,000+",
+  "met": "1.5M+",
+  "moma": "200,000+",
+  "rijksmuseum": "1M+",
+  "uffizi-gallery-florence-italy": "100,000+",
+  "national-gallery": "2,300+",
+  "museo-del-prado-madrid-spain": "35,000+",
+  "hermitage": "3M+",
+  "tate-modern-london-uk": "70,000+",
+  "tate-britain": "70,000+",
+  "national-gallery-of-art": "150,000+",
+  "art-institute-chicago": "300,000+",
+  "guggenheim": "8,000+",
+  "van-gogh-museum": "1,400+",
+  "alte-pinakothek": "700+",
+  "belvedere": "24,000+",
+  "scottish-national-gallery": "3,100+",
+  "national-gallery-ireland": "16,000+",
+  "national-gallery-victoria": "75,000+",
+  "national-gallery-oslo": "1,100+",
+  "albertina-vienna-austria": "65,000+",
+  "albertina-museum": "65,000+",
+  "musee-dorsay": "150,000+",
+  "musee-d-orsay-paris-france": "150,000+",
+  "british-museum": "8M+",
+  "barberini": "1,400+",
+  "accademia-venice": "1,600+",
+};
+
 interface MuseumCardProps {
   museum: {
     slug: string;
@@ -63,11 +95,16 @@ export default function MuseumCard({ museum }: MuseumCardProps) {
           {museum.city}, {museum.country}
         </p>
         {museum._count && (
-          <p className="text-xs mt-2">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#C9A84C]/10 text-[#9a7f3b] rounded-full font-medium">
-              {museum._count.artworks} masterpiece{museum._count.artworks !== 1 && "s"}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#C9A84C]/10 text-[#9a7f3b] rounded-full text-xs font-medium">
+              {museum._count.artworks} in database
             </span>
-          </p>
+            {museumCollectionSizes[museum.slug] && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-neutral-100 text-neutral-600 rounded-full text-xs">
+                {museumCollectionSizes[museum.slug]} works total
+              </span>
+            )}
+          </div>
         )}
       </div>
     </Link>
