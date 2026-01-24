@@ -104,7 +104,7 @@ export default function EraCard({
   );
 }
 
-// Timeline version - horizontal layout
+// Timeline version - sleek horizontal cards
 interface TimelineEraCardProps {
   era: Era;
   movementCount: number;
@@ -139,80 +139,57 @@ export function TimelineEraCard({
   movementCount,
   artistCount,
   previewImages = [],
-  isFirst = false,
-  isLast = false,
 }: TimelineEraCardProps) {
   const validImages = previewImages.filter(Boolean);
 
   return (
-    <div className="relative flex flex-col items-center">
-      {/* Timeline connector line */}
-      <div className="absolute top-[60px] left-0 right-0 h-0.5 bg-gradient-to-r from-neutral-200 via-[#C9A84C]/40 to-neutral-200 z-0">
-        {isFirst && <div className="absolute left-0 w-1/2 h-full bg-white" />}
-        {isLast && <div className="absolute right-0 w-1/2 h-full bg-white" />}
+    <Link
+      href={`/era/${era.slug}`}
+      className="group relative block"
+    >
+      {/* Card with image background */}
+      <div className="relative h-48 rounded-xl overflow-hidden bg-neutral-900">
+        {/* Background image */}
+        {validImages.length > 0 ? (
+          <div className="absolute inset-0">
+            <TimelineImage src={validImages[0]} />
+          </div>
+        ) : (
+          <div className={`absolute inset-0 ${getEraSolidColorClass(era)} opacity-40`} />
+        )}
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+
+        {/* Content */}
+        <div className="absolute inset-0 p-5 flex flex-col justify-between">
+          {/* Year badge at top */}
+          <div className="flex justify-between items-start">
+            <span className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white/90 px-3 py-1 rounded-full text-xs font-medium">
+              {formatEraDateRange(era)}
+            </span>
+            <svg className="w-5 h-5 text-white/50 group-hover:text-[#C9A84C] group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          {/* Era name and stats at bottom */}
+          <div>
+            <h3 className="font-bold text-white text-xl mb-2 group-hover:text-[#C9A84C] transition-colors">
+              {era.name}
+            </h3>
+            <div className="flex items-center gap-4 text-xs text-white/70">
+              <span>{movementCount} movements</span>
+              <span className="w-1 h-1 rounded-full bg-white/40" />
+              <span>{artistCount} artists</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hover border effect */}
+        <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-[#C9A84C]/50 transition-colors" />
       </div>
-
-      {/* Era Card */}
-      <Link
-        href={`/era/${era.slug}`}
-        className="group relative z-10 w-full"
-      >
-        {/* Year marker dot */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[52px] z-20">
-          <div className={`w-4 h-4 rounded-full ${getEraSolidColorClass(era)} ring-4 ring-white shadow-lg`} />
-        </div>
-
-        {/* Card content */}
-        <div className="bg-white rounded-2xl border border-neutral-200 overflow-hidden hover:border-[#C9A84C]/40 hover:shadow-xl hover:shadow-[#C9A84C]/10 transition-all duration-300 mb-8">
-          {/* Image area */}
-          <div className="relative h-32 overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-900">
-            {validImages.length > 0 ? (
-              <div className="absolute inset-0">
-                <TimelineImage src={validImages[0]} />
-              </div>
-            ) : (
-              <div className={`absolute inset-0 ${getEraSolidColorClass(era)} opacity-30`} />
-            )}
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-            {/* Era name overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h3 className="font-bold text-white text-lg group-hover:text-[#C9A84C] transition-colors">
-                {era.name}
-              </h3>
-            </div>
-          </div>
-
-          {/* Date badge */}
-          <div className="px-4 py-3 border-t border-neutral-100 bg-neutral-50/50">
-            <div className="flex items-center justify-between">
-              <span className={`inline-flex items-center gap-2 text-sm font-semibold ${getEraColorClass(era, "text")}`}>
-                <div className={`w-2.5 h-2.5 rounded-full ${getEraSolidColorClass(era)}`} />
-                {formatEraDateRange(era)}
-              </span>
-              <svg className="w-4 h-4 text-neutral-400 group-hover:text-[#C9A84C] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats below timeline */}
-        <div className="text-center space-y-1 pt-2">
-          <div className="flex items-center justify-center gap-3 text-xs text-neutral-500">
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-              {movementCount} movements
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-              {artistCount} artists
-            </span>
-          </div>
-        </div>
-      </Link>
-    </div>
+    </Link>
   );
 }
 

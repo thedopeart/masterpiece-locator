@@ -258,13 +258,7 @@ export default async function Home() {
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#C9A84C]/20 border border-[#C9A84C]/30 text-[#C9A84C] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-[#C9A84C] rounded-full animate-pulse" />
-            Free Art Discovery Tool
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
             Where Is That Famous Painting?
           </h1>
           <p className="text-neutral-300 text-lg mb-3 max-w-xl mx-auto">
@@ -343,55 +337,45 @@ export default async function Home() {
         )}
       </section>
 
-      {/* Explore by Era - Timeline */}
+      {/* Explore by Era */}
       {erasWithContent.length > 0 && (
-        <section className="bg-gradient-to-b from-white to-neutral-50 py-16 border-y border-neutral-100 overflow-hidden">
+        <section className="bg-neutral-900 py-12">
           <div className="max-w-[1400px] mx-auto px-4">
             {/* Section Header */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/20 text-[#9a7f3b] px-4 py-1.5 rounded-full text-sm font-medium mb-4">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Journey Through Time
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+                  <h2 className="text-2xl font-bold text-white">
+                    Explore by Era
+                  </h2>
+                </div>
+                <p className="text-neutral-400 ml-4">
+                  From Renaissance masters to Modern pioneers. Discover art across 600 years of history.
+                </p>
               </div>
-              <h2 className="text-3xl font-bold text-neutral-900 mb-3">
-                Explore Art by Era
-              </h2>
-              <p className="text-neutral-600 max-w-2xl mx-auto">
-                From Renaissance masters to Modern pioneers. Click any era to discover its movements, artists, and masterpieces.
-              </p>
+              <Link
+                href="/movements"
+                className="flex items-center gap-1 text-neutral-400 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
+              >
+                All movements
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
 
-            {/* Timeline Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 relative">
-              {/* Horizontal timeline line for large screens */}
-              <div className="hidden lg:block absolute top-[60px] left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-[#C9A84C]/20 via-[#C9A84C]/60 to-[#C9A84C]/20 rounded-full" />
-
-              {erasWithContent.slice(0, 4).map(({ era, movementCount, artistCount, previewImages }, index) => (
+            {/* Era Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {erasWithContent.slice(0, 4).map(({ era, movementCount, artistCount, previewImages }) => (
                 <TimelineEraCard
                   key={era.slug}
                   era={era}
                   movementCount={movementCount}
                   artistCount={artistCount}
                   previewImages={previewImages}
-                  isFirst={index === 0}
-                  isLast={index === erasWithContent.slice(0, 4).length - 1}
                 />
               ))}
-            </div>
-
-            {/* View All Link */}
-            <div className="text-center mt-8">
-              <Link
-                href="/movements"
-                className="inline-flex items-center gap-2 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
-              >
-                View all art movements
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
             </div>
           </div>
         </section>

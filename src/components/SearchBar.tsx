@@ -189,7 +189,7 @@ export default function SearchBar() {
             onFocus={() => hasResults && setIsOpen(true)}
             onKeyDown={handleKeyDown}
             placeholder="Search artworks, artists, or museums..."
-            className="w-full px-5 py-4 pr-14 text-lg border border-neutral-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent"
+            className="w-full px-5 py-4 pr-14 text-lg border border-neutral-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent placeholder:text-neutral-500"
             aria-expanded={isOpen}
             aria-autocomplete="list"
             role="combobox"
