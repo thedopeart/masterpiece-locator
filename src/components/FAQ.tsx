@@ -11,13 +11,14 @@ interface FAQProps {
   items: FAQItem[];
   title?: string;
   defaultOpen?: boolean;
+  wide?: boolean;
 }
 
-export default function FAQ({ items, title = "Frequently Asked Questions", defaultOpen = false }: FAQProps) {
+export default function FAQ({ items, title = "Frequently Asked Questions", defaultOpen = false, wide = false }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen ? 0 : null);
 
   return (
-    <section className="my-12 max-w-2xl mx-auto">
+    <section className={`my-12 mx-auto ${wide ? "max-w-5xl" : "max-w-2xl"}`}>
       <h2 className="text-2xl font-semibold text-neutral-900 mb-6 text-center">{title}</h2>
       <div className="space-y-3">
         {items.map((item, index) => (
@@ -43,11 +44,11 @@ export default function FAQ({ items, title = "Frequently Asked Questions", defau
             </button>
             <div
               className={`overflow-hidden transition-all duration-200 ${
-                openIndex === index ? "max-h-96" : "max-h-0"
+                openIndex === index ? "max-h-[600px]" : "max-h-0"
               }`}
             >
               <div
-                className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:no-underline"
+                className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:underline"
                 dangerouslySetInnerHTML={{ __html: item.answer }}
               />
             </div>
@@ -59,9 +60,9 @@ export default function FAQ({ items, title = "Frequently Asked Questions", defau
 }
 
 // Static FAQ for pages that don't need interactivity (better for SEO)
-export function FAQStatic({ items, title = "Frequently Asked Questions" }: Omit<FAQProps, "defaultOpen">) {
+export function FAQStatic({ items, title = "Frequently Asked Questions", wide = false }: Omit<FAQProps, "defaultOpen">) {
   return (
-    <section className="my-12 max-w-2xl mx-auto">
+    <section className={`my-12 mx-auto ${wide ? "max-w-5xl" : "max-w-2xl"}`}>
       <h2 className="text-2xl font-semibold text-neutral-900 mb-6 text-center">{title}</h2>
       <div className="space-y-6">
         {items.map((item, index) => (
@@ -76,7 +77,7 @@ export function FAQStatic({ items, title = "Frequently Asked Questions" }: Omit<
               {item.question}
             </h3>
             <p
-              className="text-neutral-600 leading-relaxed pl-9 [&_strong]:font-semibold [&_a]:no-underline"
+              className="text-neutral-600 leading-relaxed pl-9 [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:underline"
               dangerouslySetInnerHTML={{ __html: item.answer }}
             />
           </div>

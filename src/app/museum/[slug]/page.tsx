@@ -289,50 +289,10 @@ export default async function MuseumPage({ params, searchParams }: Props) {
           <span className="font-medium text-neutral-900">{museum.name}</span>
         </nav>
 
-        {/* Museum Description */}
-        {(() => {
-          const topArtists = artists.slice(0, 3);
-          const topArtworks = museum.artworks.filter(a => a.artist).slice(0, 2);
-
-          return (
-            <section className="mb-8">
-              <div className="text-neutral-600 leading-relaxed space-y-3 museum-description">
-                {museum.description && (
-                  <div dangerouslySetInnerHTML={{ __html: museum.description }} />
-                )}
-                <p>
-                  <strong>{museum.name}</strong> in{" "}
-                  <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
-                    {museum.city}
-                  </Link>, {museum.country} houses{" "}
-                  <strong>{totalArtworks} {totalArtworks === 1 ? "masterpiece" : "masterpieces"}</strong> in our database
-                  {topArtists.length > 0 && (
-                    <>, including works by{" "}
-                    {topArtists.map((artist, i) => (
-                      <span key={artist.slug}>
-                        {i > 0 && (i === topArtists.length - 1 ? " and " : ", ")}
-                        <Link href={`/artist/${artist.slug}`} className="text-[#C9A84C] hover:underline font-medium">
-                          {artist.name}
-                        </Link>
-                      </span>
-                    ))}
-                    {artists.length > 3 && ` and ${artists.length - 3} other artists`}
-                    </>
-                  )}
-                  {topArtworks.length > 0 && (
-                    <>. Notable works include <strong>{topArtworks[0].title}</strong>
-                    {topArtworks.length > 1 && <> and <strong>{topArtworks[1].title}</strong></>}
-                    </>
-                  )}.
-                </p>
-              </div>
-            </section>
-          );
-        })()}
-
+        {/* Main Grid: Sidebar Left + Content Right */}
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Sidebar - narrower, sticky */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-2 lg:order-1">
             <div className="lg:sticky lg:top-4">
               {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
               {practicalData ? (
@@ -421,7 +381,47 @@ export default async function MuseumPage({ params, searchParams }: Props) {
           </div>
 
           {/* Main Content - wider */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-1 lg:order-2">
+            {/* Museum Description */}
+            {(() => {
+              const topArtists = artists.slice(0, 3);
+              const topArtworks = museum.artworks.filter(a => a.artist).slice(0, 2);
+
+              return (
+                <section className="mb-8">
+                  <div className="text-neutral-600 leading-relaxed space-y-3 museum-description">
+                    {museum.description && (
+                      <div dangerouslySetInnerHTML={{ __html: museum.description }} />
+                    )}
+                    <p>
+                      <strong>{museum.name}</strong> in{" "}
+                      <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
+                        {museum.city}
+                      </Link>, {museum.country} houses{" "}
+                      <strong>{totalArtworks} {totalArtworks === 1 ? "masterpiece" : "masterpieces"}</strong> in our database
+                      {topArtists.length > 0 && (
+                        <>, including works by{" "}
+                        {topArtists.map((artist, i) => (
+                          <span key={artist.slug}>
+                            {i > 0 && (i === topArtists.length - 1 ? " and " : ", ")}
+                            <Link href={`/artist/${artist.slug}`} className="text-[#C9A84C] hover:underline font-medium">
+                              {artist.name}
+                            </Link>
+                          </span>
+                        ))}
+                        {artists.length > 3 && ` and ${artists.length - 3} other artists`}
+                        </>
+                      )}
+                      {topArtworks.length > 0 && (
+                        <>. Notable works include <strong>{topArtworks[0].title}</strong>
+                        {topArtworks.length > 1 && <> and <strong>{topArtworks[1].title}</strong></>}
+                        </>
+                      )}.
+                    </p>
+                  </div>
+                </section>
+              );
+            })()}
             {/* Masterpieces */}
             <section>
               <div className="flex items-center justify-between mb-2">
