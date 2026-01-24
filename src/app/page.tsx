@@ -160,6 +160,48 @@ export default async function Home() {
       _count: { artworks: m._count.Artwork },
     }));
 
+  // Fetch top cities by artwork count
+  const topCities = await prisma.museum.groupBy({
+    by: ['city', 'country'],
+    _count: { id: true },
+    where: {
+      city: { not: 'Unknown' },
+      country: { not: 'Unknown' },
+    },
+    orderBy: { _count: { id: 'desc' } },
+    take: 10,
+  });
+
+  // Get artwork counts per city and a preview image
+  const citiesWithData = await Promise.all(
+    topCities.slice(0, 4).map(async (city) => {
+      const artworkCount = await prisma.artwork.count({
+        where: {
+          Museum: {
+            city: city.city,
+            country: city.country,
+          },
+        },
+      });
+      const previewArtwork = await prisma.artwork.findFirst({
+        where: {
+          Museum: { city: city.city, country: city.country },
+          imageUrl: { not: null },
+        },
+        select: { imageUrl: true },
+        orderBy: { searchVolumeTier: 'asc' },
+      });
+      return {
+        city: decodeHtmlEntities(city.city),
+        country: decodeHtmlEntities(city.country),
+        slug: city.city.toLowerCase().replace(/\s+/g, '-'),
+        museumCount: city._count.id,
+        artworkCount,
+        imageUrl: previewArtwork?.imageUrl || null,
+      };
+    })
+  );
+
   // Fetch era stats for the "Explore by Era" section
   const eraStats = await Promise.all(
     ERAS.map(async (era) => {
@@ -216,7 +258,7 @@ export default async function Home() {
             Find which museum has the artwork you want to see in person.
           </p>
           <p className="text-neutral-500 text-sm mb-6 max-w-2xl mx-auto">
-            Search {artworkCount}+ paintings across {museumCount}+ museums worldwide. We'll tell you the exact location, opening hours, and how to plan your visit.
+            Search <span className="font-semibold text-[#028161]">{artworkCount}+ paintings</span> across <span className="font-semibold text-[#028161]">{museumCount}+ museums</span> worldwide. We'll tell you the exact location, opening hours, and how to plan your visit.
           </p>
           <div className="flex justify-center">
             <SearchBar />
@@ -315,7 +357,7 @@ export default async function Home() {
           </div>
 
           {featuredArtists.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {featuredArtists.map((artist) => (
                 <ArtistCard key={artist.id} artist={artist} />
               ))}
@@ -358,8 +400,59 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Top Cities */}
+      {citiesWithData.length > 0 && (
+        <section className="bg-white py-12 border-t border-neutral-100">
+          <div className="max-w-[1400px] mx-auto px-4">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-neutral-900">
+                  Top Art Cities
+                </h2>
+                <p className="text-neutral-600 mt-1">
+                  Planning a trip? These cities have the highest concentration of <strong>famous artworks</strong>. See what's in each city before you book.
+                </p>
+              </div>
+              <Link
+                href="/cities"
+                className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+              >
+                View all
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {citiesWithData.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/city/${city.slug}`}
+                  className="group relative overflow-hidden rounded-xl bg-neutral-100 aspect-[4/3]"
+                >
+                  {city.imageUrl && (
+                    <img
+                      src={city.imageUrl}
+                      alt={city.city}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-white font-bold text-lg">{city.city}</h3>
+                    <p className="text-neutral-300 text-sm">{city.country}</p>
+                    <div className="flex gap-3 mt-2 text-xs text-neutral-400">
+                      <span>{city.artworkCount} artworks</span>
+                      <span>{city.museumCount} museums</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section */}
-      <section className="bg-white py-12 border-t border-neutral-100">
+      <section className="bg-neutral-50 py-12 border-t border-neutral-100">
         <div className="max-w-[1400px] mx-auto px-4">
           <FAQSchema items={homepageFAQs} />
           <FAQStatic items={homepageFAQs} title="Frequently Asked Questions" wide />
@@ -394,7 +487,7 @@ export default async function Home() {
                 href="https://luxurywallart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black px-8 py-4 rounded-lg font-semibold hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all shadow-lg hover:shadow-[#C9A84C]/25 hover:scale-105"
+                className="inline-flex items-center gap-2 bg-white text-neutral-900 px-8 py-4 rounded-lg font-semibold hover:bg-neutral-100 transition-all shadow-lg hover:shadow-white/25 hover:scale-105"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />

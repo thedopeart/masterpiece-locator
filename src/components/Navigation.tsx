@@ -1,20 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/artists", label: "Artists", icon: "🎨" },
-  { href: "/museums", label: "Museums", icon: "🏛️" },
-  { href: "/cities", label: "Cities", icon: "🌍" },
-  { href: "/movements", label: "Movements", icon: "🖼️" },
-  { href: "/era/renaissance", label: "Eras", icon: "📜" },
+  {
+    href: "/artists",
+    label: "Artists",
+    icon: "🎨",
+    subItems: [
+      { href: "/artists", label: "All Artists" },
+      { href: "/movements", label: "By Movement" },
+      { href: "/artists?sort=popular", label: "Most Popular" },
+    ]
+  },
+  {
+    href: "/museums",
+    label: "Museums",
+    icon: "🏛️",
+    subItems: [
+      { href: "/museums", label: "All Museums" },
+      { href: "/cities", label: "By City" },
+      { href: "/museums?sort=artworks", label: "Largest Collections" },
+    ]
+  },
+  {
+    href: "/cities",
+    label: "Cities",
+    icon: "🌍",
+    subItems: [
+      { href: "/cities", label: "All Cities" },
+      { href: "/city/paris", label: "Paris" },
+      { href: "/city/london", label: "London" },
+      { href: "/city/new-york", label: "New York" },
+    ]
+  },
+  {
+    href: "/movements",
+    label: "Movements",
+    icon: "🖼️",
+    subItems: [
+      { href: "/movements", label: "All Movements" },
+      { href: "/movement/impressionism", label: "Impressionism" },
+      { href: "/movement/renaissance", label: "Renaissance" },
+      { href: "/movement/baroque", label: "Baroque" },
+    ]
+  },
+  {
+    href: "/era/renaissance",
+    label: "Eras",
+    icon: "📜",
+    subItems: [
+      { href: "/era/renaissance", label: "Renaissance" },
+      { href: "/era/baroque", label: "Baroque" },
+      { href: "/era/19th-century", label: "19th Century" },
+      { href: "/era/modern", label: "Modern" },
+    ]
+  },
 ];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/era/renaissance") {
@@ -48,24 +109,47 @@ export default function Navigation() {
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center gap-1 flex-1">
+          <div className="hidden md:flex items-center justify-center gap-1 flex-1" ref={dropdownRef}>
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive(link.href)
-                    ? "bg-[#C9A84C]/20 text-[#C9A84C]"
-                    : "text-neutral-300 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <span className="flex items-center gap-2">
+              <div key={link.href} className="relative">
+                <button
+                  onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                  className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                    isActive(link.href)
+                      ? "bg-[#C9A84C]/20 text-[#C9A84C]"
+                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
                   {link.label}
-                </span>
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#C9A84C] rounded-full" />
+                  <svg
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  {isActive(link.href) && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#C9A84C] rounded-full" />
+                  )}
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === link.label && link.subItems && (
+                  <div className="absolute top-full left-0 mt-1 min-w-[180px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-50">
+                    {link.subItems.map((subItem) => (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        onClick={() => setOpenDropdown(null)}
+                        className="block px-4 py-2 text-sm text-neutral-300 hover:bg-white/10 hover:text-white transition-colors"
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -128,19 +212,43 @@ export default function Navigation() {
           <div className="md:hidden mt-4 pt-4 border-t border-neutral-700">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-all flex items-center gap-3 ${
-                    isActive(link.href)
-                      ? "bg-[#C9A84C]/20 text-[#C9A84C]"
-                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  <span className="text-lg">{link.icon}</span>
-                  {link.label}
-                </Link>
+                <div key={link.href}>
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    className={`w-full px-4 py-3 rounded-lg text-base font-medium transition-all flex items-center justify-between ${
+                      isActive(link.href)
+                        ? "bg-[#C9A84C]/20 text-[#C9A84C]"
+                        : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="text-lg">{link.icon}</span>
+                      {link.label}
+                    </span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === link.label && link.subItems && (
+                    <div className="ml-10 mt-1 mb-2 flex flex-col gap-1">
+                      {link.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
+                          className="px-4 py-2 text-sm text-neutral-400 hover:text-white transition-colors"
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <Link
                 href="https://luxurywallart.com"

@@ -30,6 +30,7 @@ model Artwork {
   id                     String             @id
   slug                   String             @unique
   title                  String
+  artworkType            String             @default("painting") // painting, sculpture, print, drawing
   year                   Int?
   medium                 String?
   dimensions             String?
