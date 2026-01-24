@@ -325,7 +325,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                       href={museum.ticketUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full text-center bg-green-600 text-white font-semibold py-4 px-4 rounded-xl hover:bg-green-700 transition-colors shadow-md"
+                      className="block w-full text-center bg-[#028161] text-white font-semibold py-3.5 px-4 rounded-xl hover:bg-[#026b51] transition-colors shadow-md"
                     >
                       Buy Tickets
                     </a>

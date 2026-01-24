@@ -123,5 +123,37 @@
       "location": "Room 56",
       "note": "Remarkable early Flemish masterpiece from 1434"
     }
-  ]
+  ],
+  "faqs": [
+    {
+      "question": "What are the most famous paintings at the National Gallery?",
+      "answer": "The National Gallery houses some of the world's most celebrated masterpieces. Top visitor favorites include <strong>Jan van Eyck's Arnolfini Portrait</strong> (1434), a mysterious double portrait of an Italian merchant and his wife in Bruges. <a href=\"/artist/vincent-van-gogh\" style=\"color: #C9A84C; font-weight: 600;\">Vincent van Gogh's</a> <a href=\"/art/sunflowers\" style=\"color: #028161; font-weight: 600;\">Sunflowers</a> draws crowds to Room 43, one of five versions the artist created to decorate his house in Arles.<br><br>Other must-see works include <strong>J.M.W. Turner's The Fighting Temeraire</strong>, voted Britain's favorite painting. <strong>Velázquez's Rokeby Venus</strong> is the only surviving female nude by this Spanish master. <strong>Titian's Bacchus and Ariadne</strong> illustrates a story from Ovid and Catullus.<br><br>Additional highlights include <a href=\"/artist/leonardo-da-vinci\" style=\"color: #C9A84C; font-weight: 600;\">Leonardo da Vinci's</a> Virgin of the Rocks, <a href=\"/artist/sandro-botticelli\" style=\"color: #C9A84C; font-weight: 600;\">Botticelli's</a> Venus and Mars, <a href=\"/artist/claude-monet\" style=\"color: #C9A84C; font-weight: 600;\">Monet's</a> Water-Lily Pond, <a href=\"/artist/caravaggio\" style=\"color: #C9A84C; font-weight: 600;\">Caravaggio's</a> Supper at Emmaus, and <a href=\"/artist/johannes-vermeer\" style=\"color: #C9A84C; font-weight: 600;\">Vermeer's</a> A Young Woman Standing at a Virginal."
+    },
+    {
+      "question": "What is the history of the National Gallery?",
+      "answer": "The National Gallery was founded in 1824 when the British government purchased 38 paintings from the heirs of banker John Julius Angerstein. Unlike continental European museums formed from royal collections, Britain's national gallery began with this private acquisition. The collection was first displayed in Angerstein's townhouse at 100 Pall Mall.<br><br>In 1831, Parliament resolved to build a permanent home on Trafalgar Square. The Neoclassical building, designed by Greek Revival architect William Wilkins, opened to the public in 1838. The collection grew through key acquisitions: Sir George Beaumont's collection arrived in 1826, and J.M.W. Turner left over 1,000 works in 1856.<br><br>The gallery expanded multiple times, most notably in 1991 with the Sainsbury Wing designed by Robert Venturi and Denise Scott Brown. Sir Charles Lock Eastlake became the first director in 1855. The Sainsbury Wing reopened after a major renovation in 2025 as part of the gallery's 200th anniversary celebrations."
+    },
+    {
+      "question": "How long does it take to see the National Gallery?",
+      "answer": "Plan for <strong>2-3 hours minimum</strong> to see the major highlights, including the Impressionist galleries, Renaissance rooms, and popular works like Sunflowers and the Arnolfini Portrait. A thorough exploration of multiple periods and wings requires <strong>4-6 hours</strong>, and dedicated art lovers could spend an entire day.<br><br>For shorter visits, the gallery offers three curated \"Art Routes\" that take 25-35 minutes each. A focused 90-minute \"greatest hits\" tour lets you see the most famous masterpieces. Many visitors find they can only concentrate for about 90 minutes at a stretch, so consider breaking up your visit with a coffee break.<br><br>The Impressionist galleries (Rooms 41-46) tend to be the busiest. Visit these first thing in the morning or during lunch (1pm-2:30pm) when tour groups disperse. Friday evenings after 6pm and weekday mornings are the quietest times."
+    },
+    {
+      "question": "Is the National Gallery free?",
+      "answer": "<strong>Yes, general admission to the National Gallery is completely free.</strong> The permanent collection of over 2,600 paintings is open to all visitors at no charge, 361 days a year. You can book a free timed-entry ticket online for faster access, or simply walk in.<br><br>Special exhibitions do require paid tickets, typically released about 2 months before opening. Some exhibitions offer \"Pay What You Wish\" Friday evenings where you can enter for as little as £1. Membership (£65 per year, or £109 for two) provides unlimited free exhibition access, priority booking, and free cloakroom use.<br><br>Additional costs include the cloakroom at £3 per item (free for members) and audio guides at £5. Paper maps cost £2 from the welcome desks."
+    },
+    {
+      "question": "What are the best rooms and areas to visit at the National Gallery?",
+      "answer": "The <strong>Impressionist Galleries (Rooms 41-46)</strong> are the most popular, home to <a href=\"/artist/vincent-van-gogh\" style=\"color: #C9A84C; font-weight: 600;\">Van Gogh's</a> <a href=\"/art/sunflowers\" style=\"color: #028161; font-weight: 600;\">Sunflowers</a> in Room 43 along with works by <a href=\"/artist/claude-monet\" style=\"color: #C9A84C; font-weight: 600;\">Monet</a>, Seurat, and <a href=\"/artist/pierre-auguste-renoir\" style=\"color: #C9A84C; font-weight: 600;\">Renoir</a>. These rooms get crowded, so visit early morning or during lunch. <strong>Room 34</strong> showcases beloved British masters including Turner and Constable.<br><br>For Renaissance masterpieces, spend time in the rooms featuring <a href=\"/artist/leonardo-da-vinci\" style=\"color: #C9A84C; font-weight: 600;\">Leonardo da Vinci</a>, <a href=\"/artist/sandro-botticelli\" style=\"color: #C9A84C; font-weight: 600;\">Botticelli</a>, and <a href=\"/artist/raphael\" style=\"color: #C9A84C; font-weight: 600;\">Raphael</a>. <strong>Room 21</strong> contains Dutch masters including <a href=\"/artist/rembrandt\" style=\"color: #C9A84C; font-weight: 600;\">Rembrandt's</a> Self Portrait at the Age of 34.<br><br>The <strong>Sainsbury Wing</strong> houses early Renaissance works (1250-1500) in intimate galleries inspired by Florentine church interiors. All main galleries are on Level 2, making navigation straightforward."
+    },
+    {
+      "question": "Can you take photos at the National Gallery?",
+      "answer": "<strong>Yes, photography is permitted for personal, non-commercial use</strong> throughout the permanent collection galleries. Look for signs indicating any exceptions in specific areas.<br><br>Key restrictions apply: <strong>Flash photography and tripods are prohibited</strong> as they can damage the paintings and obstruct other visitors. Photography is typically <strong>not allowed in temporary exhibitions</strong>. Please respect fellow visitors by not blocking views of paintings.<br><br>Commercial filming and photography require prior written permission from the Commercial Events team. For personal snapshots of your favorite masterpieces, you're welcome to use your phone or camera throughout your visit."
+    }
+  ],
+  "gallery": [],
+  "collectionStats": {
+    "totalArtworks": 2600,
+    "onDisplay": 2300,
+    "source": "Official National Gallery website"
+  }
 }

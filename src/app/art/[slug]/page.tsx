@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
@@ -686,9 +686,9 @@ export default async function ArtworkPage({ params }: Props) {
               <h2 className="text-xl font-semibold text-neutral-900 mb-4">
                 {seriesName} Series by {artwork.artist.name}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                {seriesVariations.map((item) => (
-                  <ArtworkCard key={item.id} artwork={item} />
+              <div className="masonry-grid">
+                {seriesVariations.map((item, index) => (
+                  <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
                 ))}
               </div>
             </section>
@@ -700,9 +700,9 @@ export default async function ArtworkPage({ params }: Props) {
               <h2 className="text-xl font-semibold text-neutral-900 mb-4">
                 More by {artwork.artist.name}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                {filteredMoreByArtist.map((item) => (
-                  <ArtworkCard key={item.id} artwork={item} />
+              <div className="masonry-grid">
+                {filteredMoreByArtist.map((item, index) => (
+                  <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
                 ))}
               </div>
             </section>
@@ -714,9 +714,9 @@ export default async function ArtworkPage({ params }: Props) {
               <h2 className="text-xl font-semibold text-neutral-900 mb-4">
                 Also at {artwork.museum.name}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                {nearbyArtworks.map((item) => (
-                  <ArtworkCard key={item.id} artwork={item} />
+              <div className="masonry-grid">
+                {nearbyArtworks.map((item, index) => (
+                  <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
                 ))}
               </div>
             </section>

@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import Link from "next/link";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import SearchFilters from "@/components/SearchFilters";
 
 // Search page needs dynamic rendering for query params
@@ -110,22 +110,84 @@ export default async function SearchPage({ searchParams }: Props) {
 
   // Get total count and paginated artworks
   const artworkWhere = hasFilters ? whereClause : {};
-  const [totalArtworks, rawArtworks] = await Promise.all([
-    prisma.artwork.count({ where: artworkWhere }),
-    prisma.artwork.findMany({
-      where: artworkWhere,
+
+  // For search queries, use raw SQL to get relevance-based ordering
+  // Title matches > Artist matches > Museum matches > Description matches
+  let rawArtworks;
+  let totalArtworks;
+
+  if (query && !museumFilter && !artistFilter && !movementFilter && !cityFilter) {
+    // Use raw query for relevance scoring when only text search is active
+    const searchTerm = `%${query}%`;
+
+    // Get total count
+    const countResult = await prisma.$queryRaw<[{ count: bigint }]>`
+      SELECT COUNT(*) as count FROM "Artwork" a
+      LEFT JOIN "Artist" ar ON a."artistId" = ar.id
+      LEFT JOIN "Museum" m ON a."museumId" = m.id
+      WHERE
+        a.title ILIKE ${searchTerm} OR
+        a.description ILIKE ${searchTerm} OR
+        ar.name ILIKE ${searchTerm} OR
+        m.name ILIKE ${searchTerm}
+    `;
+    totalArtworks = Number(countResult[0].count);
+
+    // Get paginated results with relevance ordering
+    const artworkIds = await prisma.$queryRaw<{ id: string }[]>`
+      SELECT a.id,
+        CASE
+          WHEN a.title ILIKE ${searchTerm} THEN 1
+          WHEN ar.name ILIKE ${searchTerm} THEN 2
+          WHEN m.name ILIKE ${searchTerm} THEN 3
+          ELSE 4
+        END as relevance,
+        CASE WHEN a."imageUrl" IS NOT NULL THEN 0 ELSE 1 END as has_image,
+        COALESCE(a."searchVolumeTier", 999) as tier
+      FROM "Artwork" a
+      LEFT JOIN "Artist" ar ON a."artistId" = ar.id
+      LEFT JOIN "Museum" m ON a."museumId" = m.id
+      WHERE
+        a.title ILIKE ${searchTerm} OR
+        a.description ILIKE ${searchTerm} OR
+        ar.name ILIKE ${searchTerm} OR
+        m.name ILIKE ${searchTerm}
+      ORDER BY relevance ASC, has_image ASC, tier ASC
+      LIMIT ${ITEMS_PER_PAGE}
+      OFFSET ${(currentPage - 1) * ITEMS_PER_PAGE}
+    `;
+
+    // Fetch full artwork data for the IDs in the correct order
+    const idOrder = artworkIds.map(r => r.id);
+    const artworksUnordered = await prisma.artwork.findMany({
+      where: { id: { in: idOrder } },
       include: {
         Artist: { select: { name: true } },
         Museum: { select: { name: true, city: true } },
       },
-      orderBy: [
-        { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first, null last
-        { searchVolumeTier: "asc" },
-      ],
-      skip: (currentPage - 1) * ITEMS_PER_PAGE,
-      take: ITEMS_PER_PAGE,
-    }),
-  ]);
+    });
+
+    // Reorder to match the relevance order
+    rawArtworks = idOrder.map(id => artworksUnordered.find(a => a.id === id)!).filter(Boolean);
+  } else {
+    // Use standard Prisma query for filtered searches or no query
+    [totalArtworks, rawArtworks] = await Promise.all([
+      prisma.artwork.count({ where: artworkWhere }),
+      prisma.artwork.findMany({
+        where: artworkWhere,
+        include: {
+          Artist: { select: { name: true } },
+          Museum: { select: { name: true, city: true } },
+        },
+        orderBy: [
+          { imageUrl: { sort: "desc", nulls: "last" } },
+          { searchVolumeTier: "asc" },
+        ],
+        skip: (currentPage - 1) * ITEMS_PER_PAGE,
+        take: ITEMS_PER_PAGE,
+      }),
+    ]);
+  }
 
   // Map to lowercase property names for ArtworkCard component
   const artworks = rawArtworks.map((a) => ({
@@ -203,7 +265,7 @@ export default async function SearchPage({ searchParams }: Props) {
           </h1>
 
           {/* Search Form */}
-          <form action="/search" method="GET" className="max-w-2xl">
+          <form action="search" method="GET" className="max-w-2xl">
             <div className="relative">
               <input
                 type="text"
@@ -366,9 +428,9 @@ export default async function SearchPage({ searchParams }: Props) {
                   </h2>
                   {artworks.length > 0 ? (
                     <>
-                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {artworks.map((artwork) => (
-                          <ArtworkCard key={artwork.id} artwork={artwork} />
+                      <div className="masonry-grid">
+                        {artworks.map((artwork, index) => (
+                          <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
                         ))}
                       </div>
 
