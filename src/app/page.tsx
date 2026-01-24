@@ -266,7 +266,7 @@ export default async function Home() {
   return (
     <div className="bg-neutral-50">
       {/* Hero Section - Premium Design */}
-      <section className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-16 md:py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-12 md:py-14 overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-3xl" />

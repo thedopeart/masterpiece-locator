@@ -715,6 +715,28 @@ export default async function MuseumPage({ params, searchParams }: Props) {
             Browse Our Collection
           </Link>
         </section>
+
+        {/* Disclaimer */}
+        <div className="mt-8 p-4 bg-neutral-50 border border-neutral-200 rounded-lg">
+          <p className="text-xs text-neutral-500 leading-relaxed">
+            <strong className="text-neutral-600">Please note:</strong> Artwork locations and display status may change.
+            Some paintings may be on loan, in restoration, or moved to different galleries within the museum.
+            We recommend contacting{" "}
+            {museum.websiteUrl ? (
+              <a
+                href={museum.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C9A84C] hover:underline"
+              >
+                {museum.name}
+              </a>
+            ) : (
+              museum.name
+            )}{" "}
+            directly to confirm specific artwork availability before your visit.
+          </p>
+        </div>
       </div>
     </div>
   );
