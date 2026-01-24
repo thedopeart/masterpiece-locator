@@ -369,8 +369,29 @@ export default async function ArtistPage({ params }: Props) {
                     </div>
                   </>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-neutral-400 text-6xl">
-                    {artist.name.charAt(0)}
+                  /* Stylized placeholder for artists without portrait or artwork images */
+                  <div className="w-full h-full bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900 flex flex-col items-center justify-center p-6 text-center">
+                    {/* Artist initial in decorative circle */}
+                    <div className="w-20 h-20 rounded-full border-2 border-[#C9A84C] flex items-center justify-center mb-4">
+                      <span className="text-4xl font-serif text-[#C9A84C]">
+                        {artist.name.charAt(0)}
+                      </span>
+                    </div>
+                    {/* Artist name */}
+                    <p className="text-white font-medium text-sm mb-1">{artist.name}</p>
+                    {/* Context info */}
+                    <p className="text-neutral-400 text-xs">
+                      {artist.nationality || (artist.movements[0]?.name ? `${artist.movements[0].name} Artist` : 'Artist')}
+                    </p>
+                    {lifespan && (
+                      <p className="text-neutral-500 text-xs mt-1">{lifespan}</p>
+                    )}
+                    {/* Subtle icon */}
+                    <div className="absolute bottom-3 right-3">
+                      <svg className="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+                      </svg>
+                    </div>
                   </div>
                 )}
               </div>

@@ -463,7 +463,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
 
                 {/* Artwork Results */}
-                <section>
+                <section id="results" className="scroll-mt-20">
                   <h2 className="text-lg font-semibold text-neutral-900 mb-4">
                     {hasFilters ? `Artworks (${totalArtworks})` : `Browse All Artworks (${totalArtworks})`}
                   </h2>
@@ -488,7 +488,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(cityFilter && { city: cityFilter }),
                                 ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage - 1),
-                              }).toString()}`}
+                              }).toString()}#results`}
                               className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
                             >
                               Previous
@@ -517,7 +517,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                       ...(cityFilter && { city: cityFilter }),
                                       ...(typeFilter && { type: typeFilter }),
                                       page: String(page),
-                                    }).toString()}`}
+                                    }).toString()}#results`}
                                     className={`px-4 py-2 rounded-lg transition-colors ${
                                       page === currentPage
                                         ? "bg-[#C9A84C] text-white"
@@ -540,7 +540,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(cityFilter && { city: cityFilter }),
                                 ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage + 1),
-                              }).toString()}`}
+                              }).toString()}#results`}
                               className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
                             >
                               Next

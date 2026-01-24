@@ -39,8 +39,8 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
             unoptimized={true}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-neutral-400 text-xl font-medium bg-gradient-to-br from-neutral-100 to-neutral-50">
-            {artist.name.charAt(0)}
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-800 to-neutral-900">
+            <span className="text-[#C9A84C] text-xl font-serif">{artist.name.charAt(0)}</span>
           </div>
         )}
       </div>
