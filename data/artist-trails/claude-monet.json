@@ -1,0 +1,358 @@
+{
+  "artist": "claude-monet",
+  "artistName": "Claude Monet",
+  "title": "Monet's Journey",
+  "subtitle": "Follow the founder of Impressionism from Paris to Giverny",
+  "lifespan": "1840-1926",
+  "totalLocations": 6,
+  "totalPaintings": 2500,
+  "primaryCountries": ["France", "England"],
+  "introduction": "Claude Monet spent 86 years pursuing light and color across France and beyond. From his childhood in Le Havre to his final decades at Giverny, Monet transformed how we see the world. His garden at Giverny, which he designed himself, became the subject of his most famous series: the Water Lilies. Today you can visit the places that inspired Impressionism.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "le-havre",
+      "place": "Le Havre",
+      "region": "Normandy",
+      "country": "France",
+      "coordinates": { "lat": 49.4944, "lng": 0.1079 },
+      "years": "1845-1859",
+      "ageRange": "5-19",
+      "type": "lived",
+      "shortDescription": "Where Monet grew up and discovered painting",
+      "description": "Monet's family moved to Le Havre when he was five. Here, the young artist fell in love with the sea and sky of Normandy. He began as a caricaturist but was mentored by landscape painter Eugene Boudin, who taught him to paint outdoors. This coastal city sparked his lifelong obsession with capturing changing light.",
+      "significance": "Monet's artistic awakening. Boudin's influence here led directly to Impressionism. The painting that gave the movement its name, Impression, Sunrise, depicts Le Havre harbor.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "MuMa - Musée d'art moderne André Malraux",
+          "type": "museum",
+          "description": "Houses the second largest Impressionist collection in France, including works by Monet, Boudin, and Renoir",
+          "ticketUrl": "https://www.muma-lehavre.fr"
+        },
+        {
+          "name": "Le Havre Harbor",
+          "type": "landmark",
+          "description": "The exact view Monet painted in Impression, Sunrise. Best seen at dawn."
+        },
+        {
+          "name": "Sainte-Adresse",
+          "type": "neighborhood",
+          "description": "Coastal suburb where Monet painted Garden at Sainte-Adresse and many seascapes"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "impression-sunrise", "title": "Impression, Sunrise", "year": 1872 },
+        { "slug": "garden-at-sainte-adresse", "title": "Garden at Sainte-Adresse", "year": 1867 }
+      ],
+      "artworksHereNow": 15
+    },
+    {
+      "order": 2,
+      "slug": "paris",
+      "place": "Paris",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8566, "lng": 2.3522 },
+      "years": "1859-1871, 1877",
+      "ageRange": "19-31, 37",
+      "type": "lived",
+      "shortDescription": "Where Impressionism was born",
+      "description": "Monet arrived in Paris at 19 to study art, meeting Renoir, Sisley, and Bazille at Gleyre's studio. Together they would revolutionize painting. The 1874 exhibition that launched Impressionism was held here, mocked by critics who coined the term from Monet's Impression, Sunrise. His Gare Saint-Lazare series captured the modern city in steam and light.",
+      "significance": "The birthplace of Impressionism. Monet's Paris works show urban modernity through an Impressionist lens, from train stations to parks.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Musée de l'Orangerie",
+          "type": "museum",
+          "description": "Houses Monet's eight monumental Water Lilies murals in two oval rooms, exactly as he intended",
+          "ticketUrl": "https://www.musee-orangerie.fr",
+          "note": "These immersive panels were Monet's gift to France after WWI. A pilgrimage site for art lovers."
+        },
+        {
+          "name": "Musée d'Orsay",
+          "type": "museum",
+          "description": "The world's greatest Impressionist collection, with major Monet works including Rouen Cathedral and Poppies",
+          "ticketUrl": "https://www.musee-orsay.fr"
+        },
+        {
+          "name": "Gare Saint-Lazare",
+          "type": "landmark",
+          "description": "The train station Monet painted 12 times in 1877, capturing steam and iron in afternoon light"
+        },
+        {
+          "name": "Musée Marmottan Monet",
+          "type": "museum",
+          "description": "Houses the world's largest Monet collection, including Impression, Sunrise",
+          "ticketUrl": "https://www.marmottan.fr"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "gare-saint-lazare", "title": "Gare Saint-Lazare", "year": 1877 }
+      ],
+      "artworksHereNow": 150
+    },
+    {
+      "order": 3,
+      "slug": "argenteuil",
+      "place": "Argenteuil",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.9472, "lng": 2.2467 },
+      "years": "1871-1878",
+      "ageRange": "31-38",
+      "type": "lived",
+      "shortDescription": "Monet's most productive period",
+      "description": "After the Franco-Prussian War, Monet settled in this Seine-side town northwest of Paris. The seven years here were among his most productive. He painted the river, the railway bridge, regattas, and his garden. Renoir, Manet, and Sisley visited regularly, and they painted together outdoors, developing the Impressionist technique.",
+      "significance": "The golden age of Impressionism. More than 170 paintings came from Argenteuil, including iconic works showing modern leisure and nature intertwined.",
+      "whatToSee": [
+        {
+          "name": "Monet's House Site",
+          "type": "landmark",
+          "address": "5 Boulevard Karl Marx",
+          "description": "Monet rented this house from 1874-1878. The building still stands, now private residences."
+        },
+        {
+          "name": "Argenteuil Bridge",
+          "type": "landmark",
+          "description": "The railway and road bridges Monet painted repeatedly. The modern bridges echo the originals."
+        },
+        {
+          "name": "Héloïse Park",
+          "type": "landmark",
+          "description": "Riverside park with an Impressionist walking trail marking painting locations"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "poppies-at-argenteuil", "title": "Poppies at Argenteuil", "year": 1873 },
+        { "slug": "woman-with-a-parasol", "title": "Woman with a Parasol", "year": 1875 }
+      ],
+      "artworksHereNow": 0
+    },
+    {
+      "order": 4,
+      "slug": "giverny",
+      "place": "Giverny",
+      "region": "Normandy",
+      "country": "France",
+      "coordinates": { "lat": 49.0758, "lng": 1.5339 },
+      "years": "1883-1926",
+      "ageRange": "43-86",
+      "type": "death",
+      "shortDescription": "Monet's paradise and final home",
+      "description": "Monet discovered Giverny from a train window and moved his family here in 1883. Over 43 years, he transformed the property into a living artwork. He diverted a stream to create the water garden with its Japanese bridge and water lilies. The gardens became his primary subject, inspiring over 250 Water Lily paintings and the monumental Orangerie murals.",
+      "significance": "Monet's masterpiece was not just a painting but an entire environment. The gardens he created remain one of France's most visited sites.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Maison et Jardins de Claude Monet",
+          "type": "museum",
+          "address": "84 Rue Claude Monet",
+          "description": "Monet's pink house, studio, and famous gardens. The water garden with Japanese bridge is exactly as he painted it.",
+          "ticketUrl": "https://www.fondation-monet.com",
+          "hours": "Daily 9:30-18:00 (April-November)",
+          "note": "Visit in morning for fewer crowds. The wisteria blooms in late April; water lilies from June to September."
+        },
+        {
+          "name": "Musée des Impressionnismes Giverny",
+          "type": "museum",
+          "description": "Dedicated to the Impressionist movement, with rotating exhibitions often featuring Monet",
+          "ticketUrl": "https://www.mdig.fr"
+        },
+        {
+          "name": "Monet's Grave",
+          "type": "landmark",
+          "description": "Monet is buried in the village cemetery, alongside his family"
+        },
+        {
+          "name": "Hotel Baudy",
+          "type": "landmark",
+          "description": "Where American artists stayed when they came to paint alongside Monet. Now a restaurant with a lovely garden."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "water-lilies", "title": "Water Lilies", "year": 1906 },
+        { "slug": "japanese-bridge", "title": "The Japanese Footbridge", "year": 1899 }
+      ],
+      "artworksHereNow": 0,
+      "artworksNote": "Monet's Giverny works are in museums worldwide. The gardens themselves are the masterpiece you visit here."
+    },
+    {
+      "order": 5,
+      "slug": "rouen",
+      "place": "Rouen",
+      "region": "Normandy",
+      "country": "France",
+      "coordinates": { "lat": 49.4432, "lng": 1.0993 },
+      "years": "1892-1894",
+      "ageRange": "52-54",
+      "type": "worked",
+      "shortDescription": "Monet's obsessive cathedral series",
+      "description": "From a rented room across from Rouen Cathedral, Monet painted the facade over 30 times, capturing it at different hours and seasons. He worked on multiple canvases simultaneously, switching as the light changed. The series demonstrated that a single subject could yield infinite variations.",
+      "significance": "The Cathedral series marked a turning point. Monet proved that the subject mattered less than light itself. This obsessive approach led directly to the Water Lilies.",
+      "whatToSee": [
+        {
+          "name": "Rouen Cathedral",
+          "type": "landmark",
+          "description": "The Gothic cathedral Monet painted obsessively. Stand across the square where he set up his easel."
+        },
+        {
+          "name": "Musée des Beaux-Arts de Rouen",
+          "type": "museum",
+          "description": "Houses one Monet cathedral painting plus works by other Impressionists",
+          "ticketUrl": "https://mbarouen.fr"
+        },
+        {
+          "name": "Monet's Window Location",
+          "type": "landmark",
+          "address": "Place de la Cathédrale",
+          "description": "A plaque marks the building where Monet rented space to paint the cathedral"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "rouen-cathedral", "title": "Rouen Cathedral, West Façade, Sunlight", "year": 1894 }
+      ],
+      "artworksHereNow": 1
+    },
+    {
+      "order": 6,
+      "slug": "london",
+      "place": "London",
+      "region": "England",
+      "country": "United Kingdom",
+      "coordinates": { "lat": 51.5074, "lng": -0.1278 },
+      "years": "1899-1904",
+      "ageRange": "59-64",
+      "type": "worked",
+      "shortDescription": "Monet's foggy Thames masterpieces",
+      "description": "Monet made three extended visits to London, drawn by the fog and atmospheric effects. From his room at the Savoy Hotel, he painted the Thames, Waterloo Bridge, and the Houses of Parliament nearly 100 times. He loved how London fog transformed the city into a dream of purple, orange, and gray.",
+      "significance": "The London series shows Monet at his most atmospheric. He saw pollution as artistic opportunity, transforming industrial smog into poetry.",
+      "whatToSee": [
+        {
+          "name": "The Savoy Hotel",
+          "type": "landmark",
+          "description": "Monet stayed in rooms overlooking the Thames, painting from his window and balcony"
+        },
+        {
+          "name": "Houses of Parliament",
+          "type": "landmark",
+          "description": "Monet painted the parliament building at different times of day from St Thomas' Hospital across the river"
+        },
+        {
+          "name": "National Gallery",
+          "type": "museum",
+          "description": "Houses several Monet works including Thames paintings",
+          "ticketUrl": "https://www.nationalgallery.org.uk"
+        },
+        {
+          "name": "Tate Britain",
+          "type": "museum",
+          "description": "Contains Impressionist works including Monet's Thames views",
+          "ticketUrl": "https://www.tate.org.uk/visit/tate-britain"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "houses-of-parliament-london", "title": "Houses of Parliament, London", "year": 1904 }
+      ],
+      "artworksHereNow": 5
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Monet's Work Today",
+    "description": "Monet's 2,500+ paintings are spread across the world's great museums. Here are the essential collections:",
+    "topMuseums": [
+      {
+        "slug": "musee-de-lorangerie",
+        "name": "Musée de l'Orangerie",
+        "city": "Paris",
+        "country": "France",
+        "count": 8,
+        "note": "The eight monumental Water Lilies murals in two oval rooms",
+        "coordinates": { "lat": 48.8638, "lng": 2.3227 },
+        "highlights": ["water-lilies"]
+      },
+      {
+        "slug": "musee-marmottan-monet",
+        "name": "Musée Marmottan Monet",
+        "city": "Paris",
+        "country": "France",
+        "count": 100,
+        "note": "World's largest Monet collection, including Impression, Sunrise",
+        "coordinates": { "lat": 48.8589, "lng": 2.2676 },
+        "highlights": ["impression-sunrise"]
+      },
+      {
+        "slug": "musee-dorsay",
+        "name": "Musée d'Orsay",
+        "city": "Paris",
+        "country": "France",
+        "count": 86,
+        "coordinates": { "lat": 48.8600, "lng": 2.3266 },
+        "highlights": ["rouen-cathedral", "poppies-at-argenteuil"]
+      },
+      {
+        "slug": "met",
+        "name": "Metropolitan Museum of Art",
+        "city": "New York",
+        "country": "USA",
+        "count": 30,
+        "coordinates": { "lat": 40.7794, "lng": -73.9632 },
+        "highlights": ["water-lilies", "japanese-bridge"]
+      },
+      {
+        "slug": "art-institute-chicago",
+        "name": "Art Institute of Chicago",
+        "city": "Chicago",
+        "country": "USA",
+        "count": 33,
+        "note": "One of the largest Monet collections outside France",
+        "coordinates": { "lat": 41.8796, "lng": -87.6237 },
+        "highlights": ["haystacks-at-sunset", "water-lilies"]
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Giverny Day Trip",
+      "duration": "1 day",
+      "description": "Visit Monet's home and gardens, the Musée des Impressionnismes, and the village",
+      "stops": ["giverny"],
+      "note": "75 minutes from Paris by train. Book garden tickets in advance."
+    },
+    {
+      "name": "Paris Impressionist Trail",
+      "duration": "2-3 days",
+      "description": "Explore the Orangerie, Orsay, and Marmottan museums plus the Gare Saint-Lazare",
+      "stops": ["paris"],
+      "museums": ["musee-de-lorangerie", "musee-dorsay", "musee-marmottan-monet"],
+      "highlight": true
+    },
+    {
+      "name": "Normandy Art Route",
+      "duration": "4-5 days",
+      "description": "Follow Monet from Le Havre through Rouen to Giverny",
+      "stops": ["le-havre", "rouen", "giverny"]
+    },
+    {
+      "name": "The Complete Monet",
+      "duration": "7-10 days",
+      "description": "A comprehensive journey through Monet's life, from Normandy to Paris to London",
+      "stops": ["le-havre", "paris", "argenteuil", "giverny", "rouen", "london"]
+    }
+  ],
+  "timeline": [
+    { "year": 1840, "event": "Born in Paris on November 14" },
+    { "year": 1845, "event": "Family moves to Le Havre, Normandy" },
+    { "year": 1858, "event": "Meets Eugene Boudin, who introduces him to outdoor painting" },
+    { "year": 1859, "event": "Moves to Paris to study art" },
+    { "year": 1874, "event": "First Impressionist exhibition; Impression, Sunrise inspires the movement's name" },
+    { "year": 1883, "event": "Settles in Giverny" },
+    { "year": 1893, "event": "Creates the water garden at Giverny" },
+    { "year": 1899, "event": "Begins painting the Japanese bridge and water lilies" },
+    { "year": 1908, "event": "Visits Venice, creating a celebrated series" },
+    { "year": 1914, "event": "Begins monumental Water Lilies panels for the Orangerie" },
+    { "year": 1926, "event": "Dies at Giverny on December 5, aged 86" }
+  ]
+}

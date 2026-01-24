@@ -9,10 +9,22 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
 
+// Map trail artist slugs to database artist slugs
+const artistSlugMap: Record<string, string> = {
+  "vincent-van-gogh": "van-gogh",
+  "claude-monet": "monet",
+  "pablo-picasso": "picasso",
+  "frida-kahlo": "frida-kahlo",
+  "salvador-dali": "salvador-dali",
+  "leonardo-da-vinci": "leonardo-da-vinci",
+  "rembrandt": "rembrandt",
+};
+
 // Get artist data from database
-async function getArtist(slug: string) {
+async function getArtist(trailSlug: string) {
+  const dbSlug = artistSlugMap[trailSlug] || trailSlug;
   return prisma.artist.findUnique({
-    where: { slug },
+    where: { slug: dbSlug },
     select: {
       id: true,
       name: true,
@@ -86,6 +98,7 @@ export default async function TrailPage({ params }: Props) {
   if (!trail) notFound();
 
   const artist = await getArtist(artistSlug);
+  const dbArtistSlug = artistSlugMap[artistSlug] || artistSlug;
 
   // Get all painting slugs from the trail to fetch from database
   const allPaintingSlugs = trail.trail.flatMap((stop) =>
@@ -124,7 +137,7 @@ export default async function TrailPage({ params }: Props) {
   const breadcrumbItems = [
     { name: "Home", href: "/" },
     { name: "Artists", href: "/artists" },
-    { name: trail.artistName, href: `/artist/${artistSlug}` },
+    { name: trail.artistName, href: `/artist/${dbArtistSlug}` },
     { name: "Trail" },
   ];
 
@@ -145,7 +158,7 @@ export default async function TrailPage({ params }: Props) {
             <span className="mx-2">/</span>
             <Link href="/artists" className="hover:text-white">Artists</Link>
             <span className="mx-2">/</span>
-            <Link href={`/artist/${artistSlug}`} className="hover:text-white">{trail.artistName}</Link>
+            <Link href={`/artist/${dbArtistSlug}`} className="hover:text-white">{trail.artistName}</Link>
             <span className="mx-2">/</span>
             <span className="text-white">Trail</span>
           </nav>
@@ -455,7 +468,7 @@ export default async function TrailPage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={`/artist/${artistSlug}`}
+              href={`/artist/${dbArtistSlug}`}
               className="inline-block bg-white text-black px-6 py-3 rounded font-semibold hover:bg-neutral-100 transition-colors"
             >
               View All Artworks

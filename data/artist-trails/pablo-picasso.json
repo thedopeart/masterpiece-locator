@@ -1,0 +1,371 @@
+{
+  "artist": "pablo-picasso",
+  "artistName": "Pablo Picasso",
+  "title": "Picasso's Journey",
+  "subtitle": "Follow the revolutionary artist from Malaga to Paris",
+  "lifespan": "1881-1973",
+  "totalLocations": 6,
+  "totalPaintings": 13500,
+  "primaryCountries": ["Spain", "France"],
+  "introduction": "Pablo Picasso lived 91 years and created over 13,500 paintings, plus thousands of sculptures, ceramics, and drawings. Born in Malaga, trained in Barcelona, he conquered Paris and reinvented art multiple times over seven decades. From the Blue Period to Cubism to his late expressionist works, Picasso's journey spans the entire history of modern art.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "malaga",
+      "place": "Málaga",
+      "region": "Andalusia",
+      "country": "Spain",
+      "coordinates": { "lat": 36.7213, "lng": -4.4214 },
+      "years": "1881-1891",
+      "ageRange": "0-10",
+      "type": "birthplace",
+      "shortDescription": "Where Picasso was born and first picked up a brush",
+      "description": "Pablo Ruiz Picasso was born on October 25, 1881, in a house on Plaza de la Merced. His father was an art teacher and painter. Young Pablo's talent emerged early; his first word was reportedly 'piz' (short for lápiz, Spanish for pencil). At age 8, he completed his first painting after watching his father paint pigeons.",
+      "significance": "Picasso's artistic DNA. The Mediterranean light, bullfighting traditions, and Spanish culture of Malaga influenced him throughout his life.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Museo Picasso Málaga",
+          "type": "museum",
+          "address": "Palacio de Buenavista, Calle San Agustín, 8",
+          "description": "Over 200 works spanning Picasso's entire career, donated by his family",
+          "ticketUrl": "https://www.museopicassomalaga.org"
+        },
+        {
+          "name": "Picasso's Birthplace",
+          "type": "museum",
+          "address": "Plaza de la Merced, 15",
+          "description": "The house where Picasso was born, now a museum with family memorabilia and early works",
+          "ticketUrl": "https://fundacionpicasso.malaga.eu"
+        },
+        {
+          "name": "Plaza de la Merced",
+          "type": "landmark",
+          "description": "The square where Picasso played as a child. A statue of him sits on a bench."
+        },
+        {
+          "name": "Church of Santiago",
+          "type": "landmark",
+          "description": "Where Picasso was baptized in 1881"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 200
+    },
+    {
+      "order": 2,
+      "slug": "barcelona",
+      "place": "Barcelona",
+      "region": "Catalonia",
+      "country": "Spain",
+      "coordinates": { "lat": 41.3851, "lng": 2.1734 },
+      "years": "1895-1904",
+      "ageRange": "14-23",
+      "type": "lived",
+      "shortDescription": "Where teenage Picasso trained and launched his career",
+      "description": "Picasso's family moved to Barcelona when he was 14. He enrolled at the prestigious La Llotja art school, where his father taught. Within months, he was outpainting his teachers. In the bohemian tavern Els Quatre Gats, he met fellow artists, held his first exhibition, and developed the melancholic style that became his Blue Period.",
+      "significance": "Barcelona made Picasso an artist. The Blue Period began here after the suicide of his friend Casagemas. The city's avant-garde scene prepared him for Paris.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Museu Picasso",
+          "type": "museum",
+          "address": "Carrer Montcada, 15-23",
+          "description": "Over 4,000 works including the complete Las Meninas series. The best collection of his early work.",
+          "ticketUrl": "https://www.museupicasso.bcn.cat"
+        },
+        {
+          "name": "Els Quatre Gats",
+          "type": "landmark",
+          "address": "Carrer de Montsió, 3",
+          "description": "The bohemian café where Picasso had his first exhibition in 1900. Still operating as a restaurant."
+        },
+        {
+          "name": "La Llotja",
+          "type": "landmark",
+          "description": "The art school where teenage Picasso studied and amazed his professors"
+        },
+        {
+          "name": "Carrer d'Avinyó",
+          "type": "landmark",
+          "description": "The street that inspired Les Demoiselles d'Avignon, named after a Barcelona brothel"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "science-and-charity", "title": "Science and Charity", "year": 1897 },
+        { "slug": "la-vie", "title": "La Vie", "year": 1903 },
+        { "slug": "the-old-guitarist", "title": "The Old Guitarist", "year": 1903 },
+        { "slug": "blue-nude", "title": "Blue Nude", "year": 1902 }
+      ],
+      "artworksHereNow": 4000
+    },
+    {
+      "order": 3,
+      "slug": "paris-montmartre",
+      "place": "Paris (Montmartre)",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8867, "lng": 2.3431 },
+      "years": "1904-1909",
+      "ageRange": "23-28",
+      "type": "lived",
+      "shortDescription": "The bohemian studio where Cubism was born",
+      "description": "At 23, Picasso moved permanently to Paris, settling in the Bateau-Lavoir, a ramshackle building on Montmartre. In this freezing, cramped studio, surrounded by poets and artists, he created Les Demoiselles d'Avignon (1907), the painting that shattered Western art. With Georges Braque, he invented Cubism, fragmenting reality into geometric planes.",
+      "significance": "The most revolutionary studio in art history. Cubism emerged here, changing everything. Picasso's Rose and early Cubist periods unfolded in Montmartre.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Bateau-Lavoir",
+          "type": "landmark",
+          "address": "13 Place Émile Goudeau",
+          "description": "The studio building where Picasso lived 1904-1909 and painted Les Demoiselles d'Avignon. Destroyed by fire in 1970, rebuilt; a plaque marks the site."
+        },
+        {
+          "name": "Musée de Montmartre",
+          "type": "museum",
+          "address": "12 Rue Cortot",
+          "description": "Dedicated to the neighborhood's artistic history, with Renoir's former studio and gardens",
+          "ticketUrl": "https://museedemontmartre.fr"
+        },
+        {
+          "name": "Place du Tertre",
+          "type": "landmark",
+          "description": "The square where Picasso and his friends gathered. Still filled with artists today."
+        },
+        {
+          "name": "Le Lapin Agile",
+          "type": "landmark",
+          "address": "22 Rue des Saules",
+          "description": "The cabaret Picasso frequented, which he paid for a meal with a painting (Au Lapin Agile). Still operating."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "les-demoiselles-davignon", "title": "Les Demoiselles d'Avignon", "year": 1907 },
+        { "slug": "self-portrait-1901-picasso", "title": "Self-Portrait", "year": 1901 }
+      ],
+      "artworksHereNow": 0
+    },
+    {
+      "order": 4,
+      "slug": "paris-saint-germain",
+      "place": "Paris (Left Bank)",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8534, "lng": 2.3488 },
+      "years": "1937-1944",
+      "ageRange": "56-63",
+      "type": "lived",
+      "shortDescription": "Picasso's war years and Guernica",
+      "description": "During the Nazi occupation, Picasso refused to flee Paris. He remained in his studio on Rue des Grands-Augustins, where he had painted Guernica in 1937. When German soldiers visited and saw a photo of Guernica, one asked 'Did you do that?' Picasso replied, 'No, you did.' He continued painting defiantly throughout the occupation.",
+      "significance": "Guernica, Picasso's response to the bombing of a Basque town, became the century's most powerful anti-war statement. His wartime resilience made him a symbol of resistance.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "7 Rue des Grands-Augustins",
+          "type": "landmark",
+          "description": "Picasso's studio where he painted Guernica and lived during WWII. Private building; plaque on exterior."
+        },
+        {
+          "name": "Musée Picasso Paris",
+          "type": "museum",
+          "address": "5 Rue de Thorigny, Le Marais",
+          "description": "The world's largest Picasso collection with over 5,000 works across all periods",
+          "ticketUrl": "https://www.museepicassoparis.fr"
+        },
+        {
+          "name": "Café de Flore",
+          "type": "landmark",
+          "address": "172 Boulevard Saint-Germain",
+          "description": "The legendary café where Picasso, Sartre, and Simone de Beauvoir held court"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "guernica", "title": "Guernica", "year": 1937 },
+        { "slug": "weeping-woman", "title": "Weeping Woman", "year": 1937 },
+        { "slug": "portrait-of-dora-maar", "title": "Portrait of Dora Maar", "year": 1937 }
+      ],
+      "artworksHereNow": 5000
+    },
+    {
+      "order": 5,
+      "slug": "vallauris",
+      "place": "Vallauris",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "country": "France",
+      "coordinates": { "lat": 43.5806, "lng": 7.0542 },
+      "years": "1948-1955",
+      "ageRange": "67-74",
+      "type": "lived",
+      "shortDescription": "Where Picasso reinvented ceramics",
+      "description": "After WWII, Picasso discovered the pottery town of Vallauris and revolutionized ceramics. He created over 4,500 ceramic pieces, from plates to vases to sculptures. His presence revived the local pottery industry. The town made him an honorary citizen, and he created a monumental mural, War and Peace, for a medieval chapel.",
+      "significance": "Picasso proved there was no artistic medium he couldn't master and transform. Vallauris shows his playful late period and his continued ability to reinvent himself.",
+      "whatToSee": [
+        {
+          "name": "Musée National Picasso - La Guerre et la Paix",
+          "type": "museum",
+          "address": "Place de la Libération",
+          "description": "A 12th-century chapel housing Picasso's War and Peace murals",
+          "ticketUrl": "https://www.musee-picasso-vallauris.fr"
+        },
+        {
+          "name": "Man with a Sheep Statue",
+          "type": "landmark",
+          "address": "Place Paul Isnard",
+          "description": "Picasso's bronze sculpture gifted to the town, in the central square"
+        },
+        {
+          "name": "Madoura Pottery",
+          "type": "landmark",
+          "description": "The pottery workshop where Picasso created ceramics. Many pieces still produced from his original designs."
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 1,
+      "artworksNote": "Most of Picasso's Vallauris ceramics are in private collections or the Musée Picasso Paris."
+    },
+    {
+      "order": 6,
+      "slug": "mougins",
+      "place": "Mougins",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "country": "France",
+      "coordinates": { "lat": 43.6006, "lng": 6.9953 },
+      "years": "1961-1973",
+      "ageRange": "80-91",
+      "type": "death",
+      "shortDescription": "Picasso's final home and extraordinary last works",
+      "description": "Picasso spent his last 12 years at Notre-Dame-de-Vie, a farmhouse estate in Mougins overlooking the Mediterranean. Despite his age, he worked furiously, producing over 1,000 paintings and 2,000 drawings. His late works, once dismissed, are now recognized as a final burst of expressive genius.",
+      "significance": "Picasso worked until two days before his death at 91. The late period shows an artist confronting mortality with undiminished creative fire.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Notre-Dame-de-Vie",
+          "type": "landmark",
+          "description": "Picasso's final home where he died on April 8, 1973. Private property; visible from the road."
+        },
+        {
+          "name": "Mougins Museum of Classical Art (MACM)",
+          "type": "museum",
+          "description": "Contains a significant collection of Picasso ceramics and works by his contemporaries",
+          "ticketUrl": "https://www.mouginsmusee.com"
+        },
+        {
+          "name": "Old Village of Mougins",
+          "type": "neighborhood",
+          "description": "The medieval hilltop village Picasso loved, with galleries and restaurants"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "girl-before-a-mirror", "title": "Girl Before a Mirror", "year": 1932 }
+      ],
+      "artworksHereNow": 100
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Picasso's Work Today",
+    "description": "With 13,500+ paintings, Picasso's work fills museums worldwide. These collections are essential:",
+    "topMuseums": [
+      {
+        "slug": "museo-reina-sofia",
+        "name": "Museo Reina Sofía",
+        "city": "Madrid",
+        "country": "Spain",
+        "count": 1,
+        "note": "Home of Guernica, displayed in its own gallery",
+        "coordinates": { "lat": 40.4086, "lng": -3.6943 },
+        "highlights": ["guernica"]
+      },
+      {
+        "slug": "museu-picasso-barcelona",
+        "name": "Museu Picasso",
+        "city": "Barcelona",
+        "country": "Spain",
+        "count": 4251,
+        "note": "The world's best collection of early Picasso",
+        "coordinates": { "lat": 41.3853, "lng": 2.1808 },
+        "highlights": ["science-and-charity", "la-vie"]
+      },
+      {
+        "slug": "musee-picasso-paris",
+        "name": "Musée Picasso",
+        "city": "Paris",
+        "country": "France",
+        "count": 5000,
+        "note": "5,000+ works spanning all periods",
+        "coordinates": { "lat": 48.8598, "lng": 2.3623 },
+        "highlights": ["portrait-of-dora-maar"]
+      },
+      {
+        "slug": "moma",
+        "name": "Museum of Modern Art (MoMA)",
+        "city": "New York",
+        "country": "USA",
+        "count": 1200,
+        "note": "Houses Les Demoiselles d'Avignon and Three Musicians",
+        "coordinates": { "lat": 40.7614, "lng": -73.9776 },
+        "highlights": ["les-demoiselles-davignon", "three-musicians"]
+      },
+      {
+        "slug": "museo-picasso-malaga",
+        "name": "Museo Picasso Málaga",
+        "city": "Málaga",
+        "country": "Spain",
+        "count": 285,
+        "note": "In his birthplace, donated by his family",
+        "coordinates": { "lat": 36.7214, "lng": -4.4182 },
+        "highlights": []
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Barcelona Picasso",
+      "duration": "2 days",
+      "description": "Explore his formative years at the Museu Picasso, Els Quatre Gats, and the Gothic Quarter",
+      "stops": ["barcelona"],
+      "museums": ["museu-picasso-barcelona"],
+      "highlight": true
+    },
+    {
+      "name": "Picasso's Spain",
+      "duration": "4-5 days",
+      "description": "From birthplace Malaga to Barcelona to Madrid's Guernica",
+      "stops": ["malaga", "barcelona"],
+      "museums": ["museo-picasso-malaga", "museu-picasso-barcelona", "museo-reina-sofia"]
+    },
+    {
+      "name": "Paris Cubist Trail",
+      "duration": "2-3 days",
+      "description": "Visit Montmartre's Bateau-Lavoir, the Musée Picasso, and Left Bank haunts",
+      "stops": ["paris-montmartre", "paris-saint-germain"],
+      "museums": ["musee-picasso-paris"]
+    },
+    {
+      "name": "Côte d'Azur Picasso",
+      "duration": "3 days",
+      "description": "Explore Picasso's sun-drenched later years in Vallauris and Mougins",
+      "stops": ["vallauris", "mougins"]
+    },
+    {
+      "name": "The Complete Picasso",
+      "duration": "10-14 days",
+      "description": "A comprehensive journey through all major Picasso locations",
+      "stops": ["malaga", "barcelona", "paris-montmartre", "paris-saint-germain", "vallauris", "mougins"]
+    }
+  ],
+  "timeline": [
+    { "year": 1881, "event": "Born in Málaga, Spain on October 25" },
+    { "year": 1895, "event": "Family moves to Barcelona; enrolls at La Llotja art school" },
+    { "year": 1897, "event": "Paints Science and Charity at age 15" },
+    { "year": 1901, "event": "Blue Period begins after friend's suicide" },
+    { "year": 1904, "event": "Moves to Paris permanently; settles in Bateau-Lavoir" },
+    { "year": 1907, "event": "Paints Les Demoiselles d'Avignon; Cubism begins" },
+    { "year": 1937, "event": "Paints Guernica in response to Spanish Civil War bombing" },
+    { "year": 1944, "event": "Joins Communist Party after Paris liberation" },
+    { "year": 1948, "event": "Moves to Vallauris; begins ceramics" },
+    { "year": 1961, "event": "Settles in Mougins for final years" },
+    { "year": 1973, "event": "Dies at Mougins on April 8, aged 91" }
+  ]
+}
