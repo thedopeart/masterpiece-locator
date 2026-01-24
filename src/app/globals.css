@@ -243,6 +243,68 @@ strong {
   color: inherit !important;
 }
 
+/* Movement content (dark background) */
+.movement-content p {
+  margin-bottom: 1rem;
+}
+
+.movement-content p:last-child {
+  margin-bottom: 0;
+}
+
+.movement-content strong {
+  color: white;
+  font-weight: 600;
+}
+
+.movement-content a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.movement-content a:hover {
+  opacity: 0.85;
+}
+
+.movement-content a[href^="/artist/"],
+.movement-content a[href^="/movement/"],
+.movement-content a[href^="/art/"] {
+  color: #34d399 !important; /* Lighter green for dark bg */
+}
+
+.movement-content a[href^="/museum/"],
+.movement-content a[href*="luxurywallart.com"] {
+  color: #C9A84C !important;
+}
+
+.movement-content a strong {
+  color: inherit !important;
+}
+
+/* FAQ content link colors and formatting */
+.faq-content strong {
+  font-weight: 600;
+}
+
+.faq-content a[href^="/artist/"],
+.faq-content a[href^="/movement/"],
+.faq-content a[href^="/art/"] {
+  color: #028161 !important;
+}
+
+.faq-content a[href^="/museum/"],
+.faq-content a[href*="luxurywallart.com"] {
+  color: #C9A84C !important;
+}
+
+.faq-content a:hover {
+  opacity: 0.8;
+}
+
+.faq-content a strong {
+  color: inherit !important;
+}
+
 /* Thin scrollbar for sidebar navigation */
 .scrollbar-thin {
   scrollbar-width: thin;

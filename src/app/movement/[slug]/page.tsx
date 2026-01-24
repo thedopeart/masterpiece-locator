@@ -280,7 +280,7 @@ export default async function MovementPage({ params }: Props) {
                   if (enrichment?.descriptionHtml) {
                     return (
                       <div
-                        className="text-neutral-300 text-lg leading-relaxed max-w-2xl [&>p]:mb-4 [&>p:last-child]:mb-0 [&_a]:text-[#C9A84C] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b8973f] [&_strong]:text-white [&_strong]:font-semibold"
+                        className="text-neutral-300 text-lg leading-relaxed max-w-2xl movement-content"
                         dangerouslySetInnerHTML={{ __html: enrichment.descriptionHtml }}
                       />
                     );

@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import FavoritesNavIcon from "./FavoritesNavIcon";
 import TripNavIcon from "./TripNavIcon";
+import { useFavorites } from "@/contexts/FavoritesContext";
+import { useTripPlanner } from "@/contexts/TripPlannerContext";
 
 const navLinks = [
   {
@@ -89,6 +91,8 @@ export default function Navigation() {
   const [clickedDropdown, setClickedDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { favoritesCount } = useFavorites();
+  const { museumCount } = useTripPlanner();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -378,6 +382,41 @@ export default function Navigation() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Favorites & Trip */}
+            <div className="px-4 mt-2 flex gap-2">
+              <Link
+                href="/favorites"
+                onClick={closeMenu}
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-neutral-700 rounded-xl text-neutral-300 hover:bg-white/5 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Favorites
+                {favoritesCount > 0 && (
+                  <span className="bg-[#C9A84C] text-black text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1">
+                    {favoritesCount}
+                  </span>
+                )}
+              </Link>
+              <Link
+                href="/trip"
+                onClick={closeMenu}
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-neutral-700 rounded-xl text-neutral-300 hover:bg-white/5 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Trip
+                {museumCount > 0 && (
+                  <span className="bg-[#C9A84C] text-black text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1">
+                    {museumCount}
+                  </span>
+                )}
+              </Link>
             </div>
 
             {/* Bottom CTA */}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import SearchFilters from "@/components/SearchFilters";
+import SearchInput from "@/components/SearchInput";
 
 // Search page needs dynamic rendering for query params
 export const dynamic = "force-dynamic";
@@ -295,27 +296,7 @@ export default async function SearchPage({ searchParams }: Props) {
           </h1>
 
           {/* Search Form */}
-          <form action="search" method="GET" className="max-w-2xl">
-            <div className="relative">
-              <input
-                type="text"
-                name="q"
-                defaultValue={query}
-                placeholder="Try 'Mona Lisa', 'Van Gogh', or 'Louvre'..."
-                className="w-full px-5 py-3 pr-12 rounded-lg focus:outline-none focus:ring-2"
-                style={{ backgroundColor: '#fff', color: '#000' }}
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2"
-                style={{ color: '#666' }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </div>
-          </form>
+          <SearchInput defaultValue={query} />
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,8 +45,9 @@ export default function RootLayout({
           <Navigation />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <BackToTop />
         </Providers>
-        <Analytics />
+        <Analytics debug={true} />
       </body>
     </html>
   );
