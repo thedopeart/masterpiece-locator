@@ -11,8 +11,11 @@ const navLinks = [
     icon: "🎨",
     subItems: [
       { href: "/artists", label: "All Artists" },
-      { href: "/movements", label: "By Movement" },
-      { href: "/artists?sort=popular", label: "Most Popular" },
+      { href: "/artist/vincent-van-gogh", label: "Van Gogh" },
+      { href: "/artist/claude-monet", label: "Monet" },
+      { href: "/artist/pablo-picasso", label: "Picasso" },
+      { href: "/artist/leonardo-da-vinci", label: "Da Vinci" },
+      { href: "/artist/rembrandt", label: "Rembrandt" },
     ]
   },
   {
@@ -21,8 +24,11 @@ const navLinks = [
     icon: "🏛️",
     subItems: [
       { href: "/museums", label: "All Museums" },
-      { href: "/cities", label: "By City" },
-      { href: "/museums?sort=artworks", label: "Largest Collections" },
+      { href: "/museum/louvre", label: "The Louvre" },
+      { href: "/museum/moma", label: "MoMA" },
+      { href: "/museum/met", label: "The Met" },
+      { href: "/museum/uffizi", label: "Uffizi Gallery" },
+      { href: "/museum/rijksmuseum", label: "Rijksmuseum" },
     ]
   },
   {
@@ -32,8 +38,10 @@ const navLinks = [
     subItems: [
       { href: "/cities", label: "All Cities" },
       { href: "/city/paris", label: "Paris" },
-      { href: "/city/london", label: "London" },
       { href: "/city/new-york", label: "New York" },
+      { href: "/city/london", label: "London" },
+      { href: "/city/amsterdam", label: "Amsterdam" },
+      { href: "/city/florence", label: "Florence" },
     ]
   },
   {
@@ -45,6 +53,8 @@ const navLinks = [
       { href: "/movement/impressionism", label: "Impressionism" },
       { href: "/movement/renaissance", label: "Renaissance" },
       { href: "/movement/baroque", label: "Baroque" },
+      { href: "/movement/post-impressionism", label: "Post-Impressionism" },
+      { href: "/movement/surrealism", label: "Surrealism" },
     ]
   },
   {
@@ -52,10 +62,10 @@ const navLinks = [
     label: "Eras",
     icon: "📜",
     subItems: [
-      { href: "/era/renaissance", label: "Renaissance" },
-      { href: "/era/baroque", label: "Baroque" },
+      { href: "/era/renaissance", label: "Renaissance (1400-1600)" },
+      { href: "/era/baroque", label: "Baroque (1600-1750)" },
       { href: "/era/19th-century", label: "19th Century" },
-      { href: "/era/modern", label: "Modern" },
+      { href: "/era/modern", label: "Modern (1900+)" },
     ]
   },
 ];
@@ -136,17 +146,24 @@ export default function Navigation() {
 
                 {/* Dropdown Menu */}
                 {openDropdown === link.label && link.subItems && (
-                  <div className="absolute top-full left-0 mt-1 min-w-[180px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-50">
-                    {link.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        onClick={() => setOpenDropdown(null)}
-                        className="block px-4 py-2 text-sm text-neutral-300 hover:bg-white/10 hover:text-white transition-colors"
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
+                  <div className="absolute top-full left-0 mt-1 min-w-[200px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-50">
+                    {link.subItems.map((subItem) => {
+                      const isSubActive = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
+                      return (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          onClick={() => setOpenDropdown(null)}
+                          className={`block px-4 py-2.5 text-sm transition-colors ${
+                            isSubActive
+                              ? "text-[#C9A84C] bg-[#C9A84C]/10"
+                              : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                          }`}
+                        >
+                          {subItem.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>

@@ -23,14 +23,14 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-neutral-400 text-sm mb-6 max-w-xs">
+            <p className="text-neutral-400 text-sm mb-6 max-w-xs leading-relaxed">
               Find where famous paintings are displayed. Search 4,000+ masterpieces across 700+ museums worldwide.
             </p>
             <Link
               href="https://luxurywallart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black px-5 py-2.5 rounded-lg text-sm font-semibold hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all shadow-md"
+              className="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-neutral-100 transition-all shadow-md"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -41,35 +41,35 @@ export default function Footer() {
 
           {/* Browse Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Browse</h4>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Browse</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/artists" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artists" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   All Artists
                 </Link>
               </li>
               <li>
-                <Link href="/museums" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museums" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   All Museums
                 </Link>
               </li>
               <li>
-                <Link href="/cities" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/cities" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Cities
                 </Link>
               </li>
               <li>
-                <Link href="/movements" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/movements" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Art Movements
                 </Link>
               </li>
               <li>
-                <Link href="/search" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/search" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Search Artworks
                 </Link>
               </li>
               <li>
-                <Link href="/auction-records/most-expensive" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/auction-records/most-expensive" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Auction Records
                 </Link>
               </li>
@@ -78,35 +78,35 @@ export default function Footer() {
 
           {/* Popular Artworks Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Popular</h4>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Popular</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/art/mona-lisa" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/mona-lisa" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Mona Lisa
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-starry-night" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/the-starry-night" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Starry Night
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-scream" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/the-scream" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Scream
                 </Link>
               </li>
               <li>
-                <Link href="/art/girl-with-a-pearl-earring" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/girl-with-a-pearl-earring" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Girl with a Pearl Earring
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-birth-of-venus" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/the-birth-of-venus" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Birth of Venus
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-last-supper" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/art/the-last-supper" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Last Supper
                 </Link>
               </li>
@@ -115,35 +115,35 @@ export default function Footer() {
 
           {/* Top Museums Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Museums</h4>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Museums</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/museum/louvre" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/louvre" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Louvre
                 </Link>
               </li>
               <li>
-                <Link href="/museum/moma" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/moma" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   MoMA
                 </Link>
               </li>
               <li>
-                <Link href="/museum/met" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/met" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Met
                 </Link>
               </li>
               <li>
-                <Link href="/museum/uffizi" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/uffizi" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Uffizi Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/museum/rijksmuseum" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/rijksmuseum" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Rijksmuseum
                 </Link>
               </li>
               <li>
-                <Link href="/museum/national-gallery" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/museum/national-gallery" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   National Gallery
                 </Link>
               </li>
@@ -152,35 +152,35 @@ export default function Footer() {
 
           {/* Artists Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Artists</h4>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Artists</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/artist/vincent-van-gogh" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/vincent-van-gogh" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Van Gogh
                 </Link>
               </li>
               <li>
-                <Link href="/artist/leonardo-da-vinci" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/leonardo-da-vinci" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Da Vinci
                 </Link>
               </li>
               <li>
-                <Link href="/artist/claude-monet" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/claude-monet" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Monet
                 </Link>
               </li>
               <li>
-                <Link href="/artist/pablo-picasso" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/pablo-picasso" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Picasso
                 </Link>
               </li>
               <li>
-                <Link href="/artist/rembrandt" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/rembrandt" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Rembrandt
                 </Link>
               </li>
               <li>
-                <Link href="/artist/michelangelo" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+                <Link href="/artist/michelangelo" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Michelangelo
                 </Link>
               </li>
@@ -190,30 +190,30 @@ export default function Footer() {
 
         {/* Movements Row */}
         <div className="mt-12 pt-8 border-t border-neutral-800">
-          <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Art Movements</h4>
+          <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Art Movements</h4>
           <div className="flex flex-wrap gap-3">
-            <Link href="/movement/impressionism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/impressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Impressionism
             </Link>
-            <Link href="/movement/renaissance" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/renaissance" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Renaissance
             </Link>
-            <Link href="/movement/baroque" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/baroque" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Baroque
             </Link>
-            <Link href="/movement/post-impressionism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/post-impressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Post-Impressionism
             </Link>
-            <Link href="/movement/surrealism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/surrealism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Surrealism
             </Link>
-            <Link href="/movement/abstract-expressionism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/abstract-expressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Abstract Expressionism
             </Link>
-            <Link href="/movement/cubism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/cubism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Cubism
             </Link>
-            <Link href="/movement/romanticism" className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white rounded-lg text-sm transition-colors">
+            <Link href="/movement/romanticism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
               Romanticism
             </Link>
           </div>
@@ -221,36 +221,36 @@ export default function Footer() {
 
         {/* Cities Row */}
         <div className="mt-8 pt-8 border-t border-neutral-800">
-          <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Top Art Cities</h4>
+          <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Top Art Cities</h4>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/city/paris" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/paris" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Paris
             </Link>
-            <Link href="/city/new-york" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/new-york" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               New York
             </Link>
-            <Link href="/city/london" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/london" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               London
             </Link>
-            <Link href="/city/amsterdam" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/amsterdam" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Amsterdam
             </Link>
-            <Link href="/city/florence" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/florence" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Florence
             </Link>
-            <Link href="/city/madrid" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/madrid" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Madrid
             </Link>
-            <Link href="/city/rome" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/rome" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Rome
             </Link>
-            <Link href="/city/berlin" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/berlin" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Berlin
             </Link>
-            <Link href="/city/chicago" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/chicago" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Chicago
             </Link>
-            <Link href="/city/vienna" className="text-neutral-400 hover:text-[#C9A84C] transition-colors text-sm">
+            <Link href="/city/vienna" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
               Vienna
             </Link>
           </div>
