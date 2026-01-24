@@ -178,7 +178,7 @@ export default function SearchBar() {
   const hasSecondary = results && (results.artists.length > 0 || results.museums.length > 0);
 
   return (
-    <div ref={wrapperRef} className="w-full max-w-2xl relative" style={{ zIndex: 9999 }}>
+    <div ref={wrapperRef} className="w-full max-w-2xl relative z-40">
       <form onSubmit={handleSubmit}>
         <div className="relative">
           <input
@@ -189,7 +189,7 @@ export default function SearchBar() {
             onFocus={() => hasResults && setIsOpen(true)}
             onKeyDown={handleKeyDown}
             placeholder="Search artworks, artists, or museums..."
-            className="w-full px-5 py-4 pr-14 text-lg border border-neutral-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent placeholder:text-neutral-500"
+            className="w-full px-5 py-4 pr-14 text-lg bg-transparent border border-neutral-600 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent text-white placeholder:text-neutral-500"
             aria-expanded={isOpen}
             aria-autocomplete="list"
             role="combobox"
@@ -216,8 +216,7 @@ export default function SearchBar() {
       {/* Autocomplete dropdown - Two column layout */}
       {isOpen && hasResults && (
         <div
-          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-neutral-200 overflow-hidden"
-          style={{ zIndex: 9999 }}
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-neutral-200 overflow-hidden z-50"
         >
           {/* Two-column grid layout - stacks on mobile, side-by-side on desktop */}
           {hasArtworks && hasSecondary ? (
@@ -455,8 +454,7 @@ export default function SearchBar() {
       {/* No results */}
       {isOpen && results && !hasResults && query.length >= 2 && (
         <div
-          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-neutral-200 p-4"
-          style={{ zIndex: 9999 }}
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-neutral-200 p-4 z-50"
         >
           <p className="text-sm text-neutral-500">
             No results found for &ldquo;{query}&rdquo;

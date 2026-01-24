@@ -175,24 +175,27 @@ export default function Navigation() {
 
                 {/* Dropdown Menu */}
                 {openDropdown === link.label && link.subItems && (
-                  <div className="absolute top-full left-0 mt-1 min-w-[220px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-[100]">
-                    {link.subItems.map((subItem) => {
-                      const isSubActive = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
-                      return (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          onClick={() => { setOpenDropdown(null); setClickedDropdown(null); }}
-                          className={`block px-4 py-2.5 text-base font-medium transition-colors ${
-                            isSubActive
-                              ? "text-white bg-white/10"
-                              : "text-neutral-300 hover:bg-white/10 hover:text-white"
-                          }`}
-                        >
-                          {subItem.label}
-                        </Link>
-                      );
-                    })}
+                  <div className="absolute top-full left-0 pt-2 z-[9999]">
+                    <div className="min-w-[220px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2">
+                      {link.subItems.map((subItem) => {
+                        const isSubActive = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
+                        return (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            data-nav-link="true"
+                            onClick={() => { setOpenDropdown(null); setClickedDropdown(null); }}
+                            className={`block px-4 py-2.5 text-base font-medium transition-colors ${
+                              isSubActive
+                                ? "text-white bg-white/10"
+                                : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                            }`}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
@@ -286,6 +289,7 @@ export default function Navigation() {
                         <Link
                           key={subItem.href}
                           href={subItem.href}
+                          data-nav-link="true"
                           onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
                           className="px-4 py-2 text-sm text-neutral-400 hover:text-white transition-colors"
                         >
