@@ -118,7 +118,7 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Museums</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/museum/louvre" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/louvre-paris-france" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   The Louvre
                 </Link>
               </li>
@@ -133,7 +133,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/museum/uffizi" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/uffizi-gallery-florence-italy" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Uffizi Gallery
                 </Link>
               </li>
