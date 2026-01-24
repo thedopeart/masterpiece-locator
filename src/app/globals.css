@@ -138,6 +138,54 @@ strong {
   margin-bottom: 0;
 }
 
+/* Artist bio link colors - green for artist, movement, artwork links */
+.artist-bio a[href^="/artist/"],
+.artist-bio a[href^="/movement/"],
+.artist-bio a[href^="/art/"],
+.artist-bio a[href*="/apps/masterpieces/artist/"],
+.artist-bio a[href*="/apps/masterpieces/movement/"],
+.artist-bio a[href*="/apps/masterpieces/art/"] {
+  color: #028161 !important;
+}
+
+.artist-bio a[href^="/artist/"]:hover,
+.artist-bio a[href^="/movement/"]:hover,
+.artist-bio a[href^="/art/"]:hover,
+.artist-bio a[href*="/apps/masterpieces/artist/"]:hover,
+.artist-bio a[href*="/apps/masterpieces/movement/"]:hover,
+.artist-bio a[href*="/apps/masterpieces/art/"]:hover {
+  text-decoration: none;
+}
+
+/* Artist bio link colors - gold for museum and LuxuryWallArt links */
+.artist-bio a[href^="/museum/"],
+.artist-bio a[href*="/apps/masterpieces/museum/"],
+.artist-bio a[href*="luxurywallart.com"] {
+  color: #C9A84C !important;
+}
+
+.artist-bio a[href^="/museum/"]:hover,
+.artist-bio a[href*="/apps/masterpieces/museum/"]:hover,
+.artist-bio a[href*="luxurywallart.com"]:hover {
+  text-decoration: none;
+}
+
+/* Bold text inside artist bio links inherits link color */
+.artist-bio a[href^="/artist/"] strong,
+.artist-bio a[href^="/movement/"] strong,
+.artist-bio a[href^="/art/"] strong,
+.artist-bio a[href*="/apps/masterpieces/artist/"] strong,
+.artist-bio a[href*="/apps/masterpieces/movement/"] strong,
+.artist-bio a[href*="/apps/masterpieces/art/"] strong {
+  color: inherit !important;
+}
+
+.artist-bio a[href^="/museum/"] strong,
+.artist-bio a[href*="/apps/masterpieces/museum/"] strong,
+.artist-bio a[href*="luxurywallart.com"] strong {
+  color: inherit !important;
+}
+
 /* Museum description paragraph spacing */
 .museum-description p {
   margin-bottom: 1rem;
@@ -145,6 +193,54 @@ strong {
 
 .museum-description p:last-child {
   margin-bottom: 0;
+}
+
+/* Museum description link colors - green for artist, movement, artwork links */
+.museum-description a[href^="/artist/"],
+.museum-description a[href^="/movement/"],
+.museum-description a[href^="/art/"],
+.museum-description a[href*="/apps/masterpieces/artist/"],
+.museum-description a[href*="/apps/masterpieces/movement/"],
+.museum-description a[href*="/apps/masterpieces/art/"] {
+  color: #028161 !important;
+}
+
+.museum-description a[href^="/artist/"]:hover,
+.museum-description a[href^="/movement/"]:hover,
+.museum-description a[href^="/art/"]:hover,
+.museum-description a[href*="/apps/masterpieces/artist/"]:hover,
+.museum-description a[href*="/apps/masterpieces/movement/"]:hover,
+.museum-description a[href*="/apps/masterpieces/art/"]:hover {
+  text-decoration: none;
+}
+
+/* Museum description link colors - gold for museum and LuxuryWallArt links */
+.museum-description a[href^="/museum/"],
+.museum-description a[href*="/apps/masterpieces/museum/"],
+.museum-description a[href*="luxurywallart.com"] {
+  color: #C9A84C !important;
+}
+
+.museum-description a[href^="/museum/"]:hover,
+.museum-description a[href*="/apps/masterpieces/museum/"]:hover,
+.museum-description a[href*="luxurywallart.com"]:hover {
+  text-decoration: none;
+}
+
+/* Bold text inside museum description links inherits link color */
+.museum-description a[href^="/artist/"] strong,
+.museum-description a[href^="/movement/"] strong,
+.museum-description a[href^="/art/"] strong,
+.museum-description a[href*="/apps/masterpieces/artist/"] strong,
+.museum-description a[href*="/apps/masterpieces/movement/"] strong,
+.museum-description a[href*="/apps/masterpieces/art/"] strong {
+  color: inherit !important;
+}
+
+.museum-description a[href^="/museum/"] strong,
+.museum-description a[href*="/apps/masterpieces/museum/"] strong,
+.museum-description a[href*="luxurywallart.com"] strong {
+  color: inherit !important;
 }
 
 /* Thin scrollbar for sidebar navigation */

@@ -237,10 +237,10 @@ export default function Navigation() {
           </div>
 
           {/* Right side */}
-          <div className="flex items-center justify-end gap-2 md:w-56 ml-auto">
+          <div className="flex items-center justify-end gap-1 sm:gap-2 ml-auto">
             <Link
               href="/search"
-              className="text-neutral-400 hover:text-white hover:bg-white/10 transition-all p-2.5 rounded-lg"
+              className="text-neutral-400 hover:text-white hover:bg-white/10 transition-all p-2 sm:p-2.5 rounded-lg"
               aria-label="Search"
             >
               <svg
@@ -265,12 +265,12 @@ export default function Navigation() {
               href="https://luxurywallart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 text-sm bg-white text-neutral-900 font-semibold px-5 py-2.5 rounded-lg hover:bg-neutral-100 transition-all shadow-md"
+              className="hidden lg:inline-flex items-center gap-2 text-sm bg-white text-neutral-900 font-semibold px-4 py-2 rounded-lg hover:bg-neutral-100 transition-all shadow-md"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-              Shop Wall Art
+              Shop
             </Link>
 
             {/* Mobile menu button */}
