@@ -216,20 +216,58 @@ export default async function ArtistPage({ params }: Props) {
         : null;
 
   // Build JSON-LD structured data for SEO
+  const notableWorks = artist.artworks.slice(0, 5).map((artwork) => ({
+    "@type": "VisualArtwork",
+    name: artwork.title,
+    url: `${BASE_URL}/art/${artwork.slug}`,
+    ...(artwork.imageUrl && { image: artwork.imageUrl }),
+    ...(artwork.museum && {
+      locationCreated: {
+        "@type": "Place",
+        name: artwork.museum.name,
+        address: artwork.museum.city,
+      },
+    }),
+  }));
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${BASE_URL}/artist/${artist.slug}`,
     name: artist.name,
+    url: `${BASE_URL}/artist/${artist.slug}`,
     description: artist.bioShort || artist.bioFull || undefined,
     birthDate: artist.birthYear?.toString(),
     deathDate: artist.deathYear?.toString(),
     nationality: artist.nationality || undefined,
-    image: artist.imageUrl || undefined,
+    image: artist.imageUrl || artist.artworks[0]?.imageUrl || undefined,
     sameAs: artist.wikipediaUrl ? [artist.wikipediaUrl] : undefined,
     hasOccupation: {
       "@type": "Occupation",
       name: "Artist",
+      occupationalCategory: "Visual Artist",
     },
+    // Art movements
+    ...(artist.movements.length > 0 && {
+      knowsAbout: artist.movements.map((m) => ({
+        "@type": "Thing",
+        name: m.name,
+        url: `${BASE_URL}/movement/${m.slug}`,
+      })),
+    }),
+    // Notable works
+    ...(notableWorks.length > 0 && {
+      subjectOf: notableWorks,
+    }),
+    // Total artwork count
+    ...(artist.artworks.length > 0 && {
+      mainEntityOfPage: {
+        "@type": "CollectionPage",
+        name: `${artist.name}'s Artworks`,
+        url: `${BASE_URL}/artist/${artist.slug}`,
+        numberOfItems: artist.artworks.length,
+      },
+    }),
   };
 
   const altText = `Portrait of ${artist.name}${artist.nationality ? `, ${artist.nationality} artist` : ""}${lifespan ? ` (${lifespan})` : ""}`;

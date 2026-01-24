@@ -206,8 +206,46 @@ export default async function EraPage({ params }: Props) {
   const prevEra = currentIndex > 0 ? ERAS[currentIndex - 1] : null;
   const nextEra = currentIndex < ERAS.length - 1 ? ERAS[currentIndex + 1] : null;
 
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+
+  // Build JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Thing",
+    "@id": `${BASE_URL}/era/${era.slug}`,
+    name: era.name,
+    url: `${BASE_URL}/era/${era.slug}`,
+    description: era.description,
+    // Temporal coverage
+    temporalCoverage: `${era.startYear}/${era.endYear}`,
+    // Related movements
+    ...(movements.length > 0 && {
+      hasPart: movements.slice(0, 10).map((m) => ({
+        "@type": "Thing",
+        name: m.name,
+        url: `${BASE_URL}/movement/${m.slug}`,
+      })),
+    }),
+    // Notable artists
+    ...(artists.length > 0 && {
+      about: artists.slice(0, 10).map((a) => ({
+        "@type": "Person",
+        name: a.name,
+        url: `${BASE_URL}/artist/${a.slug}`,
+      })),
+    }),
+    // Keywords from era data
+    keywords: era.keywords.join(", "),
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-6">
