@@ -1,0 +1,357 @@
+{
+  "artist": "vincent-van-gogh",
+  "artistName": "Vincent van Gogh",
+  "title": "Van Gogh's Journey",
+  "subtitle": "Follow in the footsteps of Vincent van Gogh across Europe",
+  "lifespan": "1853-1890",
+  "totalLocations": 6,
+  "totalPaintings": 900,
+  "primaryCountries": ["Netherlands", "France"],
+  "introduction": "Vincent van Gogh's short but intense artistic life took him from the Netherlands through Belgium and France. In just 10 years, he created over 900 paintings, many inspired by the specific places he lived. Today, you can follow his journey and see where masterpieces like Starry Night, Sunflowers, and Cafe Terrace at Night were created.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "groot-zundert",
+      "place": "Groot-Zundert",
+      "region": "North Brabant",
+      "country": "Netherlands",
+      "coordinates": { "lat": 51.4697, "lng": 4.6597 },
+      "years": "1853-1869",
+      "ageRange": "0-16",
+      "type": "birthplace",
+      "shortDescription": "Where Vincent was born",
+      "description": "Vincent Willem van Gogh was born on March 30, 1853, in this small village in the southern Netherlands. His father was a Protestant minister. The family home no longer exists, but a reconstruction stands on the original site.",
+      "significance": "Birthplace and childhood home. Vincent's early exposure to the Dutch countryside would influence his later landscape paintings.",
+      "whatToSee": [
+        {
+          "name": "Van Gogh House (Reconstruction)",
+          "type": "museum",
+          "address": "Markt 26-27, Groot-Zundert",
+          "description": "Reconstruction of Van Gogh's birthplace with exhibitions about his early life",
+          "ticketUrl": "https://www.vangoghhuis.com",
+          "hours": "Tue-Sun 10:00-17:00"
+        },
+        {
+          "name": "Van Gogh Church",
+          "type": "landmark",
+          "description": "The Protestant church where Vincent's father preached"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 0
+    },
+    {
+      "order": 2,
+      "slug": "the-hague",
+      "place": "The Hague",
+      "region": "South Holland",
+      "country": "Netherlands",
+      "coordinates": { "lat": 52.0705, "lng": 4.3007 },
+      "years": "1869-1873, 1881-1883",
+      "ageRange": "16-20, 28-30",
+      "type": "lived",
+      "shortDescription": "Where Vincent worked as an art dealer and began drawing seriously",
+      "description": "Vincent first came to The Hague at 16 to work for Goupil & Cie, an art dealership. He returned years later to study art seriously, living with a woman named Sien and her children while developing his drawing skills.",
+      "significance": "Vincent's first exposure to the art world as a dealer. His second stay marked his serious commitment to becoming an artist.",
+      "whatToSee": [
+        {
+          "name": "Mauritshuis",
+          "type": "museum",
+          "description": "Houses works by Vermeer and Rembrandt that influenced Vincent",
+          "ticketUrl": "https://www.mauritshuis.nl"
+        },
+        {
+          "name": "Former Goupil & Cie Location",
+          "type": "landmark",
+          "address": "Plaats 14",
+          "description": "Where teenage Vincent worked as an art dealer"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "sorrow", "title": "Sorrow", "year": 1882 }
+      ],
+      "artworksHereNow": 2
+    },
+    {
+      "order": 3,
+      "slug": "paris",
+      "place": "Paris",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8566, "lng": 2.3522 },
+      "years": "1886-1888",
+      "ageRange": "33-35",
+      "type": "lived",
+      "shortDescription": "Where Vincent discovered Impressionism and transformed his style",
+      "description": "Vincent moved to Paris to live with his brother Theo, an art dealer. Here he encountered Impressionism for the first time, met Toulouse-Lautrec, Gauguin, and Pissarro, and his palette transformed from dark Dutch tones to vibrant colors.",
+      "significance": "A pivotal transformation. Vincent created over 200 paintings here and developed the bold, colorful style we know today.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Musee d'Orsay",
+          "type": "museum",
+          "description": "Houses several Van Gogh paintings from this period",
+          "ticketUrl": "https://www.musee-orsay.fr"
+        },
+        {
+          "name": "Montmartre",
+          "type": "neighborhood",
+          "description": "Where Vincent lived with Theo and painted the windmills and cabarets"
+        },
+        {
+          "name": "54 Rue Lepic",
+          "type": "landmark",
+          "description": "The apartment building where Vincent and Theo lived (plaque on building)"
+        },
+        {
+          "name": "Le Moulin de la Galette",
+          "type": "landmark",
+          "description": "The windmill Vincent painted multiple times, still standing"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "le-moulin-de-la-galette", "title": "Le Moulin de la Galette", "year": 1886 },
+        { "slug": "self-portrait-with-grey-felt-hat", "title": "Self-Portrait with Grey Felt Hat", "year": 1887 }
+      ],
+      "artworksHereNow": 24
+    },
+    {
+      "order": 4,
+      "slug": "arles",
+      "place": "Arles",
+      "region": "Provence",
+      "country": "France",
+      "coordinates": { "lat": 43.6768, "lng": 4.6277 },
+      "years": "1888-1889",
+      "ageRange": "35-36",
+      "type": "lived",
+      "shortDescription": "Vincent's most prolific period. Sunflowers, Yellow House, Cafe Terrace",
+      "description": "Seeking stronger light and color, Vincent moved south to Arles in February 1888. In just 15 months, he created over 300 paintings including some of his most famous works. He rented the Yellow House, dreaming of an artists' colony. Paul Gauguin's visit ended with Vincent's mental breakdown and the infamous ear incident.",
+      "significance": "His most prolific and iconic period. The Sunflowers, Cafe Terrace at Night, The Bedroom, and The Yellow House were all painted here.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Fondation Vincent van Gogh",
+          "type": "museum",
+          "address": "35 Rue du Docteur Fanton",
+          "description": "Contemporary art museum dedicated to Van Gogh's legacy in Arles",
+          "ticketUrl": "https://www.fondation-vincentvangogh-arles.org"
+        },
+        {
+          "name": "Cafe Van Gogh (Cafe Terrace)",
+          "type": "landmark",
+          "address": "Place du Forum",
+          "description": "The actual cafe from Cafe Terrace at Night. Still operating, painted yellow",
+          "note": "The cafe still looks remarkably like the painting. Best visited at night."
+        },
+        {
+          "name": "Yellow House Site",
+          "type": "landmark",
+          "address": "Place Lamartine",
+          "description": "The Yellow House was destroyed in WWII, but a plaque marks the location"
+        },
+        {
+          "name": "Arles Hospital",
+          "type": "landmark",
+          "description": "Where Vincent was treated after cutting his ear. The courtyard garden he painted is preserved."
+        },
+        {
+          "name": "Langlois Bridge",
+          "type": "landmark",
+          "description": "A reconstruction of the drawbridge Vincent painted multiple times"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "sunflowers", "title": "Sunflowers", "year": 1888 },
+        { "slug": "the-yellow-house", "title": "The Yellow House", "year": 1888 },
+        { "slug": "cafe-terrace-at-night", "title": "Cafe Terrace at Night", "year": 1888 },
+        { "slug": "the-bedroom", "title": "The Bedroom", "year": 1888 },
+        { "slug": "the-night-cafe", "title": "The Night Cafe", "year": 1888 },
+        { "slug": "starry-night-over-the-rhone", "title": "Starry Night Over the Rhone", "year": 1888 }
+      ],
+      "artworksHereNow": 0,
+      "artworksNote": "Sadly, no original Van Gogh paintings remain in Arles. They are spread across museums worldwide."
+    },
+    {
+      "order": 5,
+      "slug": "saint-remy-de-provence",
+      "place": "Saint-Remy-de-Provence",
+      "region": "Provence",
+      "country": "France",
+      "coordinates": { "lat": 43.7885, "lng": 4.8312 },
+      "years": "1889-1890",
+      "ageRange": "36-37",
+      "type": "lived",
+      "shortDescription": "The asylum where Vincent painted Starry Night",
+      "description": "After his breakdown in Arles, Vincent voluntarily admitted himself to the Saint-Paul-de-Mausole asylum. Despite his mental struggles, he created 150 paintings here including The Starry Night, his most famous work. He painted the view from his window, the asylum garden, and the surrounding olive groves.",
+      "significance": "Created The Starry Night and some of his most emotionally intense works. A period of incredible productivity despite severe mental illness.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Saint-Paul-de-Mausole",
+          "type": "museum",
+          "address": "Chemin de Saint-Paul",
+          "description": "The asylum where Vincent stayed. His room is recreated, and you can see the exact view he painted in Starry Night.",
+          "ticketUrl": "https://www.saintpauldemausole.fr",
+          "hours": "Daily 9:30-18:00",
+          "note": "The monastery is still a psychiatric facility, with part open as a museum."
+        },
+        {
+          "name": "Van Gogh Walking Trail",
+          "type": "trail",
+          "description": "Self-guided walk through Saint-Remy with 21 stops showing reproductions of Van Gogh's paintings at the locations where they were painted."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "the-starry-night", "title": "The Starry Night", "year": 1889 },
+        { "slug": "irises", "title": "Irises", "year": 1889 },
+        { "slug": "the-olive-trees", "title": "The Olive Trees", "year": 1889 },
+        { "slug": "wheat-field-with-cypresses", "title": "Wheat Field with Cypresses", "year": 1889 }
+      ],
+      "artworksHereNow": 0
+    },
+    {
+      "order": 6,
+      "slug": "auvers-sur-oise",
+      "place": "Auvers-sur-Oise",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 49.0719, "lng": 2.1697 },
+      "years": "1890",
+      "ageRange": "37",
+      "type": "death",
+      "shortDescription": "Vincent's final 70 days and resting place",
+      "description": "Vincent spent his final 70 days in this village north of Paris, under the care of Dr. Gachet. Despite his deteriorating mental state, he painted at a furious pace, roughly one painting per day, creating 80 works including Wheatfield with Crows and Church at Auvers. On July 27, 1890, he shot himself in a wheat field and died two days later. He is buried here alongside his brother Theo.",
+      "significance": "His final and most poignant chapter. The church, wheat fields, and Dr. Gachet's house remain much as Vincent painted them.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Auberge Ravoux",
+          "type": "museum",
+          "address": "Place de la Mairie",
+          "description": "The inn where Vincent rented a tiny attic room for 3.50 francs a day. The room where he died is preserved exactly as it was.",
+          "ticketUrl": "https://www.maisondevangogh.fr",
+          "note": "The room is tiny and deeply moving. Advance booking recommended."
+        },
+        {
+          "name": "Church at Auvers",
+          "type": "landmark",
+          "address": "Rue Daubigny",
+          "description": "The church Vincent painted, instantly recognizable. The painting is at the Musee d'Orsay; the church looks nearly identical today."
+        },
+        {
+          "name": "Van Gogh's Grave",
+          "type": "landmark",
+          "address": "Cimetiere d'Auvers-sur-Oise",
+          "description": "Vincent and Theo are buried side by side. The graves are covered with ivy, as Vincent often painted."
+        },
+        {
+          "name": "Wheat Fields",
+          "type": "landmark",
+          "description": "The fields above the town where Vincent painted his final works and where he shot himself. Walking trails available."
+        },
+        {
+          "name": "Dr. Gachet's House",
+          "type": "museum",
+          "description": "Home of the doctor who cared for Vincent. Now a museum.",
+          "note": "Limited opening hours, check before visiting."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "the-church-at-auvers", "title": "The Church at Auvers", "year": 1890 },
+        { "slug": "wheatfield-with-crows", "title": "Wheatfield with Crows", "year": 1890 },
+        { "slug": "portrait-of-dr-gachet", "title": "Portrait of Dr. Gachet", "year": 1890 }
+      ],
+      "artworksHereNow": 0
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Van Gogh's Work Today",
+    "description": "Van Gogh's 900+ paintings are now spread across the world. Here are the top museums:",
+    "topMuseums": [
+      {
+        "slug": "van-gogh-museum",
+        "name": "Van Gogh Museum",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "count": 200,
+        "note": "The world's largest Van Gogh collection",
+        "coordinates": { "lat": 52.3584, "lng": 4.8811 },
+        "highlights": ["sunflowers", "the-bedroom", "almond-blossom", "the-potato-eaters"]
+      },
+      {
+        "slug": "kroller-muller-museum",
+        "name": "Kroller-Muller Museum",
+        "city": "Otterlo",
+        "country": "Netherlands",
+        "count": 90,
+        "note": "Second largest collection, in a beautiful sculpture garden",
+        "coordinates": { "lat": 52.0972, "lng": 5.8167 },
+        "highlights": ["cafe-terrace-at-night"]
+      },
+      {
+        "slug": "musee-dorsay",
+        "name": "Musee d'Orsay",
+        "city": "Paris",
+        "country": "France",
+        "count": 24,
+        "coordinates": { "lat": 48.8600, "lng": 2.3266 },
+        "highlights": ["starry-night-over-the-rhone", "the-church-at-auvers", "self-portrait-1889"]
+      },
+      {
+        "slug": "moma",
+        "name": "Museum of Modern Art (MoMA)",
+        "city": "New York",
+        "country": "USA",
+        "count": 18,
+        "coordinates": { "lat": 40.7614, "lng": -73.9776 },
+        "highlights": ["the-starry-night"]
+      },
+      {
+        "slug": "met",
+        "name": "Metropolitan Museum of Art",
+        "city": "New York",
+        "country": "USA",
+        "count": 20,
+        "coordinates": { "lat": 40.7794, "lng": -73.9632 },
+        "highlights": ["wheat-field-with-cypresses"]
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Dutch Origins",
+      "duration": "2 days",
+      "description": "Explore Van Gogh's birthplace and the world's best collection of his work",
+      "stops": ["groot-zundert", "the-hague"],
+      "museums": ["van-gogh-museum", "kroller-muller-museum"]
+    },
+    {
+      "name": "Provence Trail",
+      "duration": "3-4 days",
+      "description": "Follow Van Gogh through the south of France where he created his most famous works",
+      "stops": ["arles", "saint-remy-de-provence"],
+      "highlight": true
+    },
+    {
+      "name": "The Complete Journey",
+      "duration": "7-10 days",
+      "description": "A comprehensive trip through Van Gogh's entire life journey",
+      "stops": ["groot-zundert", "the-hague", "paris", "arles", "saint-remy-de-provence", "auvers-sur-oise"]
+    }
+  ],
+  "timeline": [
+    { "year": 1853, "event": "Born in Groot-Zundert, Netherlands" },
+    { "year": 1869, "event": "Begins work at Goupil & Cie art dealers, The Hague" },
+    { "year": 1880, "event": "Decides to become an artist at age 27" },
+    { "year": 1886, "event": "Moves to Paris, discovers Impressionism" },
+    { "year": 1888, "event": "Arrives in Arles, begins most prolific period" },
+    { "year": 1888, "event": "Gauguin visits; Vincent cuts his ear" },
+    { "year": 1889, "event": "Enters Saint-Paul-de-Mausole asylum; paints Starry Night" },
+    { "year": 1890, "event": "Moves to Auvers-sur-Oise" },
+    { "year": 1890, "event": "Dies July 29 at age 37" }
+  ]
+}
