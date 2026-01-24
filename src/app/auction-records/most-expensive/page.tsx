@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { decodeHtmlEntities } from "@/lib/text";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import PriceComparisonModule from "@/components/PriceComparison";
 
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
@@ -73,12 +74,24 @@ export default async function MostExpensivePage() {
       item: {
         "@type": "VisualArtwork",
         name: sale.Artwork.title,
-        creator: sale.Artwork.Artist?.name,
+        ...(sale.Artwork.year && { dateCreated: sale.Artwork.year }),
+        creator: sale.Artwork.Artist ? {
+          "@type": "Person",
+          name: sale.Artwork.Artist.name,
+          url: `${BASE_URL}/artist/${sale.Artwork.Artist.slug}`,
+        } : undefined,
         offers: {
           "@type": "Offer",
           price: Number(sale.priceUsd) / 100,
           priceCurrency: "USD",
+          availability: "https://schema.org/SoldOut",
+          validFrom: sale.saleDate.toISOString(),
+          seller: sale.auctionHouse ? {
+            "@type": "Organization",
+            name: sale.auctionHouse,
+          } : undefined,
         },
+        url: `${BASE_URL}/art/${sale.Artwork.slug}`,
       },
     })),
   };
@@ -237,6 +250,17 @@ export default async function MostExpensivePage() {
                       <p className="mt-4 text-sm text-neutral-600 leading-relaxed">
                         {sale.notes}
                       </p>
+                    )}
+
+                    {/* Price Comparison for top 5 */}
+                    {rank <= 5 && (
+                      <div className="mt-4">
+                        <PriceComparisonModule
+                          priceUsdCents={sale.priceUsd}
+                          artworkTitle={sale.Artwork.title}
+                          variant="inline"
+                        />
+                      </div>
                     )}
 
                     {/* Buyer/Seller */}
