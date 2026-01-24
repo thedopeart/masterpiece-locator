@@ -1,0 +1,125 @@
+{
+  "slug": "musee-dorsay",
+  "name": "Musee d'Orsay",
+  "shortName": "Orsay",
+  "location": {
+    "address": "Esplanade Valery Giscard d'Estaing",
+    "city": "Paris",
+    "state": null,
+    "postalCode": "75007",
+    "country": "France",
+    "neighborhood": "7th arrondissement",
+    "coordinates": {
+      "lat": 48.8600,
+      "lng": 2.3266
+    }
+  },
+  "contact": {
+    "phone": "+33 1 40 49 48 14",
+    "website": "https://www.musee-orsay.fr",
+    "email": null
+  },
+  "hours": {
+    "regular": {
+      "sunday": { "open": "09:30", "close": "18:00" },
+      "monday": { "open": null, "close": null, "closed": true },
+      "tuesday": { "open": "09:30", "close": "18:00" },
+      "wednesday": { "open": "09:30", "close": "18:00" },
+      "thursday": { "open": "09:30", "close": "21:45" },
+      "friday": { "open": "09:30", "close": "18:00" },
+      "saturday": { "open": "09:30", "close": "18:00" }
+    },
+    "exceptions": [
+      { "date": "2026-01-01", "closed": true, "reason": "New Year's Day" },
+      { "date": "2026-05-01", "closed": true, "reason": "Labour Day" },
+      { "date": "2026-12-25", "closed": true, "reason": "Christmas Day" }
+    ],
+    "notes": "Last admission at 5pm (9pm on Thursdays). Galleries close at 5:30pm (9:15pm on Thursdays). Late night opening Thursdays until 9:45pm.",
+    "lastUpdated": "2026-01-23"
+  },
+  "admission": {
+    "adult": 16,
+    "senior": 16,
+    "seniorAge": null,
+    "student": 0,
+    "child": 0,
+    "childMaxAge": 18,
+    "currency": "EUR",
+    "notes": "Online purchase 16 EUR, on-site 14 EUR. Free for under 18s and EU residents under 26. Night rate 12 EUR online, 10 EUR on-site. First Sunday of month is free.",
+    "freeDay": "First Sunday of month",
+    "freeHours": "All day",
+    "memberFree": true
+  },
+  "tickets": {
+    "onlineUrl": "https://www.musee-orsay.fr/en/visit",
+    "advanceRequired": false,
+    "advanceRecommended": true,
+    "advanceWindow": "3 months",
+    "sameDayAvailable": true,
+    "skipTheLine": true,
+    "affiliateUrl": null
+  },
+  "crowdData": {
+    "overall": "Very Popular",
+    "bestDays": ["tuesday", "wednesday", "thursday"],
+    "worstDays": ["saturday", "sunday"],
+    "bestTimes": ["09:30-11:00", "17:00-18:00"],
+    "worstTimes": ["11:00-15:00"],
+    "bestMonths": ["january", "february", "november"],
+    "worstMonths": ["june", "july", "august"],
+    "seasonalNotes": "Much less crowded than the Louvre. Thursday evenings are particularly good. First Sunday of month is free but crowded.",
+    "avgVisitDuration": "2-3 hours",
+    "recommendedDuration": "2-3 hours for highlights, 4 hours for thorough visit"
+  },
+  "tips": [
+    "Thursday evening is the best time to visit with extended hours until 9:45pm",
+    "The building itself is a converted railway station. Worth admiring the architecture",
+    "Start on the top floor with the Impressionists to beat the crowds",
+    "The cafe on the 5th floor has a terrace with views of Paris",
+    "Free first Sunday of the month but expect longer queues",
+    "Combined tickets available with the Rodin Museum and Orangerie"
+  ],
+  "accessibility": {
+    "wheelchairAccessible": true,
+    "wheelchairsAvailable": true,
+    "wheelchairReservation": false,
+    "audioGuide": true,
+    "audioGuideLanguages": ["en", "fr", "es", "de", "it", "zh", "ja", "ko"],
+    "signLanguageTours": true,
+    "brailleGuides": false,
+    "serviceAnimals": true
+  },
+  "amenities": {
+    "restaurant": true,
+    "cafe": true,
+    "giftShop": true,
+    "coatCheck": true,
+    "lockers": false,
+    "wifi": true,
+    "parking": false,
+    "nearbyParking": "Underground parking nearby on Rue de Solferino"
+  },
+  "mustSee": [
+    {
+      "artwork": "starry-night-over-rhone",
+      "name": "Starry Night Over the Rhone",
+      "artist": "Vincent van Gogh",
+      "location": "Level 5",
+      "note": "One of Van Gogh's famous night scenes"
+    },
+    {
+      "artwork": "luncheon-on-the-grass",
+      "name": "Luncheon on the Grass",
+      "artist": "Edouard Manet",
+      "location": "Level 0",
+      "note": "Controversial painting that shocked Paris in 1863"
+    },
+    {
+      "artwork": "dance-at-moulin-de-la-galette",
+      "name": "Dance at Moulin de la Galette",
+      "artist": "Pierre-Auguste Renoir",
+      "location": "Level 5",
+      "note": "Masterpiece of the Impressionist movement"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "slug": "louvre-paris",
+  "name": "Louvre Museum",
+  "shortName": "The Louvre",
+  "location": {
+    "address": "Rue de Rivoli",
+    "city": "Paris",
+    "state": null,
+    "postalCode": "75001",
+    "country": "France",
+    "neighborhood": "1st arrondissement",
+    "coordinates": {
+      "lat": 48.8606,
+      "lng": 2.3376
+    }
+  },
+  "contact": {
+    "phone": "+33 1 40 20 53 17",
+    "website": "https://www.louvre.fr",
+    "email": null
+  },
+  "hours": {
+    "regular": {
+      "sunday": { "open": "09:00", "close": "18:00" },
+      "monday": { "open": "09:00", "close": "18:00" },
+      "tuesday": { "open": null, "close": null, "closed": true },
+      "wednesday": { "open": "09:00", "close": "21:00" },
+      "thursday": { "open": "09:00", "close": "18:00" },
+      "friday": { "open": "09:00", "close": "21:00" },
+      "saturday": { "open": "09:00", "close": "18:00" }
+    },
+    "exceptions": [
+      { "date": "2026-01-01", "closed": true, "reason": "New Year's Day" },
+      { "date": "2026-05-01", "closed": true, "reason": "Labour Day" },
+      { "date": "2026-12-25", "closed": true, "reason": "Christmas Day" }
+    ],
+    "notes": "Last entry 1 hour before closing. Rooms begin clearing 30 minutes before closing. Late nights on Wednesday and Friday until 9pm.",
+    "lastUpdated": "2026-01-23"
+  },
+  "admission": {
+    "adult": 22,
+    "senior": 22,
+    "seniorAge": null,
+    "student": 0,
+    "child": 0,
+    "childMaxAge": 18,
+    "currency": "EUR",
+    "notes": "Free for under 18s and EU residents under 26. Online tickets cost up to 32 EUR with time slot. Free first Friday of month after 6pm (except July/August).",
+    "freeDay": "First Friday of month after 6pm",
+    "freeHours": "18:00-21:00",
+    "memberFree": true
+  },
+  "tickets": {
+    "onlineUrl": "https://ticket.louvre.fr/en",
+    "advanceRequired": false,
+    "advanceRecommended": true,
+    "advanceWindow": "3 months",
+    "sameDayAvailable": true,
+    "skipTheLine": true,
+    "affiliateUrl": null
+  },
+  "crowdData": {
+    "overall": "Extremely Popular",
+    "bestDays": ["wednesday", "friday"],
+    "worstDays": ["saturday", "sunday"],
+    "bestTimes": ["09:00-10:00", "18:00-21:00"],
+    "worstTimes": ["11:00-15:00"],
+    "bestMonths": ["january", "february", "november"],
+    "worstMonths": ["june", "july", "august"],
+    "seasonalNotes": "Summer months are extremely crowded. Wednesday and Friday evenings are less busy. Arrive at opening or during late-night hours for the best experience.",
+    "avgVisitDuration": "3-4 hours",
+    "recommendedDuration": "Half day minimum, full day for thorough visit"
+  },
+  "tips": [
+    "Enter via Porte des Lions or Carrousel du Louvre for shorter queues",
+    "The Mona Lisa is always crowded. Visit first thing or during evening hours",
+    "Download the museum app for navigation. The Louvre is massive and easy to get lost in",
+    "Wednesday and Friday evenings until 9pm are the least crowded times",
+    "Book online tickets with a time slot to skip the security line",
+    "The Cour Napoleon is accessible from 7:30am for photos of the pyramid",
+    "Audio guide costs 6 EUR and is highly recommended"
+  ],
+  "accessibility": {
+    "wheelchairAccessible": true,
+    "wheelchairsAvailable": true,
+    "wheelchairReservation": false,
+    "audioGuide": true,
+    "audioGuideLanguages": ["en", "fr", "es", "de", "it", "pt", "zh", "ja", "ko"],
+    "signLanguageTours": true,
+    "brailleGuides": true,
+    "serviceAnimals": true
+  },
+  "amenities": {
+    "restaurant": true,
+    "cafe": true,
+    "giftShop": true,
+    "coatCheck": true,
+    "lockers": true,
+    "wifi": true,
+    "parking": false,
+    "nearbyParking": "Underground parking at Carrousel du Louvre"
+  },
+  "mustSee": [
+    {
+      "artwork": "mona-lisa",
+      "name": "Mona Lisa",
+      "artist": "Leonardo da Vinci",
+      "location": "Salle des États (Room 711)",
+      "note": "Always crowded, go early or during evening hours"
+    },
+    {
+      "artwork": "winged-victory-samothrace",
+      "name": "Winged Victory of Samothrace",
+      "location": "Daru Staircase",
+      "note": "Stunning Hellenistic sculpture at the top of the main staircase"
+    },
+    {
+      "artwork": "venus-de-milo",
+      "name": "Venus de Milo",
+      "location": "Room 346",
+      "note": "Ancient Greek sculpture from around 100 BC"
+    }
+  ]
+}
