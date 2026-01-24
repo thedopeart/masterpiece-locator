@@ -24,6 +24,7 @@ export interface Era {
   faqs: EraFAQ[];
   color: string; // Tailwind color for timeline visualization
   heroImage?: string;
+  featuredArtworkSlug?: string; // Iconic artwork to feature for this era on timeline
 }
 
 export const ERAS: Era[] = [
@@ -84,7 +85,8 @@ export const ERAS: Era[] = [
         answer: "<strong>Illuminated manuscripts</strong> are hand-decorated books created by Medieval monks and scribes. The term comes from the <strong>gold and silver leaf</strong> that literally illuminates the pages. Famous examples include the Book of Kells and Les Très Riches Heures du Duc de Berry."
       }
     ],
-    color: 'amber'
+    color: 'amber',
+    featuredArtworkSlug: 'the-arnolfini-portrait' // Jan van Eyck's detailed masterpiece
   },
   {
     slug: 'renaissance',
@@ -143,7 +145,8 @@ export const ERAS: Era[] = [
         answer: "The <strong>Early Renaissance</strong> (1400-1490) developed foundational techniques like perspective and anatomical study. The <strong>High Renaissance</strong> (1490-1527) represents the peak, when Leonardo, Michelangelo, and Raphael synthesized these innovations into works of unprecedented mastery and harmony."
       }
     ],
-    color: 'yellow'
+    color: 'yellow',
+    featuredArtworkSlug: 'the-birth-of-venus' // Botticelli's iconic Renaissance masterpiece
   },
   {
     slug: 'baroque-rococo',
@@ -202,7 +205,8 @@ export const ERAS: Era[] = [
         answer: "The <a href=\"/museum/rijksmuseum\"><strong>Rijksmuseum</strong></a> holds Rembrandt's Night Watch. The <a href=\"/museum/prado\"><strong>Prado</strong></a> has Velázquez's Las Meninas. Caravaggio's works are scattered across Rome's churches. The <a href=\"/museum/louvre\"><strong>Louvre</strong></a> and <a href=\"/museum/metropolitan-museum\"><strong>Met</strong></a> have extensive Baroque collections."
       }
     ],
-    color: 'red'
+    color: 'red',
+    featuredArtworkSlug: 'girl-with-a-pearl-earring' // Vermeer's luminous Baroque masterpiece
   },
   {
     slug: '19th-century',
@@ -261,7 +265,8 @@ export const ERAS: Era[] = [
         answer: "<strong>Impressionists</strong> focused on capturing light and atmosphere with loose brushwork. <strong>Post-Impressionists</strong> like <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh</strong></a>, <a href=\"/artist/paul-cezanne\"><strong>Cézanne</strong></a>, and <a href=\"/artist/paul-gauguin\"><strong>Gauguin</strong></a> pushed further, using bold colors and distorted forms for emotional or structural effect."
       }
     ],
-    color: 'amber'
+    color: 'amber',
+    featuredArtworkSlug: 'the-starry-night' // Van Gogh's swirling night sky - Post-Impressionism icon
   },
   {
     slug: 'modern',
@@ -320,7 +325,8 @@ export const ERAS: Era[] = [
         answer: "The <a href=\"/museum/moma\"><strong>Museum of Modern Art (MoMA)</strong></a> in New York has the world's premier collection. The <a href=\"/museum/centre-pompidou\"><strong>Centre Pompidou</strong></a> in Paris, <a href=\"/museum/tate-modern\"><strong>Tate Modern</strong></a> in London, and the Guggenheim museums hold major Modern art collections."
       }
     ],
-    color: 'blue'
+    color: 'blue',
+    featuredArtworkSlug: 'the-persistence-of-memory' // Dalí's surrealist melting clocks
   },
   {
     slug: 'contemporary',
@@ -379,7 +385,8 @@ export const ERAS: Era[] = [
         answer: "Contemporary art often provokes by questioning what counts as art. Works like Duchamp's urinal, Hirst's shark, or a banana taped to a wall challenge viewers' expectations. The controversy itself becomes part of the artwork, forcing conversations about value, meaning, and who decides."
       }
     ],
-    color: 'purple'
+    color: 'purple',
+    featuredArtworkSlug: 'a-bigger-splash' // David Hockney's bright California pool scene
   }
 ];
 

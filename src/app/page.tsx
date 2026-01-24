@@ -205,7 +205,15 @@ export default async function Home() {
   // Fetch era stats for the "Explore by Era" section
   const eraStats = await Promise.all(
     ERAS.map(async (era) => {
-      const [movementCount, artistCount, previewArtworks] = await Promise.all([
+      // First try to get the featured artwork for this era
+      const featuredArtwork = era.featuredArtworkSlug
+        ? await prisma.artwork.findUnique({
+            where: { slug: era.featuredArtworkSlug },
+            select: { imageUrl: true },
+          })
+        : null;
+
+      const [movementCount, artistCount, fallbackArtworks] = await Promise.all([
         prisma.movement.count({
           where: {
             startYear: { gte: era.startYear, lt: era.endYear },
@@ -220,23 +228,32 @@ export default async function Home() {
             },
           },
         }),
-        prisma.artwork.findMany({
-          where: {
-            year: { gte: era.startYear, lt: era.endYear },
-            imageUrl: { not: null },
-          },
-          select: { imageUrl: true },
-          orderBy: { searchVolumeTier: "asc" },
-          take: 4,
-        }),
+        // Only fetch fallback if no featured artwork or it has no image
+        !featuredArtwork?.imageUrl
+          ? prisma.artwork.findMany({
+              where: {
+                year: { gte: era.startYear, lt: era.endYear },
+                imageUrl: { not: null },
+              },
+              select: { imageUrl: true },
+              orderBy: { searchVolumeTier: "asc" },
+              take: 4,
+            })
+          : Promise.resolve([]),
       ]);
+
+      // Use featured artwork image if available, otherwise fall back to era artworks
+      const previewImages = featuredArtwork?.imageUrl
+        ? [featuredArtwork.imageUrl]
+        : fallbackArtworks
+            .map((a) => a.imageUrl)
+            .filter((url): url is string => url !== null);
+
       return {
         era,
         movementCount,
         artistCount,
-        previewImages: previewArtworks
-          .map((a) => a.imageUrl)
-          .filter((url): url is string => url !== null),
+        previewImages,
       };
     })
   );
@@ -337,26 +354,26 @@ export default async function Home() {
         )}
       </section>
 
-      {/* Explore by Era */}
+      {/* Explore by Era - Timeline Section */}
       {erasWithContent.length > 0 && (
-        <section className="bg-neutral-900 py-12">
+        <section className="bg-gradient-to-b from-neutral-100 to-white py-16 border-y border-neutral-200">
           <div className="max-w-[1400px] mx-auto px-4">
             {/* Section Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-10">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-2xl font-bold text-neutral-900">
                     Explore by Era
                   </h2>
                 </div>
-                <p className="text-neutral-400 ml-4">
-                  From Renaissance masters to Modern pioneers. Discover art across 600 years of history.
+                <p className="text-neutral-600 ml-4">
+                  Journey through <strong>600 years of art history</strong>. From Renaissance masters to Modern pioneers.
                 </p>
               </div>
               <Link
                 href="/movements"
-                className="flex items-center gap-1 text-neutral-400 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
+                className="flex items-center gap-1 text-neutral-600 hover:text-[#C9A84C] text-sm font-medium transition-colors group"
               >
                 All movements
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -365,17 +382,27 @@ export default async function Home() {
               </Link>
             </div>
 
-            {/* Era Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {erasWithContent.slice(0, 4).map(({ era, movementCount, artistCount, previewImages }) => (
-                <TimelineEraCard
-                  key={era.slug}
-                  era={era}
-                  movementCount={movementCount}
-                  artistCount={artistCount}
-                  previewImages={previewImages}
-                />
-              ))}
+            {/* Timeline with connected cards */}
+            <div className="relative pt-8">
+              {/* Main timeline line spanning full width */}
+              <div className="absolute top-12 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-[#C9A84C]/30 via-[#C9A84C] to-[#C9A84C]/30 hidden lg:block" />
+
+              {/* Era Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+                {erasWithContent.slice(0, 4).map(({ era, movementCount, artistCount, previewImages }, index) => (
+                  <TimelineEraCard
+                    key={era.slug}
+                    era={era}
+                    movementCount={movementCount}
+                    artistCount={artistCount}
+                    previewImages={previewImages}
+                    isFirst={index === 0}
+                    isLast={index === erasWithContent.length - 1}
+                    index={index}
+                    total={erasWithContent.length}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>

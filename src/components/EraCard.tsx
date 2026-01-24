@@ -104,7 +104,7 @@ export default function EraCard({
   );
 }
 
-// Timeline version - sleek horizontal cards
+// Timeline version - connected timeline with bright artwork cards
 interface TimelineEraCardProps {
   era: Era;
   movementCount: number;
@@ -112,6 +112,8 @@ interface TimelineEraCardProps {
   previewImages?: string[];
   isFirst?: boolean;
   isLast?: boolean;
+  index?: number;
+  total?: number;
 }
 
 function TimelineImage({ src }: { src: string }) {
@@ -134,62 +136,158 @@ function TimelineImage({ src }: { src: string }) {
   );
 }
 
+// Get era accent color for timeline dots and borders
+function getEraAccentColor(era: Era): string {
+  const colorMap: Record<string, string> = {
+    amber: '#F59E0B',
+    yellow: '#EAB308',
+    red: '#DC2626',
+    green: '#059669',
+    blue: '#2563EB',
+    purple: '#9333EA'
+  };
+  return colorMap[era.color] || '#C9A84C';
+}
+
 export function TimelineEraCard({
   era,
   movementCount,
   artistCount,
   previewImages = [],
+  isFirst = false,
+  isLast = false,
+  index = 0,
+  total = 4,
 }: TimelineEraCardProps) {
   const validImages = previewImages.filter(Boolean);
+  const accentColor = getEraAccentColor(era);
 
   return (
-    <Link
-      href={`/era/${era.slug}`}
-      className="group relative block"
-    >
-      {/* Card with image background */}
-      <div className="relative h-48 rounded-xl overflow-hidden bg-neutral-900">
-        {/* Background image */}
-        {validImages.length > 0 ? (
-          <div className="absolute inset-0">
-            <TimelineImage src={validImages[0]} />
-          </div>
-        ) : (
-          <div className={`absolute inset-0 ${getEraSolidColorClass(era)} opacity-40`} />
+    <div className="relative">
+      {/* Timeline connector - horizontal line */}
+      <div className="absolute top-0 left-0 right-0 h-8 flex items-center">
+        {/* Left line segment */}
+        {!isFirst && (
+          <div className="absolute left-0 right-1/2 h-0.5 bg-gradient-to-r from-[#C9A84C]/60 to-[#C9A84C]" />
         )}
+        {/* Right line segment */}
+        {!isLast && (
+          <div className="absolute left-1/2 right-0 h-0.5 bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/60" />
+        )}
+        {/* Center dot */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-[#C9A84C] z-10"
+          style={{ backgroundColor: accentColor }}
+        />
+        {/* Year label above dot */}
+        <div className="absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap">
+          <span className="text-[#C9A84C] text-xs font-semibold tracking-wide">
+            {formatEraDateRange(era)}
+          </span>
+        </div>
+      </div>
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+      {/* Card */}
+      <Link
+        href={`/era/${era.slug}`}
+        className="group relative block mt-12"
+      >
+        <div className="relative rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-200 hover:border-[#C9A84C]/50">
+          {/* Image section - larger and more prominent */}
+          <div className="relative h-44 overflow-hidden">
+            {validImages.length > 0 ? (
+              <div className="absolute inset-0">
+                <TimelineImage src={validImages[0]} />
+              </div>
+            ) : (
+              <div
+                className="absolute inset-0 opacity-30"
+                style={{ backgroundColor: accentColor }}
+              />
+            )}
+            {/* Subtle gradient only at bottom for text readability */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
 
-        {/* Content */}
-        <div className="absolute inset-0 p-5 flex flex-col justify-between">
-          {/* Year badge at top */}
-          <div className="flex justify-between items-start">
-            <span className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white/90 px-3 py-1 rounded-full text-xs font-medium">
-              {formatEraDateRange(era)}
-            </span>
-            <svg className="w-5 h-5 text-white/50 group-hover:text-[#C9A84C] group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            {/* Era color accent bar at top */}
+            <div
+              className="absolute top-0 left-0 right-0 h-1"
+              style={{ backgroundColor: accentColor }}
+            />
           </div>
 
-          {/* Era name and stats at bottom */}
-          <div>
-            <h3 className="font-bold text-white text-xl mb-2 group-hover:text-[#C9A84C] transition-colors">
-              {era.name}
-            </h3>
-            <div className="flex items-center gap-4 text-xs text-white/70">
-              <span>{movementCount} movements</span>
-              <span className="w-1 h-1 rounded-full bg-white/40" />
-              <span>{artistCount} artists</span>
+          {/* Content section */}
+          <div className="p-4 bg-white">
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-bold text-neutral-900 text-lg group-hover:text-[#C9A84C] transition-colors">
+                {era.name}
+              </h3>
+              <svg className="w-5 h-5 text-neutral-400 group-hover:text-[#C9A84C] group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            {/* Era description snippet */}
+            <p className="text-neutral-600 text-sm line-clamp-2 mb-3">
+              {era.subtitle}
+            </p>
+
+            {/* Stats */}
+            <div className="flex items-center gap-3 text-xs">
+              <span className="flex items-center gap-1.5 text-neutral-500">
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: accentColor }}
+                />
+                {movementCount} movements
+              </span>
+              <span className="flex items-center gap-1.5 text-neutral-500">
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: accentColor }}
+                />
+                {artistCount} artists
+              </span>
             </div>
           </div>
         </div>
+      </Link>
+    </div>
+  );
+}
 
-        {/* Hover border effect */}
-        <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-[#C9A84C]/50 transition-colors" />
+// Alternative: Horizontal scrolling timeline with larger artwork
+export function TimelineSection({
+  eras,
+}: {
+  eras: Array<{
+    era: Era;
+    movementCount: number;
+    artistCount: number;
+    previewImages: string[];
+  }>;
+}) {
+  return (
+    <div className="relative">
+      {/* Main timeline line */}
+      <div className="absolute top-4 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
+
+      {/* Era cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+        {eras.map(({ era, movementCount, artistCount, previewImages }, index) => (
+          <TimelineEraCard
+            key={era.slug}
+            era={era}
+            movementCount={movementCount}
+            artistCount={artistCount}
+            previewImages={previewImages}
+            isFirst={index === 0}
+            isLast={index === eras.length - 1}
+            index={index}
+            total={eras.length}
+          />
+        ))}
       </div>
-    </Link>
+    </div>
   );
 }
 
