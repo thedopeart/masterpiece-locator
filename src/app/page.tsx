@@ -276,7 +276,7 @@ export default async function Home() {
 
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-            Where Is That Famous Painting?
+            Find Famous Paintings & Their Museums
           </h1>
           <p className="text-neutral-300 text-lg mb-3 max-w-xl mx-auto">
             Find which museum has the artwork you want to see in person.
