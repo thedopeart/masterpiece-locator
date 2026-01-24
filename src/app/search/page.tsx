@@ -455,7 +455,7 @@ export default async function SearchPage({ searchParams }: Props) {
                       </p>
                       <Link
                         href="/search"
-                        className="inline-block mt-4 text-[#C9A84C] hover:underline"
+                        className="inline-block mt-4 text-[#C9A84C] hover:opacity-80 transition-opacity"
                       >
                         Clear filters
                       </Link>

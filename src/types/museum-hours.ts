@@ -118,6 +118,18 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface GalleryImage {
+  url: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface CollectionStats {
+  totalArtworks: number;
+  onDisplay: number;
+  source?: string;
+}
+
 export interface MuseumPracticalData {
   slug: string;
   name: string;
@@ -133,4 +145,6 @@ export interface MuseumPracticalData {
   amenities: MuseumAmenities;
   mustSee: MustSeeItem[];
   faqs?: FAQItem[];
+  gallery?: GalleryImage[];
+  collectionStats?: CollectionStats;
 }

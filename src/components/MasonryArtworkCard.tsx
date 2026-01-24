@@ -21,9 +21,10 @@ interface MasonryArtworkCardProps {
     } | null;
   };
   priority?: boolean;
+  highlight?: boolean;
 }
 
-export default function MasonryArtworkCard({ artwork, priority = false }: MasonryArtworkCardProps) {
+export default function MasonryArtworkCard({ artwork, priority = false, highlight = false }: MasonryArtworkCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -43,6 +44,12 @@ export default function MasonryArtworkCard({ artwork, priority = false }: Masonr
       className="group block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden mb-4 break-inside-avoid"
     >
       <div className="relative bg-neutral-100 overflow-hidden">
+        {/* Must-See Highlight Badge */}
+        {highlight && (
+          <div className="absolute top-2 left-2 z-10 bg-[#028161] text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
+            Must-See
+          </div>
+        )}
         {artwork.imageUrl && !imageError ? (
           <>
             {/* Placeholder with correct aspect ratio */}

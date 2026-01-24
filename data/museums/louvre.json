@@ -124,35 +124,57 @@
   "faqs": [
     {
       "question": "What are the most famous paintings at the Louvre?",
-      "answer": "The Louvre houses some of the world's most iconic artworks. The <strong>Mona Lisa</strong> by Leonardo da Vinci is the most visited, located in the Salle des États (Room 711). Other must-see paintings include <strong>Liberty Leading the People</strong> by Eugène Delacroix, <strong>The Coronation of Napoleon</strong> by Jacques-Louis David, <strong>The Wedding at Cana</strong> by Veronese (the largest painting in the Louvre), and <strong>The Raft of the Medusa</strong> by Théodore Géricault. Don't miss the Italian Renaissance collection with works by Raphael, Caravaggio, and Titian."
+      "answer": "The Louvre houses some of the world's most iconic artworks. The <a href=\"/art/mona-lisa\" style=\"color: #028161; font-weight: 600;\">Mona Lisa</a> by <a href=\"/artist/leonardo-da-vinci\" style=\"color: #C9A84C; font-weight: 600;\">Leonardo da Vinci</a> is the most visited, located in the Salle des États (Room 711).<br><br>Other must-see paintings include <a href=\"/art/liberty-leading-the-people\" style=\"color: #028161; font-weight: 600;\">Liberty Leading the People</a> by <a href=\"/artist/eugene-delacroix\" style=\"color: #C9A84C; font-weight: 600;\">Eugène Delacroix</a>, <strong>The Coronation of Napoleon</strong> by <a href=\"/artist/jacques-louis-david\" style=\"color: #C9A84C; font-weight: 600;\">Jacques-Louis David</a>, <a href=\"/art/wedding-at-cana\" style=\"color: #028161; font-weight: 600;\">The Wedding at Cana</a> by <a href=\"/artist/paolo-veronese\" style=\"color: #C9A84C; font-weight: 600;\">Veronese</a> (the largest painting in the Louvre), and <a href=\"/art/the-raft-of-the-medusa\" style=\"color: #028161; font-weight: 600;\">The Raft of the Medusa</a> by Théodore Géricault.<br><br>Don't miss the Italian Renaissance collection with works by <a href=\"/artist/raphael\" style=\"color: #C9A84C; font-weight: 600;\">Raphael</a>, <a href=\"/artist/caravaggio\" style=\"color: #C9A84C; font-weight: 600;\">Caravaggio</a>, and <a href=\"/artist/titian\" style=\"color: #C9A84C; font-weight: 600;\">Titian</a>."
     },
     {
       "question": "What is the history of the Louvre Museum?",
-      "answer": "The Louvre began as a medieval fortress built by King Philip II in 1190 to protect Paris. It was transformed into a royal palace in the 16th century under Francis I, who began the art collection. The palace was abandoned when Louis XIV moved the court to Versailles in 1682. During the French Revolution in 1793, the Louvre opened as a public museum with 537 paintings. Napoleon significantly expanded the collection through conquests. The iconic glass pyramid entrance, designed by I.M. Pei, was added in 1989. Today it holds over 380,000 objects and displays 35,000 works across 72,735 square meters."
+      "answer": "The Louvre began as a medieval fortress built by King Philip II in 1190 to protect Paris. It was transformed into a royal palace in the 16th century under Francis I, who began the art collection.<br><br>The palace was abandoned when Louis XIV moved the court to Versailles in 1682. During the French Revolution in 1793, the Louvre opened as a public museum with 537 paintings.<br><br>Napoleon significantly expanded the collection through conquests. The iconic glass pyramid entrance, designed by I.M. Pei, was added in 1989. Today it holds over 380,000 objects and displays 35,000 works across 72,735 square meters."
     },
     {
       "question": "How do I see the Mona Lisa without crowds?",
-      "answer": "The Mona Lisa attracts millions of visitors yearly, making it challenging to view without crowds. Your best strategies: <strong>Arrive at 9am sharp</strong> when doors open and head straight to Room 711. Alternatively, visit during <strong>Wednesday or Friday evening hours</strong> (6pm-9pm) when crowds thin significantly. Avoid weekends and summer months entirely. Enter through the less-crowded Porte des Lions entrance to save time. Consider visiting in January, February, or November when tourist numbers drop. The painting is behind bulletproof glass about 6 meters from the viewing area, so manage expectations about getting close."
+      "answer": "The <a href=\"/art/mona-lisa\" style=\"color: #028161; font-weight: 600;\">Mona Lisa</a> attracts millions of visitors yearly, making it challenging to view without crowds. Your best strategies: <strong>Arrive at 9am sharp</strong> when doors open and head straight to Room 711.<br><br>Alternatively, visit during <strong>Wednesday or Friday evening hours</strong> (6pm-9pm) when crowds thin significantly. Avoid weekends and summer months entirely. Enter through the less-crowded Porte des Lions entrance to save time.<br><br>Consider visiting in January, February, or November when tourist numbers drop. The painting is behind bulletproof glass about 6 meters from the viewing area, so manage expectations about getting close."
     },
     {
       "question": "What sculptures should I see at the Louvre?",
-      "answer": "Beyond paintings, the Louvre has world-class sculpture. The <strong>Winged Victory of Samothrace</strong> (Nike of Samothrace) commands the Daru Staircase, a 2nd-century BC Hellenistic masterpiece. The <strong>Venus de Milo</strong> in Room 346 is an ancient Greek sculpture from around 100 BC, famous for her missing arms. The <strong>Dying Slave</strong> and <strong>Rebellious Slave</strong> by Michelangelo showcase Renaissance genius. The Egyptian collection features the <strong>Great Sphinx of Tanis</strong>, and the Near Eastern collection includes the <strong>Code of Hammurabi</strong>, one of the oldest written laws."
+      "answer": "Beyond paintings, the Louvre has world-class sculpture. The <strong>Winged Victory of Samothrace</strong> (Nike of Samothrace) commands the Daru Staircase, a 2nd-century BC Hellenistic masterpiece.<br><br>The <strong>Venus de Milo</strong> in Room 346 is an ancient Greek sculpture from around 100 BC, famous for her missing arms. The <strong>Dying Slave</strong> and <strong>Rebellious Slave</strong> by <a href=\"/artist/michelangelo\" style=\"color: #C9A84C; font-weight: 600;\">Michelangelo</a> showcase Renaissance genius.<br><br>The Egyptian collection features the <strong>Great Sphinx of Tanis</strong>, and the Near Eastern collection includes the <strong>Code of Hammurabi</strong>, one of the oldest written laws."
     },
     {
       "question": "How long does it take to see the entire Louvre?",
-      "answer": "You cannot see the entire Louvre in one visit. With 35,000 artworks on display across 15 acres, spending just 30 seconds at each piece would take over 100 days. <strong>For first-time visitors</strong>, plan 3-4 hours to see highlights like the Mona Lisa, Venus de Milo, and Winged Victory. <strong>Art enthusiasts</strong> should allocate a full day (6-8 hours) to explore one or two departments thoroughly. Many visitors return multiple times, focusing on different collections: Egyptian antiquities, Italian paintings, French sculptures, or Islamic art. The museum offers themed trails if you have limited time."
+      "answer": "You cannot see the entire Louvre in one visit. With 35,000 artworks on display across 15 acres, spending just 30 seconds at each piece would take over 100 days.<br><br><strong>For first-time visitors</strong>, plan 3-4 hours to see highlights like the <a href=\"/art/mona-lisa\" style=\"color: #028161; font-weight: 600;\">Mona Lisa</a>, Venus de Milo, and Winged Victory. <strong>Art enthusiasts</strong> should allocate a full day (6-8 hours) to explore one or two departments thoroughly.<br><br>Many visitors return multiple times, focusing on different collections: Egyptian antiquities, Italian paintings, French sculptures, or Islamic art. The museum offers themed trails if you have limited time."
     },
     {
       "question": "What are the Louvre's hours and when is it closed?",
-      "answer": "The Louvre is open <strong>9am to 6pm</strong> Sunday, Monday, Thursday, and Saturday. <strong>Extended hours until 9pm</strong> on Wednesday and Friday. <strong>Closed every Tuesday</strong>, plus January 1, May 1, and December 25. Last admission is 1 hour before closing, and rooms begin clearing 30 minutes before close. The glass pyramid courtyard opens at 7:30am for photography, though you cannot enter the museum until 9am."
+      "answer": "The Louvre is open <strong>9am to 6pm</strong> Sunday, Monday, Thursday, and Saturday. <strong>Extended hours until 9pm</strong> on Wednesday and Friday.<br><br><strong>Closed every Tuesday</strong>, plus January 1, May 1, and December 25. Last admission is 1 hour before closing, and rooms begin clearing 30 minutes before close.<br><br>The glass pyramid courtyard opens at 7:30am for photography, though you cannot enter the museum until 9am."
     },
     {
       "question": "How much do Louvre tickets cost?",
-      "answer": "General admission is <strong>€22</strong> when purchased on-site. Online tickets with a reserved time slot cost <strong>€17-32</strong> depending on availability and date. <strong>Free admission</strong> for visitors under 18, EU residents under 26, disabled visitors and one companion, and teachers with valid ID. Everyone gets free entry on the <strong>first Friday of each month after 6pm</strong> (except July and August). The Paris Museum Pass (€62 for 2 days) includes Louvre access and skip-the-line entry."
+      "answer": "General admission is <strong>€22</strong> when purchased on-site. Online tickets with a reserved time slot cost <strong>€17-32</strong> depending on availability and date.<br><br><strong>Free admission</strong> for visitors under 18, EU residents under 26, disabled visitors and one companion, and teachers with valid ID.<br><br>Everyone gets free entry on the <strong>first Friday of each month after 6pm</strong> (except July and August). The Paris Museum Pass (€62 for 2 days) includes Louvre access and skip-the-line entry."
     },
     {
       "question": "Which entrance should I use at the Louvre?",
-      "answer": "The Louvre has four entrances with varying wait times. The <strong>Pyramid entrance</strong> (main) has the longest lines, often 30-60 minutes. <strong>Best alternatives</strong>: The <strong>Carrousel du Louvre</strong> underground entrance (via 99 Rue de Rivoli or the metro) is covered and usually faster. The <strong>Porte des Lions</strong> (south side, facing the Seine) is the least crowded but not always open. The <strong>Passage Richelieu</strong> is reserved for groups and Paris Museum Pass holders. Online ticket holders can use dedicated security lines at all entrances."
+      "answer": "The Louvre has four entrances with varying wait times. The <strong>Pyramid entrance</strong> (main) has the longest lines, often 30-60 minutes.<br><br><strong>Best alternatives</strong>: The <strong>Carrousel du Louvre</strong> underground entrance (via 99 Rue de Rivoli or the metro) is covered and usually faster. The <strong>Porte des Lions</strong> (south side, facing the Seine) is the least crowded but not always open.<br><br>The <strong>Passage Richelieu</strong> is reserved for groups and Paris Museum Pass holders. Online ticket holders can use dedicated security lines at all entrances."
     }
-  ]
+  ],
+  "gallery": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/1280px-Louvre_Museum_Wikimedia_Commons.jpg",
+      "alt": "The Louvre Museum and glass pyramid",
+      "caption": "The Louvre Museum and I.M. Pei's pyramid"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Louvre_Courtyard%2C_Looking_West.jpg/1280px-Louvre_Courtyard%2C_Looking_West.jpg",
+      "alt": "Louvre courtyard looking west",
+      "caption": "The Cour Napoléon courtyard"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Louvre_aile_Richelieu.jpg/1280px-Louvre_aile_Richelieu.jpg",
+      "alt": "Louvre Richelieu Wing",
+      "caption": "The Richelieu Wing"
+    }
+  ],
+  "collectionStats": {
+    "totalArtworks": 380000,
+    "onDisplay": 35000,
+    "source": "Official Louvre website"
+  }
 }

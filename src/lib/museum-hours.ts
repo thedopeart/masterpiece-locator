@@ -66,6 +66,64 @@ export function isMuseumOpen(hours: MuseumPracticalData["hours"], timezone?: str
   return currentTime >= openTime && currentTime < closeTime;
 }
 
+// Check if museum is open with next change info
+export function isMuseumOpenNow(hours: MuseumPracticalData["hours"]): { isOpen: boolean; nextChange: string | null } {
+  const now = new Date();
+  const day = getCurrentDay();
+  const dayHours = hours.regular[day];
+
+  // If closed today
+  if (dayHours.closed || !dayHours.open || !dayHours.close) {
+    // Find next open day
+    const days: (keyof MuseumPracticalData["hours"]["regular"])[] = [
+      "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
+    ];
+    const todayIndex = days.indexOf(day);
+    for (let i = 1; i <= 7; i++) {
+      const nextDayIndex = (todayIndex + i) % 7;
+      const nextDay = days[nextDayIndex];
+      const nextDayHours = hours.regular[nextDay];
+      if (!nextDayHours.closed && nextDayHours.open) {
+        const dayName = i === 1 ? "tomorrow" : capitalize(nextDay);
+        return { isOpen: false, nextChange: `Opens ${dayName} at ${formatTime(nextDayHours.open)}` };
+      }
+    }
+    return { isOpen: false, nextChange: null };
+  }
+
+  // Parse times
+  const currentTime = now.getHours() * 60 + now.getMinutes();
+  const [openHour, openMin] = dayHours.open.split(":").map(Number);
+  const [closeHour, closeMin] = dayHours.close.split(":").map(Number);
+
+  const openTime = openHour * 60 + openMin;
+  const closeTime = closeHour * 60 + closeMin;
+
+  if (currentTime < openTime) {
+    // Not open yet
+    return { isOpen: false, nextChange: `Opens at ${formatTime(dayHours.open)}` };
+  } else if (currentTime < closeTime) {
+    // Currently open
+    return { isOpen: true, nextChange: `Closes at ${formatTime(dayHours.close)}` };
+  } else {
+    // Closed for the day, find next open
+    const days: (keyof MuseumPracticalData["hours"]["regular"])[] = [
+      "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
+    ];
+    const todayIndex = days.indexOf(day);
+    for (let i = 1; i <= 7; i++) {
+      const nextDayIndex = (todayIndex + i) % 7;
+      const nextDay = days[nextDayIndex];
+      const nextDayHours = hours.regular[nextDay];
+      if (!nextDayHours.closed && nextDayHours.open) {
+        const dayName = i === 1 ? "tomorrow" : capitalize(nextDay);
+        return { isOpen: false, nextChange: `Opens ${dayName} at ${formatTime(nextDayHours.open)}` };
+      }
+    }
+    return { isOpen: false, nextChange: null };
+  }
+}
+
 // Format hours for display (e.g., "9:00 AM - 6:00 PM")
 export function formatHours(hours: DayHours): string {
   if (hours.closed || !hours.open || !hours.close) {

@@ -49,7 +49,7 @@ export default function MuseumPracticalFAQ({ data }: MuseumPracticalFAQProps) {
                 }`}
               >
                 <div
-                  className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:underline"
+                  className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:opacity-80"
                   dangerouslySetInnerHTML={{ __html: item.answer }}
                 />
               </div>
@@ -101,7 +101,7 @@ export function MuseumPracticalFAQStatic({ data }: MuseumPracticalFAQProps) {
                 }`}
               >
                 <div
-                  className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:underline"
+                  className="p-4 pt-0 text-neutral-600 leading-relaxed [&_strong]:font-semibold [&_a]:text-[#C9A84C] [&_a]:hover:opacity-80"
                   dangerouslySetInnerHTML={{ __html: item.answer }}
                 />
               </div>

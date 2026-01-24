@@ -174,11 +174,11 @@ export default async function CityPage({ params }: Props) {
       <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-8">
-          <Link href="/" className="hover:text-neutral-900 hover:underline">
+          <Link href="/" className="hover:text-neutral-900">
             Home
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
-          <Link href="/cities" className="hover:text-neutral-900 hover:underline">
+          <Link href="/cities" className="hover:text-neutral-900">
             Cities
           </Link>
           <span className="mx-2 text-neutral-400">/</span>

@@ -315,7 +315,7 @@ export default async function ArtworkPage({ params }: Props) {
       <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb - full width */}
         <nav className="text-sm text-neutral-600 mb-6">
-          <Link href="/" className="hover:text-neutral-900 hover:underline">
+          <Link href="/" className="hover:text-neutral-900">
             Home
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
@@ -323,7 +323,7 @@ export default async function ArtworkPage({ params }: Props) {
             <>
               <Link
                 href={`/artist/${artwork.artist.slug}`}
-                className="hover:text-neutral-900 hover:underline"
+                className="hover:text-neutral-900"
               >
                 {artwork.artist.name}
               </Link>
@@ -513,7 +513,7 @@ export default async function ArtworkPage({ params }: Props) {
                   )}
                   <Link
                     href={`/artist/${artwork.artist.slug}`}
-                    className="text-sm text-[#C9A84C] hover:underline mt-2 inline-block"
+                    className="text-sm text-[#C9A84C] hover:opacity-80 transition-opacity mt-2 inline-block"
                   >
                     View all works →
                   </Link>
@@ -653,7 +653,7 @@ export default async function ArtworkPage({ params }: Props) {
                   )}
                   <Link
                     href={`/artist/${artwork.artist.slug}`}
-                    className="text-sm text-[#C9A84C] hover:underline mt-3 inline-block"
+                    className="text-sm text-[#C9A84C] hover:opacity-80 transition-opacity mt-3 inline-block"
                   >
                     View all works →
                   </Link>

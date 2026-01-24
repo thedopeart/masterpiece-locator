@@ -12,10 +12,12 @@ import MuseumSchema from "@/components/MuseumSchema";
 import { MuseumPracticalFAQStatic } from "@/components/MuseumPracticalFAQ";
 import { museumMetaTitle, museumMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
-import { getMuseumPracticalData, getHoursSummary } from "@/lib/museum-hours";
+import { getMuseumPracticalData, getHoursSummary, isMuseumOpenNow } from "@/lib/museum-hours";
+import GalleryLightbox from "@/components/GalleryLightbox";
+import FeaturedArtists from "@/components/FeaturedArtists";
 
 // Pagination constant
-const ARTWORKS_PER_PAGE = 66;
+const ARTWORKS_PER_PAGE = 48;
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateMuseumFAQs(museum: {
@@ -57,8 +59,8 @@ const getMuseum = cache(async (slug: string, page: number = 1) => {
           Museum: { select: { name: true, city: true } },
         },
         orderBy: [
-          { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first
-          { searchVolumeTier: "asc" },
+          { searchVolumeTier: "asc" }, // Most important artworks first (tier 1 = highest)
+          { imageUrl: { sort: "desc", nulls: "last" } }, // Then artworks with images
         ],
         skip: (page - 1) * ARTWORKS_PER_PAGE,
         take: ARTWORKS_PER_PAGE,
@@ -73,6 +75,25 @@ const getMuseum = cache(async (slug: string, page: number = 1) => {
 const getArtworkCount = cache(async (museumId: string) => {
   return prisma.artwork.count({
     where: { museumId },
+  });
+});
+
+// Get related museums in the same city
+const getRelatedMuseums = cache(async (city: string, currentMuseumId: string) => {
+  return prisma.museum.findMany({
+    where: {
+      city: city,
+      id: { not: currentMuseumId },
+    },
+    include: {
+      _count: {
+        select: { Artwork: true },
+      },
+    },
+    orderBy: {
+      Artwork: { _count: "desc" },
+    },
+    take: 3,
   });
 });
 
@@ -141,8 +162,11 @@ export default async function MuseumPage({ params, searchParams }: Props) {
 
   if (!rawMuseum) notFound();
 
-  // Get total artwork count for pagination
-  const totalArtworks = await getArtworkCount(rawMuseum.id);
+  // Get total artwork count for pagination and related museums
+  const [totalArtworks, relatedMuseums] = await Promise.all([
+    getArtworkCount(rawMuseum.id),
+    getRelatedMuseums(rawMuseum.city, rawMuseum.id),
+  ]);
   const totalPages = Math.ceil(totalArtworks / ARTWORKS_PER_PAGE);
 
   // Map artworks to lowercase property names for MasonryArtworkCard component
@@ -191,33 +215,29 @@ export default async function MuseumPage({ params, searchParams }: Props) {
 
   const altText = `${museum.name} museum in ${museum.city}, ${museum.country}`;
 
-  // Get unique artists at this museum
-  const rawArtists = await prisma.artist.findMany({
-    where: {
-      Artwork: {
-        some: { museumId: museum.id },
-      },
-    },
-    include: {
-      _count: {
-        select: {
-          Artwork: {
-            where: { museumId: museum.id },
-          },
-        },
-      },
-    },
-    orderBy: {
-      Artwork: { _count: "desc" },
-    },
-    take: 10,
-  });
+  // Get unique artists at this museum, ordered by artwork count AT THIS MUSEUM
+  // Using raw query because Prisma orderBy doesn't respect the where filter in _count
+  const artistsAtMuseum = await prisma.$queryRaw<Array<{
+    id: string;
+    name: string;
+    slug: string;
+    artwork_count: bigint;
+  }>>`
+    SELECT a.id, a.name, a.slug, COUNT(aw.id) as artwork_count
+    FROM "Artist" a
+    JOIN "Artwork" aw ON aw."artistId" = a.id
+    WHERE aw."museumId" = ${museum.id}
+    GROUP BY a.id, a.name, a.slug
+    ORDER BY artwork_count DESC
+    LIMIT 15
+  `;
 
-  // Map to lowercase for components and decode HTML entities
-  const artists = rawArtists.map((a) => ({
-    ...a,
+  // Map to the expected format and decode HTML entities
+  const artists = artistsAtMuseum.map((a) => ({
+    id: a.id,
     name: decodeHtmlEntities(a.name),
-    _count: { artworks: a._count.Artwork },
+    slug: a.slug,
+    _count: { artworks: Number(a.artwork_count) },
   }));
 
   // Build breadcrumb items for schema
@@ -249,7 +269,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero */}
-      <div className="relative h-64 md:h-80 bg-neutral-900">
+      <div className="relative h-48 sm:h-64 md:h-80 bg-neutral-900">
         {museum.imageUrl ? (
           <Image
             src={museum.imageUrl}
@@ -275,14 +295,14 @@ export default async function MuseumPage({ params, searchParams }: Props) {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-4 py-6 sm:py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-6">
-          <Link href="/" className="hover:text-neutral-900 hover:underline">
+          <Link href="/" className="hover:text-neutral-900">
             Home
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
-          <Link href="/museums" className="hover:text-neutral-900 hover:underline">
+          <Link href="/museums" className="hover:text-neutral-900">
             Museums
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
@@ -290,13 +310,13 @@ export default async function MuseumPage({ params, searchParams }: Props) {
         </nav>
 
         {/* Main Grid: Sidebar Left + Content Right */}
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8">
           {/* Sidebar - narrower, sticky */}
           <div className="lg:col-span-1 order-2 lg:order-1">
             <div className="lg:sticky lg:top-4">
               {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
               {practicalData ? (
-                <MuseumPracticalInfo data={practicalData} />
+                <MuseumPracticalInfo data={practicalData} artists={artists} />
               ) : (
                 <div className="space-y-4">
                   {/* Basic Ticket Button */}
@@ -305,7 +325,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                       href={museum.ticketUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full text-center bg-[#C9A84C] text-black font-semibold py-4 px-4 rounded-xl hover:bg-[#b8973f] transition-colors shadow-md"
+                      className="block w-full text-center bg-green-600 text-white font-semibold py-4 px-4 rounded-xl hover:bg-green-700 transition-colors shadow-md"
                     >
                       Buy Tickets
                     </a>
@@ -342,39 +362,15 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                         href={museum.websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#C9A84C] hover:underline text-sm"
+                        className="text-[#C9A84C] hover:opacity-80 transition-opacity text-sm"
                       >
                         Official Website →
                       </a>
                     )}
                   </div>
-                </div>
-              )}
 
-              {/* Artists at this Museum */}
-              {artists.length > 0 && (
-                <div className="bg-neutral-50 rounded-xl p-5 mt-4">
-                  <h2 className="text-lg font-semibold text-neutral-900 mb-2">
-                    Featured Artists
-                  </h2>
-                  <p className="text-sm text-neutral-500 mb-4">
-                    {artists.length} artists with works on display
-                  </p>
-                  <ul className="space-y-2">
-                    {artists.map((artist) => (
-                      <li key={artist.id}>
-                        <Link
-                          href={`/artist/${artist.slug}`}
-                          className="flex justify-between items-center text-neutral-700 hover:text-[#C9A84C] transition-colors text-sm"
-                        >
-                          <span className="truncate pr-2">{artist.name}</span>
-                          <span className="text-xs text-neutral-400 flex-shrink-0">
-                            {artist._count.artworks}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Featured Artists for museums without practical data */}
+                  <FeaturedArtists artists={artists} />
                 </div>
               )}
             </div>
@@ -382,20 +378,54 @@ export default async function MuseumPage({ params, searchParams }: Props) {
 
           {/* Main Content - wider */}
           <div className="lg:col-span-3 order-1 lg:order-2">
+            {/* Quick Stats Bar - Shows actual museum numbers when available */}
+            {practicalData && (
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 text-xs sm:text-sm">
+                {/* Open/Closed Status */}
+                {(() => {
+                  const openStatus = isMuseumOpenNow(practicalData.hours);
+                  return (
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full ${openStatus.isOpen ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                      <span className={`w-2 h-2 rounded-full ${openStatus.isOpen ? 'bg-green-500' : 'bg-red-500'}`}></span>
+                      {openStatus.isOpen ? 'Open' : 'Closed'}
+                      {openStatus.nextChange && <span className="text-xs opacity-75">· {openStatus.nextChange}</span>}
+                    </span>
+                  );
+                })()}
+                <span className="text-neutral-400">|</span>
+                {/* Show actual museum collection numbers if available */}
+                {practicalData.collectionStats ? (
+                  <span className="text-neutral-600">
+                    <strong>{practicalData.collectionStats.onDisplay.toLocaleString()}</strong> Works on Display
+                  </span>
+                ) : (
+                  <span className="text-neutral-600"><strong>{totalArtworks.toLocaleString()}</strong> in Database</span>
+                )}
+                <span className="text-neutral-400">|</span>
+                <span className="text-neutral-600">
+                  <strong>
+                    {practicalData.admission.adult === 0 ? 'Free' :
+                      `${practicalData.admission.currency === 'USD' ? '$' : practicalData.admission.currency === 'GBP' ? '£' : '€'}${practicalData.admission.adult}`
+                    }
+                  </strong> Entry
+                </span>
+              </div>
+            )}
+
             {/* Museum Description */}
             {(() => {
               const topArtists = artists.slice(0, 3);
               const topArtworks = museum.artworks.filter(a => a.artist).slice(0, 2);
 
               return (
-                <section className="mb-8">
+                <section className="mb-6">
                   <div className="text-neutral-600 leading-relaxed space-y-3 museum-description">
                     {museum.description && (
                       <div dangerouslySetInnerHTML={{ __html: museum.description }} />
                     )}
                     <p>
                       <strong>{museum.name}</strong> in{" "}
-                      <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
+                      <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:opacity-80 transition-opacity font-medium">
                         {museum.city}
                       </Link>, {museum.country} houses{" "}
                       <strong>{totalArtworks} {totalArtworks === 1 ? "masterpiece" : "masterpieces"}</strong> in our database
@@ -404,7 +434,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                         {topArtists.map((artist, i) => (
                           <span key={artist.slug}>
                             {i > 0 && (i === topArtists.length - 1 ? " and " : ", ")}
-                            <Link href={`/artist/${artist.slug}`} className="text-[#C9A84C] hover:underline font-medium">
+                            <Link href={`/artist/${artist.slug}`} className="text-[#C9A84C] hover:opacity-80 transition-opacity font-medium">
                               {artist.name}
                             </Link>
                           </span>
@@ -422,6 +452,14 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                 </section>
               );
             })()}
+
+            {/* Photo Gallery - Below description with lightbox */}
+            {practicalData?.gallery && practicalData.gallery.length > 0 && (
+              <div className="mb-6">
+                <GalleryLightbox images={practicalData.gallery} />
+              </div>
+            )}
+
             {/* Masterpieces */}
             <section>
               <div className="flex items-center justify-between mb-2">
@@ -444,13 +482,37 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                 <>
                   {/* Masonry Grid - 3 columns on desktop */}
                   <div className="masonry-grid-3col">
-                    {museum.artworks.map((artwork, index) => (
-                      <MasonryArtworkCard
-                        key={artwork.id}
-                        artwork={artwork}
-                        priority={index < 8}
-                      />
-                    ))}
+                    {(() => {
+                      // Sort artworks: Must-See items first, then by original order
+                      const sortedArtworks = [...museum.artworks].sort((a, b) => {
+                        const aIsMustSee = practicalData?.mustSee?.some(
+                          item => a.title.toLowerCase().includes(item.name.toLowerCase()) ||
+                                 item.name.toLowerCase().includes(a.title.toLowerCase())
+                        ) || false;
+                        const bIsMustSee = practicalData?.mustSee?.some(
+                          item => b.title.toLowerCase().includes(item.name.toLowerCase()) ||
+                                 item.name.toLowerCase().includes(b.title.toLowerCase())
+                        ) || false;
+                        if (aIsMustSee && !bIsMustSee) return -1;
+                        if (!aIsMustSee && bIsMustSee) return 1;
+                        return 0;
+                      });
+
+                      return sortedArtworks.map((artwork, index) => {
+                        const isHighlighted = practicalData?.mustSee?.some(
+                          item => artwork.title.toLowerCase().includes(item.name.toLowerCase()) ||
+                                 item.name.toLowerCase().includes(artwork.title.toLowerCase())
+                        ) || false;
+                        return (
+                          <MasonryArtworkCard
+                            key={artwork.id}
+                            artwork={artwork}
+                            priority={index < 8}
+                            highlight={isHighlighted}
+                          />
+                        );
+                      });
+                    })()}
                   </div>
 
                   {/* Pagination */}
@@ -531,18 +593,65 @@ export default async function MuseumPage({ params, searchParams }: Props) {
         </div>
 
         {/* FAQ Section - use practical data FAQs if available, then database, then generate basic */}
-        {practicalData ? (
-          <MuseumPracticalFAQStatic data={practicalData} />
-        ) : (() => {
-          const dbFaqs = rawMuseum.faqs as { question: string; answer: string }[] | null;
-          const faqs = (dbFaqs && dbFaqs.length > 0) ? dbFaqs : generateMuseumFAQs(museum);
-          return faqs.length > 0 ? (
-            <>
-              <FAQSchema items={faqs} />
-              <FAQ items={faqs} title={`Visiting ${museum.name}`} />
-            </>
-          ) : null;
-        })()}
+        <div className="max-w-4xl mx-auto mt-8 lg:mt-0">
+          {practicalData ? (
+            <MuseumPracticalFAQStatic data={practicalData} />
+          ) : (() => {
+            const dbFaqs = rawMuseum.faqs as { question: string; answer: string }[] | null;
+            const faqs = (dbFaqs && dbFaqs.length > 0) ? dbFaqs : generateMuseumFAQs(museum);
+            return faqs.length > 0 ? (
+              <>
+                <FAQSchema items={faqs} />
+                <FAQ items={faqs} title={`Visiting ${museum.name}`} />
+              </>
+            ) : null;
+          })()}
+        </div>
+
+        {/* Related Museums */}
+        {relatedMuseums.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+              Other Museums in {museum.city}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedMuseums.map((relatedMuseum) => {
+                const museumName = decodeHtmlEntities(relatedMuseum.name);
+                const initial = museumName.charAt(0).toUpperCase();
+                return (
+                  <Link
+                    key={relatedMuseum.id}
+                    href={`/museum/${relatedMuseum.slug}`}
+                    className="group bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow"
+                  >
+                    <div className="relative h-32 bg-gradient-to-br from-neutral-700 to-neutral-900 flex items-center justify-center">
+                      {relatedMuseum.imageUrl ? (
+                        <Image
+                          src={relatedMuseum.imageUrl}
+                          alt={museumName}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          unoptimized={true}
+                        />
+                      ) : (
+                        <span className="text-5xl font-bold text-white/30">{initial}</span>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                        {museumName}
+                      </h3>
+                      <p className="text-sm text-neutral-500 mt-1">
+                        {relatedMuseum._count.Artwork} artworks
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* CTA */}
         <section className="mt-12 bg-black rounded-xl p-8 text-center">
