@@ -40,28 +40,28 @@ export const dynamic = 'force-dynamic';
 // FAQ items for SEO
 const homepageFAQs = [
   {
-    question: "How do I find where a famous painting is located?",
-    answer: "Type the painting's name in the search bar. We'll show you which museum has it, the city, and visiting info. The database covers 4,000+ artworks in 700+ museums.",
+    question: "What is Masterpiece Locator?",
+    answer: "<strong>Masterpiece Locator</strong> is a free tool that tells you exactly where famous paintings are displayed. Search for any artwork and we'll show you the <strong>museum name</strong>, <strong>city</strong>, <strong>country</strong>, and basic visiting information. No more guessing which museum has the painting you want to see. The database includes over 4,000 artworks across 700+ museums worldwide.",
   },
   {
-    question: "Can I see the Mona Lisa in person?",
-    answer: "Yes. It's at the <a href=\"/museum/louvre\">Louvre</a> in Paris, in the Salle des États. Go early morning or late afternoon to dodge the crowds.",
+    question: "How do I use this tool to plan a museum visit?",
+    answer: "Start by searching for a painting or artist you want to see. We'll show you which museum has it. From there, you can browse other works at that same museum to see what else is worth your time. Many people use this to <strong>plan art trips</strong> by finding which cities have the most paintings on their bucket list. You can also explore by <strong>art movement</strong> or <strong>time period</strong> to find related works nearby.",
   },
   {
-    question: "What are the most visited art museums?",
-    answer: "The <a href=\"/museum/louvre\">Louvre</a> in Paris, <a href=\"/museum/met\">The Met</a> in New York, Vatican Museums in Rome, British Museum in London, and <a href=\"/museum/moma\">MoMA</a> in New York. All have thousands of works worth seeing.",
+    question: "Why do some famous paintings not have images?",
+    answer: "Copyright. Many 20th and 21st century artworks are still protected, so we can't display images without permission. You'll still see the <strong>title</strong>, <strong>artist</strong>, <strong>year</strong>, and <strong>museum location</strong>. Older works (pre-1900) are typically in the public domain and will have images. This is standard practice for art databases.",
   },
   {
-    question: "Which museums have the best Impressionist art?",
-    answer: "Musée d'Orsay in Paris has the biggest Impressionist collection. The Art Institute of Chicago and National Gallery London are also great. You'll find Monet, Renoir, and Degas at all of them.",
+    question: "What's the difference between a museum and a private collection?",
+    answer: "<strong>Museums</strong> are public institutions where you can buy a ticket and see the art. <strong>Private collections</strong> are owned by individuals or families and usually aren't open to visitors. We focus on museums and public galleries so you can actually go see the work. Some private collections do loan pieces to museums for special exhibitions.",
   },
   {
-    question: "Can I take photos of paintings in museums?",
-    answer: "Usually, yes. Most museums allow non-flash photography for personal use. Some pieces on loan might have restrictions. Check the museum's website before you go. Tripods and flash are almost always banned.",
+    question: "How do I find art near me?",
+    answer: "Use the <a href=\"/cities\">Cities</a> page to browse art by location. We list major art cities like Paris, New York, London, Amsterdam, and Florence with the museums and masterpieces in each. You can also search for a specific museum to see its full collection. Great for planning a weekend trip or finding what's within driving distance.",
   },
   {
-    question: "How current is the location data?",
-    answer: "We update regularly, but museums do rotate works and loan pieces out. Big ones like the Mona Lisa and Starry Night don't move. For lesser-known works or traveling shows, call the museum to confirm before making the trip.",
+    question: "Can paintings move between museums?",
+    answer: "Yes, but it's rare for major works. Icons like the <strong>Mona Lisa</strong>, <strong>Starry Night</strong>, and <strong>Girl with a Pearl Earring</strong> stay put. Museums do loan pieces for temporary exhibitions, usually 3-6 months. Lesser-known works rotate more often. If you're traveling specifically to see one painting, it's worth confirming with the museum before you go.",
   },
 ];
 
@@ -109,7 +109,7 @@ export default async function Home() {
         select: { imageUrl: true },
       },
     },
-    take: 4,
+    take: 8,
     orderBy: { Artwork: { _count: "desc" } },
   });
 
@@ -226,13 +226,13 @@ export default async function Home() {
 
       {/* Featured Artworks */}
       <section className="max-w-[1400px] mx-auto px-4 py-12">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="text-2xl font-bold text-neutral-900">
               Most Searched Masterpieces
             </h2>
             <p className="text-neutral-600 mt-1">
-              Popular artworks people search for, with their museum locations
+              These are the paintings people search for most. Click any artwork to see its <strong>museum location</strong> and <strong>visiting details</strong>.
             </p>
           </div>
           <Link
@@ -263,13 +263,13 @@ export default async function Home() {
       {erasWithContent.length > 0 && (
         <section className="bg-white py-12 border-y border-neutral-100">
           <div className="max-w-[1400px] mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-4">
               <div>
                 <h2 className="text-2xl font-bold text-neutral-900">
                   Explore by Era
                 </h2>
                 <p className="text-neutral-600 mt-1">
-                  Find art by time period, from Medieval through Contemporary
+                  Browse <strong>art movements</strong> by time period. Each era links to the artists and styles that defined it, from <strong>Renaissance masters</strong> to <strong>Modern art pioneers</strong>.
                 </p>
               </div>
               <Link
@@ -297,13 +297,13 @@ export default async function Home() {
       {/* Featured Artists */}
       <section className="bg-white py-12 border-y border-neutral-100">
         <div className="max-w-[1400px] mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-2xl font-bold text-neutral-900">
                 Featured Artists
               </h2>
               <p className="text-neutral-600 mt-1">
-                Browse by artist to find where their works are displayed
+                Find every painting by your favorite artist and which <strong>museums display their work</strong>. Click an artist to see their full catalog with locations.
               </p>
             </div>
             <Link
@@ -315,7 +315,7 @@ export default async function Home() {
           </div>
 
           {featuredArtists.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
               {featuredArtists.map((artist) => (
                 <ArtistCard key={artist.id} artist={artist} />
               ))}
@@ -329,13 +329,13 @@ export default async function Home() {
       {/* Top Museums */}
       <section className="bg-neutral-50 py-12">
         <div className="max-w-[1400px] mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-2xl font-bold text-neutral-900">
                 Top Museums
               </h2>
               <p className="text-neutral-600 mt-1">
-                See what masterpieces each museum has before you visit
+                The world's best <strong>art museums</strong> and what's inside them. Click a museum to see its <strong>collection highlights</strong>, <strong>location</strong>, and which famous paintings call it home.
               </p>
             </div>
             <Link
@@ -368,22 +368,42 @@ export default async function Home() {
 
       {/* CTA Section */}
       <section className="max-w-[1400px] mx-auto px-4 py-16">
-        <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Own Art That Moves You
-          </h2>
-          <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
-            Gallery-quality canvas prints inspired by the masters.
-            Same mood, fraction of the airfare.
-          </p>
-          <Link
-            href="https://luxurywallart.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#C9A84C] text-black px-8 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
-          >
-            Browse Collection
-          </Link>
+        <div className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 md:p-12">
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9A84C]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#C9A84C]/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left max-w-xl">
+              <span className="inline-block text-[#C9A84C] text-sm font-medium tracking-wider uppercase mb-3">
+                From LuxuryWallArt.com
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Bring the Museum Home
+              </h2>
+              <p className="text-neutral-300 mb-2">
+                Found a painting you love? We sell gallery-quality canvas prints of classic masterpieces.
+              </p>
+              <p className="text-neutral-400 text-sm">
+                Same artwork. Same impact. No plane ticket required.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center gap-4">
+              <Link
+                href="https://luxurywallart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black px-8 py-4 rounded-lg font-semibold hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all shadow-lg hover:shadow-[#C9A84C]/25 hover:scale-105"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                Shop Canvas Prints
+              </Link>
+              <span className="text-neutral-500 text-xs">Free shipping on orders over $100</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>

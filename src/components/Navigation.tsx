@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/artists", label: "Artists" },
-  { href: "/museums", label: "Museums" },
-  { href: "/cities", label: "Cities" },
-  { href: "/movements", label: "Movements" },
-  { href: "/era/renaissance", label: "Eras" },
+  { href: "/artists", label: "Artists", icon: "🎨" },
+  { href: "/museums", label: "Museums", icon: "🏛️" },
+  { href: "/cities", label: "Cities", icon: "🌍" },
+  { href: "/movements", label: "Movements", icon: "🖼️" },
+  { href: "/era/renaissance", label: "Eras", icon: "📜" },
 ];
 
 export default function Navigation() {
@@ -17,55 +17,63 @@ export default function Navigation() {
   const pathname = usePathname();
 
   const isActive = (href: string) => {
-    // Special handling for Eras link (points to /era/renaissance but should match any /era/*)
     if (href === "/era/renaissance") {
       return pathname.startsWith("/era/");
     }
-    // Handle both /artists and /artist/[slug]
-    const basePath = href.replace(/s$/, ""); // /artists -> /artist
+    const basePath = href.replace(/s$/, "");
     return pathname === href || pathname.startsWith(basePath + "/");
   };
 
   return (
-    <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
-      <nav className="max-w-[1400px] mx-auto px-4 py-4">
+    <header className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 sticky top-0 z-50 shadow-lg">
+      <nav className="max-w-[1400px] mx-auto px-4 py-3">
         <div className="flex items-center">
-          {/* Logo - fixed width on desktop for centering */}
-          <div className="md:w-48">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
-                <svg className="w-5 h-5 text-[#C9A84C]" viewBox="0 0 24 24" fill="currentColor">
+          {/* Logo */}
+          <div className="md:w-56">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#C9A84C] to-[#a8893d] rounded-lg flex items-center justify-center shadow-md group-hover:shadow-[#C9A84C]/30 transition-shadow">
+                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-semibold text-lg text-neutral-900 tracking-tight hidden sm:inline">
-                Masterpiece Locator
-              </span>
+              <div className="hidden sm:block">
+                <span className="font-bold text-lg text-white tracking-tight block leading-tight">
+                  Masterpiece
+                </span>
+                <span className="text-[#C9A84C] text-xs font-medium tracking-wider uppercase">
+                  Locator
+                </span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center gap-8 flex-1">
+          <div className="hidden md:flex items-center justify-center gap-1 flex-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.href)
-                    ? "text-neutral-900 border-b-2 border-[#C9A84C] pb-1"
-                    : "text-neutral-600 hover:text-neutral-900"
+                    ? "bg-[#C9A84C]/20 text-[#C9A84C]"
+                    : "text-neutral-300 hover:bg-white/10 hover:text-white"
                 }`}
               >
-                {link.label}
+                <span className="flex items-center gap-2">
+                  {link.label}
+                </span>
+                {isActive(link.href) && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#C9A84C] rounded-full" />
+                )}
               </Link>
             ))}
           </div>
 
-          {/* Right side - fixed width on desktop for centering */}
-          <div className="flex items-center justify-end gap-3 md:w-48 ml-auto">
+          {/* Right side */}
+          <div className="flex items-center justify-end gap-2 md:w-56 ml-auto">
             <Link
               href="/search"
-              className="text-neutral-500 hover:text-neutral-900 transition-colors p-2"
+              className="text-neutral-400 hover:text-white hover:bg-white/10 transition-all p-2.5 rounded-lg"
               aria-label="Search"
             >
               <svg
@@ -87,14 +95,17 @@ export default function Navigation() {
               href="https://luxurywallart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-block text-sm bg-black text-white px-4 py-2 rounded hover:bg-neutral-800 transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 text-sm bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black font-semibold px-5 py-2.5 rounded-lg hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all shadow-md hover:shadow-lg hover:shadow-[#C9A84C]/20"
             >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
               Shop Wall Art
             </Link>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="md:hidden p-2.5 text-neutral-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -114,19 +125,20 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-neutral-200">
+          <div className="md:hidden mt-4 pt-4 border-t border-neutral-700">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`px-4 py-3 rounded-lg text-base font-medium transition-all flex items-center gap-3 ${
                     isActive(link.href)
-                      ? "bg-neutral-100 text-neutral-900 border-l-4 border-[#C9A84C]"
-                      : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                      ? "bg-[#C9A84C]/20 text-[#C9A84C]"
+                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
                   }`}
                 >
+                  <span className="text-lg">{link.icon}</span>
                   {link.label}
                 </Link>
               ))}
@@ -135,8 +147,11 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 px-3 py-3 bg-black text-white rounded-lg text-base font-medium text-center hover:bg-neutral-800 transition-colors"
+                className="mt-3 px-4 py-3 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black rounded-lg text-base font-semibold text-center flex items-center justify-center gap-2 hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all"
               >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
                 Shop Wall Art
               </Link>
             </div>
