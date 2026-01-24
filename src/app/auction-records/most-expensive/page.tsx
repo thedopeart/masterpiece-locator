@@ -395,7 +395,7 @@ export default async function MostExpensivePage() {
               Own Museum-Quality Art
             </h2>
             <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-              You don't need $450 million. Gallery-quality canvas prints starting at $99.
+              You don't need $450 million. Gallery-quality canvas prints starting at $99. From classic masterpieces to <a href="https://luxurywallart.com/collections/wall-street-art" target="_blank" rel="noopener" className="text-[#C9A84C] hover:underline">Wall Street art</a> for the office.
             </p>
             <Link
               href="https://luxurywallart.com"

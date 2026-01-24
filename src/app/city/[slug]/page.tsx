@@ -416,7 +416,7 @@ export default async function CityPage({ params, searchParams }: Props) {
             Can&apos;t Make It to {cityName}?
           </h2>
           <p className="text-neutral-600 mb-4">
-            Bring museum-quality art into your home with our canvas collection.
+            Bring <strong>luxury wall art</strong> into your home with our museum-quality canvas collection.
           </p>
           <a
             href="https://luxurywallart.com"

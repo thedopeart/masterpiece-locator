@@ -565,7 +565,7 @@ export default async function Home() {
                 Bring the Museum Home
               </h2>
               <p className="text-neutral-300 mb-2">
-                Found a painting you love? We sell gallery-quality canvas prints of classic masterpieces.
+                Found a painting you love? Our <strong className="text-white">luxury wall art</strong> collection features gallery-quality canvas prints of classic masterpieces.
               </p>
               <p className="text-neutral-400 text-sm">
                 Same artwork. Same impact. No plane ticket required.

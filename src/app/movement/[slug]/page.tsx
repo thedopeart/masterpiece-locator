@@ -625,7 +625,7 @@ export default async function MovementPage({ params }: Props) {
               Bring {movement.name} Home
             </h2>
             <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-              Museum-quality canvas prints inspired by these iconic masterpieces.
+              <span className="text-white">Luxury decor</span> featuring museum-quality canvas prints inspired by these iconic masterpieces.
             </p>
             <a
               href="https://luxurywallart.com"

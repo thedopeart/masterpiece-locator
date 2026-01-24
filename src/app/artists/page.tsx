@@ -375,7 +375,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             Inspired by the Masters?
           </h2>
           <p className="text-neutral-400 mb-4">
-            Own gallery-quality prints in the same style.
+            Own gallery-quality prints in the same style. Perfect for your <a href="https://luxurywallart.com/collections/living-room-wall-art" target="_blank" rel="noopener" className="text-[#C9A84C] hover:underline">living room</a> or <a href="https://luxurywallart.com/collections/home-office-wall-art" target="_blank" rel="noopener" className="text-[#C9A84C] hover:underline">home office</a>.
           </p>
           <a
             href="https://luxurywallart.com"

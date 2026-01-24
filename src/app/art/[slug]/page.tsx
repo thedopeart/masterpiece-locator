@@ -923,7 +923,7 @@ export default async function ArtworkPage({ params }: Props) {
                 Own Art Like This
               </h2>
               <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-                Gallery-quality canvas prints with the same mood and energy. No museum crowds required.
+                <span className="text-white">Luxury wall art</span> with the same mood and energy. Gallery-quality canvas, no museum crowds.
               </p>
               <Link
                 href="https://luxurywallart.com"

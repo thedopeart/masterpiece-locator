@@ -366,7 +366,7 @@ export default async function MuseumsPage() {
                 Can&apos;t Visit in Person?
               </h2>
               <p className="text-neutral-400 mb-4">
-                Gallery-quality canvas prints, delivered to your door.
+                Gallery-quality canvas prints for your <a href="https://luxurywallart.com/collections/bedroom-art-wall" target="_blank" rel="noopener" className="text-[#C9A84C] hover:underline">bedroom</a>, <a href="https://luxurywallart.com/collections/living-room-wall-art" target="_blank" rel="noopener" className="text-[#C9A84C] hover:underline">living room</a>, or any space.
               </p>
               <a
                 href="https://luxurywallart.com"

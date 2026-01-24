@@ -494,7 +494,7 @@ export default async function MovementsPage() {
               Art History for Your Walls
             </h2>
             <p className="text-neutral-400 mb-6 max-w-md mx-auto">
-              Gallery-quality canvas prints from every era and movement.
+              <span className="text-white">Luxury wall art</span> featuring gallery-quality prints from every era and movement.
             </p>
             <a
               href="https://luxurywallart.com"
