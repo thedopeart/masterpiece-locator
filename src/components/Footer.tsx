@@ -69,6 +69,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/discover" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                  Discover Art
+                </Link>
+              </li>
+              <li>
                 <Link href="/auction-records/most-expensive" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Auction Records
                 </Link>

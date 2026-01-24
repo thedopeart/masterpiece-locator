@@ -155,5 +155,15 @@
     "totalArtworks": 2600,
     "onDisplay": 2300,
     "source": "Official National Gallery website"
-  }
+  },
+  "descriptionHtml": "<p>The <strong>National Gallery</strong> houses one of the world's greatest collections of Western European painting, spanning 700 years from the 13th to the 20th century. <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh's</strong></a> <a href=\"/artwork/sunflowers\"><strong>Sunflowers</strong></a>. <a href=\"/artist/johannes-vermeer\"><strong>Vermeer's</strong></a> Lady Standing at a Virginal. <a href=\"/artist/leonardo-da-vinci\"><strong>Leonardo's</strong></a> Virgin of the Rocks. <a href=\"/artist/rembrandt\"><strong>Rembrandt</strong></a>, <a href=\"/artist/claude-monet\"><strong>Monet</strong></a>, <a href=\"/artist/sandro-botticelli\"><strong>Botticelli</strong></a>, and Constable. Over 2,300 paintings, and not a single one costs a penny to see.</p><p>The collection sits in a neoclassical building on Trafalgar Square, one of London's most visited locations. The Sainsbury Wing, added in 1991, houses early Renaissance works in galleries designed to feel like intimate Italian churches. The main building flows chronologically from there. Unlike encyclopedic museums, the National Gallery focuses purely on painting, making it possible to see the highlights in a single focused visit.</p>",
+  "historicalContext": "The National Gallery was founded in 1824 when the British government purchased 38 paintings from the banker John Julius Angerstein. Unlike the Louvre (royal collection) or the Uffizi (Medici bequest), this was a collection built for the nation from scratch. The current building on Trafalgar Square opened in 1838, designed by William Wilkins. Throughout the 19th and 20th centuries, the collection grew through purchases and donations, with major bequests including the Turner collection and works from the Earl of Radnor. The Sainsbury Wing, designed by Robert Venturi, opened in 1991 after Prince Charles famously called an earlier modernist proposal \"a monstrous carbuncle.\" The gallery remained free throughout its history, a founding principle that continues today.",
+  "whyVisit": [
+    "Completely free admission, always",
+    "Van Gogh's Sunflowers, Vermeer, Leonardo, Rembrandt",
+    "2,300 paintings spanning seven centuries of Western art",
+    "Prime Trafalgar Square location in central London",
+    "Focused collection (painting only) that's manageable in one visit",
+    "The Sainsbury Wing's intimate Renaissance galleries"
+  ]
 }

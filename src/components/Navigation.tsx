@@ -68,6 +68,16 @@ const navLinks = [
       { href: "/era/modern", label: "Modern (1900+)" },
     ]
   },
+  {
+    href: "/discover",
+    label: "Explore",
+    icon: "✨",
+    subItems: [
+      { href: "/discover", label: "Discover Art" },
+      { href: "/search", label: "Search Artworks" },
+      { href: "/auction-records/most-expensive", label: "Auction Records" },
+    ]
+  },
 ];
 
 export default function Navigation() {
@@ -114,6 +124,9 @@ export default function Navigation() {
   const isActive = (href: string) => {
     if (href === "/era/renaissance") {
       return pathname.startsWith("/era/");
+    }
+    if (href === "/discover") {
+      return pathname === "/discover" || pathname === "/search" || pathname.startsWith("/auction-records");
     }
     const basePath = href.replace(/s$/, "");
     return pathname === href || pathname.startsWith(basePath + "/");

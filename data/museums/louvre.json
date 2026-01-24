@@ -181,5 +181,15 @@
     "totalArtworks": 380000,
     "onDisplay": 35000,
     "source": "Official Louvre website"
-  }
+  },
+  "descriptionHtml": "<p>The <strong>Louvre Museum</strong> isn't just the world's largest art museum. It's a palace that spent 800 years accumulating treasures before opening its doors to the public. From Egyptian antiquities to <a href=\"/artist/leonardo-da-vinci\"><strong>Leonardo da Vinci's</strong></a> <a href=\"/artwork/mona-lisa\"><strong>Mona Lisa</strong></a>, from ancient Greek sculpture to French crown jewels, the collection spans 9,000 years of human civilization.</p><p>The building itself tells a story. What began as a medieval fortress became a royal palace, then a revolutionary museum in 1793. <a href=\"/artist/jacques-louis-david\"><strong>Jacques-Louis David</strong></a> hung his massive <em>Coronation of Napoleon</em> here. I.M. Pei's glass pyramid, controversial when unveiled in 1989, now defines the museum's identity. With 35,000 works on display across 72,735 square meters, you could spend weeks and still miss masterpieces.</p>",
+  "historicalContext": "King Philip II built a fortress here in 1190 to protect Paris from Viking raids. Charles V turned it into a royal residence in the 14th century, but it was Francis I who began the art collection in 1546, acquiring works by Leonardo, Raphael, and Titian. When Louis XIV moved the court to Versailles in 1682, the Louvre became storage for royal collections. The French Revolution transformed it into a public museum on August 10, 1793, with 537 paintings on view. Napoleon expanded the collection through conquest, bringing treasures from across Europe and Egypt. After his defeat, many works were returned, but thousands remained. The museum has grown continuously since, with major expansions in 1993 (the Grand Louvre project) and the addition of Islamic art galleries in 2012.",
+  "whyVisit": [
+    "Home to the Mona Lisa, Venus de Milo, and Winged Victory of Samothrace",
+    "The world's largest art museum with 35,000 works on display",
+    "800 years of French royal history in the building itself",
+    "I.M. Pei's iconic glass pyramid entrance",
+    "Nine curatorial departments spanning 9,000 years of art",
+    "Free admission first Friday evening of each month"
+  ]
 }
