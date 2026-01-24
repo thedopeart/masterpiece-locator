@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { ERAS, getEraForYear, getEraSolidColorClass } from "@/lib/eras";
+import { getAllTrails } from "@/lib/artist-trails";
 
 export const metadata: Metadata = {
   title: "Discover Art | Browse by Subject, Color & Era",
@@ -121,6 +122,9 @@ export default async function DiscoverPage() {
     orderBy: { Artist: { _count: "desc" } },
     take: 8,
   });
+
+  // Get available artist trails
+  const artistTrails = getAllTrails();
 
   return (
     <div className="bg-white min-h-screen">
@@ -337,6 +341,43 @@ export default async function DiscoverPage() {
             })}
           </div>
         </section>
+
+        {/* Artist Trails */}
+        {artistTrails.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-xl font-semibold text-neutral-900 mb-6">Artist Journeys</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {artistTrails.map((trail) => (
+                <Link
+                  key={trail.artist}
+                  href={`/trail/${trail.artist}`}
+                  className="group bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-xl p-6 hover:shadow-xl transition-all"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#C9A84C] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#C9A84C] transition-colors">
+                        {trail.title}
+                      </h3>
+                      <p className="text-neutral-400 text-sm mt-1 line-clamp-2">
+                        {trail.subtitle}
+                      </p>
+                      <div className="flex items-center gap-4 mt-3 text-xs text-neutral-500">
+                        <span>{trail.totalLocations} locations</span>
+                        <span>{trail.primaryCountries.join(", ")}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Quick Search */}
         <section className="bg-neutral-50 rounded-2xl p-8 text-center">

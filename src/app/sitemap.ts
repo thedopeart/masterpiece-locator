@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
 import { ERAS } from "@/lib/eras";
+import { getAllTrailSlugs } from "@/lib/artist-trails";
 
 // Canonical URL for SEO (Shopify proxy URL, not Vercel)
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
@@ -126,6 +127,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Artist trail pages
+  const trailSlugs = getAllTrailSlugs();
+  const trailPages: MetadataRoute.Sitemap = trailSlugs.map((slug) => ({
+    url: `${BASE_URL}/trail/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...eraPages,
@@ -134,5 +144,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...museumPages,
     ...movementPages,
     ...cityPages,
+    ...trailPages,
   ];
 }

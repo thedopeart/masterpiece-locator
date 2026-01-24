@@ -9,6 +9,7 @@ import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artistMetaTitle, artistMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
+import { hasTrail } from "@/lib/artist-trails";
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateArtistFAQs(artist: {
@@ -279,6 +280,9 @@ export default async function ArtistPage({ params }: Props) {
     { name: artist.name },
   ];
 
+  // Check if this artist has a trail page
+  const trailExists = hasTrail(artist.slug);
+
   return (
     <div className="bg-white">
       {/* JSON-LD Structured Data */}
@@ -391,6 +395,36 @@ export default async function ArtistPage({ params }: Props) {
             </div>
           </div>
         </header>
+
+        {/* Trail Banner - Show if trail exists */}
+        {trailExists && (
+          <Link
+            href={`/trail/${artist.slug}`}
+            className="block mb-12 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 rounded-xl p-6 hover:shadow-lg transition-shadow group"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-[#C9A84C] rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-lg group-hover:text-[#C9A84C] transition-colors">
+                    Follow {artist.name}&apos;s Journey
+                  </h3>
+                  <p className="text-neutral-400 text-sm">
+                    Explore the places where {artist.name.split(" ").pop()} lived, worked, and created masterpieces
+                  </p>
+                </div>
+              </div>
+              <svg className="w-6 h-6 text-[#C9A84C] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </Link>
+        )}
 
         {/* Notable Works */}
         <section className="mb-12">

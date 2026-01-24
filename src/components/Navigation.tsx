@@ -75,6 +75,7 @@ const navLinks = [
     subItems: [
       { href: "/discover", label: "Discover Art" },
       { href: "/search", label: "Search Artworks" },
+      { href: "/trail/vincent-van-gogh", label: "Van Gogh's Journey" },
       { href: "/auction-records/most-expensive", label: "Auction Records" },
     ]
   },
@@ -126,7 +127,7 @@ export default function Navigation() {
       return pathname.startsWith("/era/");
     }
     if (href === "/discover") {
-      return pathname === "/discover" || pathname === "/search" || pathname.startsWith("/auction-records");
+      return pathname === "/discover" || pathname === "/search" || pathname.startsWith("/auction-records") || pathname.startsWith("/trail/");
     }
     const basePath = href.replace(/s$/, "");
     return pathname === href || pathname.startsWith(basePath + "/");
