@@ -153,5 +153,15 @@
     "totalArtworks": 10000,
     "onDisplay": 2200,
     "source": "Official Uffizi website"
-  }
+  },
+  "descriptionHtml": "<p>The <strong>Uffizi Gallery</strong> holds the world's greatest collection of <a href=\"/movement/renaissance\"><strong>Renaissance</strong></a> art. <a href=\"/artist/sandro-botticelli\"><strong>Botticelli's</strong></a> <a href=\"/artwork/the-birth-of-venus\"><strong>Birth of Venus</strong></a> and <em>Primavera</em>. <a href=\"/artist/leonardo-da-vinci\"><strong>Leonardo's</strong></a> Annunciation. <a href=\"/artist/raphael\"><strong>Raphael</strong></a>, <a href=\"/artist/titian\"><strong>Titian</strong></a>, <a href=\"/artist/caravaggio\"><strong>Caravaggio</strong></a>. These aren't just famous paintings. They're the foundations of Western art, created in Florence where the Renaissance began.</p><p>The Medici family built this collection over two centuries. Cosimo I commissioned Giorgio Vasari to design the building in 1560 as government offices (\"uffizi\" means offices in Italian). His descendants filled it with art. When the last Medici, Anna Maria Luisa, died in 1743, she bequeathed the entire collection to Florence on one condition: it could never leave the city. That gift made the Uffizi one of the world's first public museums. Walking these corridors, you're seeing what the Medici saw.</p>",
+  "historicalContext": "The Uffizi was built between 1560 and 1581 to house Florence's administrative and judicial offices. Giorgio Vasari designed the U-shaped building around a narrow courtyard, with its distinctive colonnade still intact. The Medici began using the upper floor as a gallery almost immediately. Francesco I de' Medici created the Tribuna in 1584, an octagonal room designed to display the family's most precious objects. The collection grew with each generation: ancient sculptures, scientific instruments, armor, and above all paintings. The Vasari Corridor, connecting the Uffizi to the Pitti Palace across the Arno, allowed the Medici to move their treasures privately. The museum officially opened to the public in 1769 under the House of Lorraine.",
+  "whyVisit": [
+    "Botticelli's Birth of Venus and Primavera in their original home",
+    "World's richest collection of Italian Renaissance painting",
+    "The Medici collection exactly as they bequeathed it",
+    "Vasari Corridor across the Ponte Vecchio (newly reopened)",
+    "Leonardo, Raphael, Michelangelo, Caravaggio, Titian all represented",
+    "Heart of Florence, steps from the Piazza della Signoria"
+  ]
 }

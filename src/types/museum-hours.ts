@@ -147,4 +147,8 @@ export interface MuseumPracticalData {
   faqs?: FAQItem[];
   gallery?: GalleryImage[];
   collectionStats?: CollectionStats;
+  // Enrichment content
+  descriptionHtml?: string; // Rich HTML description with internal links
+  historicalContext?: string; // Museum's history and significance
+  whyVisit?: string[]; // What makes this museum special
 }

@@ -158,5 +158,15 @@
     "totalArtworks": 2000000,
     "onDisplay": 17000,
     "source": "Official Met website"
-  }
+  },
+  "descriptionHtml": "<p>The <strong>Metropolitan Museum of Art</strong> holds over two million works spanning 5,000 years of world culture. Walk from an Egyptian temple to <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh's</strong></a> sunflowers to samurai armor in a single afternoon. Founded in 1870 by a group of American citizens, the Met has grown into one of the world's greatest encyclopedic museums, rivaling the Louvre and British Museum in scope and ambition.</p><p>The building itself keeps expanding. What began as a Gothic Revival structure now sprawls across two million square feet of Central Park's eastern edge. The Temple of Dendur, a complete 2,000-year-old Egyptian temple, sits in its own glass-walled gallery. The American Wing showcases decorative arts in period rooms. The Costume Institute hosts the annual Met Gala. With 17,000 works on display at any time, every visit reveals something new.</p>",
+  "historicalContext": "The Metropolitan Museum of Art was founded in 1870, not by government mandate but by a group of American businessmen, civic leaders, and artists who wanted to bring art and art education to the American people. The original building on Fifth Avenue opened in 1880. Unlike European museums built on royal collections, the Met had to build from scratch, acquiring works through purchase, gift, and bequest. J.P. Morgan served as president from 1904-1913, during which time the museum acquired its first Old Master paintings. The Egyptian collection grew dramatically after the 1920s excavations at Thebes. The modern and contemporary wings expanded throughout the 20th century. The Met Cloisters, a branch dedicated to medieval art, opened in 1938 in Fort Tryon Park.",
+  "whyVisit": [
+    "Two million objects spanning 5,000 years of human creativity",
+    "Complete Egyptian temple (Temple of Dendur) in its own wing",
+    "World-class collection of European paintings from Vermeer to Van Gogh",
+    "American art collection from colonial times to present",
+    "Rooftop garden with sculptures and Manhattan skyline views (seasonal)",
+    "Pay-what-you-wish admission for NY State residents"
+  ]
 }

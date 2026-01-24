@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
+import { ERAS } from "@/lib/eras";
 
 // Canonical URL for SEO (Shopify proxy URL, not Vercel)
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
@@ -69,7 +70,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/discover`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
+
+  // Era pages (static from eras.ts)
+  const eraPages: MetadataRoute.Sitemap = ERAS.map((era) => ({
+    url: `${BASE_URL}/era/${era.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   // Artwork pages - priority based on search volume tier (1 = highest priority)
   const artworkPages: MetadataRoute.Sitemap = artworks.map((artwork) => ({
@@ -113,6 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticPages,
+    ...eraPages,
     ...artworkPages,
     ...artistPages,
     ...museumPages,

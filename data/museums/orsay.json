@@ -153,5 +153,15 @@
     "totalArtworks": 100000,
     "onDisplay": 3000,
     "source": "Official Musée d'Orsay website"
-  }
+  },
+  "descriptionHtml": "<p>The <strong>Musée d'Orsay</strong> houses the world's greatest collection of <a href=\"/movement/impressionism\"><strong>Impressionist</strong></a> and <a href=\"/movement/post-impressionism\"><strong>Post-Impressionist</strong></a> art. <a href=\"/artist/claude-monet\"><strong>Monet's</strong></a> water lilies, <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh's</strong></a> Starry Night Over the Rhône, <a href=\"/artist/edouard-manet\"><strong>Manet's</strong></a> Olympia, <a href=\"/artist/pierre-auguste-renoir\"><strong>Renoir's</strong></a> Bal du moulin de la Galette. These paintings changed art history, and they're all here under one spectacular roof.</p><p>That roof belongs to a former railway station. The Gare d'Orsay opened in 1900 for the World's Fair, its iron-and-glass architecture considered too beautiful for trains. Threatened with demolition in the 1970s, it was saved and transformed into a museum in 1986. The soaring nave now showcases sculptures where trains once ran. The original station clocks still mark time. It's one of the world's great adaptive reuse projects, and one of Paris's most atmospheric museum experiences.</p>",
+  "historicalContext": "The Gare d'Orsay railway station opened in 1900 to serve southwestern France and coincide with the World's Fair. Architect Victor Laloux designed it with a grand hotel facade hiding the iron-and-glass train shed behind Beaux-Arts stone. By 1939, electrified trains made the platforms too short, and the station closed to mainline traffic. The building served various purposes: a mail center during WWII, a filming location for Orson Welles' The Trial, and a theater venue. President Valéry Giscard d'Estaing saved it from demolition in 1977, commissioning its conversion to a museum dedicated to art from 1848-1914, bridging the gap between the Louvre and the Centre Pompidou. The Musée d'Orsay opened on December 1, 1986.",
+  "whyVisit": [
+    "World's largest collection of Impressionist and Post-Impressionist masterpieces",
+    "Van Gogh, Monet, Renoir, Degas, Cézanne under one roof",
+    "Stunning Beaux-Arts railway station architecture",
+    "The giant station clock with views across the Seine",
+    "Shorter crowds than the Louvre, more focused collection",
+    "Perfect complement to a Louvre visit (different eras)"
+  ]
 }
