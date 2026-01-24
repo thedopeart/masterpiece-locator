@@ -116,6 +116,44 @@ export default async function AuctionRecordsPage() {
     keywords: ["art auction", "auction records", "expensive paintings", "art market", "art sales"],
   };
 
+  // FAQs for the page
+  const faqs = [
+    {
+      question: "What is the most expensive painting ever sold?",
+      answer: `<strong>Salvator Mundi</strong> by Leonardo da Vinci holds the record at <strong>$450.3 million</strong>, sold at Christie's New York in November 2017. The buyer was later identified as Saudi Crown Prince Mohammed bin Salman, purchasing through an intermediary.`
+    },
+    {
+      question: "What makes a painting valuable at auction?",
+      answer: `Four factors drive auction prices: <strong>artist reputation</strong>, rarity of the work, condition, and <strong>provenance</strong> (ownership history). Works by blue-chip artists like Picasso, Monet, and Warhol consistently command the highest prices. Historical significance and exhibition history also matter.`
+    },
+    {
+      question: "Why do some paintings never sell at auction?",
+      answer: `Many masterpieces are <strong>legally protected as national treasures</strong> and cannot be sold. The Mona Lisa, for example, belongs to the French Republic. Museums also hold works in perpetual trust. We track <strong>insurance valuations</strong> for these priceless pieces.`
+    },
+    {
+      question: "What are the major auction houses for art?",
+      answer: `<strong>Christie's</strong> and <strong>Sotheby's</strong> dominate the high-end art market, together handling most sales over $10 million. Phillips, Bonhams, and Heritage Auctions also conduct significant sales. Regional houses like China Guardian handle important Asian art.`
+    },
+    {
+      question: "How often are auction records broken?",
+      answer: `Major records tend to cluster during economic booms. The <strong>2010s saw unprecedented growth</strong>, with the top price jumping from $106 million (2010) to $450 million (2017). Market corrections followed in 2020, though high-end works remain resilient.`
+    }
+  ];
+
+  // FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer.replace(/<[^>]*>/g, ''),
+      },
+    })),
+  };
+
   return (
     <div className="bg-neutral-50 min-h-screen">
       <script
@@ -125,6 +163,10 @@ export default async function AuctionRecordsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(statsSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <BreadcrumbSchema items={breadcrumbItems} />
 
@@ -334,6 +376,41 @@ export default async function AuctionRecordsPage() {
           <p>
             Many of the world's most valuable artworks never appear at auction. Works like the Mona Lisa, The Starry Night, and Guernica are considered national treasures and cannot be legally sold. For these masterpieces, we track insurance valuations and expert estimates to understand their worth.
           </p>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="bg-white rounded-xl border border-neutral-200 group"
+              >
+                <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                  <h3 className="font-semibold text-neutral-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <svg
+                    className="w-5 h-5 text-neutral-400 shrink-0 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 pt-0">
+                  <p
+                    className="text-neutral-600 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                  />
+                </div>
+              </details>
+            ))}
+          </div>
         </section>
       </div>
     </div>

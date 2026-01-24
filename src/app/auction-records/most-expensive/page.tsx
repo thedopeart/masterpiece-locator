@@ -102,11 +102,57 @@ export default async function MostExpensivePage() {
     { name: "Most Expensive Paintings" },
   ];
 
+  // FAQs for the page
+  const faqs = [
+    {
+      question: "What is the most expensive painting ever sold at auction?",
+      answer: `<strong>Salvator Mundi</strong> by Leonardo da Vinci sold for <strong>$450.3 million</strong> at Christie's New York on November 15, 2017. It remains the highest price ever paid for any artwork at public auction.`
+    },
+    {
+      question: "Who owns the most expensive paintings in the world?",
+      answer: `Many top-tier works are held by <strong>sovereign wealth funds</strong> and billionaire collectors. The Qatar royal family owns several Cézannes and Gauguins. Hedge fund managers like Steven Cohen and Ken Griffin have acquired major works by de Kooning and Basquiat.`
+    },
+    {
+      question: "Why did Salvator Mundi sell for $450 million?",
+      answer: `Three factors: it's the <strong>last Leonardo da Vinci</strong> in private hands, it carries the prestige of the world's most famous artist, and two Middle Eastern bidders drove up the price. Some experts question its attribution, which adds to the controversy.`
+    },
+    {
+      question: "Which artists have the most paintings on this list?",
+      answer: `<strong>Pablo Picasso</strong> dominates with multiple entries across different periods. Andy Warhol, Claude Monet, and Francis Bacon also appear frequently. Modern and contemporary artists now rival Old Masters in price.`
+    },
+    {
+      question: "Are private sales included in this ranking?",
+      answer: `Yes, we include <strong>verified private sales</strong> where reliable price information exists. However, many private transactions remain confidential, so the true ranking of expensive paintings may differ from public records.`
+    },
+    {
+      question: "How do auction houses determine estimates?",
+      answer: `Specialists analyze <strong>comparable sales</strong>, condition, provenance, and current market demand. Estimates are strategic: low estimates attract bidders, while guarantees (minimum prices) reduce seller risk. The final hammer price often exceeds estimates for trophy works.`
+    }
+  ];
+
+  // FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer.replace(/<[^>]*>/g, ''),
+      },
+    })),
+  };
+
   return (
     <div className="bg-neutral-50 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <BreadcrumbSchema items={breadcrumbItems} />
 
@@ -304,6 +350,41 @@ export default async function MostExpensivePage() {
             <p>
               While Christie's and Sotheby's dominate public auctions, many of the largest transactions happen privately. Works by Cézanne, Gauguin, and de Kooning have traded for hundreds of millions through private dealers, often with less public documentation of exact terms.
             </p>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="bg-white rounded-xl border border-neutral-200 group"
+              >
+                <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                  <h3 className="font-semibold text-neutral-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <svg
+                    className="w-5 h-5 text-neutral-400 shrink-0 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 pt-0">
+                  <p
+                    className="text-neutral-600 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                  />
+                </div>
+              </details>
+            ))}
           </div>
         </section>
 
