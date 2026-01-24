@@ -24,6 +24,20 @@ export default function SubmitPage() {
             We review all submissions personally. Selected artists will be
             contacted via email.
           </p>
+          <div className="mt-4 p-4 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-lg">
+            <p className="text-neutral-700 text-sm">
+              <strong className="text-[#C9A84C]">Sell your art:</strong> Featured artists may also be eligible to sell their work through{" "}
+              <a
+                href="https://luxurywallart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C9A84C] hover:underline font-medium"
+              >
+                LuxuryWallArt.com
+              </a>
+              , reaching collectors who appreciate bold, contemporary pieces.
+            </p>
+          </div>
         </div>
 
         <SubmissionForm />
