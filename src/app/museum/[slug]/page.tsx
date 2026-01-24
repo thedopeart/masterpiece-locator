@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import MuseumPracticalInfo from "@/components/MuseumPracticalInfo";
@@ -13,6 +13,9 @@ import { MuseumPracticalFAQStatic } from "@/components/MuseumPracticalFAQ";
 import { museumMetaTitle, museumMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
 import { getMuseumPracticalData, getHoursSummary } from "@/lib/museum-hours";
+
+// Pagination constant
+const ARTWORKS_PER_PAGE = 66;
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateMuseumFAQs(museum: {
@@ -43,9 +46,9 @@ function generateMuseumFAQs(museum: {
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
 
-// Cached data fetching to avoid duplicate queries between generateMetadata and page component
-const getMuseum = cache(async (slug: string) => {
-  return prisma.museum.findUnique({
+// Cached data fetching - now with pagination support
+const getMuseum = cache(async (slug: string, page: number = 1) => {
+  const museum = await prisma.museum.findUnique({
     where: { slug },
     include: {
       Artwork: {
@@ -54,16 +57,28 @@ const getMuseum = cache(async (slug: string) => {
           Museum: { select: { name: true, city: true } },
         },
         orderBy: [
-          { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first, null last
+          { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first
           { searchVolumeTier: "asc" },
         ],
+        skip: (page - 1) * ARTWORKS_PER_PAGE,
+        take: ARTWORKS_PER_PAGE,
       },
     },
+  });
+
+  return museum;
+});
+
+// Get total artwork count for pagination
+const getArtworkCount = cache(async (museumId: string) => {
+  return prisma.artwork.count({
+    where: { museumId },
   });
 });
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -117,14 +132,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function MuseumPage({ params }: Props) {
+export default async function MuseumPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const { page } = await searchParams;
+  const currentPage = Math.max(1, parseInt(page || "1", 10));
 
-  const rawMuseum = await getMuseum(slug);
+  const rawMuseum = await getMuseum(slug, currentPage);
 
   if (!rawMuseum) notFound();
 
-  // Map artworks to lowercase property names for ArtworkCard component
+  // Get total artwork count for pagination
+  const totalArtworks = await getArtworkCount(rawMuseum.id);
+  const totalPages = Math.ceil(totalArtworks / ARTWORKS_PER_PAGE);
+
+  // Map artworks to lowercase property names for MasonryArtworkCard component
   // Also decode HTML entities for display
   const museum = {
     ...rawMuseum,
@@ -209,6 +230,11 @@ export default async function MuseumPage({ params }: Props) {
   // Get practical data if available
   const practicalData = getMuseumPracticalData(slug);
 
+  // Generate pagination link helper
+  const getPaginationLink = (pageNum: number) => {
+    return pageNum === 1 ? `/museum/${slug}` : `/museum/${slug}?page=${pageNum}`;
+  };
+
   return (
     <div className="bg-white">
       {/* JSON-LD Structured Data */}
@@ -279,7 +305,7 @@ export default async function MuseumPage({ params }: Props) {
                   <Link href={`/city/${museum.city.toLowerCase().replace(/\s+/g, "-")}`} className="text-[#C9A84C] hover:underline font-medium">
                     {museum.city}
                   </Link>, {museum.country} houses{" "}
-                  <strong>{museum.artworks.length} {museum.artworks.length === 1 ? "masterpiece" : "masterpieces"}</strong> in our database
+                  <strong>{totalArtworks} {totalArtworks === 1 ? "masterpiece" : "masterpieces"}</strong> in our database
                   {topArtists.length > 0 && (
                     <>, including works by{" "}
                     {topArtists.map((artist, i) => (
@@ -304,110 +330,195 @@ export default async function MuseumPage({ params }: Props) {
           );
         })()}
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Sidebar */}
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Sidebar - narrower, sticky */}
           <div className="lg:col-span-1">
-            {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
-            {practicalData ? (
-              <MuseumPracticalInfo data={practicalData} />
-            ) : (
-              <div className="bg-amber-50 rounded-xl p-6 mb-6">
-                <h2 className="text-lg font-semibold text-neutral-900 mb-4">
-                  Visitor Information
-                </h2>
-
-                {museum.address && (
-                  <div className="mb-4">
-                    <h3 className="text-sm font-medium text-neutral-700 mb-1">
-                      Museum Address
-                    </h3>
-                    <p className="text-neutral-600">{museum.address}</p>
-                    <p className="text-neutral-600">
-                      {museum.city}, {museum.country}
-                    </p>
-                  </div>
-                )}
-
-                {museum.ticketPriceRange && (
-                  <div className="mb-4">
-                    <h3 className="text-sm font-medium text-neutral-700 mb-1">
-                      Ticket Prices
-                    </h3>
-                    <p className="text-neutral-600">{museum.ticketPriceRange}</p>
-                  </div>
-                )}
-
-                <div className="flex flex-col gap-2 mt-4">
-                  {museum.websiteUrl && (
-                    <a
-                      href={museum.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#C9A84C] hover:underline"
-                    >
-                      Official Website →
-                    </a>
-                  )}
+            <div className="lg:sticky lg:top-4">
+              {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
+              {practicalData ? (
+                <MuseumPracticalInfo data={practicalData} />
+              ) : (
+                <div className="space-y-4">
+                  {/* Basic Ticket Button */}
                   {museum.ticketUrl && (
                     <a
                       href={museum.ticketUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-[#C9A84C] text-black text-center px-4 py-2 rounded-lg hover:bg-[#b8973f] transition-colors"
+                      className="block w-full text-center bg-[#C9A84C] text-black font-semibold py-4 px-4 rounded-xl hover:bg-[#b8973f] transition-colors shadow-md"
                     >
                       Buy Tickets
                     </a>
                   )}
-                </div>
-              </div>
-            )}
 
-            {/* Artists at this Museum */}
-            {artists.length > 0 && (
-              <div className={`bg-neutral-50 rounded-xl p-6 ${practicalData ? 'mt-6' : ''}`}>
-                <h2 className="text-lg font-semibold text-neutral-900 mb-2">
-                  Featured Artists
-                </h2>
-                <p className="text-sm text-neutral-500 mb-4">
-                  {artists.length} artists with works on display
-                </p>
-                <ul className="space-y-2">
-                  {artists.map((artist) => (
-                    <li key={artist.id}>
-                      <Link
-                        href={`/artist/${artist.slug}`}
-                        className="flex justify-between items-center text-neutral-700 hover:text-[#C9A84C] transition-colors"
+                  <div className="bg-amber-50 rounded-xl p-5">
+                    <h2 className="text-lg font-semibold text-neutral-900 mb-4">
+                      Visitor Information
+                    </h2>
+
+                    {museum.address && (
+                      <div className="mb-4">
+                        <h3 className="text-sm font-medium text-neutral-700 mb-1">
+                          Museum Address
+                        </h3>
+                        <p className="text-neutral-600 text-sm">{museum.address}</p>
+                        <p className="text-neutral-600 text-sm">
+                          {museum.city}, {museum.country}
+                        </p>
+                      </div>
+                    )}
+
+                    {museum.ticketPriceRange && (
+                      <div className="mb-4">
+                        <h3 className="text-sm font-medium text-neutral-700 mb-1">
+                          Ticket Prices
+                        </h3>
+                        <p className="text-neutral-600 text-sm">{museum.ticketPriceRange}</p>
+                      </div>
+                    )}
+
+                    {museum.websiteUrl && (
+                      <a
+                        href={museum.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#C9A84C] hover:underline text-sm"
                       >
-                        <span>{artist.name}</span>
-                        <span className="text-sm text-neutral-400">
-                          {artist._count.artworks} {artist._count.artworks === 1 ? "work" : "works"}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+                        Official Website →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Artists at this Museum */}
+              {artists.length > 0 && (
+                <div className="bg-neutral-50 rounded-xl p-5 mt-4">
+                  <h2 className="text-lg font-semibold text-neutral-900 mb-2">
+                    Featured Artists
+                  </h2>
+                  <p className="text-sm text-neutral-500 mb-4">
+                    {artists.length} artists with works on display
+                  </p>
+                  <ul className="space-y-2">
+                    {artists.map((artist) => (
+                      <li key={artist.id}>
+                        <Link
+                          href={`/artist/${artist.slug}`}
+                          className="flex justify-between items-center text-neutral-700 hover:text-[#C9A84C] transition-colors text-sm"
+                        >
+                          <span className="truncate pr-2">{artist.name}</span>
+                          <span className="text-xs text-neutral-400 flex-shrink-0">
+                            {artist._count.artworks}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Main Content */}
-          <div className="lg:col-span-2">
+          {/* Main Content - wider */}
+          <div className="lg:col-span-3">
             {/* Masterpieces */}
             <section>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-2">
-                Famous Paintings at {museum.name}
-              </h2>
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-xl font-semibold text-neutral-900">
+                  Famous Paintings at {museum.name}
+                </h2>
+                {totalPages > 1 && (
+                  <span className="text-sm text-neutral-500">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                )}
+              </div>
               <p className="text-neutral-500 mb-6">
-                {museum.artworks.length > 0
-                  ? `Browse ${museum.artworks.length} notable ${museum.artworks.length === 1 ? "artwork" : "artworks"} in our database. Click any painting to see details and plan your visit.`
+                {totalArtworks > 0
+                  ? `Browse ${totalArtworks} notable ${totalArtworks === 1 ? "artwork" : "artworks"} in our database. Click any painting to see details and plan your visit.`
                   : "No artworks catalogued for this museum yet."}
               </p>
+
               {museum.artworks.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {museum.artworks.map((artwork) => (
-                    <ArtworkCard key={artwork.id} artwork={artwork} />
-                  ))}
-                </div>
+                <>
+                  {/* Masonry Grid - 3 columns on desktop */}
+                  <div className="masonry-grid-3col">
+                    {museum.artworks.map((artwork, index) => (
+                      <MasonryArtworkCard
+                        key={artwork.id}
+                        artwork={artwork}
+                        priority={index < 8}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Pagination */}
+                  {totalPages > 1 && (
+                    <div className="flex items-center justify-center gap-2 mt-10">
+                      {/* Previous Button */}
+                      {currentPage > 1 ? (
+                        <Link
+                          href={getPaginationLink(currentPage - 1)}
+                          className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                        >
+                          Previous
+                        </Link>
+                      ) : (
+                        <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+                          Previous
+                        </span>
+                      )}
+
+                      {/* Page Numbers with Smart Ellipsis */}
+                      <div className="flex items-center gap-1">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1)
+                          .filter((pageNum) => {
+                            // Always show first and last page
+                            if (pageNum === 1 || pageNum === totalPages) return true;
+                            // Show pages within 1 of current page
+                            if (Math.abs(pageNum - currentPage) <= 1) return true;
+                            return false;
+                          })
+                          .map((pageNum, index, arr) => {
+                            const prevPage = arr[index - 1];
+                            const showEllipsis = prevPage && pageNum - prevPage > 1;
+                            return (
+                              <span key={pageNum} className="flex items-center gap-1">
+                                {showEllipsis && (
+                                  <span className="px-2 text-neutral-400">...</span>
+                                )}
+                                <Link
+                                  href={getPaginationLink(pageNum)}
+                                  className={`px-3 py-2 rounded-lg transition-colors ${
+                                    pageNum === currentPage
+                                      ? "bg-black text-white"
+                                      : "border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+                                  }`}
+                                >
+                                  {pageNum}
+                                </Link>
+                              </span>
+                            );
+                          })}
+                      </div>
+
+                      {/* Next Button */}
+                      {currentPage < totalPages ? (
+                        <Link
+                          href={getPaginationLink(currentPage + 1)}
+                          className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                        >
+                          Next
+                        </Link>
+                      ) : (
+                        <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+                          Next
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="bg-neutral-100 rounded-lg p-8 text-center">
                   <p className="text-neutral-500">
