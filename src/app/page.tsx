@@ -8,6 +8,7 @@ import EraCard from "@/components/EraCard";
 import Link from "next/link";
 import { decodeHtmlEntities, isPrivateCollection, isCountryNotCity } from "@/lib/text";
 import { ERAS } from "@/lib/eras";
+import { FAQStatic, FAQSchema } from "@/components/FAQ";
 
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
@@ -35,6 +36,34 @@ export const metadata: Metadata = {
 
 // Use dynamic rendering to avoid connection pool issues during build
 export const dynamic = 'force-dynamic';
+
+// FAQ items for SEO
+const homepageFAQs = [
+  {
+    question: "How do I find where a famous painting is located?",
+    answer: "Type the painting's name in the search bar. We'll show you which museum has it, the city, and visiting info. The database covers 4,000+ artworks in 700+ museums.",
+  },
+  {
+    question: "Can I see the Mona Lisa in person?",
+    answer: "Yes. It's at the <a href=\"/museum/louvre\">Louvre</a> in Paris, in the Salle des États. Go early morning or late afternoon to dodge the crowds.",
+  },
+  {
+    question: "What are the most visited art museums?",
+    answer: "The <a href=\"/museum/louvre\">Louvre</a> in Paris, <a href=\"/museum/met\">The Met</a> in New York, Vatican Museums in Rome, British Museum in London, and <a href=\"/museum/moma\">MoMA</a> in New York. All have thousands of works worth seeing.",
+  },
+  {
+    question: "Which museums have the best Impressionist art?",
+    answer: "Musée d'Orsay in Paris has the biggest Impressionist collection. The Art Institute of Chicago and National Gallery London are also great. You'll find Monet, Renoir, and Degas at all of them.",
+  },
+  {
+    question: "Can I take photos of paintings in museums?",
+    answer: "Usually, yes. Most museums allow non-flash photography for personal use. Some pieces on loan might have restrictions. Check the museum's website before you go. Tripods and flash are almost always banned.",
+  },
+  {
+    question: "How current is the location data?",
+    answer: "We update regularly, but museums do rotate works and loan pieces out. Big ones like the Mona Lisa and Starry Night don't move. For lesser-known works or traveling shows, call the museum to confirm before making the trip.",
+  },
+];
 
 export default async function Home() {
   // Fetch counts for hero stats
@@ -120,7 +149,7 @@ export default async function Home() {
       if (m.city === "Unknown" || m.country === "Unknown") return false;
       return true;
     })
-    .slice(0, 3) // Take only 3 after filtering
+    .slice(0, 6) // Take 6 for a full-width grid layout
     .map((m) => ({
       ...m,
       name: decodeHtmlEntities(m.name),
@@ -181,10 +210,13 @@ export default async function Home() {
       <section className="bg-white py-8 md:py-12 border-b border-neutral-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3 tracking-tight">
-            Find Famous Art Around the World
+            Where Is That Famous Painting?
           </h1>
-          <p className="text-neutral-600 mb-6 max-w-xl mx-auto">
-            {artworkCount}+ masterpieces across {museumCount}+ museums worldwide
+          <p className="text-neutral-600 mb-4 max-w-xl mx-auto">
+            Find which museum has the artwork you want to see in person.
+          </p>
+          <p className="text-neutral-500 text-sm mb-6 max-w-2xl mx-auto">
+            Search {artworkCount}+ paintings across {museumCount}+ museums worldwide. We'll tell you the exact location, opening hours, and how to plan your visit.
           </p>
           <div className="flex justify-center">
             <SearchBar />
@@ -195,9 +227,14 @@ export default async function Home() {
       {/* Featured Artworks */}
       <section className="max-w-[1400px] mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-neutral-900">
-            Most Searched Masterpieces
-          </h2>
+          <div>
+            <h2 className="text-2xl font-bold text-neutral-900">
+              Most Searched Masterpieces
+            </h2>
+            <p className="text-neutral-600 mt-1">
+              Popular artworks people search for, with their museum locations
+            </p>
+          </div>
           <Link
             href="/search"
             className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
@@ -232,7 +269,7 @@ export default async function Home() {
                   Explore by Era
                 </h2>
                 <p className="text-neutral-600 mt-1">
-                  Journey through art history from Medieval to Contemporary
+                  Find art by time period, from Medieval through Contemporary
                 </p>
               </div>
               <Link
@@ -257,58 +294,75 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Browse by Artist & Museum */}
+      {/* Featured Artists */}
       <section className="bg-white py-12 border-y border-neutral-100">
         <div className="max-w-[1400px] mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Artists */}
+          <div className="flex items-center justify-between mb-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-neutral-900">
-                  Featured Artists
-                </h2>
-                <Link
-                  href="/artists"
-                  className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
-                >
-                  View all
-                </Link>
-              </div>
-
-              {featuredArtists.length > 0 ? (
-                <div className="space-y-4">
-                  {featuredArtists.map((artist) => (
-                    <ArtistCard key={artist.id} artist={artist} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-neutral-500 text-sm">No artists added yet.</p>
-              )}
+              <h2 className="text-2xl font-bold text-neutral-900">
+                Featured Artists
+              </h2>
+              <p className="text-neutral-600 mt-1">
+                Browse by artist to find where their works are displayed
+              </p>
             </div>
-
-            {/* Museums */}
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-neutral-900">Top Museums</h2>
-                <Link
-                  href="/museums"
-                  className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
-                >
-                  View all
-                </Link>
-              </div>
-
-              {featuredMuseums.length > 0 ? (
-                <div className="space-y-4">
-                  {featuredMuseums.map((museum) => (
-                    <MuseumCard key={museum.id} museum={museum} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-neutral-500 text-sm">No museums added yet.</p>
-              )}
-            </div>
+            <Link
+              href="/artists"
+              className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+            >
+              View all
+            </Link>
           </div>
+
+          {featuredArtists.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {featuredArtists.map((artist) => (
+                <ArtistCard key={artist.id} artist={artist} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-neutral-500 text-sm">No artists added yet.</p>
+          )}
+        </div>
+      </section>
+
+      {/* Top Museums */}
+      <section className="bg-neutral-50 py-12">
+        <div className="max-w-[1400px] mx-auto px-4">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-neutral-900">
+                Top Museums
+              </h2>
+              <p className="text-neutral-600 mt-1">
+                See what masterpieces each museum has before you visit
+              </p>
+            </div>
+            <Link
+              href="/museums"
+              className="text-neutral-600 hover:text-black text-sm font-medium transition-colors"
+            >
+              View all
+            </Link>
+          </div>
+
+          {featuredMuseums.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {featuredMuseums.map((museum) => (
+                <MuseumCard key={museum.id} museum={museum} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-neutral-500 text-sm">No museums added yet.</p>
+          )}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-white py-12 border-t border-neutral-100">
+        <div className="max-w-[1400px] mx-auto px-4">
+          <FAQSchema items={homepageFAQs} />
+          <FAQStatic items={homepageFAQs} title="Frequently Asked Questions" wide />
         </div>
       </section>
 
