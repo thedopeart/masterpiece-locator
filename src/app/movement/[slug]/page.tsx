@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import { createMetaTitle, createMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
+import { getMovementEnrichment } from "@/lib/movementEnrichments";
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateMovementFAQs(movement: {
@@ -197,11 +198,22 @@ export default async function MovementPage({ params }: Props) {
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {movement.name}
                 </h1>
-                {movement.description && (
-                  <p className="text-neutral-300 text-lg leading-relaxed max-w-2xl">
-                    {movement.description}
-                  </p>
-                )}
+                {(() => {
+                  const enrichment = getMovementEnrichment(movement.slug);
+                  if (enrichment?.descriptionHtml) {
+                    return (
+                      <div
+                        className="text-neutral-300 text-lg leading-relaxed max-w-2xl [&>p]:mb-4 [&>p:last-child]:mb-0 [&_a]:text-[#C9A84C] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#b8973f] [&_strong]:text-white [&_strong]:font-semibold"
+                        dangerouslySetInnerHTML={{ __html: enrichment.descriptionHtml }}
+                      />
+                    );
+                  }
+                  return movement.description ? (
+                    <p className="text-neutral-300 text-lg leading-relaxed max-w-2xl">
+                      {movement.description}
+                    </p>
+                  ) : null;
+                })()}
               </div>
             </div>
 
@@ -416,9 +428,9 @@ export default async function MovementPage({ params }: Props) {
             <span className="text-sm text-neutral-500">{artworks.length} works</span>
           </div>
           {artworks.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {artworks.map((artwork) => (
-                <ArtworkCard key={artwork.id} artwork={artwork} />
+            <div className="masonry-grid">
+              {artworks.map((artwork, index) => (
+                <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 6} />
               ))}
             </div>
           ) : (
@@ -433,7 +445,9 @@ export default async function MovementPage({ params }: Props) {
         {/* FAQ Section */}
         <section className="mt-12 border-t border-neutral-200 pt-8">
           {(() => {
-            const faqs = generateMovementFAQs({
+            // Use enriched FAQs if available, otherwise generate from database
+            const enrichment = getMovementEnrichment(movement.slug);
+            const faqs = enrichment?.faqs || generateMovementFAQs({
               name: movement.name,
               description: movement.description,
               startYear: movement.startYear,

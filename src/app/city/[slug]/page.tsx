@@ -3,11 +3,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
+import MuseumImage from "@/components/MuseumImage";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import { cityMetaTitle, cityMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
+
+const ARTWORKS_PER_PAGE = 40;
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateCityFAQs(city: {
@@ -41,6 +44,7 @@ function generateCityFAQs(city: {
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -70,8 +74,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CityPage({ params }: Props) {
+export default async function CityPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const { page } = await searchParams;
+  const currentPage = Math.max(1, parseInt(page || "1", 10));
 
   // Convert slug to city name
   const cityName = slug
@@ -198,29 +204,12 @@ export default async function CityPage({ params }: Props) {
                 className="group bg-white rounded-xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="h-40 bg-neutral-100 relative">
-                  {museum.imageUrl ? (
-                    <Image
-                      src={museum.imageUrl}
-                      alt={museum.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized={true}
-                    />
-                  ) : museum.artworks[0]?.imageUrl ? (
-                    <Image
-                      src={museum.artworks[0].imageUrl}
-                      alt={museum.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized={true}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
-                      <span className="text-4xl font-light text-neutral-400">{museum.name.charAt(0)}</span>
-                    </div>
-                  )}
+                  <MuseumImage
+                    src={museum.imageUrl}
+                    fallbackSrc={museum.artworks[0]?.imageUrl || null}
+                    alt={museum.name}
+                    placeholderLetter={museum.name.charAt(0)}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className="text-lg font-semibold text-white group-hover:text-[#C9A84C] transition-colors">
@@ -291,22 +280,116 @@ export default async function CityPage({ params }: Props) {
             Masterpieces in {cityName}
           </h2>
           {allArtworks.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allArtworks.slice(0, 12).map((artwork) => (
-                <ArtworkCard key={artwork.id} artwork={artwork} />
-              ))}
-            </div>
+            <>
+              <div className="masonry-grid">
+                {allArtworks
+                  .slice((currentPage - 1) * ARTWORKS_PER_PAGE, currentPage * ARTWORKS_PER_PAGE)
+                  .map((artwork, index) => (
+                    <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
+                  ))}
+              </div>
+
+              {/* Pagination */}
+              {allArtworks.length > ARTWORKS_PER_PAGE && (
+                <div className="flex items-center justify-center gap-2 mt-8">
+                  {currentPage > 1 && (
+                    <Link
+                      href={`/city/${slug}?page=${currentPage - 1}`}
+                      className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                    >
+                      Previous
+                    </Link>
+                  )}
+
+                  {/* Page numbers */}
+                  {(() => {
+                    const totalPages = Math.ceil(allArtworks.length / ARTWORKS_PER_PAGE);
+                    const pages = [];
+                    const maxVisible = 5;
+
+                    let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+                    const endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+                    if (endPage - startPage + 1 < maxVisible) {
+                      startPage = Math.max(1, endPage - maxVisible + 1);
+                    }
+
+                    // First page + ellipsis
+                    if (startPage > 1) {
+                      pages.push(
+                        <Link
+                          key={1}
+                          href={`/city/${slug}?page=1`}
+                          className="w-10 h-10 flex items-center justify-center text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                        >
+                          1
+                        </Link>
+                      );
+                      if (startPage > 2) {
+                        pages.push(
+                          <span key="ellipsis-start" className="px-2 text-neutral-400">...</span>
+                        );
+                      }
+                    }
+
+                    // Page numbers
+                    for (let i = startPage; i <= endPage; i++) {
+                      pages.push(
+                        <Link
+                          key={i}
+                          href={`/city/${slug}?page=${i}`}
+                          className={`w-10 h-10 flex items-center justify-center text-sm font-medium rounded-lg transition-colors ${
+                            i === currentPage
+                              ? "bg-neutral-900 text-white"
+                              : "text-neutral-700 bg-white border border-neutral-300 hover:bg-neutral-50"
+                          }`}
+                        >
+                          {i}
+                        </Link>
+                      );
+                    }
+
+                    // Last page + ellipsis
+                    if (endPage < totalPages) {
+                      if (endPage < totalPages - 1) {
+                        pages.push(
+                          <span key="ellipsis-end" className="px-2 text-neutral-400">...</span>
+                        );
+                      }
+                      pages.push(
+                        <Link
+                          key={totalPages}
+                          href={`/city/${slug}?page=${totalPages}`}
+                          className="w-10 h-10 flex items-center justify-center text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                        >
+                          {totalPages}
+                        </Link>
+                      );
+                    }
+
+                    return pages;
+                  })()}
+
+                  {currentPage < Math.ceil(allArtworks.length / ARTWORKS_PER_PAGE) && (
+                    <Link
+                      href={`/city/${slug}?page=${currentPage + 1}`}
+                      className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                    >
+                      Next
+                    </Link>
+                  )}
+                </div>
+              )}
+
+              {/* Total count */}
+              <p className="text-center text-neutral-500 text-sm mt-4">
+                Showing {Math.min((currentPage - 1) * ARTWORKS_PER_PAGE + 1, allArtworks.length)}-{Math.min(currentPage * ARTWORKS_PER_PAGE, allArtworks.length)} of {allArtworks.length} masterpieces
+              </p>
+            </>
           ) : (
             <div className="bg-neutral-100 rounded-lg p-8 text-center">
               <p className="text-neutral-500">
                 No artworks catalogued for {cityName} yet.
-              </p>
-            </div>
-          )}
-          {allArtworks.length > 12 && (
-            <div className="text-center mt-6">
-              <p className="text-neutral-500">
-                And {allArtworks.length - 12} more masterpieces...
               </p>
             </div>
           )}

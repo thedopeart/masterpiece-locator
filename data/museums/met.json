@@ -122,5 +122,41 @@
       "location": "Gallery 632",
       "note": "One of the finest Vermeers in America"
     }
-  ]
+  ],
+  "faqs": [
+    {
+      "question": "What are the most famous paintings at The Met?",
+      "answer": "The Met houses some of the world's most celebrated paintings across its European, American, and Modern art collections. Highlights include <a href=\"/artist/vincent-van-gogh\" style=\"color: #C9A84C; font-weight: 600;\">Vincent van Gogh's</a> <strong>Wheat Field with Cypresses</strong>, <a href=\"/artist/johannes-vermeer\" style=\"color: #C9A84C; font-weight: 600;\">Johannes Vermeer's</a> <a href=\"/art/young-woman-with-a-water-pitcher\" style=\"color: #028161; font-weight: 600;\">Young Woman with a Water Pitcher</a>, and <a href=\"/artist/claude-monet\" style=\"color: #C9A84C; font-weight: 600;\">Claude Monet's</a> <strong>Bridge over a Pond of Water Lilies</strong>.<br><br>Other must-see masterpieces include <a href=\"/artist/rembrandt\" style=\"color: #C9A84C; font-weight: 600;\">Rembrandt's</a> <strong>Aristotle with a Bust of Homer</strong>, <a href=\"/artist/jacques-louis-david\" style=\"color: #C9A84C; font-weight: 600;\">Jacques-Louis David's</a> <a href=\"/art/the-death-of-socrates\" style=\"color: #028161; font-weight: 600;\">The Death of Socrates</a>, and <strong>Washington Crossing the Delaware</strong> by Emanuel Leutze.<br><br>For modern art fans, <a href=\"/artist/jackson-pollock\" style=\"color: #C9A84C; font-weight: 600;\">Jackson Pollock's</a> 17-foot-wide <strong>Autumn Rhythm</strong> defines Abstract Expressionism. The European Paintings department alone holds over 2,500 works by masters like <a href=\"/artist/diego-velazquez\" style=\"color: #C9A84C; font-weight: 600;\">Velázquez</a>, <a href=\"/artist/peter-paul-rubens\" style=\"color: #C9A84C; font-weight: 600;\">Rubens</a>, <a href=\"/artist/edgar-degas\" style=\"color: #C9A84C; font-weight: 600;\">Degas</a>, and <a href=\"/artist/paul-cezanne\" style=\"color: #C9A84C; font-weight: 600;\">Cézanne</a>."
+    },
+    {
+      "question": "What is the history of The Met?",
+      "answer": "The Metropolitan Museum of Art was founded on April 13, 1870, by a group of American citizens including businessmen, financiers, artists, and thinkers who wanted to bring art and art education to the American people. John Taylor Johnston, a railroad executive, served as the first President, with his personal art collection helping to seed the museum.<br><br>The Met first opened on February 20, 1872, at 681 Fifth Avenue, then moved to the Douglas Mansion at 128 West 14th Street. In 1880, the museum moved to its current home in Central Park. The original Gothic structure was designed by Calvert Vaux and Jacob Wrey Mould.<br><br>The famous Beaux-Arts Fifth Avenue facade and Great Hall, designed by architect Richard Morris Hunt, opened in December 1902. The Met Cloisters, devoted to medieval European art, opened in 1938. Today the museum spans 2 million square feet and holds over 2 million objects."
+    },
+    {
+      "question": "How long does it take to see The Met?",
+      "answer": "Plan for <strong>3 to 4 hours</strong> to see the major highlights. Most visitors experience \"art overload\" after about 3 or 4 hours, so this is a realistic window for a satisfying visit without feeling rushed. The museum covers 2.2 million square feet with tens of thousands of objects on view, making it impossible to see everything in a single day.<br><br>If you're a serious art lover and want to spend longer, take breaks. Experts recommend sitting down in a cafe or finding a quiet spot every 75 minutes or so to rest your eyes and feet. The museum has several dining options throughout the building.<br><br>For a comprehensive experience including multiple departments and special exhibitions, budget 5 hours with breaks included. Some visitors spread their exploration across multiple visits, which your ticket allows for same-day re-entry."
+    },
+    {
+      "question": "How much do Met tickets cost?",
+      "answer": "Standard admission is <strong>$30 for adults</strong>, <strong>$22 for seniors (65+)</strong>, and <strong>$17 for students</strong> with valid ID. Children 12 and under enter free. Visitors with a disability pay $22, and one caregiver enters free.<br><br><strong>New York State residents</strong> and students from New York, New Jersey, and Connecticut qualify for pay-what-you-wish admission. You decide the amount, though there's a $0.01 minimum per ticket. Bring a valid ID showing your NYS address: a driver's license, state ID, utility bill, or student ID from a NYS college.<br><br>All tickets include same-day admission to both The Met Fifth Avenue and The Met Cloisters. Becoming a Member gets you unlimited free admission, special exhibition access, and invitations to members-only events."
+    },
+    {
+      "question": "Which entrance should I use at The Met?",
+      "answer": "Use the <strong>81st Street entrance</strong> for shorter lines. This side entrance has been the \"secret\" fast way into the museum for years. Though more people have caught on, it's still typically quicker than the main entrance. You'll walk right past the least crowded coat check, and you can still access the Great Hall once inside.<br><br>The main entrance is at 82nd Street on Fifth Avenue. This is the iconic facade with the grand staircase, but expect longer queues, especially on weekends and during peak tourist season. An accessible entrance is also available through the parking garage at Fifth Avenue and 80th Street.<br><br>Buy tickets online in advance to skip ticketing lines entirely and head straight to security."
+    },
+    {
+      "question": "Can you take photos at The Met?",
+      "answer": "Yes, you can take photos for personal, noncommercial use in most permanent collection galleries. <strong>Flash photography is prohibited</strong>, and you cannot use tripods, monopods, selfie sticks, or drones.<br><br>Temporary exhibitions with borrowed works from other museums or private collections typically prohibit all photography. Look for posted signs in each gallery. The museum reserves the right to restrict photography in specific areas at any time.<br><br>Photos taken at The Met cannot be published, sold, reproduced, or commercially used in any way. For press or commercial photography requests, contact communications@metmuseum.org."
+    },
+    {
+      "question": "What's the best time to visit The Met?",
+      "answer": "The least crowded times are <strong>weekday mornings right at opening (10 AM)</strong>. The first hour or two typically has the fewest visitors, giving you space to explore popular galleries like the Temple of Dendur and Egyptian wing in relative peace. Most tour groups and general visitors arrive between 11 AM and 1 PM.<br><br>The museum thins out again after 3 PM as school groups and tourists on tight schedules leave. <strong>Friday and Saturday evenings</strong> are a hidden gem: the museum stays open until 9 PM, and after 4 PM you'll often have rooms nearly to yourself.<br><br>Avoid weekend afternoons, especially during holiday periods. The Christmas season is the busiest time of year. For a quieter experience, visit during late spring or winter (excluding holidays). The museum is closed Wednesdays."
+    }
+  ],
+  "gallery": [],
+  "collectionStats": {
+    "totalArtworks": 2000000,
+    "onDisplay": 17000,
+    "source": "Official Met website"
+  }
 }

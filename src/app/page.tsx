@@ -1,11 +1,13 @@
 import { prisma } from "@/lib/db";
 import { Metadata } from "next";
-import ArtworkCard from "@/components/ArtworkCard";
+import MasonryArtworkCard from "@/components/MasonryArtworkCard";
 import ArtistCard from "@/components/ArtistCard";
 import MuseumCard from "@/components/MuseumCard";
 import SearchBar from "@/components/SearchBar";
+import EraCard from "@/components/EraCard";
 import Link from "next/link";
 import { decodeHtmlEntities, isPrivateCollection, isCountryNotCity } from "@/lib/text";
+import { ERAS } from "@/lib/eras";
 
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
@@ -129,6 +131,50 @@ export default async function Home() {
       _count: { artworks: m._count.Artwork },
     }));
 
+  // Fetch era stats for the "Explore by Era" section
+  const eraStats = await Promise.all(
+    ERAS.map(async (era) => {
+      const [movementCount, artistCount, previewArtworks] = await Promise.all([
+        prisma.movement.count({
+          where: {
+            startYear: { gte: era.startYear, lt: era.endYear },
+          },
+        }),
+        prisma.artist.count({
+          where: {
+            Movement: {
+              some: {
+                startYear: { gte: era.startYear, lt: era.endYear },
+              },
+            },
+          },
+        }),
+        prisma.artwork.findMany({
+          where: {
+            year: { gte: era.startYear, lt: era.endYear },
+            imageUrl: { not: null },
+          },
+          select: { imageUrl: true },
+          orderBy: { searchVolumeTier: "asc" },
+          take: 4,
+        }),
+      ]);
+      return {
+        era,
+        movementCount,
+        artistCount,
+        previewImages: previewArtworks
+          .map((a) => a.imageUrl)
+          .filter((url): url is string => url !== null),
+      };
+    })
+  );
+
+  // Filter to eras with content
+  const erasWithContent = eraStats.filter(
+    (e) => e.movementCount > 0 || e.artistCount > 0
+  );
+
   return (
     <div className="bg-neutral-50">
       {/* Hero Section - Compact */}
@@ -161,9 +207,9 @@ export default async function Home() {
         </div>
 
         {featuredArtworks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredArtworks.map((artwork) => (
-              <ArtworkCard key={artwork.id} artwork={artwork} />
+          <div className="masonry-grid">
+            {featuredArtworks.map((artwork, index) => (
+              <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 4} />
             ))}
           </div>
         ) : (
@@ -175,6 +221,41 @@ export default async function Home() {
           </div>
         )}
       </section>
+
+      {/* Explore by Era */}
+      {erasWithContent.length > 0 && (
+        <section className="bg-white py-12 border-y border-neutral-100">
+          <div className="max-w-[1400px] mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-2xl font-bold text-neutral-900">
+                  Explore by Era
+                </h2>
+                <p className="text-neutral-600 mt-1">
+                  Journey through art history from Medieval to Contemporary
+                </p>
+              </div>
+              <Link
+                href="/movements"
+                className="text-neutral-600 hover:text-black text-sm font-medium transition-colors hidden md:block"
+              >
+                View all movements
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {erasWithContent.map(({ era, movementCount, artistCount, previewImages }) => (
+                <EraCard
+                  key={era.slug}
+                  era={era}
+                  movementCount={movementCount}
+                  artistCount={artistCount}
+                  previewImages={previewImages}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Browse by Artist & Museum */}
       <section className="bg-white py-12 border-y border-neutral-100">

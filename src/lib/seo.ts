@@ -260,3 +260,103 @@ export function cityMetaDescription(
 
   return createMetaDescription(desc);
 }
+
+/**
+ * Era page meta title generator
+ * Format: "{Era} Art: {X} Movements & {Y} Artists to Discover" (60 char limit)
+ */
+export function eraMetaTitle(
+  eraName: string,
+  movementCount: number,
+  artistCount: number
+): string {
+  // Try full format
+  const fullTitle = `${eraName}: ${movementCount} Movements & ${artistCount} Artists to Discover`;
+  if (fullTitle.length <= META_TITLE_LIMIT) return fullTitle;
+
+  // Shorter version
+  const shorter = `${eraName}: ${artistCount} Artists & Famous Paintings`;
+  if (shorter.length <= META_TITLE_LIMIT) return shorter;
+
+  // Simplest
+  const simple = `${eraName} Paintings & Artists`;
+  if (simple.length <= META_TITLE_LIMIT) return simple;
+
+  return createMetaTitle(`${eraName} Art`);
+}
+
+/**
+ * Era page meta description generator
+ */
+export function eraMetaDescription(
+  eraName: string,
+  dateRange: string,
+  movementCount: number,
+  artistCount: number,
+  topMovements: string[],
+  topArtists: string[]
+): string {
+  let desc = `Explore ${eraName} (${dateRange}). `;
+
+  if (topMovements.length > 0) {
+    desc += `${movementCount} movements including ${topMovements.slice(0, 3).join(", ")}. `;
+  }
+
+  if (topArtists.length > 0) {
+    desc += `See works by ${topArtists.slice(0, 3).join(", ")} and ${artistCount} more artists.`;
+  } else {
+    desc += `Discover ${artistCount} artists and their masterpieces in museums worldwide.`;
+  }
+
+  return createMetaDescription(desc);
+}
+
+/**
+ * Movement page meta title generator
+ * Format: "{Movement}: {X} Artists & Famous Paintings" (60 char limit)
+ */
+export function movementMetaTitle(
+  movementName: string,
+  artistCount: number
+): string {
+  // Try full format
+  const fullTitle = `${movementName}: ${artistCount} Artists & Famous Paintings`;
+  if (fullTitle.length <= META_TITLE_LIMIT) return fullTitle;
+
+  // Shorter version
+  const shorter = `${movementName} Art: ${artistCount} Artists`;
+  if (shorter.length <= META_TITLE_LIMIT) return shorter;
+
+  // Simplest
+  const simple = `${movementName} Paintings`;
+  if (simple.length <= META_TITLE_LIMIT) return simple;
+
+  return createMetaTitle(movementName);
+}
+
+/**
+ * Movement page meta description generator
+ */
+export function movementMetaDescription(
+  movementName: string,
+  dateRange: string,
+  artistCount: number,
+  topArtists: string[],
+  characteristics: string[]
+): string {
+  let desc = `${movementName} (${dateRange}). `;
+
+  if (topArtists.length > 0) {
+    desc += `See works by ${topArtists.slice(0, 3).join(", ")}`;
+    if (artistCount > 3) {
+      desc += ` and ${artistCount - 3} more artists`;
+    }
+    desc += ". ";
+  }
+
+  if (characteristics.length > 0) {
+    desc += `Known for ${characteristics.slice(0, 2).join(" and ").toLowerCase()}.`;
+  }
+
+  return createMetaDescription(desc);
+}

@@ -69,7 +69,7 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
               </div>
             </div>
             {image.caption && (
-              <p className="text-xs text-neutral-500 mt-1.5 text-left">{image.caption}</p>
+              <p className="text-xs text-neutral-500 mt-1.5 text-left truncate w-40 sm:w-56">{image.caption}</p>
             )}
           </button>
         ))}

@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/museums", label: "Museums" },
   { href: "/cities", label: "Cities" },
   { href: "/movements", label: "Movements" },
+  { href: "/era/renaissance", label: "Eras" },
 ];
 
 export default function Navigation() {
@@ -16,6 +17,10 @@ export default function Navigation() {
   const pathname = usePathname();
 
   const isActive = (href: string) => {
+    // Special handling for Eras link (points to /era/renaissance but should match any /era/*)
+    if (href === "/era/renaissance") {
+      return pathname.startsWith("/era/");
+    }
     // Handle both /artists and /artist/[slug]
     const basePath = href.replace(/s$/, ""); // /artists -> /artist
     return pathname === href || pathname.startsWith(basePath + "/");
