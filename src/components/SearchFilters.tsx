@@ -20,9 +20,23 @@ interface SearchFiltersProps {
     artist?: string;
     movement?: string;
     city?: string;
+    type?: string;
   };
   query: string;
+  typeCounts?: {
+    painting: number;
+    sculpture: number;
+    print: number;
+    drawing: number;
+  };
 }
+
+const ARTWORK_TYPES = [
+  { value: "painting", label: "Paintings" },
+  { value: "sculpture", label: "Sculptures" },
+  { value: "print", label: "Prints" },
+  { value: "drawing", label: "Drawings" },
+];
 
 export default function SearchFilters({
   museums,
@@ -31,6 +45,7 @@ export default function SearchFilters({
   cities,
   activeFilters,
   query,
+  typeCounts,
 }: SearchFiltersProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -52,6 +67,28 @@ export default function SearchFilters({
     <div className="space-y-6">
       <div className="bg-gray-50 rounded-xl p-4">
         <h3 className="font-semibold text-gray-900 mb-3">Filter Results</h3>
+
+        {/* Artwork Type Filter */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Type
+          </label>
+          <select
+            value={activeFilters.type || ""}
+            onChange={(e) => updateFilter("type", e.target.value)}
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">All Types</option>
+            {ARTWORK_TYPES.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
+                {typeCounts && typeCounts[t.value as keyof typeof typeCounts] > 0
+                  ? ` (${typeCounts[t.value as keyof typeof typeCounts]})`
+                  : ""}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Movement / Era Filter */}
         <div className="mb-4">

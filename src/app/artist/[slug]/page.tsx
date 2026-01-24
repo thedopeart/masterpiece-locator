@@ -264,87 +264,92 @@ export default async function ArtistPage({ params }: Props) {
           <span className="font-medium text-neutral-900">{artist.name}</span>
         </nav>
 
-        {/* Header - Image + Info + Bio in same row */}
-        <header className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Artist Image */}
-          <div className="flex-shrink-0">
-            <div className="w-40 h-40 md:w-48 md:h-48 relative rounded-xl overflow-hidden bg-neutral-100">
-              {artist.imageUrl ? (
-                <Image
-                  src={artist.imageUrl}
-                  alt={altText}
-                  fill
-                  className="object-cover"
-                  sizes="192px"
-                  unoptimized={true}
-                />
-              ) : artist.artworks[0]?.imageUrl ? (
-                <>
-                  <Image
-                    src={artist.artworks[0].imageUrl}
-                    alt={`Artwork by ${artist.name}`}
-                    fill
-                    className="object-cover"
-                    sizes="192px"
-                    unoptimized={true}
-                  />
-                  {/* No Portrait Available tag */}
-                  <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                    No Portrait Available
-                  </div>
-                </>
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-neutral-400 text-4xl">
-                  {artist.name.charAt(0)}
-                </div>
-              )}
-            </div>
+        {/* Header - Name above, then image + bio side by side */}
+        <header className="mb-12">
+          {/* Artist Name and Tags - Full width above */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
+              {artist.name}
+            </h1>
+            {artist.movements.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {artist.movements.map((movement) => (
+                  <Link
+                    key={movement.slug}
+                    href={`/movement/${movement.slug}`}
+                    className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm hover:bg-amber-200 transition-colors"
+                  >
+                    {movement.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Artist Info + Biography */}
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-3 mb-2">
-              <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
-                {artist.name}
-              </h1>
-              {artist.movements.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {artist.movements.map((movement) => (
-                    <Link
-                      key={movement.slug}
-                      href={`/movement/${movement.slug}`}
-                      className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm hover:bg-amber-200 transition-colors"
-                    >
-                      {movement.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-3 text-neutral-600 mb-4">
-              {artist.nationality && <span>{artist.nationality}</span>}
-              {lifespan && (
-                <>
-                  <span className="text-neutral-300">·</span>
-                  <span>{lifespan}</span>
-                </>
-              )}
+          {/* Nationality and Lifespan */}
+          <div className="flex flex-wrap gap-3 text-neutral-600 mb-6">
+            {artist.nationality && <span>{artist.nationality}</span>}
+            {lifespan && (
+              <>
+                <span className="text-neutral-300">·</span>
+                <span>{lifespan}</span>
+              </>
+            )}
+          </div>
+
+          {/* Image + Biography side by side */}
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Artist Image - 2x larger */}
+            <div className="flex-shrink-0">
+              <div className="w-64 h-64 md:w-80 md:h-80 relative rounded-xl overflow-hidden bg-neutral-100">
+                {artist.imageUrl ? (
+                  <Image
+                    src={artist.imageUrl}
+                    alt={altText}
+                    fill
+                    className="object-cover"
+                    sizes="320px"
+                    unoptimized={true}
+                  />
+                ) : artist.artworks[0]?.imageUrl ? (
+                  <>
+                    <Image
+                      src={artist.artworks[0].imageUrl}
+                      alt={`Artwork by ${artist.name}`}
+                      fill
+                      className="object-cover"
+                      sizes="320px"
+                      unoptimized={true}
+                    />
+                    {/* No Portrait Available tag */}
+                    <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                      No Portrait Available
+                    </div>
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-neutral-400 text-6xl">
+                    {artist.name.charAt(0)}
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* Biography - only show if we have real content from database */}
-            <div className="text-neutral-600 leading-relaxed space-y-3 artist-bio">
-              {artist.bioFull ? (
-                <div dangerouslySetInnerHTML={{ __html: artist.bioFull }} />
-              ) : artist.bioShort ? (
-                <p>{artist.bioShort}</p>
-              ) : null}
-              {artist.wikipediaUrl && (
-                <p>
-                  <a href={artist.wikipediaUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-900 text-sm">
-                    Read more on Wikipedia →
-                  </a>
-                </p>
-              )}
+            {/* Biography - aligned with top of image */}
+            <div className="flex-1">
+              <div className="text-neutral-600 leading-relaxed space-y-4 artist-bio">
+                {artist.bioFull ? (
+                  <div dangerouslySetInnerHTML={{ __html: artist.bioFull }} />
+                ) : artist.bioShort ? (
+                  <p>{artist.bioShort}</p>
+                ) : null}
+                {artist.wikipediaUrl && (
+                  <p>
+                    <a href={artist.wikipediaUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-neutral-900 text-sm">
+                      Read more on Wikipedia →
+                    </a>
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </header>

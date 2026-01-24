@@ -12,6 +12,7 @@ interface MasonryArtworkCardProps {
     imageUrl: string | null;
     imageWidth?: number | null;
     imageHeight?: number | null;
+    artworkType?: string | null;
     artist: {
       name: string;
     } | null;
@@ -23,6 +24,12 @@ interface MasonryArtworkCardProps {
   priority?: boolean;
   highlight?: boolean;
 }
+
+const TYPE_LABELS: Record<string, string> = {
+  sculpture: "Sculpture",
+  print: "Print",
+  drawing: "Drawing",
+};
 
 export default function MasonryArtworkCard({ artwork, priority = false, highlight = false }: MasonryArtworkCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -48,6 +55,12 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
         {highlight && (
           <div className="absolute top-2 left-2 z-10 bg-[#028161] text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
             Must-See
+          </div>
+        )}
+        {/* Artwork Type Badge (for non-paintings) */}
+        {artwork.artworkType && artwork.artworkType !== "painting" && TYPE_LABELS[artwork.artworkType] && (
+          <div className={`absolute ${highlight ? "top-10" : "top-2"} left-2 z-10 bg-neutral-800/80 text-white text-xs font-medium px-2 py-1 rounded-full`}>
+            {TYPE_LABELS[artwork.artworkType]}
           </div>
         )}
         {artwork.imageUrl && !imageError ? (

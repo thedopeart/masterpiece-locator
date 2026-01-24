@@ -14,6 +14,7 @@ interface Props {
     artist?: string;
     movement?: string;
     city?: string;
+    type?: string;
     page?: string;
   }>;
 }
@@ -43,13 +44,14 @@ export default async function SearchPage({ searchParams }: Props) {
     artist: artistFilter,
     movement: movementFilter,
     city: cityFilter,
+    type: typeFilter,
     page: pageParam,
   } = params;
 
   const currentPage = Math.max(1, parseInt(pageParam || "1", 10) || 1);
 
-  // Get filter options
-  const [museums, artists, movements, cities] = await Promise.all([
+  // Get filter options and type counts
+  const [museums, artists, movements, cities, typeCountsRaw] = await Promise.all([
     prisma.museum.findMany({
       select: { id: true, slug: true, name: true },
       orderBy: { name: "asc" },
@@ -67,7 +69,24 @@ export default async function SearchPage({ searchParams }: Props) {
       distinct: ["city"],
       orderBy: { city: "asc" },
     }),
+    prisma.artwork.groupBy({
+      by: ["artworkType"],
+      _count: true,
+    }),
   ]);
+
+  // Transform type counts into object
+  const typeCounts = {
+    painting: 0,
+    sculpture: 0,
+    print: 0,
+    drawing: 0,
+  };
+  typeCountsRaw.forEach((tc) => {
+    if (tc.artworkType in typeCounts) {
+      typeCounts[tc.artworkType as keyof typeof typeCounts] = tc._count;
+    }
+  });
 
   // Build where clause
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -105,8 +124,12 @@ export default async function SearchPage({ searchParams }: Props) {
     };
   }
 
+  if (typeFilter) {
+    whereClause.artworkType = typeFilter;
+  }
+
   // Check if any filters are active
-  const hasFilters = query || museumFilter || artistFilter || movementFilter || cityFilter;
+  const hasFilters = query || museumFilter || artistFilter || movementFilter || cityFilter || typeFilter;
 
   // Get total count and paginated artworks
   const artworkWhere = hasFilters ? whereClause : {};
@@ -116,7 +139,7 @@ export default async function SearchPage({ searchParams }: Props) {
   let rawArtworks;
   let totalArtworks;
 
-  if (query && !museumFilter && !artistFilter && !movementFilter && !cityFilter) {
+  if (query && !museumFilter && !artistFilter && !movementFilter && !cityFilter && !typeFilter) {
     // Use raw query for relevance scoring when only text search is active
     const searchTerm = `%${query}%`;
 
@@ -239,11 +262,18 @@ export default async function SearchPage({ searchParams }: Props) {
   }));
 
   // Get active filter names
+  const typeLabels: Record<string, string> = {
+    painting: "Paintings",
+    sculpture: "Sculptures",
+    print: "Prints",
+    drawing: "Drawings",
+  };
   const activeFilters = {
     museum: museumFilter ? museums.find((m) => m.slug === museumFilter)?.name : null,
     artist: artistFilter ? artists.find((a) => a.slug === artistFilter)?.name : null,
     movement: movementFilter ? movements.find((m) => m.slug === movementFilter)?.name : null,
     city: cityFilter,
+    type: typeFilter ? typeLabels[typeFilter] || typeFilter : null,
   };
 
   return (
@@ -304,8 +334,10 @@ export default async function SearchPage({ searchParams }: Props) {
                 artist: artistFilter,
                 movement: movementFilter,
                 city: cityFilter,
+                type: typeFilter,
               }}
               query={query}
+              typeCounts={typeCounts}
             />
           </div>
 
@@ -317,7 +349,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 <span className="text-sm text-neutral-500">Filters:</span>
                 {activeFilters.museum && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, artist: artistFilter || "", movement: movementFilter || "", city: cityFilter || "" }).toString()}`}
+                    href={`/search?${new URLSearchParams({ q: query, artist: artistFilter || "", movement: movementFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200"
                   >
                     {activeFilters.museum}
@@ -326,7 +358,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.artist && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", movement: movementFilter || "", city: cityFilter || "" }).toString()}`}
+                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", movement: movementFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200"
                   >
                     {activeFilters.artist}
@@ -335,7 +367,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.movement && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", city: cityFilter || "" }).toString()}`}
+                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm hover:bg-amber-200"
                   >
                     {activeFilters.movement}
@@ -344,10 +376,19 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.city && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", movement: movementFilter || "" }).toString()}`}
+                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", movement: movementFilter || "", type: typeFilter || "" }).toString()}`}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm hover:bg-purple-200"
                   >
                     {activeFilters.city}
+                    <span className="ml-1">×</span>
+                  </Link>
+                )}
+                {activeFilters.type && (
+                  <Link
+                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", movement: movementFilter || "", city: cityFilter || "" }).toString()}`}
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm hover:bg-teal-200"
+                  >
+                    {activeFilters.type}
                     <span className="ml-1">×</span>
                   </Link>
                 )}
@@ -445,6 +486,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(artistFilter && { artist: artistFilter }),
                                 ...(movementFilter && { movement: movementFilter }),
                                 ...(cityFilter && { city: cityFilter }),
+                                ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage - 1),
                               }).toString()}`}
                               className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
@@ -473,6 +515,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                       ...(artistFilter && { artist: artistFilter }),
                                       ...(movementFilter && { movement: movementFilter }),
                                       ...(cityFilter && { city: cityFilter }),
+                                      ...(typeFilter && { type: typeFilter }),
                                       page: String(page),
                                     }).toString()}`}
                                     className={`px-4 py-2 rounded-lg transition-colors ${
@@ -495,6 +538,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(artistFilter && { artist: artistFilter }),
                                 ...(movementFilter && { movement: movementFilter }),
                                 ...(cityFilter && { city: cityFilter }),
+                                ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage + 1),
                               }).toString()}`}
                               className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
