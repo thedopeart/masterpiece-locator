@@ -19,6 +19,7 @@ export interface Era {
   descriptionHtml: string; // Rich HTML with links and bold keywords
   keywords: string[];
   characteristics: string[];
+  whatToLookFor: string[]; // Tips for identifying art from this era
   faqs: EraFAQ[];
   color: string; // Tailwind color for timeline visualization
   heroImage?: string;
@@ -48,6 +49,16 @@ export const ERAS: Era[] = [
       'Anonymous artists working for the Church',
       'Illuminated manuscripts with intricate detail',
       'Gothic architecture and stained glass'
+    ],
+    whatToLookFor: [
+      'Gold backgrounds instead of realistic skies or landscapes',
+      'Figures facing forward with large, almond-shaped eyes (Byzantine influence)',
+      'Important figures (Christ, Mary) appear larger than others regardless of position',
+      'Flat, two-dimensional bodies with little sense of depth or shadow',
+      'Halos around holy figures, often decorated with intricate patterns',
+      'Rich blues made from expensive lapis lazuli (reserved for the Virgin Mary)',
+      'Ornate borders and decorative patterns filling empty spaces',
+      'Pointed Gothic arches and elongated, vertical figures in later works'
     ],
     faqs: [
       {
@@ -97,6 +108,16 @@ export const ERAS: Era[] = [
       'Sfumato (soft, smoky transitions)',
       'Humanism placing mankind at center'
     ],
+    whatToLookFor: [
+      'Converging lines leading to a vanishing point (linear perspective)',
+      'Realistic human anatomy with muscular definition and natural poses',
+      'Soft, hazy transitions between light and shadow (sfumato)',
+      'Classical architectural elements: columns, arches, domes',
+      'Triangular or pyramidal compositions creating visual stability',
+      'Figures with weight and volume standing on solid ground',
+      'Rich, luminous colors from oil paint glazing techniques',
+      'Landscapes with atmospheric perspective (distant objects bluer and hazier)'
+    ],
     faqs: [
       {
         question: "What is the Renaissance period in art?",
@@ -144,6 +165,16 @@ export const ERAS: Era[] = [
       'Dutch Golden Age genre scenes',
       'Rococo: lighter, pastel, aristocratic themes',
       'Illusionistic ceiling paintings'
+    ],
+    whatToLookFor: [
+      'Extreme contrast: figures emerging from pitch darkness into spotlight',
+      'Diagonal compositions creating movement and tension',
+      'Theatrical gestures and emotional facial expressions',
+      'Rich reds, golds, and deep shadows',
+      'Figures that seem to burst out of the picture plane',
+      'Swirling drapery and dynamic, twisting poses',
+      'Dutch works: quiet domestic scenes with soft window light',
+      'Rococo: pastel pinks and blues, cherubs, playful aristocratic scenes'
     ],
     faqs: [
       {
@@ -193,6 +224,16 @@ export const ERAS: Era[] = [
       'Post-Impressionism: color and form experiments',
       'Art for art\'s sake emerging'
     ],
+    whatToLookFor: [
+      'Romantic: dramatic skies, tiny figures dwarfed by nature, ruins, storms',
+      'Realism: ordinary people at work, no idealization, contemporary clothing',
+      'Impressionism: visible brushstrokes, outdoor scenes, dappled sunlight',
+      'Colors placed side by side rather than blended (optical mixing)',
+      'Shadows painted in blues and purples, not brown or black',
+      'Everyday subjects: cafes, train stations, picnics, ballet rehearsals',
+      'Post-Impressionism: bold outlines (Van Gogh), geometric forms (Cézanne)',
+      'Japanese influence: flat areas of color, unusual cropping, asymmetry'
+    ],
     faqs: [
       {
         question: "What are the major 19th century art movements?",
@@ -241,6 +282,16 @@ export const ERAS: Era[] = [
       'Manifestos and art movements',
       'Art as concept, not just object'
     ],
+    whatToLookFor: [
+      'Cubism: fragmented forms, multiple viewpoints shown simultaneously',
+      'Expressionism: distorted figures, intense non-naturalistic colors',
+      'Surrealism: dreamlike imagery, impossible combinations, melting forms',
+      'Abstract: no recognizable subject, pure color, shape, and line',
+      'Fauvism: wild, arbitrary colors (green faces, red trees)',
+      'Geometric abstraction: hard edges, primary colors, perfect shapes',
+      'Abstract Expressionism: large canvases, drips, splashes, color fields',
+      'Bold experimentation with materials: collage, found objects, industrial paint'
+    ],
     faqs: [
       {
         question: "What is Modern art?",
@@ -288,6 +339,16 @@ export const ERAS: Era[] = [
       'Digital and new media art',
       'Blurring art and commerce',
       'Identity politics and social commentary'
+    ],
+    whatToLookFor: [
+      'Concept over craft: the idea matters more than technical skill',
+      'Everyday objects presented as art (appropriation, ready-mades)',
+      'Installation: art that fills or transforms an entire room',
+      'Video, screens, and digital elements integrated into work',
+      'Text and language as visual elements',
+      'Pop culture imagery: celebrities, brands, memes',
+      'Provocative or shocking content designed to spark debate',
+      'No single dominant style: anything can be art if framed as such'
     ],
     faqs: [
       {

@@ -277,6 +277,30 @@ export default async function EraPage({ params }: Props) {
               />
             </div>
 
+            {/* What to Look For */}
+            {era.whatToLookFor && era.whatToLookFor.length > 0 && (
+              <div className="bg-amber-50 rounded-xl p-6 mb-8 border border-amber-200/50">
+                <h2 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  What to Look For
+                </h2>
+                <p className="text-sm text-neutral-600 mb-4">Spotting {era.name} art in museums and galleries:</p>
+                <ul className="grid gap-2">
+                  {era.whatToLookFor.map((tip, index) => (
+                    <li key={index} className="flex items-start gap-3 text-sm text-neutral-700">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-medium mt-0.5">
+                        {index + 1}
+                      </span>
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Mobile sidebar - shown on small screens */}
             <div className="lg:hidden space-y-4 mb-8">
               {/* Quick Stats */}

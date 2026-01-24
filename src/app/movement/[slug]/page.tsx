@@ -8,6 +8,7 @@ import FAQ, { FAQSchema } from "@/components/FAQ";
 import { createMetaTitle, createMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
 import { getMovementEnrichment } from "@/lib/movementEnrichments";
+import { getEraForYear, getEraSolidColorClass } from "@/lib/eras";
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateMovementFAQs(movement: {
@@ -162,6 +163,35 @@ export default async function MovementPage({ params }: Props) {
   // Calculate total artworks across all artists
   const totalArtworks = movement.artists.reduce((sum, a) => sum + a._count.artworks, 0);
 
+  // Get the era for this movement
+  const era = movement.startYear ? getEraForYear(movement.startYear) : null;
+
+  // Fetch related movements from the same era
+  const rawRelatedMovements = movement.startYear ? await prisma.movement.findMany({
+    where: {
+      AND: [
+        { id: { not: movement.id } },
+        { startYear: { gte: era?.startYear ?? movement.startYear - 50 } },
+        { startYear: { lt: era?.endYear ?? movement.startYear + 100 } },
+      ],
+    },
+    select: {
+      id: true,
+      slug: true,
+      name: true,
+      startYear: true,
+      endYear: true,
+      _count: { select: { Artist: true } },
+    },
+    orderBy: { startYear: 'asc' },
+    take: 6,
+  }) : [];
+
+  const relatedMovements = rawRelatedMovements.map(m => ({
+    ...m,
+    name: decodeHtmlEntities(m.name),
+  }));
+
   return (
     <div className="bg-white min-h-screen">
       <div className="max-w-[1400px] mx-auto px-4 py-8">
@@ -216,6 +246,36 @@ export default async function MovementPage({ params }: Props) {
                 })()}
               </div>
             </div>
+
+            {/* What to Look For */}
+            {(() => {
+              const enrichment = getMovementEnrichment(movement.slug);
+              if (enrichment?.whatToLookFor && enrichment.whatToLookFor.length > 0) {
+                return (
+                  <div className="bg-amber-50 rounded-xl p-6 mb-8 border border-amber-200/50">
+                    <h2 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                      <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                      What to Look For
+                    </h2>
+                    <p className="text-sm text-neutral-600 mb-4">Spotting {movement.name} art in museums and galleries:</p>
+                    <ul className="grid gap-2">
+                      {enrichment.whatToLookFor.map((tip, index) => (
+                        <li key={index} className="flex items-start gap-3 text-sm text-neutral-700">
+                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-medium mt-0.5">
+                            {index + 1}
+                          </span>
+                          {tip}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
+              return null;
+            })()}
 
             {/* Mobile sidebar - shown on small screens */}
             <div className="lg:hidden space-y-4 mb-8">
@@ -412,6 +472,53 @@ export default async function MovementPage({ params }: Props) {
                     {movement.artists.slice(0, 3).map(a => a.name).join(", ")}
                     {movement.artists.length > 3 && ` and ${movement.artists.length - 3} more`}
                   </p>
+                </div>
+              )}
+
+              {/* Related Movements */}
+              {relatedMovements.length > 0 && (
+                <div className="bg-neutral-50 rounded-xl p-5 border border-neutral-200">
+                  <h3 className="font-semibold text-neutral-900 mb-3">
+                    Related Movements
+                    {era && (
+                      <Link
+                        href={`/era/${era.slug}`}
+                        className="ml-2 text-xs font-normal text-neutral-500 hover:text-[#C9A84C]"
+                      >
+                        ({era.shortName})
+                      </Link>
+                    )}
+                  </h3>
+                  <div className="space-y-2">
+                    {relatedMovements.map((related) => {
+                      const relatedEra = related.startYear ? getEraForYear(related.startYear) : null;
+                      return (
+                        <Link
+                          key={related.id}
+                          href={`/movement/${related.slug}`}
+                          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors hover:bg-neutral-100 group"
+                        >
+                          {relatedEra && (
+                            <div className={`w-2 h-2 rounded-full ${getEraSolidColorClass(relatedEra)}`} />
+                          )}
+                          <span className="flex-1 text-neutral-700 group-hover:text-neutral-900">
+                            {related.name}
+                          </span>
+                          <span className="text-xs text-neutral-400">
+                            {related.startYear}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  {era && (
+                    <Link
+                      href={`/era/${era.slug}`}
+                      className="mt-3 block text-center text-sm text-[#C9A84C] hover:underline"
+                    >
+                      View all {era.shortName} movements →
+                    </Link>
+                  )}
                 </div>
               )}
 
