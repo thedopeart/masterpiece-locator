@@ -7,8 +7,12 @@ import { Metadata } from "next";
 import ArtworkCard from "@/components/ArtworkCard";
 import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import MuseumPracticalInfo from "@/components/MuseumPracticalInfo";
+import MuseumSchema from "@/components/MuseumSchema";
+import { MuseumPracticalFAQStatic } from "@/components/MuseumPracticalFAQ";
 import { museumMetaTitle, museumMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
+import { getMuseumPracticalData, getHoursSummary } from "@/lib/museum-hours";
 
 // Generate factual FAQs - only data we actually have, no templated filler
 function generateMuseumFAQs(museum: {
@@ -68,13 +72,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!museum) return { title: "Museum Not Found" };
 
+  // Check if we have practical data for enhanced meta
+  const practicalData = getMuseumPracticalData(slug);
+
   // Get top works and artists for keyword-rich meta
   const topWorks = museum.Artwork.slice(0, 2).map(a => a.title);
   const topArtists = [...new Set(museum.Artwork.filter(a => a.Artist).map(a => a.Artist!.name))].slice(0, 2);
 
-  // Keyword-focused with character limits (60 title, 160 description)
-  const title = museumMetaTitle(museum.name, museum.Artwork.length);
-  const description = museumMetaDescription(museum.name, museum.city, museum.Artwork.length, topArtists, topWorks);
+  // Enhanced title with hours info if available
+  const title = practicalData
+    ? `${museum.name} Hours, Tickets & Visitor Guide | Masterpiece Finder`
+    : museumMetaTitle(museum.name, museum.Artwork.length);
+
+  // Enhanced description with hours and prices if available
+  const description = practicalData
+    ? `Plan your visit to ${museum.name}. ${getHoursSummary(practicalData.hours)}. Admission: ${practicalData.admission.adult === 0 ? 'Free' : `${practicalData.admission.currency === 'USD' ? '$' : practicalData.admission.currency === 'GBP' ? '£' : '€'}${practicalData.admission.adult}`}. Plus insider tips and must-see masterpieces.`
+    : museumMetaDescription(museum.name, museum.city, museum.Artwork.length, topArtists, topWorks);
 
   return {
     title,
@@ -193,13 +206,20 @@ export default async function MuseumPage({ params }: Props) {
     { name: museum.name },
   ];
 
+  // Get practical data if available
+  const practicalData = getMuseumPracticalData(slug);
+
   return (
     <div className="bg-white">
       {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {practicalData ? (
+        <MuseumSchema data={practicalData} imageUrl={museum.imageUrl || undefined} />
+      ) : (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero */}
@@ -287,60 +307,64 @@ export default async function MuseumPage({ params }: Props) {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            {/* Visiting Info */}
-            <div className="bg-amber-50 rounded-xl p-6 mb-6">
-              <h2 className="text-lg font-semibold text-neutral-900 mb-4">
-                Visitor Information
-              </h2>
+            {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
+            {practicalData ? (
+              <MuseumPracticalInfo data={practicalData} />
+            ) : (
+              <div className="bg-amber-50 rounded-xl p-6 mb-6">
+                <h2 className="text-lg font-semibold text-neutral-900 mb-4">
+                  Visitor Information
+                </h2>
 
-              {museum.address && (
-                <div className="mb-4">
-                  <h3 className="text-sm font-medium text-neutral-700 mb-1">
-                    Museum Address
-                  </h3>
-                  <p className="text-neutral-600">{museum.address}</p>
-                  <p className="text-neutral-600">
-                    {museum.city}, {museum.country}
-                  </p>
-                </div>
-              )}
-
-              {museum.ticketPriceRange && (
-                <div className="mb-4">
-                  <h3 className="text-sm font-medium text-neutral-700 mb-1">
-                    Ticket Prices
-                  </h3>
-                  <p className="text-neutral-600">{museum.ticketPriceRange}</p>
-                </div>
-              )}
-
-              <div className="flex flex-col gap-2 mt-4">
-                {museum.websiteUrl && (
-                  <a
-                    href={museum.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#C9A84C] hover:underline"
-                  >
-                    Official Website →
-                  </a>
+                {museum.address && (
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-neutral-700 mb-1">
+                      Museum Address
+                    </h3>
+                    <p className="text-neutral-600">{museum.address}</p>
+                    <p className="text-neutral-600">
+                      {museum.city}, {museum.country}
+                    </p>
+                  </div>
                 )}
-                {museum.ticketUrl && (
-                  <a
-                    href={museum.ticketUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-[#C9A84C] text-black text-center px-4 py-2 rounded-lg hover:bg-[#b8973f] transition-colors"
-                  >
-                    Buy Tickets
-                  </a>
+
+                {museum.ticketPriceRange && (
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-neutral-700 mb-1">
+                      Ticket Prices
+                    </h3>
+                    <p className="text-neutral-600">{museum.ticketPriceRange}</p>
+                  </div>
                 )}
+
+                <div className="flex flex-col gap-2 mt-4">
+                  {museum.websiteUrl && (
+                    <a
+                      href={museum.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#C9A84C] hover:underline"
+                    >
+                      Official Website →
+                    </a>
+                  )}
+                  {museum.ticketUrl && (
+                    <a
+                      href={museum.ticketUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-[#C9A84C] text-black text-center px-4 py-2 rounded-lg hover:bg-[#b8973f] transition-colors"
+                    >
+                      Buy Tickets
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Artists at this Museum */}
             {artists.length > 0 && (
-              <div className="bg-neutral-50 rounded-xl p-6">
+              <div className={`bg-neutral-50 rounded-xl p-6 ${practicalData ? 'mt-6' : ''}`}>
                 <h2 className="text-lg font-semibold text-neutral-900 mb-2">
                   Featured Artists
                 </h2>
@@ -395,8 +419,10 @@ export default async function MuseumPage({ params }: Props) {
           </div>
         </div>
 
-        {/* FAQ Section - use database FAQs if available, otherwise generate */}
-        {(() => {
+        {/* FAQ Section - use practical data FAQs if available, then database, then generate basic */}
+        {practicalData ? (
+          <MuseumPracticalFAQStatic data={practicalData} />
+        ) : (() => {
           const dbFaqs = rawMuseum.faqs as { question: string; answer: string }[] | null;
           const faqs = (dbFaqs && dbFaqs.length > 0) ? dbFaqs : generateMuseumFAQs(museum);
           return faqs.length > 0 ? (

@@ -1,0 +1,127 @@
+{
+  "slug": "national-gallery",
+  "name": "National Gallery",
+  "shortName": "National Gallery",
+  "location": {
+    "address": "Trafalgar Square",
+    "city": "London",
+    "state": null,
+    "postalCode": "WC2N 5DN",
+    "country": "UK",
+    "neighborhood": "Westminster",
+    "coordinates": {
+      "lat": 51.5089,
+      "lng": -0.1283
+    }
+  },
+  "contact": {
+    "phone": "+44 20 7747 2885",
+    "website": "https://www.nationalgallery.org.uk",
+    "email": "hello@nationalgallery.org.uk"
+  },
+  "hours": {
+    "regular": {
+      "sunday": { "open": "10:00", "close": "18:00" },
+      "monday": { "open": "10:00", "close": "18:00" },
+      "tuesday": { "open": "10:00", "close": "18:00" },
+      "wednesday": { "open": "10:00", "close": "18:00" },
+      "thursday": { "open": "10:00", "close": "18:00" },
+      "friday": { "open": "10:00", "close": "21:00" },
+      "saturday": { "open": "10:00", "close": "18:00" }
+    },
+    "exceptions": [
+      { "date": "2026-01-01", "closed": true, "reason": "New Year's Day" },
+      { "date": "2026-12-24", "closed": true, "reason": "Christmas Eve" },
+      { "date": "2026-12-25", "closed": true, "reason": "Christmas Day" },
+      { "date": "2026-12-26", "closed": true, "reason": "Boxing Day" }
+    ],
+    "notes": "Late opening Friday until 9pm. Main entrance via Sainsbury Wing on Trafalgar Square.",
+    "lastUpdated": "2026-01-23"
+  },
+  "admission": {
+    "adult": 0,
+    "senior": 0,
+    "seniorAge": null,
+    "student": 0,
+    "child": 0,
+    "childMaxAge": 18,
+    "currency": "GBP",
+    "notes": "General admission is FREE. Charges apply for some special exhibitions. Donations welcome.",
+    "freeDay": "Every day",
+    "freeHours": "All hours",
+    "memberFree": true
+  },
+  "tickets": {
+    "onlineUrl": "https://my.nationalgallery.org.uk/events",
+    "advanceRequired": false,
+    "advanceRecommended": true,
+    "advanceWindow": "30 days",
+    "sameDayAvailable": true,
+    "skipTheLine": true,
+    "affiliateUrl": null
+  },
+  "crowdData": {
+    "overall": "Very Popular",
+    "bestDays": ["monday", "tuesday", "wednesday"],
+    "worstDays": ["saturday", "sunday"],
+    "bestTimes": ["10:00-11:00", "16:00-18:00"],
+    "worstTimes": ["12:00-15:00"],
+    "bestMonths": ["january", "february", "march"],
+    "worstMonths": ["july", "august", "december"],
+    "seasonalNotes": "Free admission means it's always busy, especially on weekends. Friday evenings are excellent for a quieter visit.",
+    "avgVisitDuration": "2-3 hours",
+    "recommendedDuration": "2-3 hours for highlights, half day for thorough visit"
+  },
+  "tips": [
+    "Entrance is via the Sainsbury Wing on Trafalgar Square",
+    "Friday late opening until 9pm is the best time for fewer crowds",
+    "Download the free app for audio guides and navigation",
+    "The Roden Centre for Creative Learning is great for families",
+    "Book a free general admission ticket online for faster entry",
+    "Cloakroom costs 3 GBP per item (free for members)",
+    "No large bags or wheeled luggage allowed"
+  ],
+  "accessibility": {
+    "wheelchairAccessible": true,
+    "wheelchairsAvailable": true,
+    "wheelchairReservation": true,
+    "audioGuide": true,
+    "audioGuideLanguages": ["en", "fr", "de", "es", "it", "zh", "ja"],
+    "signLanguageTours": true,
+    "brailleGuides": true,
+    "serviceAnimals": true
+  },
+  "amenities": {
+    "restaurant": true,
+    "cafe": true,
+    "giftShop": true,
+    "coatCheck": true,
+    "lockers": false,
+    "wifi": true,
+    "parking": false,
+    "nearbyParking": "Blue Badge parking on Orange Street. Public car parks at Leicester Square and Trafalgar Square."
+  },
+  "mustSee": [
+    {
+      "artwork": "sunflowers",
+      "name": "Sunflowers",
+      "artist": "Vincent van Gogh",
+      "location": "Room 43",
+      "note": "One of several versions, this one painted in 1888"
+    },
+    {
+      "artwork": "the-fighting-temeraire",
+      "name": "The Fighting Temeraire",
+      "artist": "J.M.W. Turner",
+      "location": "Room 34",
+      "note": "Voted Britain's favorite painting"
+    },
+    {
+      "artwork": "arnolfini-portrait",
+      "name": "The Arnolfini Portrait",
+      "artist": "Jan van Eyck",
+      "location": "Room 56",
+      "note": "Remarkable early Flemish masterpiece from 1434"
+    }
+  ]
+}

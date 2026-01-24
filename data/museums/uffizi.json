@@ -1,0 +1,125 @@
+{
+  "slug": "uffizi-gallery-florence",
+  "name": "Uffizi Gallery",
+  "shortName": "Uffizi",
+  "location": {
+    "address": "Piazzale degli Uffizi 6",
+    "city": "Florence",
+    "state": null,
+    "postalCode": "50122",
+    "country": "Italy",
+    "neighborhood": "Historic Centre",
+    "coordinates": {
+      "lat": 43.7687,
+      "lng": 11.2553
+    }
+  },
+  "contact": {
+    "phone": "+39 055 294883",
+    "website": "https://www.uffizi.it",
+    "email": null
+  },
+  "hours": {
+    "regular": {
+      "sunday": { "open": "08:15", "close": "18:30" },
+      "monday": { "open": null, "close": null, "closed": true },
+      "tuesday": { "open": "08:15", "close": "18:30" },
+      "wednesday": { "open": "08:15", "close": "18:30" },
+      "thursday": { "open": "08:15", "close": "18:30" },
+      "friday": { "open": "08:15", "close": "18:30" },
+      "saturday": { "open": "08:15", "close": "18:30" }
+    },
+    "exceptions": [
+      { "date": "2026-01-01", "closed": true, "reason": "New Year's Day" },
+      { "date": "2026-12-25", "closed": true, "reason": "Christmas Day" }
+    ],
+    "notes": "Ticket office closes at 5:30pm. Visitors are invited to exit at 6:30pm. Closed Mondays.",
+    "lastUpdated": "2026-01-23"
+  },
+  "admission": {
+    "adult": 25,
+    "senior": 25,
+    "seniorAge": null,
+    "student": 2,
+    "child": 0,
+    "childMaxAge": 18,
+    "currency": "EUR",
+    "notes": "Walk-up tickets 25 EUR, advance online 29 EUR. Reduced rate 2 EUR for EU students. Free for under 18s and EU residents under 26. Groups of 11+ pay 70 EUR extra fee.",
+    "freeDay": null,
+    "freeHours": null,
+    "memberFree": true
+  },
+  "tickets": {
+    "onlineUrl": "https://www.uffizi.it/en/online-ticket-office",
+    "advanceRequired": false,
+    "advanceRecommended": true,
+    "advanceWindow": "3 months",
+    "sameDayAvailable": true,
+    "skipTheLine": true,
+    "affiliateUrl": null
+  },
+  "crowdData": {
+    "overall": "Extremely Popular",
+    "bestDays": ["tuesday", "wednesday", "thursday"],
+    "worstDays": ["saturday", "sunday"],
+    "bestTimes": ["08:15-10:00", "16:00-18:30"],
+    "worstTimes": ["10:00-15:00"],
+    "bestMonths": ["november", "january", "february"],
+    "worstMonths": ["june", "july", "august", "april"],
+    "seasonalNotes": "Easter and summer are extremely crowded. Advance booking is essential during peak season. Early morning arrival is highly recommended.",
+    "avgVisitDuration": "2-3 hours",
+    "recommendedDuration": "3 hours minimum, 4 hours for thorough visit"
+  },
+  "tips": [
+    "Book tickets online in advance. Walk-up lines can be 2+ hours during peak season",
+    "Arrive right at opening (8:15am) for the shortest crowds",
+    "The Botticelli rooms get the most crowded. Visit first or last",
+    "Start at the top floor and work your way down",
+    "The Vasari Corridor requires separate booking and additional fee",
+    "Audio guides cost 6 EUR and are available at the entrance",
+    "5-day PassePartout tickets include Palazzo Pitti and Boboli Gardens"
+  ],
+  "accessibility": {
+    "wheelchairAccessible": true,
+    "wheelchairsAvailable": false,
+    "wheelchairReservation": false,
+    "audioGuide": true,
+    "audioGuideLanguages": ["en", "it", "fr", "es", "de", "pl", "ru", "ja"],
+    "signLanguageTours": false,
+    "brailleGuides": false,
+    "serviceAnimals": true
+  },
+  "amenities": {
+    "restaurant": false,
+    "cafe": true,
+    "giftShop": true,
+    "coatCheck": true,
+    "lockers": false,
+    "wifi": false,
+    "parking": false,
+    "nearbyParking": "Public parking at Piazza del Carmine or Fortezza da Basso"
+  },
+  "mustSee": [
+    {
+      "artwork": "birth-of-venus",
+      "name": "The Birth of Venus",
+      "artist": "Sandro Botticelli",
+      "location": "Rooms 10-14",
+      "note": "The most iconic painting in the Uffizi"
+    },
+    {
+      "artwork": "primavera",
+      "name": "Primavera",
+      "artist": "Sandro Botticelli",
+      "location": "Rooms 10-14",
+      "note": "Allegory of spring, one of the world's most famous paintings"
+    },
+    {
+      "artwork": "annunciation-leonardo",
+      "name": "Annunciation",
+      "artist": "Leonardo da Vinci",
+      "location": "Room 35",
+      "note": "Early masterwork by Leonardo"
+    }
+  ]
+}

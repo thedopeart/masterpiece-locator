@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete.
 
-**Last Updated:** 2026-01-23T19:00
+**Last Updated:** 2026-01-24T00:07
 
-**Progress:** 2328/3649 complete
+**Progress:** 2396/3649 complete
 
 ---
 
@@ -434,8 +434,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | joaquin-sorolla-academic-study-from-life | Academic study from life | Joaquín Sorolla | Museu de Belles Arts de València, Valencia | - |
 | DONE | jan-steen-action-proves-the-man | Action Proves the Man | Jan Steen | National Gallery | - |
 | DONE | rembrandt-adam-and-eva | Adam and Eva | Rembrandt van Rijn | National Gallery | - |
-| DONE | rembrandt-adam-and-eve | Adam and Eve | Rembrandt van Rijn | Art Institute of Chicago | - |
 | DONE | george-frederick-watts-adam-and-eve | Adam and Eve | George Frederick Watts | Private Collection | - |
+| DONE | rembrandt-adam-and-eve | Adam and Eve | Rembrandt van Rijn | Art Institute of Chicago | - |
 | DONE | lucas-cranach-elder-adam-and-eve-in-paradise | Adam and Eve in Paradise | Lucas Cranach the Elder | Israel Museum, Jerusalem | - |
 | DONE | jan-van-eyck-adam-from-the-left-wing-of-the-ghent-altarpiece | Adam, from the left wing of the Ghent Altarpiece | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
 | DONE | fra-angelico-adoration-and-annunciation | Adoration and Annunciation | Fra Angelico | Basilica di San Marco, Florence | - |
@@ -505,9 +505,9 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | august-macke-anglers160on-the-rhine | Anglers on the Rhine | August Macke | Lenbachhaus | - |
 | DONE | lucas-cranach-elder-anna-cuspinian | Anna Cuspinian | Lucas Cranach the Elder | Oskar Reinhart Foundation, Winterthur | - |
 | DONE | mikhail-vrubel-anna-karenina-meets-her-son | Anna Karenina meets her son | Mikhail Vrubel | State Russian Museum | - |
-| DONE | leonardo-da-vinci-annunciation | Annunciation | Leonardo da Vinci | Uffizi Gallery, Florence | - |
 | DONE | giovanni-battista-tiepolo-annunciation | Annunciation | Giovanni Battista Tiepolo | State Hermitage Museum | - |
 | DONE | luca-signorelli-annunciation | Annunciation | Luca Signorelli | Basilica of San Francesco, Arezzo | - |
+| DONE | leonardo-da-vinci-annunciation | Annunciation | Leonardo da Vinci | Uffizi Gallery, Florence | - |
 | DONE | fra-angelico-annunciation | Annunciation | Fra Angelico | Museo del Prado, Madrid | - |
 | DONE | hans-memling-annunciation | Annunciation | Hans Memling | Groeningemuseum | - |
 | DONE | piero-della-francesca-annunciation-detail | Annunciation (detail) | Piero della Francesca | Basilica of San Francesco, Arezzo | - |
@@ -636,8 +636,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | pieter-bruegel-elder-big-fishes-eat-small-fishes | Big fishes eat small fishes | Pieter Bruegel the Elder | Albertina, Vienna | - |
 | DONE | gustave-caillebotte-billiards | Billiards | Gustave Caillebotte | Private Collection | - |
 | DONE | emanuel-leutze-bird-nesting | Bird Nesting | Emanuel Leutze | Smithsonian American Art Museum | - |
-| DONE | perugino-birth-of-the-virgin | Birth of the Virgin | Perugino | Walker Art Gallery | - |
 | DONE | francisco-de-zurbaran-birth-of-the-virgin | Birth of the Virgin | Francisco de Zurbarán | Norton Simon Museum, Pasadena, CA | - |
+| DONE | perugino-birth-of-the-virgin | Birth of the Virgin | Perugino | Walker Art Gallery | - |
 | DONE | alphonse-mucha-biscuits-champagne-lef232vre-utile | Biscuits Champagne Lefèvre Utile | Alphonse Mucha | Private Collection | - |
 | DONE | alphonse-mucha-biscuits-lefevre-utile | Biscuits Lefevre Utile | Alphonse Mucha | Private Collection | - |
 | DONE | otto-mueller-blaue-badende | Blaue Badende | Otto Mueller | Private Collection | - |
@@ -816,12 +816,12 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | bernardino-luini-cruciferous-christus | Cruciferous Christus | Bernardino Luini | Kunsthistorisches Museum | - |
 | DONE | cimabue-crucifix | Crucifix | Cimabue | Basilica of San Domenico, Arezzo | - |
 | DONE | masaccio-crucifixion | Crucifixion | Masaccio | Private Collection | - |
-| DONE | rogier-van-der-weyden-crucifixion | Crucifixion | Rogier van der Weyden | Kunsthistorisches Museum | - |
 | DONE | matthias-grunewald-crucifixion | Crucifixion | Matthias Grünewald | Staatliche Kunsthalle Karlsruhe, Karlsruhe | - |
 | DONE | franz-von-stuck-crucifixion | Crucifixion | Franz von Stuck | Private Collection | - |
+| DONE | rogier-van-der-weyden-crucifixion | Crucifixion | Rogier van der Weyden | Kunsthistorisches Museum | - |
 | DONE | raphael-crucifixion | Crucifixion | Raphael | National Gallery | - |
-| DONE | michelangelo-crucifixion | Crucifixion | Michelangelo | Casa Buonarroti, Florence | - |
 | DONE | robert-campin-crucifixion | Crucifixion | Robert Campin | Gemäldegalerie, Berlin | - |
+| DONE | michelangelo-crucifixion | Crucifixion | Michelangelo | Casa Buonarroti, Florence | - |
 | DONE | piero-della-francesca-crucifixion | Crucifixion | Piero della Francesca | Frick Collection | - |
 | DONE | jan-van-eyck-crucifixion-and-last-judgement-diptych | Crucifixion and Last Judgement diptych | Jan van Eyck | The Metropolitan Museum of Art | - |
 | DONE | masaccio-crucifixion-of-st-peter | Crucifixion of St. Peter | Masaccio | Private Collection | - |
@@ -912,8 +912,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | rembrandt-diana-at-the-bath | Diana at the bath | Rembrandt van Rijn | Private Collection | - |
 | DONE | francois-boucher-diana-getting-out-of-her-bath | Diana getting out of her bath | François Boucher | Louvre, Paris | - |
 | DONE | edgar-degas-diego-martelli | Diego Martelli | Edgar Degas | Cleveland Museum of Art | - |
-| DONE | jules-bastien-lepage-diogenes | Diogenes | Jules Bastien-Lepage | Musée Marmottan Monet | - |
 | DONE | john-william-waterhouse-diogenes | Diogenes | John William Waterhouse | Art Gallery of New South Wales (AGNSW), Sydney | - |
+| DONE | jules-bastien-lepage-diogenes | Diogenes | Jules Bastien-Lepage | Musée Marmottan Monet | - |
 | DONE | salvator-rosa-diogenes-casting-away-his-cup | Diogenes Casting Away His Cup | Salvator Rosa | Private Collection | - |
 | DONE | salvator-rosa-diogenes-throwing-away-his-drinking-cup | Diogenes Throwing Away His Drinking Cup. | Salvator Rosa | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
 | DONE | raphael-diotalevi-madonna | Diotalevi Madonna | Raphael | Private Collection | - |
@@ -1298,8 +1298,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | vilhelm-hammershoi-interior-from-strandgade-with-sunlight-on-the-floo | Interior from Strandgade with Sunlight on the Floor | Vilhelm Hammershøi | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
 | DONE | pieter-de-hooch-interior-of-a-dutch-house | Interior of a Dutch House | Pieter de Hooch | Louvre, Paris | - |
 | DONE | gustave-caillebotte-interior-of-a-studio | Interior of a Studio | Gustave Caillebotte | Private Collection | - |
-| DONE | adriaen-brouwer-interior-of-a-tavern | Interior of a Tavern | Adriaen Brouwer | Dulwich Picture Gallery | - |
 | DONE | adriaen-van-ostade-interior-of-a-tavern | Interior of a Tavern | Adriaen van Ostade | Louvre, Paris | - |
+| DONE | adriaen-brouwer-interior-of-a-tavern | Interior of a Tavern | Adriaen Brouwer | Dulwich Picture Gallery | - |
 | DONE | adriaen-van-ostade-interior-of-a-tavern-with-violin-player | Interior of a Tavern with Violin Player | Adriaen van Ostade | Private Collection | - |
 | DONE | adriaen-van-ostade-interior-of-an-inn | Interior of an Inn | Adriaen van Ostade | State Hermitage Museum | - |
 | DONE | william-merritt-chase-interior-of-the-baptistry-at-st-mark39s | Interior of the Baptistry at St. Mark's | William Merritt Chase | Private Collection | - |
@@ -1314,7 +1314,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | interior-young-woman-behind | Interior with Young Woman from Behind | Vilhelm Hammershøi | Ny Carlsberg Glyptotek | - |
 | DONE | piet-mondrian-irrigation-ditch-with-mature-willow | Irrigation Ditch with Mature Willow | Piet Mondrian | Private Collection | - |
 | DONE | giotto-isaac-blessing-jacob | Isaac Blessing Jacob | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
-| TODO | william-blake-isaac-newton | Isaac Newton | William Blake | Tate Modern, London | - |
+| DONE | william-blake-isaac-newton | Isaac Newton | William Blake | Tate Modern, London | - |
 | DONE | giotto-isaac-rejecting-esau | Isaac Rejecting Esau | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
 | TODO | john-everett-millais-isabella | Isabella | John Everett Millais | Walker Art Gallery | - |
 | DONE | jan-van-eyck-isabella-borluut-panel-from-the-ghent-altarpiece | Isabella Borluut, panel from the Ghent Altarpiece | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
@@ -1326,12 +1326,12 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | leon-bonnat-italian-mother | Italian mother | Léon Bonnat | Musée Bonnat-Helleu | - |
 | DONE | jean-antoine-watteau-italian-recreation | Italian Recreation | Jean-Antoine Watteau | Schloss Charlottenburg, Berlin | - |
 | TODO | john-william-waterhouse-its-sweet-doing-nothing | Its sweet doing nothing | John William Waterhouse | Kirkcaldy Galleries, Kirkcaldy | - |
-| TODO | ivan-tsarevich-riding-grey-wolf | Ivan Tsarevich Riding the Grey Wolf | Viktor Vasnetsov | State Russian Museum | - |
+| DONE | ivan-tsarevich-riding-grey-wolf | Ivan Tsarevich Riding the Grey Wolf | Viktor Vasnetsov | State Russian Museum | - |
 | DONE | ford-madox-brown-jacob-and-joseph39s-coat | Jacob and Joseph's Coat | Ford Madox Brown | Private Collection | - |
 | TODO | rembrandt-jacob-haring-portrait-the-old-haring- | Jacob Haring Portrait (The Old Haring ) | Rembrandt van Rijn | State Hermitage Museum | - |
 | TODO | rembrandt-jacob-with-laban | Jacob with Laban | Rembrandt van Rijn | National Gallery | - |
 | TODO | frans-hals-jacobus-zaffius | Jacobus Zaffius | Frans Hals | Frans Hals Museum, Haarlem | - |
-| TODO | artemisia-gentileschi-jael-and-sisera | Jael and Sisera | Artemisia Gentileschi | Budapest Museum of Fine Arts, Budapest | - |
+| DONE | artemisia-gentileschi-jael-and-sisera | Jael and Sisera | Artemisia Gentileschi | Budapest Museum of Fine Arts, Budapest | - |
 | TODO | joshua-reynolds-james-fitzgerald-duke-of-leinster | James FitzGerald, Duke of Leinster | Joshua Reynolds | Private Collection | - |
 | TODO | john-everett-millais-james-wyatt-and-his-granddaughter-mary | James Wyatt and His Granddaughter Mary | John Everett Millais | Private Collection | - |
 | TODO | rembrandt-jan-cornelis-sylvius | Jan Cornelis Sylvius | Rembrandt van Rijn | Cleveland Museum of Art | - |
@@ -1392,7 +1392,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | vasily-surikov-khakasy-with-his-feet-bound-with-chains | Khakasy with his feet bound with chains | Vasily Surikov | Private Collection | - |
 | DONE | alonso-cano-kings-of-the-visigoths | Kings of the Visigoths | Alonso Cano | Museo del Prado, Madrid | - |
 | TODO | diego-velazquez-kitchen-scene-with-the-supper-in-emmaus | Kitchen Scene with the Supper in Emmaus | Diego Velázquez | Private Collection | - |
-| TODO | gustav-klimt-klara-klimt | Klara Klimt | Gustav Klimt | Leopold Museum, Vienna | - |
+| DONE | gustav-klimt-klara-klimt | Klara Klimt | Gustav Klimt | Leopold Museum, Vienna | - |
 | TODO | cimabue-kristi-gripande-detail | Kristi gripande (detail) | Cimabue | Basilica of Saint Francis of Assisi, Assisi | - |
 | DONE | gustave-courbet-la-bacchante | La Bacchante | Gustave Courbet | Private Collection | - |
 | DONE | palma-vecchio-la-bella | La Bella | Palma Vecchio | Thyssen-Bornemisza Museum, Madrid | - |
@@ -1408,8 +1408,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | george-inness-lake-albano-italy | Lake Albano (Italy) | George Inness | The Phillips Collection | - |
 | TODO | john-frederick-kensett-lake-george | Lake George | John Frederick Kensett | The Metropolitan Museum of Art | - |
 | TODO | thomas-cole-lake-with-dead-trees-catskill | Lake with Dead Trees (Catskill) | Thomas Cole | Allen Memorial Art Museum (AMAM), Oberlin, OH | - |
-| DONE | edgar-degas-landscape | Landscape | Edgar Degas | Private Collection | - |
 | TODO | chaim-soutine-landscape | Landscape | Chaim Soutine | Private Collection | - |
+| DONE | edgar-degas-landscape | Landscape | Edgar Degas | Private Collection | - |
 | TODO | adriaen-van-ostade-landscape | Landscape | Adriaen van Ostade | Museum Boijmans van Beuningen, Rotterdam | - |
 | TODO | paul-cezanne-landscape | Landscape | Paul Cézanne | Private Collection | - |
 | TODO | chaim-soutine-landscape-at-cagnes | Landscape at Cagnes | Chaim Soutine | Private Collection | - |
@@ -1418,7 +1418,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | camille-pissarro-landscape-at-le-varenne-saint-hilaire | Landscape at Le Varenne Saint Hilaire | Camille Pissarro | Private Collection | - |
 | TODO | edgar-degas-landscape-at-valerysursomme | Landscape at Valery-sur-Somme | Edgar Degas | The Metropolitan Museum of Art | - |
 | TODO | thomas-cole-landscape-composition-st-john-in-the-wilderness | Landscape Composition. St John in the Wilderness | Thomas Cole | Wadsworth Atheneum | - |
-| TODO | leonardo-da-vinci-landscape-drawing-for-santa-maria-della-neve | Landscape drawing for Santa Maria della Neve | Leonardo da Vinci | Uffizi Gallery, Florence | - |
+| DONE | leonardo-da-vinci-landscape-drawing-for-santa-maria-della-neve | Landscape drawing for Santa Maria della Neve | Leonardo da Vinci | Uffizi Gallery, Florence | - |
 | TODO | raoul-dufy-landscape-in-falaise | Landscape in Falaise | Raoul Dufy | Private Collection | - |
 | TODO | egon-schiele-landscape-in-lower-austria | Landscape in Lower Austria | Egon Schiele | Private Collection | - |
 | DONE | thomas-gainsborough-landscape-in-suffolk | Landscape in Suffolk | Thomas Gainsborough | Kunsthistorisches Museum | - |
@@ -1448,7 +1448,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | thomas-gainsborough-landscape-with-a-woodcutter-and-milkmaid | Landscape with a Woodcutter and Milkmaid | Thomas Gainsborough | Private Collection | - |
 | DONE | adriaen-van-ostade-landscape-with-an-old-oak | Landscape with an Old Oak | Adriaen van Ostade | Rijksmuseum | - |
 | TODO | salvator-rosa-landscape-with-armed-men | Landscape with Armed Men | Salvator Rosa | Los Angeles County Museum of Art (LACMA), Los Angeles, CA | - |
-| TODO | joachim-patinir-landscape-with-charon-crossing-the-styx | Landscape with Charon Crossing the Styx | Joachim Patinir | Museo del Prado, Madrid | - |
+| DONE | joachim-patinir-landscape-with-charon-crossing-the-styx | Landscape with Charon Crossing the Styx | Joachim Patinir | Museo del Prado, Madrid | - |
 | TODO | pieter-bruegel-elder-landscape-with-christ-appearing-to-the-apostles-at | Landscape with Christ Appearing to the Apostles at the Sea of Tiberias | Pieter Bruegel the Elder | Private Collection | - |
 | DONE | chaim-soutine-landscape-with-figures | Landscape with Figures | Chaim Soutine | Musée de l'Orangerie | - |
 | DONE | thomas-cole-landscape-with-figures-a-scene-from-the-last-of-th | Landscape with Figures A Scene from The Last of the Mohicans | Thomas Cole | Private Collection | - |
@@ -1486,7 +1486,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | jean-francois-millet-leconte-de-lisle | Leconte de Lisle | Jean-François Millet | National Gallery of Art | - |
 | TODO | theodore-gericault-leda-and-the-swan | Leda and the Swan | Théodore Géricault | Louvre, Paris | - |
 | TODO | francois-boucher-leda-and-the-swan | Leda and the Swan | François Boucher | Private Collection | - |
-| TODO | pontormo-leda-and-the-swan | Leda and the Swan | Pontormo | Uffizi Gallery, Florence | - |
+| DONE | pontormo-leda-and-the-swan | Leda and the Swan | Pontormo | Uffizi Gallery, Florence | - |
 | DONE | akseli-gallen-kallela-lemmink228inen39s-mother | Lemminkäinen's Mother | Akseli Gallen-Kallela | Finnish National Gallery, Helsinki | - |
 | TODO | lawrence-alma-tadema-lesbia-weeping-over-a-sparrow | Lesbia Weeping over a Sparrow | Lawrence Alma-Tadema | Private Collection | - |
 | TODO | otto-mueller-liebesfr252hling-ii-doppelbildnis-maschka-und-otto | Liebesfrühling Ii (doppelbildnis Maschka Und Otto Mueller) | Otto Mueller | Schlesisches Museum zu Görlitz, Görlitz | - |
@@ -1495,7 +1495,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | otto-mueller-liegendes-m228dchen | Liegendes Mädchen | Otto Mueller | Private Collection | - |
 | TODO | george-frederick-watts-life39s-illusions | Life's Illusions | George Frederick Watts | Tate Modern, London | - |
 | TODO | gerard-david-lineage-of-saint-anne | Lineage of Saint Anne | Gerard David | Musée des Beaux-Arts de Lyon, Lyon | - |
-| TODO | george-stubbs-lion-attacking-a-horse | Lion Attacking a Horse | George Stubbs | National Gallery of Victoria | - |
+| DONE | george-stubbs-lion-attacking-a-horse | Lion Attacking a Horse | George Stubbs | National Gallery of Victoria | - |
 | DONE | pierre-auguste-renoir-lise-with-umbrella | Lise with Umbrella | Pierre-Auguste Renoir | Folkwang Museum, Essen | - |
 | TODO | thomas-couture-little-bather | Little Bather | Thomas Couture | State Hermitage Museum | - |
 | DONE | gustave-dore-little-red-riding-hood | Little Red Riding Hood | Gustave Doré | National Gallery of Victoria | - |
@@ -1507,22 +1507,22 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | rembrandt-lot-and-his-family-leaving-sodom | Lot and His Family Leaving Sodom | Rembrandt van Rijn | National Gallery | - |
 | TODO | hyacinthe-rigaud-louis-de-france-dauphin | Louis De France, Dauphin | Hyacinthe Rigaud | Château de Versailles, Versailles | - |
 | TODO | hyacinthe-rigaud-louis-de-france-duc-de-bourgogne | Louis De France, Duc De Bourgogne | Hyacinthe Rigaud | Château de Versailles, Versailles | - |
-| TODO | hyacinthe-rigaud-louis-xiv-roi-de-france | Louis XIV, Roi de France | Hyacinthe Rigaud | Louvre, Paris | - |
+| DONE | hyacinthe-rigaud-louis-xiv-roi-de-france | Louis XIV, Roi de France | Hyacinthe Rigaud | Louvre, Paris | - |
 | DONE | hyacinthe-rigaud-louis-xv | Louis XV | Hyacinthe Rigaud | Musée Condé, Chantilly | - |
 | DONE | jean-francois-millet-louiseantoinette-feuardent | Louise-Antoinette Feuardent | Jean-François Millet | J. Paul Getty Museum, Los Angeles, CA | - |
 | DONE | jan-steen-love-sickness | Love Sickness | Jan Steen | Alte Pinakothek | - |
 | TODO | edwin-landseer-low-life | Low Life | Edwin Landseer | Tate Modern, London | - |
 | TODO | alphonse-mucha-luchon | Luchon | Alphonse Mucha | Private Collection | - |
-| TODO | franz-von-stuck-lucifer | Lucifer | Franz von Stuck | National Gallery for Foreign Art, Sofia | - |
+| DONE | franz-von-stuck-lucifer | Lucifer | Franz von Stuck | National Gallery for Foreign Art, Sofia | - |
 | TODO | salvator-rosa-lucrezia-as-poetry | Lucrezia as Poetry | Salvator Rosa | Wadsworth Atheneum | - |
 | TODO | andrea-del-sarto-lucrezia-di-baccio-del-fede-the-artist39s-wife | Lucrezia di Baccio del Fede, the Artist's Wife | Andrea del Sarto | Museo del Prado, Madrid | - |
-| TODO | bronzino-lucrezia-panciatichi | Lucrezia Panciatichi | Bronzino | Uffizi Gallery, Florence | - |
+| DONE | bronzino-lucrezia-panciatichi | Lucrezia Panciatichi | Bronzino | Uffizi Gallery, Florence | - |
 | DONE | max-liebermann-lumberjack-in-the-forest | Lumberjack in the forest | Max Liebermann | Private Collection | - |
 | DONE | claude-monet-luncheon-on-the-grass | Luncheon on the Grass | Claude Monet | Musée d'Orsay | - |
 | DONE | pieter-bruegel-elder-lust | Lust | Pieter Bruegel the Elder | Museum of Fine Arts, Boston | - |
 | DONE | john-martin-macbeth | Macbeth | John Martin | Scottish National Gallery | - |
 | TODO | eugene-delacroix-macbeth-and-the-witches | Macbeth and the Witches | Eugène Delacroix | Musée national Eugène Delacroix, Paris | - |
-| TODO | maurice-quentin-de-la-tour-madame-de-pompadour | Madame de Pompadour | Maurice Quentin de La Tour | Louvre, Paris | - |
+| DONE | maurice-quentin-de-la-tour-madame-de-pompadour | Madame de Pompadour | Maurice Quentin de La Tour | Louvre, Paris | - |
 | TODO | edgar-degas-madame-gobillard-yves-morisot | Madame Gobillard, Yves Morisot | Edgar Degas | State Hermitage Museum | - |
 | DONE | madame-henriette-flora | Madame Henriette as Flora | Jean-Marc Nattier | Château de Versailles, Versailles | - |
 | DONE | edgar-degas-madame-rene-de-gas | Madame Rene De Gas | Edgar Degas | Private Collection | - |
@@ -1534,21 +1534,21 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | edgar-degas-mademoiselle-marie-dihau | Mademoiselle Marie Dihau | Edgar Degas | State Hermitage Museum | - |
 | TODO | gentile-da-fabriano-madonna | Madonna | Gentile da Fabriano | National Museum of San Matteo, Pisa | - |
 | TODO | correggio-madonna-and-child | Madonna and Child | Correggio | Kunsthistorisches Museum | - |
-| TODO | parmigianino-madonna-and-child | Madonna and Child | Parmigianino | Galleria Doria Pamphilj | - |
 | DONE | michelangelo-madonna-and-child | Madonna and Child | Michelangelo | Church of Our Lady, Bruges | - |
+| TODO | parmigianino-madonna-and-child | Madonna and Child | Parmigianino | Galleria Doria Pamphilj | - |
 | TODO | raphael-madonna-and-child | Madonna and Child | Raphael | Norton Simon Museum, Pasadena, CA | - |
+| TODO | piero-della-francesca-madonna-and-child | Madonna and Child | Piero della Francesca | National Gallery of Umbria (Palazzo dei Priori), Perugia | - |
 | TODO | rogier-van-der-weyden-madonna-and-child | Madonna and Child | Rogier van der Weyden | Museo del Prado, Madrid | - |
 | TODO | bartolome-murillo-madonna-and-child | Madonna and Child | Bartolomé Esteban Murillo | Palazzo Pitti | - |
 | TODO | giotto-madonna-and-child | Madonna and Child | Giotto di Bondone | San Giorogio alla Costa, Florence | - |
-| TODO | sandro-botticelli-madonna-and-child | Madonna and Child | Sandro Botticelli | Uffizi Gallery, Florence | - |
-| TODO | piero-della-francesca-madonna-and-child | Madonna and Child | Piero della Francesca | National Gallery of Umbria (Palazzo dei Priori), Perugia | - |
-| DONE | giovanni-bellini-madonna-and-child | Madonna and Child | Giovanni Bellini | Sforza Castle, Milan | - |
-| DONE | robert-campin-madonna-and-child | Madonna and Child | Robert Campin | Städel, Frankfurt am Main | - |
-| TODO | gentile-da-fabriano-madonna-and-child | Madonna and Child | Gentile da Fabriano | Yale University Art Gallery | - |
+| DONE | sandro-botticelli-madonna-and-child | Madonna and Child | Sandro Botticelli | Uffizi Gallery, Florence | - |
 | TODO | petrus-christus-madonna-and-child | Madonna and Child | Petrus Christus | Budapest Museum of Fine Arts, Budapest | - |
+| DONE | giovanni-bellini-madonna-and-child | Madonna and Child | Giovanni Bellini | Sforza Castle, Milan | - |
+| TODO | gentile-da-fabriano-madonna-and-child | Madonna and Child | Gentile da Fabriano | Yale University Art Gallery | - |
+| DONE | robert-campin-madonna-and-child | Madonna and Child | Robert Campin | Städel, Frankfurt am Main | - |
 | TODO | duccio-madonna-and-child-fragment | Madonna and Child (Fragment) | Duccio di Buoninsegna | Uffizi Gallery, Florence | - |
 | TODO | robert-campin-madonna-and-child-before-a-fireplace | Madonna and Child Before a Fireplace | Robert Campin | State Hermitage Museum | - |
-| TODO | cimabue-madonna-and-child-enthroned-maesta | Madonna and Child Enthroned (Maesta) | Cimabue | Uffizi Gallery, Florence | - |
+| DONE | cimabue-madonna-and-child-enthroned-maesta | Madonna and Child Enthroned (Maesta) | Cimabue | Uffizi Gallery, Florence | - |
 | TODO | benozzo-gozzoli-madonna-and-child-giving-blessings | Madonna and Child Giving Blessings | Benozzo Gozzoli | Santa Maria sopra Minerva, Rome | - |
 | TODO | giorgione-madonna-and-child-in-a-landscape | Madonna and Child in a Landscape | Giorgione | State Hermitage Museum | - |
 | TODO | rembrandt-madonna-and-child-in-the-clouds | Madonna and Child in the Clouds | Rembrandt van Rijn | Private Collection | - |
@@ -1557,8 +1557,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | correggio-madonna-and-child-with-angels | Madonna and Child with Angels | Correggio | Uffizi Gallery, Florence | - |
 | TODO | albrecht-durer-madonna-and-child-with-musical-angels | Madonna and Child with musical angels | Albrecht Dürer | Private Collection | - |
 | TODO | luca-signorelli-madonna-and-child-with-prophets | Madonna and Child with Prophets | Luca Signorelli | Uffizi Gallery, Florence | - |
-| TODO | jacopo-bassano-madonna-and-child-with-saints | Madonna and Child with Saints | Jacopo Bassano | Alte Pinakothek | - |
 | TODO | parmigianino-madonna-and-child-with-saints | Madonna and Child with Saints | Parmigianino | Pinacoteca Nazionale di Bologna, Bologna | - |
+| TODO | jacopo-bassano-madonna-and-child-with-saints | Madonna and Child with Saints | Jacopo Bassano | Alte Pinakothek | - |
 | TODO | giorgione-madonna-and-child-with-saints-liberale-and-francis | Madonna and Child with Saints Liberale and Francis (The Castelfranco Madonna) | Giorgione | Duomo di Castelfranco Veneto, Castelfranco Veneto | - |
 | TODO | filippo-lippi-madonna-and-child-with-saints-angels-and-a-donor | Madonna and Child with Saints, Angels and a Donor | Filippo Lippi | Vittorio Cini Collection, Venice | - |
 | TODO | andrea-mantegna-madonna-and-child-with-seraphim-and-cherubim | Madonna and Child with Seraphim and Cherubim | Andrea Mantegna | The Metropolitan Museum of Art | - |
@@ -1576,7 +1576,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | madonna-child-two-angels-lippi | Madonna and Child with Two Angels | Filippo Lippi | Uffizi Gallery, Florence | - |
 | TODO | bernardino-luini-madonna-and-sleeping-child-with-three-angels | Madonna and Sleeping Child with Three Angels | Bernardino Luini | Louvre, Paris | - |
 | TODO | robert-campin-madonna-by-a-grassy-bank-oak | Madonna by a Grassy Bank Oak | Robert Campin | Gemäldegalerie, Berlin | - |
-| TODO | masaccio-madonna-casini | Madonna Casini | Masaccio | Uffizi Gallery, Florence | - |
+| DONE | masaccio-madonna-casini | Madonna Casini | Masaccio | Uffizi Gallery, Florence | - |
 | TODO | quentin-matsys-madonna-col-bambino | Madonna col Bambino | Quentin Matsys | Louvre, Paris | - |
 | TODO | cimabue-madonna-enthroned-with-the-child-and-two-angels | Madonna Enthroned with the Child and Two Angels | Cimabue | Uffizi Gallery, Florence | - |
 | TODO | cimabue-madonna-enthroned-with-the-child-st-francis-st-dom | Madonna Enthroned with the Child, St. Francis, St. Domenico and two Angels | Cimabue | Uffizi Gallery, Florence | - |
@@ -1592,9 +1592,9 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | bernardino-luini-madonna-of-the-rosebush | Madonna of the Rose-bush | Bernardino Luini | Pinacoteca di Brera | - |
 | TODO | sandro-botticelli-madonna-of-the-rosegarden | Madonna of the Rosegarden | Sandro Botticelli | Uffizi Gallery, Florence | - |
 | TODO | michelangelo-madonna-of-the-stairs | Madonna of the Stairs | Michelangelo | Casa Buonarroti, Florence | - |
-| TODO | fra-angelico-madonna-of-the-star | Madonna of the Star | Fra Angelico | Basilica di San Marco, Florence | - |
-| TODO | duccio-madonna-rucellai | Madonna Rucellai | Duccio di Buoninsegna | Uffizi Gallery, Florence | - |
-| TODO | leonardo-da-vinci-madonna-with-a-flower-madonna-benois | Madonna with a Flower (Madonna Benois) | Leonardo da Vinci | State Hermitage Museum | - |
+| DONE | fra-angelico-madonna-of-the-star | Madonna of the Star | Fra Angelico | Basilica di San Marco, Florence | - |
+| DONE | duccio-madonna-rucellai | Madonna Rucellai | Duccio di Buoninsegna | Uffizi Gallery, Florence | - |
+| DONE | leonardo-da-vinci-madonna-with-a-flower-madonna-benois | Madonna with a Flower (Madonna Benois) | Leonardo da Vinci | State Hermitage Museum | - |
 | TODO | tintoretto-madonna-with-child-and-donor-tintoretto | Madonna with Child and Donor Tintoretto | Tintoretto | National Museum of Serbia, Belgrade | - |
 | TODO | guido-reni-madonna-with-child-and-st-john-the-baptist | Madonna with Child and St. John the Baptist | Guido Reni | Louvre, Paris | - |
 | TODO | gentile-da-fabriano-madonna-with-child-and-stcatherine-stnicolas-and-d | Madonna with Child and St.Catherine, St.Nicolas and Donor Gentile da Fabriano | Gentile da Fabriano | Gemäldegalerie, Berlin | - |
@@ -1638,14 +1638,14 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | masaccio-maria-and-child | Maria and Child | Masaccio | National Gallery | - |
 | DONE | valentin-serov-maria-mamontova-riding-a-horse | Maria Mamontova Riding a Horse | Valentin Serov | Private Collection | - |
 | TODO | john-everett-millais-mariana-in-the-moated-grange | Mariana in the Moated Grange | John Everett Millais | Tate Britain | - |
-| TODO | elisabeth-vigee-le-brun-marie-antoinette-in-a-muslin-dress | Marie Antoinette in a Muslin dress | Élisabeth Vigée Le Brun | National Gallery of Art | - |
+| DONE | elisabeth-vigee-le-brun-marie-antoinette-in-a-muslin-dress | Marie Antoinette in a Muslin dress | Élisabeth Vigée Le Brun | National Gallery of Art | - |
 | TODO | akseli-gallen-kallela-marie-gall233n-at-the-kuhmoniemibridge | Marie Gallén at the Kuhmoniemi-bridge | Akseli Gallen-Kallela | Private Collection | - |
 | DONE | camille-corot-marino-large-buildings-on-the-rocks | Marino, Large Buildings on the Rocks | Camille Corot | Private Collection | - |
 | DONE | paul-cezanne-marion-and-valabregue-posing-for-a-picture | Marion and Valabregue Posing for a Picture | Paul Cézanne | Private Collection | - |
 | TODO | frans-hals-marriage-portrait-of-isaac-massa-and-beatrix-van-d | Marriage Portrait of Isaac Massa and Beatrix van der Laen | Frans Hals | Rijksmuseum | - |
 | TODO | nicolas-poussin-mars-and-venus | Mars and Venus | Nicolas Poussin | Museum of Fine Arts, Boston | - |
 | DONE | paula-modersohn-becker-marsh-channel-with-peat-barges | Marsh channel with peat barges | Paula Modersohn-Becker | Private Collection | - |
-| TODO | caravaggio-martha-and-mary-magdalene | Martha and Mary Magdalene | Caravaggio | Detroit Institute of Arts | - |
+| DONE | caravaggio-martha-and-mary-magdalene | Martha and Mary Magdalene | Caravaggio | Detroit Institute of Arts | - |
 | TODO | juan-de-juanes-martirio-de-san-esteban | Martirio De San Esteban | Juan de Juanes | Museo del Prado, Madrid | - |
 | DONE | nicolas-poussin-martyrdom-of-st-erasmus | Martyrdom of St. Erasmus | Nicolas Poussin | Pinacoteca Vaticana | - |
 | TODO | rogier-van-der-weyden-mary-altarpiece | Mary Altarpiece | Rogier van der Weyden | Gemäldegalerie, Berlin | - |
@@ -1740,8 +1740,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | ernest-meissonier-napoleon-iii-at-the-battle-of-solferino | Napoleon III at the Battle of Solferino | Ernest Meissonier | Château de Compiègne, Compiègne | - |
 | DONE | henri-fantin-latour-narcissus-and-tulips | Narcissus and Tulips | Henri Fantin-Latour | Private Collection | - |
 | DONE | emanuel-leutze-nathaniel-hawthorne | Nathaniel Hawthorne | Emanuel Leutze | National Portrait Gallery, Washington, DC | - |
-| DONE | rembrandt-nativity | Nativity | Rembrandt van Rijn | State Hermitage Museum | - |
 | DONE | petrus-christus-nativity | Nativity | Petrus Christus | Groeningemuseum | - |
+| DONE | rembrandt-nativity | Nativity | Rembrandt van Rijn | State Hermitage Museum | - |
 | DONE | william-blake-nebuchadnezzar | Nebuchadnezzar | William Blake | Tate Modern, London | - |
 | DONE | otto-mueller-neger-und-t228nzerin | Neger Und Tänzerin | Otto Mueller | Private Collection | - |
 | DONE | george-bellows-new-york | New York | George Bellows | National Gallery of Art | - |
@@ -1912,7 +1912,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | gustav-klimt-portrait-of-a-girl-head-slightly-turned-left | Portrait of a Girl, Head Slightly Turned Left | Gustav Klimt | Private Collection | - |
 | DONE | george-stubbs-portrait-of-a-huntsman | Portrait of a Huntsman | George Stubbs | Private Collection | - |
 | TODO | vittore-carpaccio-portrait-of-a-lady | Portrait of a lady | Vittore Carpaccio | Rijksmuseum | - |
-| TODO | gustav-klimt-portrait-of-a-lady | Portrait of a lady | Gustav Klimt | Vienna Museum, Vienna | - |
+| DONE | gustav-klimt-portrait-of-a-lady | Portrait of a lady | Gustav Klimt | Vienna Museum, Vienna | - |
 | TODO | bernardino-luini-portrait-of-a-lady | Portrait of a Lady | Bernardino Luini | National Gallery of Art | - |
 | TODO | bronzino-portrait-of-a-lady-in-green | Portrait of a lady in green | Bronzino | Royal Collection | - |
 | TODO | edgar-degas-portrait-of-a-lady-in-grey | Portrait of a Lady in Grey | Edgar Degas | State Hermitage Museum | - |
@@ -1923,14 +1923,14 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | annibale-carracci-portrait-of-a-man | Portrait of a man | Annibale Carracci | Museu Nacional de Belas Artes, Rio de Janeiro | - |
 | TODO | jean-francois-millet-portrait-of-a-man | Portrait of a man | Jean-François Millet | National Gallery of Art | - |
 | TODO | giovanni-battista-moroni-portrait-of-a-man | Portrait of a Man | Giovanni Battista Moroni | Accademia Carrara, Bergamo | - |
-| TODO | paul-cezanne-portrait-of-a-man | Portrait of a Man | Paul Cézanne | Private Collection | - |
 | TODO | titian-portrait-of-a-man | Portrait of a Man | Titian | Indianapolis Museum of Art (IMA), Indianapolis, IN | - |
+| TODO | paul-cezanne-portrait-of-a-man | Portrait of a Man | Paul Cézanne | Private Collection | - |
+| TODO | raphael-portrait-of-a-man | Portrait of a Man | Raphael | Borghese Gallery, Rome | - |
+| TODO | jean-auguste-dominique-ingres-portrait-of-a-man | Portrait of a Man | Jean-Auguste-Dominique Ingres | Private Collection | - |
 | DONE | salvator-rosa-portrait-of-a-man | Portrait of a Man | Salvator Rosa | State Hermitage Museum | - |
 | TODO | robert-campin-portrait-of-a-man | Portrait of a Man | Robert Campin | National Gallery | - |
-| TODO | jean-auguste-dominique-ingres-portrait-of-a-man | Portrait of a Man | Jean-Auguste-Dominique Ingres | Private Collection | - |
-| TODO | raphael-portrait-of-a-man | Portrait of a Man | Raphael | Borghese Gallery, Rome | - |
-| TODO | adriaen-brouwer-portrait-of-a-man | Portrait of a Man | Adriaen Brouwer | Museum Boijmans van Beuningen, Rotterdam | - |
 | DONE | rembrandt-portrait-of-a-man | Portrait of a Man | Rembrandt van Rijn | State Hermitage Museum | - |
+| TODO | adriaen-brouwer-portrait-of-a-man | Portrait of a Man | Adriaen Brouwer | Museum Boijmans van Beuningen, Rotterdam | - |
 | TODO | frans-hals-portrait-of-a-man | Portrait of a Man | Frans Hals | Brooklyn Museum | - |
 | TODO | gerrit-dou-portrait-of-a-man | Portrait of a Man | Gerrit Dou | National Gallery | - |
 | DONE | el-greco-portrait-of-a-man-andrea-palladio | Portrait of a man (Andrea Palladio) | El Greco | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
@@ -1951,8 +1951,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | palma-vecchio-portrait-of-a-poet | Portrait of a Poet | Palma Vecchio | National Gallery | - |
 | DONE | rembrandt-portrait-of-a-seated-man-rising-from-his-chair | Portrait of a seated man rising from his chair | Rembrandt van Rijn | Royal Collection | - |
 | DONE | tintoretto-portrait-of-a-white-bearded-man | Portrait of a White Bearded Man | Tintoretto | Kunsthistorisches Museum | - |
-| DONE | jean-leon-gerome-portrait-of-a-woman | Portrait of a Woman | Jean-Léon Gérôme | Private Collection | - |
 | DONE | lorenzo-lotto-portrait-of-a-woman | Portrait of a Woman | Lorenzo Lotto | Musée des Beaux-Arts de Dijon, Dijon | - |
+| DONE | jean-leon-gerome-portrait-of-a-woman | Portrait of a Woman | Jean-Léon Gérôme | Private Collection | - |
 | DONE | robert-campin-portrait-of-a-woman | Portrait of a Woman | Robert Campin | National Gallery | - |
 | DONE | amedeo-modigliani-portrait-of-a-woman | Portrait of a Woman | Amedeo Modigliani | Private Collection | - |
 | DONE | rembrandt-portrait-of-a-woman | Portrait Of A Woman | Rembrandt van Rijn | Cleveland Museum of Art | - |
@@ -1964,13 +1964,13 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | alexandre-cabanel-portrait-of-a-young-artist | Portrait of a Young Artist | Alexandre Cabanel | Private Collection | - |
 | DONE | portrait-young-girl-christus | Portrait of a Young Girl | Petrus Christus | Gemäldegalerie, Berlin | - |
 | DONE | bronzino-portrait-of-a-young-man | Portrait of a young man | Bronzino | Uffizi Gallery, Florence | - |
-| DONE | andrea-del-sarto-portrait-of-a-young-man | Portrait of a Young Man | Andrea del Sarto | National Gallery | - |
 | DONE | lorenzo-lotto-portrait-of-a-young-man | Portrait of a Young Man | Lorenzo Lotto | Uffizi Gallery, Florence | - |
-| DONE | diego-velazquez-portrait-of-a-young-man | Portrait of a Young Man | Diego Velázquez | Museo del Prado, Madrid | - |
-| DONE | rogier-van-der-weyden-portrait-of-a-young-man | Portrait of a Young Man | Rogier van der Weyden | Private Collection | - |
+| DONE | andrea-del-sarto-portrait-of-a-young-man | Portrait of a Young Man | Andrea del Sarto | National Gallery | - |
 | DONE | parmigianino-portrait-of-a-young-man | Portrait of a Young Man | Parmigianino | Louvre, Paris | - |
-| DONE | sandro-botticelli-portrait-of-a-young-man | Portrait of a Young Man | Sandro Botticelli | Palazzo Pitti | - |
+| DONE | rogier-van-der-weyden-portrait-of-a-young-man | Portrait of a Young Man | Rogier van der Weyden | Private Collection | - |
+| DONE | diego-velazquez-portrait-of-a-young-man | Portrait of a Young Man | Diego Velázquez | Museo del Prado, Madrid | - |
 | DONE | eustache-le-sueur-portrait-of-a-young-man | Portrait of a Young Man | Eustache Le Sueur | Wadsworth Atheneum | - |
+| DONE | sandro-botticelli-portrait-of-a-young-man | Portrait of a Young Man | Sandro Botticelli | Palazzo Pitti | - |
 | DONE | jan-van-eyck-portrait-of-a-young-man | Portrait of a Young Man | Jan van Eyck | National Gallery | - |
 | DONE | lorenzo-lotto-portrait-of-a-young-man-in-red-garment | Portrait of a young man in red garment | Lorenzo Lotto | Kunsthistorisches Museum | - |
 | DONE | bronzino-portrait-of-a-young-man-with-a-book | Portrait of a Young Man with a Book | Bronzino | The Metropolitan Museum of Art | - |
@@ -2124,27 +2124,27 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | raoul-dufy-portrait-of-the-artist39s-sister-suzanne-dufy | Portrait of the Artist's Sister, Suzanne Dufy | Raoul Dufy | State Hermitage Museum | - |
 | DONE | nikolai-ge-portrait-of-the-artist39s-wife-anna-ge | Portrait of the Artist's Wife Anna Ge | Nikolai Ge | Museum of Russian Art (Tereshchenko Museum), Kyiv | - |
 | DONE | felix-vallotton-portrait-of-the-artists-brother-with-hat | Portrait of the Artist`s Brother with Hat | Félix Vallotton | Private Collection | - |
-| TODO | amedeo-modigliani-portrait-of-the-brother-of-the-painter-micheli | Portrait of the Brother of the Painter Micheli | Amedeo Modigliani | Private Collection | - |
-| TODO | theodore-gericault-portrait-of-the-carpenter-of-the-medusa | Portrait of the Carpenter of The Medusa | Théodore Géricault | Musée des Beaux-Arts de Rouen, Rouen | - |
-| TODO | alexej-von-jawlensky-portrait-of-the-dancer-alexander-sakharoff | Portrait of the Dancer Alexander Sakharoff | Alexej von Jawlensky | Lenbachhaus | - |
-| TODO | hyacinthe-rigaud-portrait-of-the-duc-de-broglie | Portrait of the Duc de Broglie | Hyacinthe Rigaud | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
-| TODO | edvard-munch-portrait-of-the-painter-jensen-hjell | Portrait of the Painter Jensen Hjell | Edvard Munch | National Gallery of Norway | - |
-| TODO | charles-le-brun-portrait-of-the-painter-louis-testelin | Portrait of the Painter Louis Testelin | Charles Le Brun | Louvre, Paris | - |
-| TODO | giovanni-battista-moroni-portrait-of-the-sculptor-alessandro-vittoria | Portrait of the Sculptor Alessandro Vittoria | Giovanni Battista Moroni | Kunsthistorisches Museum | - |
-| TODO | arnold-bocklin-portrait-of-the-tragic-actress-fanny-janauschek | Portrait of The Tragic Actress Fanny Janauschek | Arnold Böcklin | Städel, Frankfurt am Main | - |
-| TODO | raphael-portrait-of-the-young-pietro-bembo | Portrait of the Young Pietro Bembo | Raphael | Budapest Museum of Fine Arts, Budapest | - |
-| TODO | frans-hals-portrait-of-theodorus-schrevelius | Portrait of Theodorus Schrevelius | Frans Hals | Frans Hals Museum, Haarlem | - |
-| TODO | jean-marc-nattier-portrait-of-tsar-peter-i | Portrait of Tsar Peter I | Jean-Marc Nattier | State Hermitage Museum | - |
-| TODO | ilya-repin-portrait-of-v-e-repin-the-artist39s-brother | Portrait of V. E. Repin, the Artist's brother | Ilya Repin | State Russian Museum | - |
-| TODO | valentin-serov-portrait-of-vera-repina | Portrait of Vera Repina | Valentin Serov | State Russian Museum | - |
-| TODO | frida-kahlo-portrait-of-virginia-little-girl | Portrait of Virginia (Little Girl) | Frida Kahlo | Dolores Olmedo Collection, Mexico City | - |
-| TODO | john-everett-millais-portrait-of-wilkie-collins | Portrait of Wilkie Collins | John Everett Millais | National Portrait Gallery, London | - |
-| TODO | william-merritt-chase-portrait-of-william-gurley-munson | Portrait of William Gurley Munson | William Merritt Chase | Indianapolis Museum of Art (IMA), Indianapolis, IN | - |
+| DONE | amedeo-modigliani-portrait-of-the-brother-of-the-painter-micheli | Portrait of the Brother of the Painter Micheli | Amedeo Modigliani | Private Collection | - |
+| DONE | theodore-gericault-portrait-of-the-carpenter-of-the-medusa | Portrait of the Carpenter of The Medusa | Théodore Géricault | Musée des Beaux-Arts de Rouen, Rouen | - |
+| DONE | alexej-von-jawlensky-portrait-of-the-dancer-alexander-sakharoff | Portrait of the Dancer Alexander Sakharoff | Alexej von Jawlensky | Lenbachhaus | - |
+| DONE | hyacinthe-rigaud-portrait-of-the-duc-de-broglie | Portrait of the Duc de Broglie | Hyacinthe Rigaud | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
+| DONE | edvard-munch-portrait-of-the-painter-jensen-hjell | Portrait of the Painter Jensen Hjell | Edvard Munch | National Gallery of Norway | - |
+| DONE | charles-le-brun-portrait-of-the-painter-louis-testelin | Portrait of the Painter Louis Testelin | Charles Le Brun | Louvre, Paris | - |
+| DONE | giovanni-battista-moroni-portrait-of-the-sculptor-alessandro-vittoria | Portrait of the Sculptor Alessandro Vittoria | Giovanni Battista Moroni | Kunsthistorisches Museum | - |
+| DONE | arnold-bocklin-portrait-of-the-tragic-actress-fanny-janauschek | Portrait of The Tragic Actress Fanny Janauschek | Arnold Böcklin | Städel, Frankfurt am Main | - |
+| DONE | raphael-portrait-of-the-young-pietro-bembo | Portrait of the Young Pietro Bembo | Raphael | Budapest Museum of Fine Arts, Budapest | - |
+| DONE | frans-hals-portrait-of-theodorus-schrevelius | Portrait of Theodorus Schrevelius | Frans Hals | Frans Hals Museum, Haarlem | - |
+| DONE | jean-marc-nattier-portrait-of-tsar-peter-i | Portrait of Tsar Peter I | Jean-Marc Nattier | State Hermitage Museum | - |
+| DONE | ilya-repin-portrait-of-v-e-repin-the-artist39s-brother | Portrait of V. E. Repin, the Artist's brother | Ilya Repin | State Russian Museum | - |
+| DONE | valentin-serov-portrait-of-vera-repina | Portrait of Vera Repina | Valentin Serov | State Russian Museum | - |
+| DONE | frida-kahlo-portrait-of-virginia-little-girl | Portrait of Virginia (Little Girl) | Frida Kahlo | Dolores Olmedo Collection, Mexico City | - |
+| DONE | john-everett-millais-portrait-of-wilkie-collins | Portrait of Wilkie Collins | John Everett Millais | National Portrait Gallery, London | - |
+| DONE | william-merritt-chase-portrait-of-william-gurley-munson | Portrait of William Gurley Munson | William Merritt Chase | Indianapolis Museum of Art (IMA), Indianapolis, IN | - |
 | DONE | albert-joseph-moore-portrait-of-william-moore | Portrait of William Moore | Albert Joseph Moore | York Art Gallery, York | - |
-| TODO | william-holman-hunt-portrait-of-william-pink | Portrait of William Pink | William Holman Hunt | Private Collection | - |
-| TODO | dante-gabriel-rossetti-portrait-of-william-rossetti-orange | Portrait of William Rossetti (orange) | Dante Gabriel Rossetti | National Portrait Gallery, London | - |
-| TODO | paolo-veronese-portrait-of-woman-with-a-child-and-a-dog | Portrait of woman with a child and a dog | Paolo Veronese | Louvre, Paris | - |
-| TODO | gustave-courbet-portrait-of-z233lie-courbet | Portrait of Zélie Courbet | Gustave Courbet | Museo de Arte de Sao Paulo (MASP), Sao Paulo | - |
+| DONE | william-holman-hunt-portrait-of-william-pink | Portrait of William Pink | William Holman Hunt | Private Collection | - |
+| DONE | dante-gabriel-rossetti-portrait-of-william-rossetti-orange | Portrait of William Rossetti (orange) | Dante Gabriel Rossetti | National Portrait Gallery, London | - |
+| DONE | paolo-veronese-portrait-of-woman-with-a-child-and-a-dog | Portrait of woman with a child and a dog | Paolo Veronese | Louvre, Paris | - |
+| DONE | gustave-courbet-portrait-of-z233lie-courbet | Portrait of Zélie Courbet | Gustave Courbet | Museo de Arte de Sao Paulo (MASP), Sao Paulo | - |
 | DONE | pierre-bonnard-poster-advertising-france-champagne | poster advertising France Champagne | Pierre Bonnard | Bibliothèque nationale de France (BnF), Paris | - |
 | TODO | alphonse-mucha-poster-for-victorien-sardous-gismonda-starring-sar | Poster for Victorien Sardou`s Gismonda starring Sarah Bernhardt at the Théâtre de la Renaissance in Paris | Alphonse Mucha | Private Collection | - |
 | TODO | pierre-bonnard-pot-of-flowers | Pot of Flowers | Pierre Bonnard | Private Collection | - |
@@ -2153,7 +2153,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | ferdinand-georg-waldmuller-prater-landscape | Prater Landscape | Ferdinand Georg Waldmüller | Alte Nationalgalerie, Berlin | - |
 | TODO | hans-memling-praying-donor-with-st-william-of-maleval | Praying Donor with St. William of Maleval | Hans Memling | Morgan Library and Museum (Pierpont Morgan Library), New York City, NY | - |
 | TODO | carl-spitzweg-praying-peasant-girl-in-the-woods | Praying peasant girl in the woods | Carl Spitzweg | Private Collection | - |
-| TODO | fra-angelico-predella-of-the-san-domenico-altarpiece | Predella of the San Domenico Altarpiece | Fra Angelico | National Gallery | - |
+| DONE | fra-angelico-predella-of-the-san-domenico-altarpiece | Predella of the San Domenico Altarpiece | Fra Angelico | National Gallery | - |
 | DONE | robert-delaunay-premier-disque | Premier Disque | Robert Delaunay | Private Collection | - |
 | DONE | lawrence-alma-tadema-preparations-for-the-festivities | Preparations for the Festivities | Lawrence Alma-Tadema | Clark Art Institute | - |
 | TODO | giovanni-bellini-presentation-at-the-temple | Presentation at the Temple | Giovanni Bellini | Querini Stampalia Foundation, Venice | - |
@@ -2231,8 +2231,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | camille-corot-rome-castle-sant-angelo | Rome, Castle Sant Angelo | Camille Corot | Royal Museums of Fine Arts of Belgium | - |
 | TODO | camille-corot-rome-the-basilica-of-constantine | Rome, the Basilica of Constantine | Camille Corot | Musée Cantonal des Beaux-Arts, Lausanne | - |
 | TODO | camille-corot-rome-the-trinita-dei-monti-view-from-the-gardens-o | Rome, the Trinita dei Monti View from the Gardens of the Academie de France | Camille Corot | Musée d'Art et d'Histoire, Geneva | - |
-| DONE | ford-madox-brown-romeo-and-juliet | Romeo and Juliet | Ford Madox Brown | Private Collection | - |
 | DONE | romeo-and-juliet-dicksee | Romeo and Juliet | Frank Dicksee | Southampton City Art Gallery | - |
+| DONE | ford-madox-brown-romeo-and-juliet | Romeo and Juliet | Ford Madox Brown | Private Collection | - |
 | DONE | salvator-rosa-r246merschlacht | Römerschlacht | Salvator Rosa | Kunsthistorisches Museum | - |
 | TODO | pietro-da-cortona-romulus-and-remus-given-shelter-by-faustulus | Romulus and Remus Given Shelter by Faustulus | Pietro da Cortona | Louvre, Paris | - |
 | TODO | berthe-morisot-rosalie-reisener | Rosalie Reisener | Berthe Morisot | Musée d'Orsay | - |
@@ -2270,7 +2270,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | dosso-dossi-sacra-conversazione | Sacra Conversazione | Dosso Dossi | Private Collection | - |
 | TODO | sebastiano-del-piombo-sacred-conversation | Sacred conversation | Sebastiano del Piombo | Gallerie dell'Accademia | - |
 | TODO | palma-vecchio-sacred-conversation | Sacred Conversation | Palma Vecchio | Kunsthistorisches Museum | - |
-| TODO | caravaggio-sacrifice-of-isaac | Sacrifice of Isaac | Caravaggio | Barbara Piasecka-Johnson Collection (Princeton Univercity), Princeton, NJ | - |
+| DONE | caravaggio-sacrifice-of-isaac | Sacrifice of Isaac | Caravaggio | Barbara Piasecka-Johnson Collection (Princeton Univercity), Princeton, NJ | - |
 | TODO | john-martin-sadak-in-search-of-the-waters-of-oblivion | Sadak in Search of the Waters of Oblivion | John Martin | Saint Louis Art Museum, St. Louis, MO | - |
 | TODO | carlos-schwabe-sadness | Sadness | Carlos Schwabe | Musée d'Art et d'Histoire, Geneva | - |
 | TODO | parmigianino-saint-barbara | Saint Barbara | Parmigianino | Museo del Prado, Madrid | - |
@@ -2285,7 +2285,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | domenico-beccafumi-saint-catherine-of-siena-receiving-the-stigmata | Saint Catherine of Siena Receiving the Stigmata | Domenico Beccafumi | J. Paul Getty Museum, Los Angeles, CA | - |
 | TODO | bartolome-murillo-saint-didacus-of-alcal225-in-ecstasy-before-the-cr | Saint Didacus of Alcalá in ecstasy before the cross | Bartolomé Esteban Murillo | Musée des Augustins, Toulouse | - |
 | TODO | john-william-waterhouse-saint-eulalia | Saint Eulalia | John William Waterhouse | Tate Britain | - |
-| TODO | caravaggio-saint-francis-of-assisi-in-ecstasy | Saint Francis of Assisi in Ecstasy | Caravaggio | Wadsworth Atheneum | - |
+| DONE | caravaggio-saint-francis-of-assisi-in-ecstasy | Saint Francis of Assisi in Ecstasy | Caravaggio | Wadsworth Atheneum | - |
 | TODO | dosso-dossi-saint-george | Saint George | Dosso Dossi | J. Paul Getty Museum, Los Angeles, CA | - |
 | DONE | gustave-moreau-saint-george-after-vittore-carpaccio | Saint George, after Vittore Carpaccio | Gustave Moreau | Musée National Gustave Moreau, Paris | - |
 | TODO | diego-velazquez-saint-john-at-patmos | Saint John at Patmos | Diego Velázquez | National Gallery | - |
@@ -2324,7 +2324,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | canaletto-santi-giovanni-e-paolo-and-the-scuola-de-san-marco | Santi Giovanni e Paolo and the Scuola de San Marco | Canaletto | Staatliche Kunstsammlungen Dresden, Dresden | - |
 | TODO | theodore-chasseriau-sapho | Sapho | Théodore Chassériau | Musée d'Orsay | - |
 | TODO | leon-bonnat-sapphira39s-death | Sapphira's Death | Léon Bonnat | Musée Bonnat-Helleu | - |
-| TODO | gustav-klimt-sappho | Sappho | Gustav Klimt | Vienna Museum, Vienna | - |
+| DONE | gustav-klimt-sappho | Sappho | Gustav Klimt | Vienna Museum, Vienna | - |
 | TODO | rembrandt-saskia-with-a-red-flower | Saskia with a Red Flower | Rembrandt van Rijn | State Hermitage Museum | - |
 | DONE | william-blake-satan-calling-up-his-legions | Satan Calling Up his Legions | William Blake | Victoria and Albert Museum (V&A), London | - |
 | DONE | jean-antoine-watteau-satire-on-physicians | Satire on Physicians | Jean-Antoine Watteau | Pushkin Museum | - |
@@ -2353,18 +2353,18 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | edouard-vuillard-seated-woman-dressed-in-black | Seated Woman Dressed in Black | Édouard Vuillard | Private Collection | - |
 | DONE | seated-woman-with-bent-knee | Seated Woman with Bent Knee | Egon Schiele | National Gallery Prague | - |
 | TODO | sandro-botticelli-sebastian | Sebastian | Sandro Botticelli | Private Collection | - |
-| TODO | edvard-munch-self-portrait | Self portrait | Edvard Munch | National Gallery of Norway | - |
+| DONE | edvard-munch-self-portrait | Self portrait | Edvard Munch | National Gallery of Norway | - |
 | TODO | thomas-gainsborough-self-portrait | Self portrait | Thomas Gainsborough | Private Collection | - |
 | TODO | henri-fantin-latour-self-portrait | Self portrait | Henri Fantin-Latour | Musée de Grenoble, Grenoble | - |
 | TODO | gerrit-dou-self-portrait | Self Portrait | Gerrit Dou | The Wilson (Cheltenham Art Gallery and Museum), Cheltenham | - |
+| DONE | tintoretto-self-portrait | Self Portrait | Tintoretto | Philadelphia Museum of Art | - |
 | TODO | raphael-self-portrait | Self Portrait | Raphael | Ashmolean Museum, Oxford | - |
 | TODO | piet-mondrian-self-portrait | Self Portrait | Piet Mondrian | The Phillips Collection | - |
-| DONE | tintoretto-self-portrait | Self Portrait | Tintoretto | Philadelphia Museum of Art | - |
+| TODO | edgar-degas-self-portrait | Self Portrait | Edgar Degas | Musée d'Orsay | - |
+| TODO | francis-picabia-self-portrait | Self Portrait | Francis Picabia | Private Collection | - |
 | TODO | frida-kahlo-self-portrait | Self Portrait | Frida Kahlo | Private Collection | - |
 | TODO | guido-reni-self-portrait | Self Portrait | Guido Reni | Private Collection | - |
 | TODO | chaim-soutine-self-portrait | Self Portrait | Chaim Soutine | Princeton University Art Museum (PUAM), Princeton, NJ | - |
-| TODO | edgar-degas-self-portrait | Self Portrait | Edgar Degas | Musée d'Orsay | - |
-| TODO | francis-picabia-self-portrait | Self Portrait | Francis Picabia | Private Collection | - |
 | TODO | pierre-bonnard-self-portrait | Self Portrait | Pierre Bonnard | Private Collection | - |
 | TODO | alexandre-cabanel-self-portrait-aged-17 | Self Portrait (aged 17) | Alexandre Cabanel | Musée Fabre, Montpellier | - |
 | TODO | alexandre-cabanel-self-portrait-as-a-child | Self Portrait as a Child | Alexandre Cabanel | Musée Fabre, Montpellier | - |
@@ -2374,28 +2374,28 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | edgar-degas-self-portrait-in-a-soft-hat | Self Portrait in a Soft Hat | Edgar Degas | Clark Art Institute | - |
 | TODO | chaim-soutine-self-portrait-with-beard | Self Portrait with Beard | Chaim Soutine | Private Collection | - |
 | TODO | egon-schiele-self-portrait-facing-right | Self Portrait, Facing Right | Egon Schiele | Private Collection | - |
-| TODO | umberto-boccioni-selfportrait | Self-portrait | Umberto Boccioni | Pinacoteca di Brera | - |
 | DONE | edgar-degas-selfportrait | Self-portrait | Edgar Degas | The Metropolitan Museum of Art | - |
+| TODO | umberto-boccioni-selfportrait | Self-portrait | Umberto Boccioni | Pinacoteca di Brera | - |
 | TODO | simon-vouet-selfportrait | Self-portrait | Simon Vouet | Musée des Beaux-Arts de Lyon, Lyon | - |
-| TODO | gustave-moreau-selfportrait | Self-portrait | Gustave Moreau | Musée National Gustave Moreau, Paris | - |
-| TODO | elisabeth-vigee-le-brun-selfportrait | Self-portrait | Élisabeth Vigée Le Brun | Kimbell Art Museum | - |
 | TODO | anders-zorn-selfportrait | Self-portrait | Anders Zorn | Nationalmuseum, Stockholm | - |
+| TODO | elisabeth-vigee-le-brun-selfportrait | Self-portrait | Élisabeth Vigée Le Brun | Kimbell Art Museum | - |
 | TODO | camille-corot-selfportrait | Self-portrait | Camille Corot | Louvre, Paris | - |
-| TODO | dante-gabriel-rossetti-selfportrait | Self-Portrait | Dante Gabriel Rossetti | National Portrait Gallery, London | - |
-| TODO | albrecht-durer-selfportrait | Self-Portrait | Albrecht Dürer | Louvre, Paris | - |
+| TODO | gustave-moreau-selfportrait | Self-portrait | Gustave Moreau | Musée National Gustave Moreau, Paris | - |
 | TODO | edouard-vuillard-selfportrait | Self-Portrait | Édouard Vuillard | Private Collection | - |
+| TODO | dante-gabriel-rossetti-selfportrait | Self-Portrait | Dante Gabriel Rossetti | National Portrait Gallery, London | - |
 | TODO | paul-cezanne-selfportrait | Self-Portrait | Paul Cézanne | Private Collection | - |
-| TODO | jacob-jordaens-selfportrait | Self-Portrait | Jacob Jordaens | Alte Pinakothek | - |
-| TODO | lawrence-alma-tadema-selfportrait | Self-Portrait | Lawrence Alma-Tadema | Fries Museum, Leeuwarden | - |
-| TODO | valentin-serov-selfportrait | Self-Portrait | Valentin Serov | Private Collection | - |
-| TODO | suzanne-valadon-selfportrait | Self-Portrait | Suzanne Valadon | Georges Pompidou Center, Paris | - |
+| TODO | albrecht-durer-selfportrait | Self-Portrait | Albrecht Dürer | Louvre, Paris | - |
 | DONE | william-holman-hunt-selfportrait | Self-Portrait | William Holman Hunt | Birmingham Museum and Art Gallery, Birmingham | - |
-| TODO | george-frederick-watts-selfportrait | Self-Portrait | George Frederick Watts | Tate Modern, London | - |
 | TODO | frederic-bazille-selfportrait | Self-Portrait | Frédéric Bazille | Private Collection | - |
+| TODO | george-frederick-watts-selfportrait | Self-Portrait | George Frederick Watts | Tate Modern, London | - |
+| TODO | jacob-jordaens-selfportrait | Self-Portrait | Jacob Jordaens | Alte Pinakothek | - |
 | TODO | jean-francois-millet-selfportrait | Self-Portrait | Jean-François Millet | Musée Thomas-Henry, Cherbourg | - |
+| TODO | valentin-serov-selfportrait | Self-Portrait | Valentin Serov | Private Collection | - |
+| TODO | lawrence-alma-tadema-selfportrait | Self-Portrait | Lawrence Alma-Tadema | Fries Museum, Leeuwarden | - |
+| TODO | suzanne-valadon-selfportrait | Self-Portrait | Suzanne Valadon | Georges Pompidou Center, Paris | - |
 | TODO | gustave-courbet-selfportrait-the-man-with-a-pipe | Self-Portrait (The Man with a Pipe) | Gustave Courbet | Musée Fabre, Montpellier | - |
-| TODO | frida-kahlo-selfportrait-along-the-border-line-between-mexico- | Self-Portrait Along the Border Line Between Mexico and the United States | Frida Kahlo | Maria Rodriquez de Reyero Collection, New York City, NY | - |
-| TODO | artemisia-gentileschi-selfportrait-as-a-female-martyr | Self-portrait as a Female Martyr | Artemisia Gentileschi | Private Collection | - |
+| DONE | frida-kahlo-selfportrait-along-the-border-line-between-mexico- | Self-Portrait Along the Border Line Between Mexico and the United States | Frida Kahlo | Maria Rodriquez de Reyero Collection, New York City, NY | - |
+| DONE | artemisia-gentileschi-selfportrait-as-a-female-martyr | Self-portrait as a Female Martyr | Artemisia Gentileschi | Private Collection | - |
 | DONE | salvator-rosa-selfportrait-as-a-philosopher | Self-Portrait as a Philosopher | Salvator Rosa | National Gallery | - |
 | DONE | caspar-david-friedrich-selfportrait-as-a-young-man | Self-portrait as a young man | Caspar David Friedrich | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
 | TODO | rembrandt-selfportrait-as-a-young-man | Self-portrait as a Young Man | Rembrandt van Rijn | Rijksmuseum | - |
@@ -2445,14 +2445,14 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | sick-girl-krohg | Sick Girl | Christian Krohg | National Gallery of Norway | - |
 | TODO | rembrandt-sick-woman-with-a-large-white-headdress-saskia | Sick woman with a large white headdress (Saskia) | Rembrandt van Rijn | Art Institute of Chicago | - |
 | DONE | edward-burne-jones-sidonia-von-bork | Sidonia von Bork | Edward Burne-Jones | Tate Britain | - |
-| TODO | piero-della-francesca-sigismondo-malatesta | Sigismondo Malatesta | Piero della Francesca | Louvre, Paris | - |
+| DONE | piero-della-francesca-sigismondo-malatesta | Sigismondo Malatesta | Piero della Francesca | Louvre, Paris | - |
 | TODO | robert-delaunay-simultaneous-contrasts-sun-and-moon | Simultaneous Contrasts: Sun and Moon | Robert Delaunay | Museum of Modern Art (MoMA) | - |
 | DONE | robert-delaunay-simultaneous-windows-2nd-motif-1st-part | Simultaneous Windows (2nd Motif, 1st Part) | Robert Delaunay | Solomon R. Guggenheim Museum | - |
 | DONE | edgar-degas-singer-in-green | Singer in Green | Edgar Degas | Museum of Fine Arts, Boston | - |
 | TODO | frans-hals-singing-boy-with-a-flute | Singing Boy with a Flute | Frans Hals | Gemäldegalerie, Berlin | - |
 | TODO | george-frederick-watts-sir-galahad | Sir Galahad | George Frederick Watts | Fogg Museum (Harvard Art Museums), Cambridge, MA | - |
 | DONE | joshua-reynolds-sir-thomas-kennedy-james-caulfeild-mr-ward-and-mr- | Sir Thomas Kennedy, James Caulfeild, Mr. Ward and Mr. Phelps | Joshua Reynolds | Private Collection | - |
-| TODO | edvard-munch-sister-inger | Sister Inger | Edvard Munch | National Gallery of Norway | - |
+| DONE | edvard-munch-sister-inger | Sister Inger | Edvard Munch | National Gallery of Norway | - |
 | TODO | mikhail-vrubel-sitter-in-the-renaissance-setting | Sitter in the Renaissance Setting | Mikhail Vrubel | Museum of Russian Art (Tereshchenko Museum), Kyiv | - |
 | DONE | otto-mueller-sitting-and-kneeling-figures-on-the-bank-of-the-mo | Sitting and Kneeling Figures on the Bank of the Moritzburg Lakes | Otto Mueller | Lehmbruck Museum, Duisburg | - |
 | DONE | gustav-klimt-sitting-nude-man-turned-to-the-left | Sitting Nude Man Turned to the Left | Gustav Klimt | Leopold Museum, Vienna | - |
@@ -2493,8 +2493,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | max-liebermann-spinner | Spinner | Max Liebermann | Private Collection | - |
 | TODO | max-liebermann-spinning-workshop-in-laren | Spinning Workshop in Laren | Max Liebermann | Private Collection | - |
 | TODO | alphonse-mucha-spirit-of-spring | Spirit Of Spring | Alphonse Mucha | Private Collection | - |
+| DONE | edvard-munch-spring | Spring | Edvard Munch | National Gallery of Norway | - |
 | TODO | alphonse-mucha-spring | Spring | Alphonse Mucha | Private Collection | - |
-| TODO | edvard-munch-spring | Spring | Edvard Munch | National Gallery of Norway | - |
 | TODO | pierre-auguste-renoir-spring-bouquet | Spring Bouquet | Pierre-Auguste Renoir | Fogg Museum (Harvard Art Museums), Cambridge, MA | - |
 | TODO | edvard-munch-spring-day-on-karl-johan-street | Spring Day on Karl Johan Street | Edvard Munch | Bergen Billedgalleri, Bergen | - |
 | DONE | pierre-auguste-renoir-spring-flowers | Spring Flowers | Pierre-Auguste Renoir | Private Collection | - |
@@ -2521,7 +2521,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | piero-della-francesca-st-elizabeth-saves-a-boy | St. Elizabeth Saves a Boy | Piero della Francesca | National Gallery of Umbria (Palazzo dei Priori), Perugia | - |
 | DONE | piero-della-francesca-st-francis-and-st-elizabeth | St. Francis and St. Elizabeth | Piero della Francesca | National Gallery of Umbria (Palazzo dei Priori), Perugia | - |
 | TODO | rembrandt-st-francis-beneath-a-tree-praying | St. Francis beneath a tree praying | Rembrandt van Rijn | Cleveland Museum of Art | - |
-| TODO | giotto-st-francis-giving-his-mantle-to-a-poor-man | St. Francis Giving his Mantle to a Poor Man | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
+| DONE | giotto-st-francis-giving-his-mantle-to-a-poor-man | St. Francis Giving his Mantle to a Poor Man | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
 | TODO | giotto-st-francis-honoured-by-a-simple-man | St. Francis Honoured by a Simple Man | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
 | DONE | giotto-st-francis-mourned-by-st-clare | St. Francis Mourned by St. Clare | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
 | DONE | bartolome-murillo-st-francis-of-assisi-at-prayer | St. Francis of Assisi at Prayer | Bartolomé Esteban Murillo | Cathedral of Our Lady, Antwerp | - |
@@ -2571,8 +2571,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | francisco-de-zurbaran-st-pierre-pascal-bishop-of-jaen | St. Pierre Pascal, Bishop of Jaen | Francisco de Zurbarán | Museum of Fine Arts of Seville, Seville | - |
 | DONE | michelangelo-st-proculus | St. Proculus | Michelangelo | Basilica of St. Domenico, Bologna | - |
 | TODO | jacques-louis-david-st-roch-praying-to-the-virgin-for-an-end-to-the-pl | St. Roch Praying to the Virgin for an End to the Plague | Jacques-Louis David | Musée des beaux-arts de Marseille, Marseille | - |
-| TODO | raphael-st-sebastian | St. Sebastian | Raphael | Accademia Carrara, Bergamo | - |
 | TODO | pontormo-st-sebastian | St. Sebastian | Pontormo | Musée des Beaux-Arts de Dijon, Dijon | - |
+| TODO | raphael-st-sebastian | St. Sebastian | Raphael | Accademia Carrara, Bergamo | - |
 | TODO | jusepe-de-ribera-st-sebastian-tended-by-the-holy-women | St. Sebastian Tended by the Holy Women | Jusepe de Ribera | Bilbao Fine Arts Museum, Bilbao | - |
 | DONE | piero-della-francesca-st-sigismund-and-sigismondo-pandolfo-malatesta | St. Sigismund and Sigismondo Pandolfo Malatesta | Piero della Francesca | Tempio Malatestiano, Rimini | - |
 | TODO | andrea-mantegna-stmark | St.Mark | Andrea Mantegna | Städel, Frankfurt am Main | - |
@@ -2647,13 +2647,13 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | eugene-delacroix-study-of-a-reclining-nude | Study of a Reclining Nude | Eugène Delacroix | Private Collection | - |
 | DONE | pierre-puvis-de-chavannes-study-of-a-standing-male-nude | Study of a Standing Male Nude | Pierre Puvis de Chavannes | Brooklyn Museum | - |
 | TODO | jean-antoine-watteau-study-of-a-woman39s-head | Study of a Woman's Head | Jean-Antoine Watteau | State Hermitage Museum | - |
-| TODO | johannes-vermeer-study-of-a-young-woman | Study of a Young Woman | Johannes Vermeer | The Metropolitan Museum of Art | - |
+| DONE | johannes-vermeer-study-of-a-young-woman | Study of a Young Woman | Johannes Vermeer | The Metropolitan Museum of Art | - |
 | TODO | michelangelo-study-of-figure-to-quotbattle-of-cascinaquot | Study of figure to "Battle of Cascina" | Michelangelo | British Museum | - |
 | TODO | frederic-bazille-study-of-flowers | Study of Flowers | Frédéric Bazille | Private Collection | - |
 | TODO | edgar-degas-study-of-gentile-bellini | Study of Gentile Bellini | Edgar Degas | State Hermitage Museum | - |
 | DONE | jean-leon-gerome-study-of-terra-nuova-dog-quotthe-waitingquot- | Study Of Terra Nuova Dog ( "The Waiting" ) | Jean-Léon Gérôme | Private Collection | - |
 | TODO | leonardo-da-vinci-study-of-the-hanged-bernardo-di-bandino-baroncelli | Study of the Hanged Bernardo di Bandino Baroncelli, assassin of Giuliano de Medici | Leonardo da Vinci | Musée Bonnat-Helleu | - |
-| TODO | leonardo-da-vinci-study-of-the-madonna-and-child-with-a-cat | Study of the Madonna and Child with a Cat | Leonardo da Vinci | British Museum | - |
+| DONE | leonardo-da-vinci-study-of-the-madonna-and-child-with-a-cat | Study of the Madonna and Child with a Cat | Leonardo da Vinci | British Museum | - |
 | TODO | edouard-manet-study-of-trees | Study of trees | Édouard Manet | Private Collection | - |
 | TODO | albert-joseph-moore-study-of-two-female-figures | Study of Two Female Figures | Albert Joseph Moore | British Museum | - |
 | TODO | leonardo-da-vinci-study-sheet | Study sheet | Leonardo da Vinci | Uffizi Gallery, Florence | - |
@@ -2665,7 +2665,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | alphonse-mucha-summer | Summer | Alphonse Mucha | Private Collection | - |
 | DONE | jan-van-goyen-summer | Summer | Jan van Goyen | Rijksmuseum | - |
 | TODO | summer-evening-skagen-beach | Summer Evening at Skagen Beach | Peder Severin Krøyer | Skagens Museum | - |
-| TODO | edvard-munch-summer-night-inger-on-the-shore | Summer Night (Inger on the Shore) | Edvard Munch | Rasmus Meyer Collection, Bergen | - |
+| DONE | edvard-munch-summer-night-inger-on-the-shore | Summer Night (Inger on the Shore) | Edvard Munch | Rasmus Meyer Collection, Bergen | - |
 | DONE | thomas-cole-summer-twilight | Summer Twilight | Thomas Cole | Private Collection | - |
 | TODO | eugene-delacroix-summer-diana-surprised-at-her-bath-by-actaeon | Summer: Diana Surprised at her Bath by Actaeon | Eugène Delacroix | Museum of Fine Arts, Boston | - |
 | TODO | ernest-meissonier-sunday-in-poissy | Sunday in Poissy | Ernest Meissonier | Private Collection | - |
@@ -2678,15 +2678,15 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | gerard-van-honthorst-supper-party-with-lute-player | Supper Party with Lute Player | Gerard van Honthorst | Uffizi Gallery, Florence | - |
 | TODO | edouard-manet-surprised-nymph | Surprised Nymph | Édouard Manet | Museo Nacional de Bellas Artes (MNBA), Buenos Aires | - |
 | TODO | guercino-susanna-and-the-elders | Susanna and the Elders | Guercino | Parma National Gallery, Parma | - |
-| TODO | giovanni-battista-tiepolo-susanna-and-the-elders | Susanna and the Elders | Giovanni Battista Tiepolo | Wadsworth Atheneum | - |
 | DONE | artemisia-gentileschi-susanna-and-the-elders | Susanna and the Elders | Artemisia Gentileschi | Schloss Weissenstein, Pommersfelden | - |
+| TODO | giovanni-battista-tiepolo-susanna-and-the-elders | Susanna and the Elders | Giovanni Battista Tiepolo | Wadsworth Atheneum | - |
 | TODO | hyacinthe-rigaud-suzanne-de-boubers-de-bern226tre | Suzanne De Boubers De Bernâtre | Hyacinthe Rigaud | Kunsthaus Zürich | - |
 | DONE | akseli-gallen-kallela-symposium | Symposium | Akseli Gallen-Kallela | Private Collection | - |
 | TODO | otto-mueller-t228nzerin-maschka-tanzend | Tänzerin (maschka, Tanzend) | Otto Mueller | Private Collection | - |
 | TODO | otto-mueller-t228nzerin-mit-schleier-von-einem-mann-beobachtet | Tänzerin Mit Schleier, Von Einem Mann Beobachtet | Otto Mueller | Private Collection | - |
 | TODO | ilya-repin-tatyana-repina-the-artist39s-mother | Tatyana Repina, the Artist's Mother | Ilya Repin | National Gallery in Prague, Prague | - |
-| DONE | adriaen-van-ostade-tavern-scene | Tavern Scene | Adriaen van Ostade | State Hermitage Museum | - |
 | TODO | david-teniers-younger-tavern-scene | Tavern Scene | David Teniers the Younger | State Hermitage Museum | - |
+| DONE | adriaen-van-ostade-tavern-scene | Tavern Scene | Adriaen van Ostade | State Hermitage Museum | - |
 | TODO | adriaen-brouwer-tavern-scene | Tavern Scene | Adriaen Brouwer | National Gallery | - |
 | DONE | pieter-de-hooch-tavern-scene-with-maid-trying-to-fill-the-glass-of | Tavern scene with maid trying to fill the glass of a cavalier (The Empty Glass) | Pieter de Hooch | Museum Boijmans van Beuningen, Rotterdam | - |
 | TODO | katsushika-hokusai-teahouse160umeyashiki | Teahouse Umeyashiki | Katsushika Hokusai | Guimet Museum, Paris | - |
@@ -2697,9 +2697,9 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | berthe-morisot-thatched-cottage-in-normandy | Thatched Cottage in Normandy | Berthe Morisot | Private Collection | - |
 | DONE | edouard-manet-the-absinthe-drinker | The absinthe drinker | Édouard Manet | Ny Carlsberg Glyptotek | - |
 | DONE | the-accolade-leighton | The Accolade | Edmund Blair Leighton | Private Collection | - |
-| DONE | jacopo-bassano-the-adoration-of-the-kings | The Adoration of the Kings | Jacopo Bassano | Scottish National Gallery | - |
-| TODO | giorgione-the-adoration-of-the-kings | The Adoration of the Kings | Giorgione | National Gallery | - |
 | DONE | pieter-bruegel-elder-the-adoration-of-the-kings | The Adoration of the Kings | Pieter Bruegel the Elder | Royal Museums of Fine Arts of Belgium | - |
+| DONE | giorgione-the-adoration-of-the-kings | The Adoration of the Kings | Giorgione | National Gallery | - |
+| DONE | jacopo-bassano-the-adoration-of-the-kings | The Adoration of the Kings | Jacopo Bassano | Scottish National Gallery | - |
 | TODO | hugo-van-der-goes-the-adoration-of-the-kings-monforte-altar | The Adoration of the Kings (Monforte Altar) | Hugo van der Goes | Gemäldegalerie, Berlin | - |
 | TODO | perugino-the-adoration-of-the-magi | The Adoration of the Magi | Perugino | National Gallery of Umbria (Palazzo dei Priori), Perugia | - |
 | DONE | correggio-the-adoration-of-the-magi | The Adoration of the Magi | Correggio | Pinacoteca di Brera | - |
@@ -2707,8 +2707,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | adoration-shepherds-bassano | The Adoration of the Shepherds | Jacopo Bassano | Private Collection | - |
 | TODO | pietro-da-cortona-the-age-of-bronze | The Age of Bronze | Pietro da Cortona | Palazzo Pitti | - |
 | TODO | pietro-da-cortona-the-age-of-iron | The Age of Iron | Pietro da Cortona | Palazzo Pitti | - |
-| TODO | rembrandt-the-agony-in-the-garden | The Agony in the Garden | Rembrandt van Rijn | National Gallery | - |
 | DONE | giovanni-bellini-the-agony-in-the-garden | The Agony in the Garden | Giovanni Bellini | National Gallery | - |
+| TODO | rembrandt-the-agony-in-the-garden | The Agony in the Garden | Rembrandt van Rijn | National Gallery | - |
 | TODO | andrea-mantegna-the-agony-in-the-garden-detail | The agony in the garden (detail) | Andrea Mantegna | National Gallery | - |
 | DONE | aino-triptych | The Aino Triptych | Akseli Gallen-Kallela | Ateneum Art Museum | - |
 | DONE | pietro-da-cortona-the-alliance-of-jacob-and-laban | The Alliance of Jacob and Laban | Pietro da Cortona | Louvre, Paris | - |
@@ -2716,9 +2716,9 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | rembrandt-the-angel-appearing-to-the-shepherds | The angel appearing to the shepherds | Rembrandt van Rijn | Cleveland Museum of Art | - |
 | TODO | angel-of-death-morgan | The Angel of Death | Evelyn De Morgan | De Morgan Collection | - |
 | TODO | bartolome-murillo-the-angels39-kitchen | The Angels' Kitchen | Bartolomé Esteban Murillo | Louvre, Paris | - |
+| TODO | dante-gabriel-rossetti-the-annunciation | The Annunciation | Dante Gabriel Rossetti | Tate Britain | - |
 | TODO | petrus-christus-the-annunciation | The Annunciation | Petrus Christus | Groeningemuseum | - |
 | TODO | gentile-da-fabriano-the-annunciation | The Annunciation | Gentile da Fabriano | Private Collection | - |
-| TODO | dante-gabriel-rossetti-the-annunciation | The Annunciation | Dante Gabriel Rossetti | Tate Britain | - |
 | TODO | andrea-del-sarto-the-annunciation | The Annunciation | Andrea del Sarto | Palazzo Pitti | - |
 | DONE | el-greco-the-annunciation | The Annunciation | El Greco | Museo del Prado, Madrid | - |
 | TODO | rogier-van-der-weyden-the-annunciation | The Annunciation | Rogier van der Weyden | Sabauda Gallery, Turin | - |
@@ -2750,8 +2750,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | adriaen-brouwer-the-back-operation | The Back Operation | Adriaen Brouwer | Private Collection | - |
 | TODO | arnold-bocklin-the-bagpiper | The Bagpiper | Arnold Böcklin | Neue Pinakothek | - |
 | DONE | the-ball-vallotton | The Ball | Félix Vallotton | Musée d'Orsay | - |
+| DONE | leonardo-da-vinci-the-baptism-of-christ | The Baptism of Christ | Leonardo da Vinci | Uffizi Gallery, Florence | - |
 | TODO | joachim-patinir-the-baptism-of-christ | The Baptism of Christ | Joachim Patinir | Kunsthistorisches Museum | - |
-| TODO | leonardo-da-vinci-the-baptism-of-christ | The Baptism of Christ | Leonardo da Vinci | Uffizi Gallery, Florence | - |
 | TODO | peter-paul-rubens-the-baptism-of-christ | The Baptism of Christ | Peter Paul Rubens | Private Collection | - |
 | TODO | rembrandt-the-baptism-of-the-eunuch | The Baptism Of The Eunuch | Rembrandt van Rijn | Private Collection | - |
 | DONE | john-martin-the-bard | The Bard | John Martin | Yale Centre For British Art (Yale University), New Haven, CT | - |
@@ -2792,7 +2792,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | the-blue-room-valadon | The Blue Room | Suzanne Valadon | Musée de l'Orangerie | - |
 | TODO | claude-monet-the-boats-regatta-at-argenteuil | The Boats Regatta at Argenteuil | Claude Monet | Musée d'Orsay | - |
 | DONE | camille-pissarro-the-bohemian39s-wagon | The bohemian's wagon | Camille Pissarro | Private Collection | - |
-| TODO | the-bookworm-spitzweg | The Bookworm | Carl Spitzweg | Museum Georg Schäfer | - |
+| DONE | the-bookworm-spitzweg | The Bookworm | Carl Spitzweg | Museum Georg Schäfer | - |
 | DONE | boulevard-montmartre-winter | The Boulevard Montmartre on a Winter Morning | Camille Pissarro | The Metropolitan Museum of Art | - |
 | DONE | edouard-manet-the-boy-with-cherries | The Boy with Cherries | Édouard Manet | Calouste Gulbenkian Museum, Lisbon | - |
 | TODO | adriaen-brouwer-the-brawl | The brawl | Adriaen Brouwer | The Metropolitan Museum of Art | - |
@@ -2806,7 +2806,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | jean-baptiste-simeon-chardin-the-buffet | The Buffet | Jean-Baptiste-Siméon Chardin | Louvre, Paris | - |
 | TODO | vilhelm-hammershoi-the-buildings-of-the-asiatic-company-seen-from-st- | The Buildings of the Asiatic Company, seen from St. Annæ Street | Vilhelm Hammershøi | National Gallery of Denmark (Statens Museum for Kunst), Copenhagen | - |
 | DONE | rembrandt-the-bull | The Bull | Rembrandt van Rijn | Private Collection | - |
-| TODO | frida-kahlo-the-bus | The Bus | Frida Kahlo | Dolores Olmedo Collection, Mexico City | - |
+| DONE | frida-kahlo-the-bus | The Bus | Frida Kahlo | Dolores Olmedo Collection, Mexico City | - |
 | TODO | ernst-ludwig-kirchner-the-caf233 | The Café | Ernst Ludwig Kirchner | Brücke Museum, Berlin | - |
 | DONE | edgar-degas-the-cafe-concert | The Cafe Concert | Edgar Degas | Private Collection | - |
 | TODO | claude-lorrain-the-campo-vaccino-rome | The Campo Vaccino, Rome | Claude Lorrain | Dulwich Picture Gallery | - |
@@ -2819,7 +2819,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | chaim-soutine-the-cellist-serevitsch | The Cellist (Serevitsch) | Chaim Soutine | McNay Art Museum, San Antonio, TX | - |
 | TODO | gustave-courbet-the-cellist-self-portrait | The Cellist, Self Portrait | Gustave Courbet | Nationalmuseum, Stockholm | - |
 | DONE | pierre-auguste-renoir-the-champs-elysees-during-the-paris-fair-of-1867 | The Champs Elysees during the Paris Fair of 1867 | Pierre-Auguste Renoir | Private Collection | - |
-| TODO | the-charging-chasseur | The Charging Chasseur | Théodore Géricault | Louvre, Paris | - |
+| DONE | the-charging-chasseur | The Charging Chasseur | Théodore Géricault | Louvre, Paris | - |
 | TODO | edgar-degas-the-child-in-blue | The Child in Blue | Edgar Degas | Private Collection | - |
 | TODO | dante-gabriel-rossetti-the-childhood-of-mary-virgin | The Childhood of Mary Virgin | Dante Gabriel Rossetti | Tate Modern, London | - |
 | DONE | paul-delaroche-the-childhood-of-pico-della-mirandola | The Childhood of Pico della Mirandola | Paul Delaroche | Musée des Beaux-Arts de Nantes, Nantes | - |
@@ -2837,7 +2837,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | jacques-louis-david-the-combat-of-mars-and-minerva | The Combat of Mars and Minerva | Jacques-Louis David | Louvre, Paris | - |
 | DONE | jean-francois-millet-the-comtesse-of-valmont | The Comtesse of Valmont | Jean-François Millet | Saint Louis Art Museum, St. Louis, MO | - |
 | DONE | titian-the-concert | The Concert | Titian | Palazzo Pitti | - |
-| TODO | johannes-vermeer-the-concert | The Concert | Johannes Vermeer | Isabella Stewart Gardner Museum | - |
+| DONE | johannes-vermeer-the-concert | The Concert | Johannes Vermeer | Isabella Stewart Gardner Museum | - |
 | DONE | hieronymus-bosch-the-concert-in-the-egg | The Concert in the Egg | Hieronymus Bosch | Palais des Beaux-Arts de Lille, Lille | - |
 | DONE | gerard-ter-borch-the-concert-singer-and-theorbo-player | The Concert: Singer and Theorbo Player | Gerard ter Borch | Louvre, Paris | - |
 | TODO | carolus-duran-the-convalescent | The Convalescent | Carolus-Duran | Musée d'Orsay | - |
@@ -2853,8 +2853,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | robert-campin-the-crucified-thief | The Crucified Thief | Robert Campin | Städel, Frankfurt am Main | - |
 | TODO | gerard-david-the-crucifixion | The Crucifixion | Gerard David | Thyssen-Bornemisza Museum, Madrid | - |
 | TODO | lucas-cranach-elder-the-crucifixion | The Crucifixion | Lucas Cranach the Elder | Kunsthistorisches Museum | - |
-| TODO | alonso-cano-the-crucifixion | The Crucifixion | Alonso Cano | State Hermitage Museum | - |
 | TODO | hugo-van-der-goes-the-crucifixion | The Crucifixion | Hugo van der Goes | Museo Correr, Venice | - |
+| TODO | alonso-cano-the-crucifixion | The Crucifixion | Alonso Cano | State Hermitage Museum | - |
 | TODO | rembrandt-the-crucifixion-a-square-small-plate | The Crucifixion a Square Small Plate | Rembrandt van Rijn | Private Collection | - |
 | DONE | luca-signorelli-the-crucifixion-with-st-mary-magdalen | The Crucifixion with St. Mary Magdalen | Luca Signorelli | Uffizi Gallery, Florence | - |
 | DONE | jan-van-eyck-the-cumaean-sibyl | The Cumaean Sibyl | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
@@ -2875,19 +2875,19 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | petrus-christus-the-death-of-the-virgin | The Death of the Virgin | Petrus Christus | Timken Museum of Art, San Diego, CA | - |
 | TODO | akseli-gallen-kallela-the-defense-of-the-sampo | The Defense of the Sampo | Akseli Gallen-Kallela | Turku Art Museum, Turku | - |
 | TODO | delivery-of-the-keys | The Delivery of the Keys | Perugino | Vatican Museums | - |
-| TODO | demon-seated | The Demon Seated | Mikhail Vrubel | State Russian Museum | - |
+| DONE | demon-seated | The Demon Seated | Mikhail Vrubel | State Russian Museum | - |
 | DONE | william-hogarth-the-denunciation | The Denunciation | William Hogarth | Private Collection | - |
 | TODO | rembrandt-the-descent-from-the-cross-by-torchlight | The descent from the cross by torchlight | Rembrandt van Rijn | Art Institute of Chicago | - |
 | DONE | the-desperate-man | The Desperate Man | Gustave Courbet | Private Collection | - |
-| TODO | gustave-courbet-the-desperate-man-selfportrait | The Desperate Man (Self-Portrait) | Gustave Courbet | Private Collection | - |
+| DONE | gustave-courbet-the-desperate-man-selfportrait | The Desperate Man (Self-Portrait) | Gustave Courbet | Private Collection | - |
 | TODO | paul-signac-the-dining-room | The Dining Room | Paul Signac | Kröller-Müller Museum | - |
 | TODO | dining-room-in-country | The Dining Room in the Country | Pierre Bonnard | Minneapolis Institute of Art | - |
-| TODO | sandro-botticelli-the-discovery-of-the-body-of-holofernes | The Discovery of the Body of Holofernes | Sandro Botticelli | Uffizi Gallery, Florence | - |
+| DONE | sandro-botticelli-the-discovery-of-the-body-of-holofernes | The Discovery of the Body of Holofernes | Sandro Botticelli | Uffizi Gallery, Florence | - |
 | TODO | gabriel-metsu-the-dismissal-of-hagar | The Dismissal of Hagar | Gabriel Metsu | Museum De Lakenhal, Leiden | - |
 | TODO | filippo-lippi-the-doctors-of-the-church | The Doctors of the Church | Filippo Lippi | Private Collection | - |
 | TODO | hans-memling-the-donne-triptych-right-wing | The Donne Triptych right wing | Hans Memling | National Gallery | - |
 | TODO | gustave-courbet-the-draughts-players | The Draughts Players | Gustave Courbet | Private Collection | - |
-| TODO | giotto-the-dream-of-innocent-iii | The Dream of Innocent III | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
+| DONE | giotto-the-dream-of-innocent-iii | The Dream of Innocent III | Giotto di Bondone | Basilica of Saint Francis of Assisi, Assisi | - |
 | DONE | pierre-bonnard-the-dressing-gown | The Dressing Gown | Pierre Bonnard | Musée d'Orsay | - |
 | TODO | lawrence-alma-tadema-the-education-of-the-children-of-clovis | The Education of the Children of Clovis | Lawrence Alma-Tadema | Private Collection | - |
 | TODO | francis-picabia-the-effect-of-sun-on-the-banks-of-the-loing | The Effect of Sun on the Banks of the Loing | Francis Picabia | Private Collection | - |
@@ -2950,7 +2950,7 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | ivan-aivazovsky-the-gale-on-sea-is-over | The gale on sea is over | Ivan Aivazovsky | State Russian Museum | - |
 | DONE | gallant-conversation | The Gallant Conversation | Gerard ter Borch | Rijksmuseum | - |
 | TODO | david-teniers-younger-the-gallery-of-archduke-leopold-in-brussels | The Gallery of Archduke Leopold in Brussels | David Teniers the Younger | Staatsgalerie Stuttgart, Stuttgart | - |
-| TODO | johannes-vermeer-the-geographer | The Geographer | Johannes Vermeer | Städel, Frankfurt am Main | - |
+| DONE | johannes-vermeer-the-geographer | The Geographer | Johannes Vermeer | Städel, Frankfurt am Main | - |
 | DONE | jan-van-eyck-the-ghent-altar-detail | The Ghent Altar (detail) | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
 | TODO | jan-van-eyck-the-ghent-altarpiece-exterior | The Ghent Altarpiece (exterior) | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
 | TODO | jan-van-eyck-the-ghent-altarpiece-the-virgin-mary | The Ghent Altarpiece, The Virgin Mary | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
@@ -2985,8 +2985,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | gust-of-wind-spilliaert | The Gust of Wind | Léon Spilliaert | Mu.ZEE | - |
 | TODO | adriaen-van-ostade-the-halt-at-the-inn | The Halt at the Inn | Adriaen van Ostade | Private Collection | - |
 | DONE | gustave-courbet-the-hammock | The Hammock | Gustave Courbet | Oskar Reinhart Foundation, Winterthur | - |
-| TODO | gustave-courbet-the-happy-lovers | The Happy Lovers | Gustave Courbet | Musée des Beaux-Arts de Lyon, Lyon | - |
 | DONE | jean-honore-fragonard-the-happy-lovers | The Happy Lovers | Jean-Honoré Fragonard | Norton Simon Museum, Pasadena, CA | - |
+| TODO | gustave-courbet-the-happy-lovers | The Happy Lovers | Gustave Courbet | Musée des Beaux-Arts de Lyon, Lyon | - |
 | TODO | berthe-morisot-the-harbor-at-lorient | The Harbor at Lorient | Berthe Morisot | National Gallery of Art | - |
 | TODO | camille-pissarro-the-harvest | The Harvest | Camille Pissarro | Private Collection | - |
 | TODO | ford-madox-brown-the-hay-harvest | The hay harvest | Ford Madox Brown | Private Collection | - |
@@ -2999,10 +2999,10 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | peder-severin-kroyer-the-hirschsprung-family | The Hirschsprung family | Peder Severin Krøyer | Hirschsprung Collection, Copenhagen | - |
 | TODO | rembrandt-the-hog | The hog | Rembrandt van Rijn | Rijksmuseum | - |
 | TODO | francisco-de-zurbaran-the-holy-face | The Holy Face | Francisco de Zurbarán | Nationalmuseum, Stockholm | - |
-| TODO | bernardino-luini-the-holy-family | The Holy Family | Bernardino Luini | Louvre, Paris | - |
-| TODO | lucas-cranach-elder-the-holy-family | The Holy Family | Lucas Cranach the Elder | Städel, Frankfurt am Main | - |
 | DONE | luca-signorelli-the-holy-family | The Holy Family | Luca Signorelli | Uffizi Gallery, Florence | - |
-| TODO | giorgione-the-holy-family-madonna-benson | The Holy Family (Madonna Benson) | Giorgione | National Gallery of Art | - |
+| TODO | lucas-cranach-elder-the-holy-family | The Holy Family | Lucas Cranach the Elder | Städel, Frankfurt am Main | - |
+| TODO | bernardino-luini-the-holy-family | The Holy Family | Bernardino Luini | Louvre, Paris | - |
+| DONE | giorgione-the-holy-family-madonna-benson | The Holy Family (Madonna Benson) | Giorgione | National Gallery of Art | - |
 | TODO | rembrandt-the-holy-family-with-a-cat | The Holy Family with a cat | Rembrandt van Rijn | Private Collection | - |
 | TODO | titian-the-holy-family-with-a-shepherd | The Holy Family with a Shepherd | Titian | National Gallery | - |
 | TODO | palma-vecchio-the-holy-family-with-mary-magdalene-and-the-infant | The Holy Family with Mary Magdalene and the infant saint John | Palma Vecchio | Uffizi Gallery, Florence | - |
@@ -3070,8 +3070,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | last-judgment-memling | The Last Judgment | Hans Memling | National Museum in Gdańsk | - |
 | TODO | hans-memling-the-last-judgment-triptych-right-wing-casting-the- | The Last Judgment, triptych, right wing Casting the Damned into Hell | Hans Memling | National Museum in Gdańsk | - |
 | DONE | ford-madox-brown-the-last-of-england | The Last of England | Ford Madox Brown | Birmingham Museum and Art Gallery, Birmingham | - |
-| DONE | last-supper-juanes | The Last Supper | Juan de Juanes | Museo del Prado, Madrid | - |
 | TODO | el-greco-the-last-supper | The Last Supper | El Greco | Pinacoteca Nazionale di Bologna, Bologna | - |
+| DONE | last-supper-juanes | The Last Supper | Juan de Juanes | Museo del Prado, Madrid | - |
 | TODO | last-valley-la-farge | The Last Valley | John La Farge | Private Collection | - |
 | DONE | annibale-carracci-the-laughing-youth | The Laughing Youth | Annibale Carracci | Borghese Gallery, Rome | - |
 | TODO | jean-honore-fragonard-the-laundresses | The Laundresses | Jean-Honoré Fragonard | Saint Louis Art Museum, St. Louis, MO | - |
@@ -3117,8 +3117,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | adriaen-van-ostade-the-merry-peasant | The Merry Peasant | Adriaen van Ostade | The Metropolitan Museum of Art | - |
 | DONE | rembrandt-the-mill | The Mill | Rembrandt van Rijn | National Gallery of Art | - |
 | TODO | claude-lorrain-the-mill | The Mill | Claude Lorrain | Museum of Fine Arts, Boston | - |
-| TODO | paul-signac-the-milliner | The Milliner | Paul Signac | E.G. Bührle Foundation, Zürich | - |
 | TODO | edgar-degas-the-milliner | The Milliner | Edgar Degas | Art Institute of Chicago | - |
+| TODO | paul-signac-the-milliner | The Milliner | Paul Signac | E.G. Bührle Foundation, Zürich | - |
 | DONE | edgar-degas-the-millinery-shop | The Millinery Shop | Edgar Degas | Art Institute of Chicago | - |
 | DONE | tintoretto-the-miracle-of-st-mark-freeing-the-slave | The Miracle of St Mark Freeing the Slave | Tintoretto | Gallerie dell'Accademia | - |
 | TODO | simone-martini-the-miracle-of-the-child-attacked-and-rescued-by-a | The Miracle of the Child Attacked and Rescued by Augustine Novello | Simone Martini | Pinacoteca Nazionale di Bologna, Bologna | - |
@@ -3278,8 +3278,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | gabriel-metsu-the-sleeping-sportsman | The Sleeping Sportsman | Gabriel Metsu | Wallace Collection | - |
 | DONE | matthias-grunewald-the-small-crucifixion | The Small Crucifixion | Matthias Grünewald | National Gallery of Art | - |
 | DONE | rembrandt-the-small-lion-hunt-with-two-lions | The small lion hunt with two lions | Rembrandt van Rijn | Private Collection | - |
-| DONE | adriaen-van-ostade-the-smoker | The Smoker | Adriaen van Ostade | Cleveland Museum of Art | - |
 | TODO | adriaen-brouwer-the-smoker | The Smoker | Adriaen Brouwer | The Metropolitan Museum of Art | - |
+| DONE | adriaen-van-ostade-the-smoker | The Smoker | Adriaen van Ostade | Cleveland Museum of Art | - |
 | DONE | adriaen-brouwer-the-smokers | The Smokers | Adriaen Brouwer | The Metropolitan Museum of Art | - |
 | TODO | william-blake-the-soldiers-casting-lots-for-christ39s-garments | The Soldiers Casting Lots for Christ's Garments | William Blake | Fitzwilliam Museum (University of Cambridge), Cambridge | - |
 | DONE | jan-van-eyck-the-soldiers-of-christ | The Soldiers of Christ | Jan van Eyck | St. Bavo Cathedral, Ghent | - |
@@ -3312,8 +3312,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | david-teniers-younger-the-temptation-of-st-anthony | The Temptation of St Anthony | David Teniers the Younger | Wallraf-Richartz Museum, Cologne | - |
 | TODO | claude-monet-the-thames-below-westminster | The Thames below Westminster | Claude Monet | National Gallery | - |
 | DONE | william-hogarth-the-theft-of-a-watch | The Theft of a Watch | William Hogarth | Ashmolean Museum, Oxford | - |
-| TODO | giorgione-the-three-ages-of-man | The Three Ages of Man | Giorgione | Palazzo Pitti | - |
 | TODO | dosso-dossi-the-three-ages-of-man | The Three Ages of Man | Dosso Dossi | The Metropolitan Museum of Art | - |
+| DONE | giorgione-the-three-ages-of-man | The Three Ages of Man | Giorgione | Palazzo Pitti | - |
 | TODO | the-three-brides | The Three Brides | Jan Toorop | Kröller-Müller Museum | - |
 | TODO | rembrandt-the-three-crosses | The Three Crosses | Rembrandt van Rijn | Cleveland Museum of Art | - |
 | TODO | robert-delaunay-the-three-graces | The Three Graces | Robert Delaunay | Private Collection | - |
@@ -3457,8 +3457,8 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | adriaen-coorte-vanitas-still-life-in-a-niche | Vanitas Still Life in a Niche | Adriaen Coorte | Private Collection | - |
 | DONE | pieter-claesz-vanitas-still-life-with-the-spinario | Vanitas Still Life With The Spinario | Pieter Claesz | Rijksmuseum | - |
 | TODO | michelangelo-various-studies | Various studies | Michelangelo | Louvre, Paris | - |
-| TODO | vase-of-flowers-de-heem | Vase of Flowers | Jan Davidsz. de Heem | National Gallery of Art | - |
 | TODO | georges-seurat-vase-of-flowers | Vase of Flowers | Georges Seurat | Harvard Art Museums, Cambridge, MA | - |
+| TODO | vase-of-flowers-de-heem | Vase of Flowers | Jan Davidsz. de Heem | National Gallery of Art | - |
 | DONE | lawrence-alma-tadema-venantius-fortunatus-reading-his-poems-to-radegond | Venantius Fortunatus Reading His Poems to Radegonda VI | Lawrence Alma-Tadema | Dordrechts Museum, Dordrecht | - |
 | DONE | venice-dogana-san-giorgio | Venice: The Dogana and San Giorgio Maggiore | Francesco Guardi | National Gallery | - |
 | TODO | canaletto-venice-the-grand-canal-looking-north-east-from-pal | Venice: The Grand Canal, Looking North East from Palazzo Balbi to the Rialto Bridge | Canaletto | Private Collection | - |
@@ -3633,8 +3633,8 @@ Track progress across workers. Mark as DONE when complete.
 | TODO | piet-mondrian-wood-with-beech-trees | Wood with Beech Trees | Piet Mondrian | Gemeentemuseum den Haag, Hague | - |
 | DONE | john-constable-wooded-landscape | Wooded Landscape | John Constable | Art Gallery of Ontario (AGO), Toronto | - |
 | DONE | salvator-rosa-wooded-landscape | Wooded Landscape | Salvator Rosa | Private Collection | - |
-| TODO | pierre-puvis-de-chavannes-work | Work | Pierre Puvis de Chavannes | Musée de Picardie, Amiens | - |
 | TODO | work-ford-madox-brown | Work | Ford Madox Brown | Manchester Art Gallery | - |
+| TODO | pierre-puvis-de-chavannes-work | Work | Pierre Puvis de Chavannes | Musée de Picardie, Amiens | - |
 | DONE | paul-gauguin-working-the-land | Working the land | Paul Gauguin | Fitzwilliam Museum (University of Cambridge), Cambridge | - |
 | TODO | edvard-munch-writer-hans-jaeger | Writer Hans Jaeger | Edvard Munch | National Gallery of Norway | - |
 | TODO | gustave-caillebotte-yerres-colonnade-of-the-casin | Yerres, Colonnade of the Casin | Gustave Caillebotte | Private Collection | - |

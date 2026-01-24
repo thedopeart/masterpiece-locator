@@ -1,0 +1,126 @@
+{
+  "slug": "metropolitan-museum-of-art",
+  "name": "The Metropolitan Museum of Art",
+  "shortName": "The Met",
+  "location": {
+    "address": "1000 Fifth Avenue",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10028",
+    "country": "USA",
+    "neighborhood": "Upper East Side",
+    "coordinates": {
+      "lat": 40.7794,
+      "lng": -73.9632
+    }
+  },
+  "contact": {
+    "phone": "+1 212-535-7710",
+    "website": "https://www.metmuseum.org",
+    "email": null
+  },
+  "hours": {
+    "regular": {
+      "sunday": { "open": "10:00", "close": "17:00" },
+      "monday": { "open": "10:00", "close": "17:00" },
+      "tuesday": { "open": "10:00", "close": "17:00" },
+      "wednesday": { "open": null, "close": null, "closed": true },
+      "thursday": { "open": "10:00", "close": "17:00" },
+      "friday": { "open": "10:00", "close": "21:00" },
+      "saturday": { "open": "10:00", "close": "21:00" }
+    },
+    "exceptions": [
+      { "date": "2026-01-01", "closed": true, "reason": "New Year's Day" },
+      { "date": "2026-05-04", "closed": true, "reason": "First Monday in May (Met Gala)" },
+      { "date": "2026-11-26", "closed": true, "reason": "Thanksgiving" },
+      { "date": "2026-12-25", "closed": true, "reason": "Christmas Day" }
+    ],
+    "notes": "Late nights on Friday and Saturday until 9pm. Closed Wednesdays. Galleries close at 5pm even on late nights for some areas.",
+    "lastUpdated": "2026-01-23"
+  },
+  "admission": {
+    "adult": 30,
+    "senior": 22,
+    "seniorAge": 65,
+    "student": 17,
+    "child": 0,
+    "childMaxAge": 12,
+    "currency": "USD",
+    "notes": "Pay-what-you-wish for NY State residents and NY, NJ, CT students. Visitors with disabilities pay $22. Caregivers free.",
+    "freeDay": null,
+    "freeHours": null,
+    "memberFree": true
+  },
+  "tickets": {
+    "onlineUrl": "https://engage.metmuseum.org/admission",
+    "advanceRequired": false,
+    "advanceRecommended": true,
+    "advanceWindow": "30 days",
+    "sameDayAvailable": true,
+    "skipTheLine": true,
+    "affiliateUrl": null
+  },
+  "crowdData": {
+    "overall": "Very Popular",
+    "bestDays": ["tuesday", "thursday"],
+    "worstDays": ["saturday", "sunday"],
+    "bestTimes": ["10:00-11:00", "16:00-17:00"],
+    "worstTimes": ["11:00-15:00"],
+    "bestMonths": ["january", "february", "september"],
+    "worstMonths": ["june", "july", "august", "december"],
+    "seasonalNotes": "Extremely crowded during summer, holidays, and special exhibitions. Weekday mornings are best. Friday and Saturday evenings are less crowded than daytime.",
+    "avgVisitDuration": "2-4 hours",
+    "recommendedDuration": "3 hours minimum, full day for thorough visit"
+  },
+  "tips": [
+    "Enter via the 81st Street entrance for shorter lines",
+    "The rooftop garden is open May through October with great views of Central Park",
+    "Free coat check available at main entrance",
+    "Audio guide included with admission via Bloomberg Connects app",
+    "Friday and Saturday evenings are less crowded than daytime",
+    "Start with the Egyptian Temple of Dendur before crowds arrive",
+    "Tickets include same-day admission to The Met Cloisters"
+  ],
+  "accessibility": {
+    "wheelchairAccessible": true,
+    "wheelchairsAvailable": true,
+    "wheelchairReservation": false,
+    "audioGuide": true,
+    "audioGuideLanguages": ["en", "es", "fr", "de", "it", "pt", "zh", "ja", "ko"],
+    "signLanguageTours": true,
+    "brailleGuides": true,
+    "serviceAnimals": true
+  },
+  "amenities": {
+    "restaurant": true,
+    "cafe": true,
+    "giftShop": true,
+    "coatCheck": true,
+    "lockers": true,
+    "wifi": true,
+    "parking": false,
+    "nearbyParking": "Limited street parking. Garage at 80th Street and 5th Avenue."
+  },
+  "mustSee": [
+    {
+      "artwork": "temple-of-dendur",
+      "name": "Temple of Dendur",
+      "location": "Gallery 131",
+      "note": "Entire Egyptian temple in a stunning glass atrium"
+    },
+    {
+      "artwork": "washington-crossing-delaware",
+      "name": "Washington Crossing the Delaware",
+      "artist": "Emanuel Leutze",
+      "location": "Gallery 760",
+      "note": "Massive iconic American painting"
+    },
+    {
+      "artwork": "young-woman-with-water-pitcher",
+      "name": "Young Woman with a Water Pitcher",
+      "artist": "Vermeer",
+      "location": "Gallery 632",
+      "note": "One of the finest Vermeers in America"
+    }
+  ]
+}
