@@ -295,6 +295,41 @@ export default async function ArtworkPage({ params }: Props) {
   const seriesIds = new Set(seriesVariations.map((s) => s.id));
   const filteredMoreByArtist = moreByArtist.filter((a) => !seriesIds.has(a.id));
 
+  // Get related artworks from the same movement (by different artists)
+  const movementSlugs = rawArtwork.Artist?.Movement?.map(m => m.slug) || [];
+  const rawRelatedByMovement = movementSlugs.length > 0
+    ? await prisma.artwork.findMany({
+        where: {
+          id: { not: artwork.id },
+          artistId: artwork.artistId ? { not: artwork.artistId } : undefined, // Different artist
+          imageUrl: { not: null },
+          Artist: {
+            Movement: {
+              some: { slug: { in: movementSlugs } },
+            },
+          },
+        },
+        include: {
+          Artist: { select: { name: true } },
+          Museum: { select: { name: true, city: true } },
+        },
+        orderBy: { searchVolumeTier: "asc" }, // Most famous first
+        take: 8,
+      })
+    : [];
+
+  // Map related artworks
+  const relatedByMovement = rawRelatedByMovement.map((a) => ({
+    ...a,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
+  }));
+
   // Build JSON-LD structured data for SEO
   const latestSale = rawArtwork.AuctionSale[0];
   const latestValuation = rawArtwork.ArtworkValuation[0];
@@ -898,6 +933,31 @@ export default async function ArtworkPage({ params }: Props) {
                 {nearbyArtworks.map((item, index) => (
                   <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
                 ))}
+              </div>
+            </section>
+          )}
+
+          {/* Related Artworks from Same Movement */}
+          {relatedByMovement.length > 0 && artwork.artist?.movements && artwork.artist.movements.length > 0 && (
+            <section className="mb-12 border-t border-neutral-200 pt-8">
+              <h2 className="text-xl font-semibold text-neutral-900 mb-2">
+                Related {artwork.artist.movements[0].name} Works
+              </h2>
+              <p className="text-neutral-500 text-sm mb-4">
+                Other masterpieces from the {artwork.artist.movements[0].name} movement
+              </p>
+              <div className="masonry-grid">
+                {relatedByMovement.map((item, index) => (
+                  <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
+                ))}
+              </div>
+              <div className="mt-4 text-center">
+                <Link
+                  href={`/movement/${artwork.artist.movements[0].slug}`}
+                  className="text-[#C9A84C] hover:underline text-sm"
+                >
+                  Explore all {artwork.artist.movements[0].name} artworks →
+                </Link>
               </div>
             </section>
           )}

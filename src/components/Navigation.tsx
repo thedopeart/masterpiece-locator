@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -98,6 +98,24 @@ export default function Navigation() {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Close mobile menu on route change
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+    setOpenDropdown(null);
   }, []);
 
   const handleMouseEnter = (label: string) => {
@@ -270,26 +288,59 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-neutral-700">
-            <div className="flex flex-col gap-1">
+      </nav>
+
+      {/* Mobile Navigation Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          onClick={closeMenu}
+        />
+
+        {/* Slide-in Menu */}
+        <div
+          className={`absolute top-0 right-0 h-full w-[85%] max-w-sm bg-neutral-900 shadow-2xl transition-transform duration-300 ease-out ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Menu Header */}
+          <div className="flex items-center justify-between p-4 border-b border-neutral-800">
+            <span className="text-white font-semibold text-lg">Menu</span>
+            <button
+              onClick={closeMenu}
+              className="p-2 text-neutral-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Menu Content */}
+          <div className="overflow-y-auto h-[calc(100%-80px)] pb-6">
+            <div className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
                 <div key={link.href}>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className={`w-full px-4 py-3 rounded-lg text-base font-medium transition-all flex items-center justify-between ${
+                    className={`w-full px-4 py-4 rounded-xl text-base font-medium transition-all flex items-center justify-between active:scale-[0.98] ${
                       isActive(link.href)
                         ? "bg-[#C9A84C]/20 text-[#C9A84C]"
-                        : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                        : "text-neutral-200 hover:bg-white/10 active:bg-white/20"
                     }`}
                   >
-                    <span className="flex items-center gap-3">
-                      <span className="text-lg">{link.icon}</span>
+                    <span className="flex items-center gap-4">
+                      <span className="text-xl w-8 text-center">{link.icon}</span>
                       {link.label}
                     </span>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                      className={`w-5 h-5 transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -297,39 +348,65 @@ export default function Navigation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === link.label && link.subItems && (
-                    <div className="ml-10 mt-1 mb-2 flex flex-col gap-1">
-                      {link.subItems.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          data-nav-link="true"
-                          onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
-                          className="px-4 py-2 text-sm text-neutral-400 hover:text-white transition-colors"
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+
+                  {/* Sub-items with animation */}
+                  <div
+                    className={`overflow-hidden transition-all duration-200 ${
+                      openDropdown === link.label ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {link.subItems && (
+                      <div className="ml-12 mt-1 mb-2 flex flex-col border-l-2 border-neutral-700">
+                        {link.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            data-nav-link="true"
+                            onClick={closeMenu}
+                            className="px-4 py-3 text-base text-neutral-400 hover:text-white active:text-[#C9A84C] transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="px-4 mt-4">
               <Link
                 href="https://luxurywallart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="mt-3 px-4 py-3 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black rounded-lg text-base font-semibold text-center flex items-center justify-center gap-2 hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all"
+                onClick={closeMenu}
+                className="block px-6 py-4 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-black rounded-xl text-base font-semibold text-center active:scale-[0.98] transition-transform"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  Shop Luxury Wall Art
+                </span>
+              </Link>
+
+              {/* Search shortcut */}
+              <Link
+                href="/search"
+                onClick={closeMenu}
+                className="mt-3 flex items-center justify-center gap-2 px-6 py-3 border border-neutral-700 rounded-xl text-neutral-300 hover:bg-white/5 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                Shop Wall Art
+                Search Artworks
               </Link>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      </div>
     </header>
   );
 }

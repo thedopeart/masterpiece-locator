@@ -219,3 +219,26 @@ strong {
     column-gap: 1.5rem;
   }
 }
+
+/* Shimmer animation for image loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Image loading blur transition */
+.blur-sm {
+  filter: blur(4px);
+}
+
+.blur-0 {
+  filter: blur(0);
+}

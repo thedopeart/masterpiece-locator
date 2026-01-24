@@ -64,29 +64,38 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
           </div>
         )}
         {artwork.imageUrl && !imageError ? (
-          <>
-            {/* Placeholder with correct aspect ratio */}
-            {!imageLoaded && (
-              <div
-                className="w-full bg-gradient-to-br from-neutral-100 to-neutral-200 animate-pulse"
-                style={{ aspectRatio: aspectRatio }}
-              />
-            )}
+          <div className="relative" style={{ aspectRatio: aspectRatio }}>
+            {/* Shimmer placeholder with blur */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-br from-neutral-100 via-neutral-50 to-neutral-100 transition-opacity duration-500 ${
+                imageLoaded ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              {/* Shimmer animation overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer" />
+              {/* Subtle artwork initial */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-5xl font-light text-neutral-200/60">
+                  {artwork.title.charAt(0)}
+                </span>
+              </div>
+            </div>
             <Image
               src={artwork.imageUrl}
               alt={`${artwork.title}${artwork.artist ? ` by ${artwork.artist.name}` : ""}`}
               width={displayWidth}
               height={displayHeight}
-              className={`w-full h-auto group-hover:scale-105 transition-transform duration-300 ${
-                imageLoaded ? "opacity-100" : "opacity-0 absolute top-0 left-0"
+              className={`w-full h-auto group-hover:scale-105 transition-all duration-500 ${
+                imageLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
               }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               unoptimized={true}
               priority={priority}
+              loading={priority ? "eager" : "lazy"}
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
             />
-          </>
+          </div>
         ) : (
           <div className="w-full aspect-[4/3] bg-gradient-to-br from-neutral-200 to-neutral-300 flex flex-col items-center justify-center">
             <span className="text-4xl font-light text-neutral-400 mb-1">
