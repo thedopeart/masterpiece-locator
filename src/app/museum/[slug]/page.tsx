@@ -15,6 +15,7 @@ import { decodeHtmlEntities } from "@/lib/text";
 import { getMuseumPracticalData, getHoursSummary, isMuseumOpenNow } from "@/lib/museum-hours";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import FeaturedArtists from "@/components/FeaturedArtists";
+import AddToTripButton from "@/components/AddToTripButton";
 
 // Pagination constant
 const ARTWORKS_PER_PAGE = 48;
@@ -330,6 +331,20 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                       Buy Tickets
                     </a>
                   )}
+
+                  {/* Add to Trip Button */}
+                  <AddToTripButton
+                    museum={{
+                      id: museum.id,
+                      slug: museum.slug,
+                      name: museum.name,
+                      city: museum.city,
+                      country: museum.country,
+                      imageUrl: museum.imageUrl,
+                      artworkCount: totalArtworks,
+                    }}
+                    className="w-full justify-center"
+                  />
 
                   <div className="bg-amber-50 rounded-xl p-5">
                     <h2 className="text-lg font-semibold text-neutral-900 mb-4">
