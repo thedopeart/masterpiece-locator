@@ -40,6 +40,14 @@ export default function Footer() {
                   Movements
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/auction-records/most-expensive"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Auction Records
+                </Link>
+              </li>
             </ul>
           </div>
 

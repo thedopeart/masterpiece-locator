@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { decodeHtmlEntities } from "@/lib/text";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
@@ -66,8 +67,67 @@ export default async function AuctionRecordsPage() {
     _sum: { priceUsd: true },
   });
 
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    { name: "Auction Records" },
+  ];
+
+  // JSON-LD for auction records collection
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Art Auction Records: Most Expensive Paintings Ever Sold",
+    description: "Explore auction records for the world's most valuable paintings. From Salvator Mundi at $450M to Van Gogh's masterpieces. Updated price data and sale history.",
+    url: `${BASE_URL}/auction-records`,
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Most Expensive Paintings Sold at Auction",
+      numberOfItems: totalSales,
+      itemListElement: topSales.map((sale, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "VisualArtwork",
+          name: sale.Artwork.title,
+          creator: sale.Artwork.Artist ? {
+            "@type": "Person",
+            name: sale.Artwork.Artist.name,
+          } : undefined,
+          offers: {
+            "@type": "Offer",
+            price: Number(sale.priceUsd) / 100,
+            priceCurrency: "USD",
+            availability: "https://schema.org/SoldOut",
+            validFrom: sale.saleDate.toISOString(),
+          },
+          url: `${BASE_URL}/art/${sale.Artwork.slug}`,
+        },
+      })),
+    },
+  };
+
+  // Aggregate statistics schema
+  const statsSchema = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Art Auction Sales Database",
+    description: `Comprehensive database of ${totalSales} major art auction sales totaling ${formatPrice(totalValue._sum.priceUsd || BigInt(0))} in recorded transactions.`,
+    url: `${BASE_URL}/auction-records`,
+    keywords: ["art auction", "auction records", "expensive paintings", "art market", "art sales"],
+  };
+
   return (
     <div className="bg-neutral-50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(statsSchema) }}
+      />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       {/* Hero */}
       <section className="bg-white py-12 border-b border-neutral-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -92,6 +152,21 @@ export default async function AuctionRecordsPage() {
               </span>
               <p className="text-neutral-500">Total Sold</p>
             </div>
+          </div>
+          {/* Quick Links */}
+          <div className="flex justify-center gap-4 mt-6">
+            <Link
+              href="/auction-records/most-expensive"
+              className="bg-neutral-900 text-white px-4 py-2 rounded-lg text-sm hover:bg-neutral-800 transition-colors"
+            >
+              Top 50 Rankings
+            </Link>
+            <Link
+              href="/auction-records/by-artist"
+              className="bg-neutral-100 text-neutral-700 px-4 py-2 rounded-lg text-sm hover:bg-neutral-200 transition-colors"
+            >
+              Browse by Artist
+            </Link>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ import FAQ, { FAQSchema } from "@/components/FAQ";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
+import PriceComparisonModule from "@/components/PriceComparison";
 
 // Extract series name from artwork title (e.g., "Rouen Cathedral" from "Rouen Cathedral, West Facade")
 function extractSeriesName(title: string): string | null {
@@ -112,14 +113,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const artistName = artwork.artist?.name || "Unknown Artist";
   const museumName = artwork.museum?.name || null;
   const city = artwork.museum?.city || null;
+  const latestSale = rawArtwork.AuctionSale[0];
 
   // Keyword-focused with character limits (60 title, 160 description)
-  const title = artworkMetaTitle(artwork.title, museumName);
-  const description = artworkMetaDescription(artwork.title, artistName, museumName, city);
+  let title = artworkMetaTitle(artwork.title, museumName);
+  let description = artworkMetaDescription(artwork.title, artistName, museumName, city);
+
+  // Enhance for auction artworks
+  if (latestSale) {
+    const priceM = (Number(latestSale.priceUsd) / 100 / 1000000).toFixed(0);
+    title = `${artwork.title} by ${artistName} | $${priceM}M Auction Record`;
+    description = `${artwork.title} by ${artistName} sold for $${priceM} million${latestSale.auctionHouse ? ` at ${latestSale.auctionHouse}` : ''}. View auction history, price analysis, and artwork details.`;
+  }
+
+  // Build keywords
+  const keywords = [
+    artwork.title,
+    artistName,
+    artwork.artist?.nationality,
+    museumName,
+    artwork.medium,
+    ...(artwork.artist?.Movement?.map((m: { name: string }) => m.name) || []),
+    latestSale ? "auction record" : null,
+    latestSale ? "most expensive painting" : null,
+    latestSale ? `${artistName} auction` : null,
+  ].filter(Boolean).join(", ");
 
   return {
     title,
     description,
+    keywords,
     openGraph: {
       title,
       description,
@@ -141,6 +164,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       images: artwork.imageUrl ? [artwork.imageUrl] : [],
+    },
+    alternates: {
+      canonical: `${BASE_URL}/art/${slug}`,
     },
   };
 }
@@ -270,13 +296,17 @@ export default async function ArtworkPage({ params }: Props) {
   const filteredMoreByArtist = moreByArtist.filter((a) => !seriesIds.has(a.id));
 
   // Build JSON-LD structured data for SEO
+  const latestSale = rawArtwork.AuctionSale[0];
+  const latestValuation = rawArtwork.ArtworkValuation[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "VisualArtwork",
     name: artwork.title,
-    description: artwork.description || undefined,
+    description: artwork.description ? artwork.description.replace(/<[^>]*>/g, '').substring(0, 500) : undefined,
     dateCreated: artwork.year?.toString(),
     artMedium: artwork.medium || undefined,
+    artform: "Painting",
     ...(artwork.dimensions && {
       width: { "@type": "Distance", name: artwork.dimensions.split("x")[0]?.trim() },
       height: { "@type": "Distance", name: artwork.dimensions.split("x")[1]?.trim() },
@@ -289,8 +319,41 @@ export default async function ArtworkPage({ params }: Props) {
           birthDate: artwork.artist.birthYear?.toString(),
           deathDate: artwork.artist.deathYear?.toString(),
           nationality: artwork.artist.nationality || undefined,
+          url: `${BASE_URL}/artist/${artwork.artist.slug}`,
         }
       : undefined,
+    // Art movement
+    ...(artwork.artist?.movements && artwork.artist.movements.length > 0 && {
+      about: artwork.artist.movements.map(m => ({
+        "@type": "Thing",
+        name: m.name,
+        url: `${BASE_URL}/movement/${m.slug}`,
+      })),
+    }),
+    // Auction sale data
+    ...(latestSale && {
+      offers: {
+        "@type": "Offer",
+        price: Number(latestSale.priceUsd) / 100,
+        priceCurrency: "USD",
+        availability: "https://schema.org/SoldOut",
+        validFrom: latestSale.saleDate.toISOString(),
+        seller: latestSale.auctionHouse ? {
+          "@type": "Organization",
+          name: latestSale.auctionHouse,
+        } : undefined,
+      },
+    }),
+    // Insurance/estimated valuation (only if no auction sale)
+    ...(latestValuation && !latestSale ? {
+      offers: {
+        "@type": "Offer",
+        price: Number(latestValuation.estimateUsd) / 100,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        description: latestValuation.valuationType === "insurance" ? "Insurance valuation" : "Expert estimate",
+      },
+    } : {}),
     contentLocation: artwork.museum
       ? {
           "@type": "Museum",
@@ -311,6 +374,17 @@ export default async function ArtworkPage({ params }: Props) {
           url: artwork.museum.websiteUrl || undefined,
         }
       : undefined,
+    // Keywords for SEO
+    keywords: [
+      artwork.title,
+      artwork.artist?.name,
+      artwork.artist?.nationality,
+      artwork.museum?.name,
+      artwork.medium,
+      ...(artwork.artist?.movements?.map(m => m.name) || []),
+      latestSale ? "auction record" : null,
+      latestSale ? "most expensive painting" : null,
+    ].filter(Boolean).join(", "),
     sameAs: artwork.wikipediaUrl ? [artwork.wikipediaUrl] : undefined,
   };
 
@@ -665,6 +739,18 @@ export default async function ArtworkPage({ params }: Props) {
                       </p>
                     </>
                   ) : null}
+
+                  {/* Price Comparison */}
+                  {rawArtwork.AuctionSale.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-neutral-200">
+                      <PriceComparisonModule
+                        priceUsdCents={rawArtwork.AuctionSale[0].priceUsd}
+                        artworkTitle={rawArtwork.title}
+                        variant="inline"
+                      />
+                    </div>
+                  )}
+
                   <Link
                     href="/auction-records/most-expensive"
                     className="text-sm text-[#C9A84C] hover:underline mt-3 inline-block"
