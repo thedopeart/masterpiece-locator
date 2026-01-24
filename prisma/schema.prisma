@@ -157,3 +157,22 @@ model ArtworkValuation {
   @@index([artworkId])
   @@index([valuationType])
 }
+
+model ArtistSubmission {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  website       String?
+  instagram     String?
+  artStyle      String
+  bio           String
+  sampleUrls    String[]
+  message       String?
+  status        String   @default("pending") // pending, approved, rejected
+  adminNotes    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
