@@ -192,28 +192,28 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-neutral-800">
           <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Art Movements</h4>
           <div className="flex flex-wrap gap-3">
-            <Link href="/movement/impressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/impressionism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Impressionism
             </Link>
-            <Link href="/movement/renaissance" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/renaissance" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Renaissance
             </Link>
-            <Link href="/movement/baroque" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/baroque" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Baroque
             </Link>
-            <Link href="/movement/post-impressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/post-impressionism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Post-Impressionism
             </Link>
-            <Link href="/movement/surrealism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/surrealism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Surrealism
             </Link>
-            <Link href="/movement/abstract-expressionism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/abstract-expressionism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Abstract Expressionism
             </Link>
-            <Link href="/movement/cubism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/cubism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Cubism
             </Link>
-            <Link href="/movement/romanticism" className="px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-sm font-medium transition-colors">
+            <Link href="/movement/romanticism" className="px-4 py-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 hover:border-[#C9A84C]/50 text-[#C9A84C] rounded-lg text-sm font-medium transition-all">
               Romanticism
             </Link>
           </div>
@@ -273,10 +273,20 @@ export default function Footer() {
               </Link>
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/about" className="text-neutral-500 hover:text-neutral-300 text-sm transition-colors">
+              <Link
+                href="https://luxurywallart.com/pages/about-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-500 hover:text-neutral-300 text-sm transition-colors"
+              >
                 About
               </Link>
-              <Link href="/contact" className="text-neutral-500 hover:text-neutral-300 text-sm transition-colors">
+              <Link
+                href="https://luxurywallart.com/pages/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-500 hover:text-neutral-300 text-sm transition-colors"
+              >
                 Contact
               </Link>
               <Link

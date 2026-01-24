@@ -73,6 +73,7 @@ const navLinks = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [clickedDropdown, setClickedDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -81,11 +82,34 @@ export default function Navigation() {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
+        setClickedDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleMouseEnter = (label: string) => {
+    if (!clickedDropdown) {
+      setOpenDropdown(label);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!clickedDropdown) {
+      setOpenDropdown(null);
+    }
+  };
+
+  const handleClick = (label: string) => {
+    if (clickedDropdown === label) {
+      setClickedDropdown(null);
+      setOpenDropdown(null);
+    } else {
+      setClickedDropdown(label);
+      setOpenDropdown(label);
+    }
+  };
 
   const isActive = (href: string) => {
     if (href === "/era/renaissance") {
@@ -121,9 +145,14 @@ export default function Navigation() {
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center justify-center gap-1 flex-1" ref={dropdownRef}>
             {navLinks.map((link) => (
-              <div key={link.href} className="relative">
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(link.label)}
+                onMouseLeave={handleMouseLeave}
+              >
                 <button
-                  onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                  onClick={() => handleClick(link.label)}
                   className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 flex items-center gap-1.5 ${
                     isActive(link.href)
                       ? "bg-[#C9A84C]/20 text-[#C9A84C]"
@@ -146,15 +175,15 @@ export default function Navigation() {
 
                 {/* Dropdown Menu */}
                 {openDropdown === link.label && link.subItems && (
-                  <div className="absolute top-full left-0 mt-1 min-w-[200px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-50">
+                  <div className="absolute top-full left-0 mt-1 min-w-[220px] bg-neutral-800 rounded-lg shadow-xl border border-neutral-700 py-2 z-[100]">
                     {link.subItems.map((subItem) => {
                       const isSubActive = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
                       return (
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          onClick={() => setOpenDropdown(null)}
-                          className={`block px-4 py-2.5 text-sm transition-colors ${
+                          onClick={() => { setOpenDropdown(null); setClickedDropdown(null); }}
+                          className={`block px-4 py-2.5 text-base font-medium transition-colors ${
                             isSubActive
                               ? "text-[#C9A84C] bg-[#C9A84C]/10"
                               : "text-neutral-300 hover:bg-white/10 hover:text-white"
