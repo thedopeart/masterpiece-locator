@@ -261,7 +261,7 @@ export const ERAS: Era[] = [
         answer: "<strong>Impressionists</strong> focused on capturing light and atmosphere with loose brushwork. <strong>Post-Impressionists</strong> like <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh</strong></a>, <a href=\"/artist/paul-cezanne\"><strong>Cézanne</strong></a>, and <a href=\"/artist/paul-gauguin\"><strong>Gauguin</strong></a> pushed further, using bold colors and distorted forms for emotional or structural effect."
       }
     ],
-    color: 'green'
+    color: 'amber'
   },
   {
     slug: 'modern',
