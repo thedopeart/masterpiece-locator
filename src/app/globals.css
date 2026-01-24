@@ -194,3 +194,28 @@ a[href*="luxurywallart.com"] strong {
     column-gap: 1.5rem;
   }
 }
+
+/* 3-column masonry for museum pages (with sidebar) */
+.masonry-grid-3col {
+  column-count: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid-3col {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid-3col {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid-3col {
+    column-count: 3;
+    column-gap: 1.5rem;
+  }
+}
