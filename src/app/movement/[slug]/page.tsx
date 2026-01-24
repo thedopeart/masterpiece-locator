@@ -192,8 +192,55 @@ export default async function MovementPage({ params }: Props) {
     name: decodeHtmlEntities(m.name),
   }));
 
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+
+  // Get enrichment for the movement (for description in JSON-LD)
+  const enrichment = getMovementEnrichment(movement.slug);
+
+  // Build JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Thing",
+    "@id": `${BASE_URL}/movement/${movement.slug}`,
+    name: movement.name,
+    url: `${BASE_URL}/movement/${movement.slug}`,
+    description: enrichment?.descriptionHtml?.replace(/<[^>]*>/g, '').substring(0, 500) || movement.description || undefined,
+    // Temporal coverage
+    ...(movement.startYear && {
+      temporalCoverage: movement.endYear
+        ? `${movement.startYear}/${movement.endYear}`
+        : `${movement.startYear}/..`,
+    }),
+    // Notable artists in this movement
+    ...(movement.artists.length > 0 && {
+      about: movement.artists.slice(0, 10).map((artist) => ({
+        "@type": "Person",
+        name: artist.name,
+        url: `${BASE_URL}/artist/${artist.slug}`,
+      })),
+    }),
+    // Related era
+    ...(era && {
+      isPartOf: {
+        "@type": "Thing",
+        name: era.name,
+        url: `${BASE_URL}/era/${era.slug}`,
+      },
+    }),
+    // Key characteristics
+    ...(movement.keyCharacteristics.length > 0 && {
+      keywords: movement.keyCharacteristics.join(", "),
+    }),
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="max-w-[1400px] mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-neutral-600 mb-6">
