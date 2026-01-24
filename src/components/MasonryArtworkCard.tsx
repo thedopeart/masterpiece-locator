@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import FavoriteButton from "./FavoriteButton";
 
 interface MasonryArtworkCardProps {
   artwork: {
+    id: string;
     slug: string;
     title: string;
     year: number | null;
@@ -23,6 +25,7 @@ interface MasonryArtworkCardProps {
   };
   priority?: boolean;
   highlight?: boolean;
+  showFavorite?: boolean;
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -31,7 +34,7 @@ const TYPE_LABELS: Record<string, string> = {
   drawing: "Drawing",
 };
 
-export default function MasonryArtworkCard({ artwork, priority = false, highlight = false }: MasonryArtworkCardProps) {
+export default function MasonryArtworkCard({ artwork, priority = false, highlight = false, showFavorite = true }: MasonryArtworkCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -61,6 +64,12 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
         {artwork.artworkType && artwork.artworkType !== "painting" && TYPE_LABELS[artwork.artworkType] && (
           <div className={`absolute ${highlight ? "top-10" : "top-2"} left-2 z-10 bg-neutral-900/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full`}>
             {TYPE_LABELS[artwork.artworkType]}
+          </div>
+        )}
+        {/* Favorite Button */}
+        {showFavorite && (
+          <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <FavoriteButton artwork={artwork} size="sm" />
           </div>
         )}
         {artwork.imageUrl && !imageError ? (

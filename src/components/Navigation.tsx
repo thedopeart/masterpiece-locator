@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import FavoritesNavIcon from "./FavoritesNavIcon";
+import TripNavIcon from "./TripNavIcon";
 
 const navLinks = [
   {
@@ -255,6 +257,9 @@ export default function Navigation() {
                 />
               </svg>
             </Link>
+
+            <FavoritesNavIcon />
+            <TripNavIcon />
 
             <Link
               href="https://luxurywallart.com"
