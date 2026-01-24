@@ -97,7 +97,7 @@ a[href^="/art/"]:hover,
 a[href*="/apps/masterpieces/artist/"]:hover,
 a[href*="/apps/masterpieces/movement/"]:hover,
 a[href*="/apps/masterpieces/art/"]:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Gold for museum and LuxuryWallArt links (except buttons) */
@@ -110,7 +110,7 @@ a[href*="luxurywallart.com"]:not(.inline-block) {
 a[href^="/museum/"]:not(.inline-block):hover,
 a[href*="/apps/masterpieces/museum/"]:not(.inline-block):hover,
 a[href*="luxurywallart.com"]:not(.inline-block):hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Bold text inside links inherits link color */
