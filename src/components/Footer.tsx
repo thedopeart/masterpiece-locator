@@ -78,6 +78,11 @@ export default function Footer() {
                   Auction Records
                 </Link>
               </li>
+              <li>
+                <Link href="/submit" className="text-[#C9A84C] hover:text-[#d4b45a] transition-colors text-sm font-medium">
+                  Submit Your Art
+                </Link>
+              </li>
             </ul>
           </div>
 
