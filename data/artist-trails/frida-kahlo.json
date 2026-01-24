@@ -1,0 +1,298 @@
+{
+  "artist": "frida-kahlo",
+  "artistName": "Frida Kahlo",
+  "title": "Frida's Journey",
+  "subtitle": "Follow the iconic Mexican artist from Casa Azul to the world",
+  "lifespan": "1907-1954",
+  "totalLocations": 5,
+  "totalPaintings": 200,
+  "primaryCountries": ["Mexico", "USA", "France"],
+  "introduction": "Frida Kahlo lived an extraordinary life marked by physical suffering, passionate love, and artistic genius. Born and died in the same house in Coyoacán, she transformed personal pain into universal art. Her self-portraits explored identity, gender, and Mexican heritage with unflinching honesty. Today, Casa Azul remains the essential pilgrimage for understanding this revolutionary artist.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "coyoacan",
+      "place": "Coyoacán, Mexico City",
+      "region": "Mexico City",
+      "country": "Mexico",
+      "coordinates": { "lat": 19.3500, "lng": -99.1617 },
+      "years": "1907-1954",
+      "ageRange": "0-47",
+      "type": "birthplace",
+      "shortDescription": "Where Frida was born, lived, and died",
+      "description": "Frida was born in the Casa Azul (Blue House) on July 6, 1907, though she later claimed 1910 to align with the Mexican Revolution. She lived here as a child, returned after her marriage to Diego Rivera, and spent her final years in its colorful rooms. The house became her universe, especially after her health confined her to bed.",
+      "significance": "The Casa Azul is Frida's soul made visible. Every room, every object tells her story. This is where she created most of her 200 paintings and where she died in 1954.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Museo Frida Kahlo (Casa Azul)",
+          "type": "museum",
+          "address": "Londres 247, Del Carmen, Coyoacán",
+          "description": "Frida's birthplace and home, preserved exactly as she left it. Contains her paintings, Diego's art, pre-Columbian artifacts, and her wheelchair and medical corsets.",
+          "ticketUrl": "https://www.museofridakahlo.org.mx",
+          "hours": "Tue-Sun 10:00-17:30",
+          "note": "Book tickets online well in advance. The house is small and limits daily visitors."
+        },
+        {
+          "name": "Frida's Garden",
+          "type": "landmark",
+          "description": "The lush courtyard garden where Frida kept monkeys, parrots, and hairless dogs. The pyramid-shaped structure houses Diego's pre-Columbian collection."
+        },
+        {
+          "name": "Frida's Studio",
+          "type": "landmark",
+          "description": "Her wheelchair positioned at the easel, mirrors she used for self-portraits, and the bed where she painted during illness."
+        },
+        {
+          "name": "Coyoacán Centro",
+          "type": "neighborhood",
+          "description": "The charming colonial neighborhood Frida loved, with plazas, markets, and cafes. Walk the streets she walked."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "the-two-fridas", "title": "The Two Fridas", "year": 1939 },
+        { "slug": "frida-kahlo-my-birth", "title": "My Birth", "year": 1932 }
+      ],
+      "artworksHereNow": 25
+    },
+    {
+      "order": 2,
+      "slug": "preparatoria",
+      "place": "Mexico City Centro",
+      "region": "Mexico City",
+      "country": "Mexico",
+      "coordinates": { "lat": 19.4326, "lng": -99.1332 },
+      "years": "1922-1925",
+      "ageRange": "15-18",
+      "type": "lived",
+      "shortDescription": "Where teenage Frida met Diego Rivera",
+      "description": "At 15, Frida enrolled at the prestigious Escuela Nacional Preparatoria, one of only 35 girls among 2,000 students. Here she joined a rebellious group called 'Los Cachuchas' and first saw Diego Rivera painting his mural Creation. She reportedly declared she would have his baby. In 1925, a bus accident shattered her body and changed her life forever.",
+      "significance": "The Preparatoria shaped Frida's intellectual life and introduced her to Diego. The 1925 accident, which broke her spine in three places, led directly to her art. She began painting during her long recovery.",
+      "whatToSee": [
+        {
+          "name": "Antiguo Colegio de San Ildefonso",
+          "type": "museum",
+          "address": "Justo Sierra 16, Centro Histórico",
+          "description": "The former Preparatoria school, now a museum. See Diego's first mural and the amphitheater where he worked while teenage Frida watched.",
+          "ticketUrl": "https://www.sanildefonso.org.mx"
+        },
+        {
+          "name": "Secretaría de Educación Pública",
+          "type": "landmark",
+          "address": "República de Argentina 28",
+          "description": "Diego's monumental mural cycle covering 1,585 square meters. Free entry to see where he worked while courting Frida."
+        },
+        {
+          "name": "Palacio de Bellas Artes",
+          "type": "museum",
+          "description": "Houses Frida works alongside murals by Diego, Orozco, and Siqueiros",
+          "ticketUrl": "https://museopalaciodebellasartes.gob.mx"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 10
+    },
+    {
+      "order": 3,
+      "slug": "san-francisco",
+      "place": "San Francisco",
+      "region": "California",
+      "country": "USA",
+      "coordinates": { "lat": 37.7749, "lng": -122.4194 },
+      "years": "1930-1931, 1940",
+      "ageRange": "23-24, 33",
+      "type": "worked",
+      "shortDescription": "Frida's American awakening",
+      "description": "Frida first came to San Francisco as Diego's wife while he painted murals. Here she met Dr. Leo Eloesser, who became her lifelong medical advisor. She painted her first major self-portrait as an artist in her own right, declaring her Mexican identity against American culture. She returned in 1940 for medical treatment and remarried Diego here.",
+      "significance": "San Francisco transformed Frida from Diego's wife into an independent artist. Her portrait of the city versus Mexico shows her growing political consciousness.",
+      "whatToSee": [
+        {
+          "name": "San Francisco Art Institute",
+          "type": "landmark",
+          "address": "800 Chestnut Street",
+          "description": "Where Diego painted his mural The Making of a Fresco. Frida appears in it."
+        },
+        {
+          "name": "SFMOMA",
+          "type": "museum",
+          "description": "Houses Frida's painting Frieda and Diego Rivera (1931)",
+          "ticketUrl": "https://www.sfmoma.org"
+        },
+        {
+          "name": "City Hall",
+          "type": "landmark",
+          "description": "Where Frida and Diego remarried on December 8, 1940"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "frida-kahlo-frieda-and-diego-rivera", "title": "Frieda and Diego Rivera", "year": 1931 },
+        { "slug": "frida-kahlo-portrait-of-dr-leo-eloesser", "title": "Portrait of Dr. Leo Eloesser", "year": 1931 }
+      ],
+      "artworksHereNow": 2
+    },
+    {
+      "order": 4,
+      "slug": "detroit",
+      "place": "Detroit",
+      "region": "Michigan",
+      "country": "USA",
+      "coordinates": { "lat": 42.3314, "lng": -83.0458 },
+      "years": "1932-1933",
+      "ageRange": "25-26",
+      "type": "worked",
+      "shortDescription": "Tragedy and transformation",
+      "description": "While Diego painted his famous Detroit Industry murals, Frida experienced devastating loss. She suffered a miscarriage at Henry Ford Hospital, leading to one of her most powerful paintings. Her hatred of industrial America and longing for Mexico intensified. The emotional turmoil produced breakthrough works that established her distinct artistic voice.",
+      "significance": "Detroit broke Frida's heart and made her an artist. Henry Ford Hospital and Self-Portrait on the Border Line emerged from this painful year, marking her artistic maturity.",
+      "whatToSee": [
+        {
+          "name": "Detroit Institute of Arts",
+          "type": "museum",
+          "address": "5200 Woodward Avenue",
+          "description": "Houses Diego's Detroit Industry murals in the Garden Court. The museum where Frida spent countless hours while Diego worked.",
+          "ticketUrl": "https://www.dia.org"
+        },
+        {
+          "name": "The Wardell (Former residence)",
+          "type": "landmark",
+          "description": "The apartment building where Frida and Diego lived during their Detroit stay"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "frida-kahlo-henry-ford-hospital-the-flying-bed", "title": "Henry Ford Hospital", "year": 1932 },
+        { "slug": "frida-kahlo-selfportrait-along-the-border-line-between-mexico-", "title": "Self-Portrait on the Border Line", "year": 1932 }
+      ],
+      "artworksHereNow": 0
+    },
+    {
+      "order": 5,
+      "slug": "paris",
+      "place": "Paris",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8566, "lng": 2.3522 },
+      "years": "1939",
+      "ageRange": "32",
+      "type": "worked",
+      "shortDescription": "Surrealist triumph and rejection",
+      "description": "André Breton invited Frida to Paris for an exhibition of her work. The Surrealists claimed her as one of their own, but she rejected the label, famously saying 'I never painted dreams. I painted my own reality.' The Louvre purchased The Frame, making her the first Mexican artist in their collection. Despite artistic success, she hated Paris.",
+      "significance": "Paris validated Frida internationally but she refused to be categorized. The Louvre acquisition was historic. Picasso gave her earrings; she gave Breton her honest disdain for Surrealism.",
+      "whatToSee": [
+        {
+          "name": "Centre Pompidou",
+          "type": "museum",
+          "description": "Houses The Frame, the self-portrait the Louvre purchased in 1939",
+          "ticketUrl": "https://www.centrepompidou.fr"
+        },
+        {
+          "name": "Galerie Renou et Colle (Former location)",
+          "type": "landmark",
+          "address": "164 Faubourg Saint-Honoré",
+          "description": "Where Frida's 1939 exhibition Mexique was held"
+        },
+        {
+          "name": "Saint-Germain-des-Prés",
+          "type": "neighborhood",
+          "description": "The neighborhood where Frida met Surrealists at cafes like Les Deux Magots"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 1
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Frida's Work Today",
+    "description": "Frida created only about 200 paintings, making each one precious. Here are the essential collections:",
+    "topMuseums": [
+      {
+        "slug": "museo-frida-kahlo",
+        "name": "Museo Frida Kahlo (Casa Azul)",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "count": 25,
+        "note": "Her birthplace and home, the essential Frida experience",
+        "coordinates": { "lat": 19.3550, "lng": -99.1626 },
+        "highlights": ["the-two-fridas"]
+      },
+      {
+        "slug": "museo-dolores-olmedo",
+        "name": "Museo Dolores Olmedo",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "count": 25,
+        "note": "The largest Frida collection, plus Diego works",
+        "coordinates": { "lat": 19.2583, "lng": -99.1033 },
+        "highlights": []
+      },
+      {
+        "slug": "moma",
+        "name": "Museum of Modern Art (MoMA)",
+        "city": "New York",
+        "country": "USA",
+        "count": 2,
+        "coordinates": { "lat": 40.7614, "lng": -73.9776 },
+        "highlights": ["fulang-chang-kahlo"]
+      },
+      {
+        "slug": "sfmoma",
+        "name": "San Francisco Museum of Modern Art",
+        "city": "San Francisco",
+        "country": "USA",
+        "count": 1,
+        "coordinates": { "lat": 37.7857, "lng": -122.4011 },
+        "highlights": ["frida-kahlo-frieda-and-diego-rivera"]
+      },
+      {
+        "slug": "centre-pompidou",
+        "name": "Centre Pompidou",
+        "city": "Paris",
+        "country": "France",
+        "count": 1,
+        "note": "The Frame, first Mexican work in the Louvre collection",
+        "coordinates": { "lat": 48.8607, "lng": 2.3525 },
+        "highlights": []
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Casa Azul Day",
+      "duration": "1 day",
+      "description": "Immerse yourself in Frida's world at Casa Azul and explore Coyoacán's charming streets",
+      "stops": ["coyoacan"],
+      "museums": ["museo-frida-kahlo"],
+      "highlight": true
+    },
+    {
+      "name": "Frida's Mexico City",
+      "duration": "2-3 days",
+      "description": "Casa Azul, the murals Diego painted for her, and the Dolores Olmedo collection",
+      "stops": ["coyoacan", "preparatoria"],
+      "museums": ["museo-frida-kahlo", "museo-dolores-olmedo"]
+    },
+    {
+      "name": "California Frida",
+      "duration": "2 days",
+      "description": "San Francisco and the Bay Area's Frida connections",
+      "stops": ["san-francisco"]
+    },
+    {
+      "name": "The Complete Frida",
+      "duration": "2 weeks",
+      "description": "From Mexico City to San Francisco to Paris, following Frida's international journey",
+      "stops": ["coyoacan", "preparatoria", "san-francisco", "detroit", "paris"]
+    }
+  ],
+  "timeline": [
+    { "year": 1907, "event": "Born in Coyoacán, Mexico City on July 6" },
+    { "year": 1922, "event": "Enrolls at the Preparatoria; first sees Diego Rivera" },
+    { "year": 1925, "event": "Bus accident breaks her spine, pelvis, and leg" },
+    { "year": 1929, "event": "Marries Diego Rivera" },
+    { "year": 1930, "event": "First trip to San Francisco with Diego" },
+    { "year": 1932, "event": "Miscarriage in Detroit; paints Henry Ford Hospital" },
+    { "year": 1939, "event": "Paris exhibition; Louvre purchases The Frame; divorces Diego" },
+    { "year": 1940, "event": "Remarries Diego in San Francisco" },
+    { "year": 1953, "event": "First solo exhibition in Mexico; attends in her bed" },
+    { "year": 1954, "event": "Dies at Casa Azul on July 13, aged 47" }
+  ]
+}

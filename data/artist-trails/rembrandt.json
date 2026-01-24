@@ -1,0 +1,278 @@
+{
+  "artist": "rembrandt",
+  "artistName": "Rembrandt van Rijn",
+  "title": "Rembrandt's Journey",
+  "subtitle": "Follow the Dutch Master through the Golden Age",
+  "lifespan": "1606-1669",
+  "totalLocations": 4,
+  "totalPaintings": 300,
+  "primaryCountries": ["Netherlands"],
+  "introduction": "Rembrandt Harmenszoon van Rijn was the greatest painter of the Dutch Golden Age. Born in Leiden, he conquered Amsterdam with his dramatic lighting and psychological depth. His self-portraits chart a lifetime of triumphs and tragedies: fame, fortune, bankruptcy, and the loss of his wife and children. Through it all, he painted with unflinching honesty, transforming himself and everyone around him into timeless art.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "leiden",
+      "place": "Leiden",
+      "region": "South Holland",
+      "country": "Netherlands",
+      "coordinates": { "lat": 52.1601, "lng": 4.4970 },
+      "years": "1606-1631",
+      "ageRange": "0-25",
+      "type": "birthplace",
+      "shortDescription": "Where Rembrandt was born and began painting",
+      "description": "Rembrandt was born on July 15, 1606, the ninth child of a prosperous miller. Leiden was a thriving intellectual center, home to the oldest university in the Netherlands. Young Rembrandt enrolled at 14 but quickly abandoned academic studies for painting. He studied with local masters before opening his own studio, where he began exploring the dramatic chiaroscuro that would define his work.",
+      "significance": "Leiden shaped Rembrandt's early style. His first self-portraits and history paintings emerged here. The intellectual atmosphere and Protestant culture influenced his lifelong engagement with biblical themes.",
+      "whatToSee": [
+        {
+          "name": "Rembrandt's Birthplace (Site)",
+          "type": "landmark",
+          "address": "Weddesteeg",
+          "description": "A plaque marks the approximate location of the family home and his father's mill"
+        },
+        {
+          "name": "Museum De Lakenhal",
+          "type": "museum",
+          "address": "Oude Singel 32",
+          "description": "Leiden's municipal museum with an excellent collection of early Rembrandt works and Dutch Golden Age paintings",
+          "ticketUrl": "https://www.lakenhal.nl"
+        },
+        {
+          "name": "Leiden University",
+          "type": "landmark",
+          "description": "Where Rembrandt briefly enrolled in 1620. The Academiegebouw still stands."
+        },
+        {
+          "name": "Pieterskerk",
+          "type": "landmark",
+          "description": "The Gothic church in whose shadow Rembrandt lived and where his father was buried"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 15
+    },
+    {
+      "order": 2,
+      "slug": "amsterdam-early",
+      "place": "Amsterdam (Early Years)",
+      "region": "North Holland",
+      "country": "Netherlands",
+      "coordinates": { "lat": 52.3676, "lng": 4.9041 },
+      "years": "1631-1642",
+      "ageRange": "25-36",
+      "type": "lived",
+      "shortDescription": "Fame, fortune, and The Night Watch",
+      "description": "Rembrandt moved to Amsterdam in 1631 and quickly became the city's most sought-after portrait painter. He married Saskia van Uylenburgh in 1634, joining a wealthy family. Success allowed him to buy an expensive house and collect art obsessively. In 1642, he completed The Night Watch, his most ambitious work, the same year Saskia died after childbirth.",
+      "significance": "These were Rembrandt's golden years. He dominated Amsterdam's art market, commanded high prices, and produced masterworks. The Night Watch transformed group portraiture forever.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Rijksmuseum",
+          "type": "museum",
+          "address": "Museumstraat 1",
+          "description": "Houses the world's greatest Rembrandt collection, including The Night Watch in its own gallery, The Jewish Bride, and dozens of other masterpieces",
+          "ticketUrl": "https://www.rijksmuseum.nl",
+          "note": "The Night Watch is in the Gallery of Honour. Allow several hours for the Rembrandt collection alone."
+        },
+        {
+          "name": "Museum Het Rembrandthuis",
+          "type": "museum",
+          "address": "Jodenbreestraat 4",
+          "description": "Rembrandt's home from 1639-1658, restored to its 17th-century appearance. His studio, art collection, and printing press recreated.",
+          "ticketUrl": "https://www.rembrandthuis.nl",
+          "note": "The house purchase contributed to his later bankruptcy. Now contains his complete etchings."
+        },
+        {
+          "name": "Westerkerk",
+          "type": "landmark",
+          "address": "Prinsengracht 279",
+          "description": "The church where Rembrandt is buried, though his exact grave location is unknown"
+        },
+        {
+          "name": "Oude Kerk",
+          "type": "landmark",
+          "description": "Where Saskia was buried in 1642. Amsterdam's oldest church, in the Red Light District."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "the-anatomy-lesson-of-dr-nicolaes-tulp", "title": "The Anatomy Lesson of Dr. Nicolaes Tulp", "year": 1632 },
+        { "slug": "storm-sea-galilee", "title": "The Storm on the Sea of Galilee", "year": 1633 },
+        { "slug": "the-night-watch", "title": "The Night Watch", "year": 1642 }
+      ],
+      "artworksHereNow": 30
+    },
+    {
+      "order": 3,
+      "slug": "amsterdam-late",
+      "place": "Amsterdam (Later Years)",
+      "region": "North Holland",
+      "country": "Netherlands",
+      "coordinates": { "lat": 52.3667, "lng": 4.8917 },
+      "years": "1642-1669",
+      "ageRange": "36-63",
+      "type": "death",
+      "shortDescription": "Bankruptcy, loss, and immortal masterpieces",
+      "description": "After Saskia's death, Rembrandt's fortunes declined. His style grew unfashionable as smooth, elegant painters gained favor. In 1656, he declared bankruptcy and lost his house and collections. He moved to a modest house in the Jordaan with his common-law wife Hendrickje and son Titus. Despite poverty and grief, his late work achieved unprecedented depth and humanity.",
+      "significance": "Rembrandt's late period is now considered his greatest. Freed from commercial pressure, he painted with radical honesty. The Jewish Bride, Return of the Prodigal Son, and his final self-portraits rank among art's supreme achievements.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Rozengracht (Final Home)",
+          "type": "landmark",
+          "address": "Rozengracht 184",
+          "description": "A plaque marks Rembrandt's final home in the Jordaan, where he lived from 1658 until his death"
+        },
+        {
+          "name": "Rijksmuseum",
+          "type": "museum",
+          "description": "Houses late masterpieces including The Jewish Bride (c. 1667) and the Syndics of the Drapers' Guild",
+          "ticketUrl": "https://www.rijksmuseum.nl"
+        },
+        {
+          "name": "Jordaan Neighborhood",
+          "type": "neighborhood",
+          "description": "The working-class area where Rembrandt spent his final years. Walk the canals and imagine his daily life."
+        },
+        {
+          "name": "Hermitage Amsterdam",
+          "type": "museum",
+          "description": "Satellite of St. Petersburg's Hermitage with rotating exhibitions often featuring Rembrandt",
+          "ticketUrl": "https://www.hermitage.nl"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "bathsheba-bath", "title": "Bathsheba at Her Bath", "year": 1654 },
+        { "slug": "aristotle-bust-homer-rembrandt", "title": "Aristotle with a Bust of Homer", "year": 1653 },
+        { "slug": "self-portrait-rembrandt-1659", "title": "Self-Portrait", "year": 1659 },
+        { "slug": "jewish-bride", "title": "The Jewish Bride", "year": 1667 }
+      ],
+      "artworksHereNow": 50
+    },
+    {
+      "order": 4,
+      "slug": "the-hague",
+      "place": "The Hague",
+      "region": "South Holland",
+      "country": "Netherlands",
+      "coordinates": { "lat": 52.0705, "lng": 4.3007 },
+      "years": "Visits",
+      "ageRange": "Various",
+      "type": "worked",
+      "shortDescription": "Royal commissions and the Mauritshuis",
+      "description": "Though Amsterdam was his home, Rembrandt received important commissions from The Hague, seat of the Dutch government. The Mauritshuis now houses some of his most beloved works, including The Anatomy Lesson of Dr. Tulp. The royal collection and diplomatic visitors provided wealthy patrons.",
+      "significance": "The Hague's Mauritshuis offers an intimate Rembrandt experience, with key works displayed in period rooms at human scale.",
+      "whatToSee": [
+        {
+          "name": "Mauritshuis",
+          "type": "museum",
+          "address": "Plein 29",
+          "description": "The Dutch royal picture gallery with Rembrandt's Anatomy Lesson of Dr. Tulp, Self-Portrait, and other masterpieces in intimate galleries",
+          "ticketUrl": "https://www.mauritshuis.nl",
+          "note": "Smaller and less crowded than the Rijksmuseum. See Vermeer's Girl with a Pearl Earring here too."
+        },
+        {
+          "name": "Binnenhof",
+          "type": "landmark",
+          "description": "The historic government complex near the Mauritshuis, center of Dutch power in Rembrandt's time"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "the-anatomy-lesson-of-dr-nicolaes-tulp", "title": "The Anatomy Lesson of Dr. Nicolaes Tulp", "year": 1632 }
+      ],
+      "artworksHereNow": 15
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Rembrandt's Work Today",
+    "description": "Rembrandt's 300+ paintings and 300 etchings are treasured worldwide. These collections are essential:",
+    "topMuseums": [
+      {
+        "slug": "rijksmuseum",
+        "name": "Rijksmuseum",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "count": 22,
+        "note": "The Night Watch and the world's best Rembrandt collection",
+        "coordinates": { "lat": 52.3600, "lng": 4.8852 },
+        "highlights": ["the-night-watch", "jewish-bride"]
+      },
+      {
+        "slug": "rembrandthuis",
+        "name": "Museum Het Rembrandthuis",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "count": 260,
+        "note": "His home and complete etching collection",
+        "coordinates": { "lat": 52.3694, "lng": 4.9014 },
+        "highlights": []
+      },
+      {
+        "slug": "mauritshuis",
+        "name": "Mauritshuis",
+        "city": "The Hague",
+        "country": "Netherlands",
+        "count": 11,
+        "note": "The Anatomy Lesson and intimate self-portraits",
+        "coordinates": { "lat": 52.0804, "lng": 4.3143 },
+        "highlights": ["the-anatomy-lesson-of-dr-nicolaes-tulp"]
+      },
+      {
+        "slug": "met",
+        "name": "Metropolitan Museum of Art",
+        "city": "New York",
+        "country": "USA",
+        "count": 20,
+        "note": "Aristotle with a Bust of Homer and major portraits",
+        "coordinates": { "lat": 40.7794, "lng": -73.9632 },
+        "highlights": ["aristotle-bust-homer-rembrandt", "self-portrait-rembrandt-1660-met"]
+      },
+      {
+        "slug": "hermitage",
+        "name": "State Hermitage Museum",
+        "city": "St. Petersburg",
+        "country": "Russia",
+        "count": 24,
+        "note": "Return of the Prodigal Son and major late works",
+        "coordinates": { "lat": 59.9398, "lng": 30.3146 },
+        "highlights": ["rembrandt-the-return-of-the-prodigal-son"]
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Amsterdam Rembrandt Day",
+      "duration": "1 day",
+      "description": "The Rijksmuseum and Rembrandthuis, with a walk through the Jordaan",
+      "stops": ["amsterdam-early", "amsterdam-late"],
+      "museums": ["rijksmuseum", "rembrandthuis"],
+      "highlight": true
+    },
+    {
+      "name": "Dutch Golden Age Trail",
+      "duration": "3-4 days",
+      "description": "Leiden, Amsterdam, and The Hague for the complete Dutch Masters experience",
+      "stops": ["leiden", "amsterdam-early", "amsterdam-late", "the-hague"],
+      "museums": ["rijksmuseum", "mauritshuis", "rembrandthuis"]
+    },
+    {
+      "name": "Rembrandt's Amsterdam",
+      "duration": "2 days",
+      "description": "Deep dive into his Amsterdam life: the Rembrandthuis, Rijksmuseum, and all the sites",
+      "stops": ["amsterdam-early", "amsterdam-late"]
+    }
+  ],
+  "timeline": [
+    { "year": 1606, "event": "Born in Leiden on July 15" },
+    { "year": 1620, "event": "Enrolls at Leiden University but soon leaves to study painting" },
+    { "year": 1631, "event": "Moves to Amsterdam" },
+    { "year": 1632, "event": "Paints The Anatomy Lesson of Dr. Nicolaes Tulp; immediate success" },
+    { "year": 1634, "event": "Marries Saskia van Uylenburgh" },
+    { "year": 1639, "event": "Buys expensive house on Jodenbreestraat (now Rembrandthuis)" },
+    { "year": 1642, "event": "Completes The Night Watch; Saskia dies" },
+    { "year": 1654, "event": "Paints Bathsheba at Her Bath" },
+    { "year": 1656, "event": "Declares bankruptcy; loses house and collections" },
+    { "year": 1663, "event": "Hendrickje dies" },
+    { "year": 1668, "event": "Son Titus dies" },
+    { "year": 1669, "event": "Dies in Amsterdam on October 4, aged 63" }
+  ]
+}
