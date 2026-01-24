@@ -14,14 +14,21 @@ export const metadata: Metadata = {
 export default async function TrailsPage() {
   const trails = getAllTrails();
 
-  // Get artist data for each trail
-  const artistSlugs = trails.map((t) =>
-    t.artist.replace("vincent-", "").replace("-van-gogh", "van-gogh")
-  );
+  // Map trail artist slugs to database artist slugs
+  const trailToDbSlug: Record<string, string> = {
+    "vincent-van-gogh": "van-gogh",
+    "claude-monet": "claude-monet",
+    "pablo-picasso": "pablo-picasso",
+    "frida-kahlo": "frida-kahlo",
+    "salvador-dali": "salvador-dali",
+    "rembrandt": "rembrandt",
+  };
+
+  const dbSlugs = trails.map((t) => trailToDbSlug[t.artist] || t.artist);
 
   const artists = await prisma.artist.findMany({
     where: {
-      slug: { in: ["van-gogh", ...artistSlugs] },
+      slug: { in: dbSlugs },
     },
     select: {
       slug: true,
@@ -80,7 +87,8 @@ export default async function TrailsPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {trails.map((trail) => {
-              const artist = artistMap.get("van-gogh"); // For now, we only have Van Gogh
+              const dbSlug = trailToDbSlug[trail.artist] || trail.artist;
+              const artist = artistMap.get(dbSlug);
 
               return (
                 <Link
@@ -235,34 +243,34 @@ export default async function TrailsPage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               {
-                name: "Claude Monet",
-                locations: "Le Havre, Paris, Giverny",
-                lifespan: "1840-1926",
-              },
-              {
-                name: "Pablo Picasso",
-                locations: "Malaga, Barcelona, Paris",
-                lifespan: "1881-1973",
-              },
-              {
-                name: "Frida Kahlo",
-                locations: "Mexico City, Paris, New York",
-                lifespan: "1907-1954",
-              },
-              {
-                name: "Salvador Dali",
-                locations: "Figueres, Paris, New York",
-                lifespan: "1904-1989",
-              },
-              {
                 name: "Leonardo da Vinci",
-                locations: "Vinci, Florence, Milan",
+                locations: "Vinci, Florence, Milan, Paris",
                 lifespan: "1452-1519",
               },
               {
-                name: "Rembrandt",
-                locations: "Leiden, Amsterdam",
-                lifespan: "1606-1669",
+                name: "Gustav Klimt",
+                locations: "Vienna, Lake Attersee",
+                lifespan: "1862-1918",
+              },
+              {
+                name: "Caravaggio",
+                locations: "Milan, Rome, Naples, Malta",
+                lifespan: "1571-1610",
+              },
+              {
+                name: "Édouard Manet",
+                locations: "Paris, Argenteuil",
+                lifespan: "1832-1883",
+              },
+              {
+                name: "Georgia O'Keeffe",
+                locations: "Wisconsin, New York, New Mexico",
+                lifespan: "1887-1986",
+              },
+              {
+                name: "Edward Hopper",
+                locations: "New York, Cape Cod, New Mexico",
+                lifespan: "1882-1967",
               },
             ].map((artist) => (
               <div

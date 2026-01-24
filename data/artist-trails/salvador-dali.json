@@ -1,0 +1,332 @@
+{
+  "artist": "salvador-dali",
+  "artistName": "Salvador Dalí",
+  "title": "Dalí's Journey",
+  "subtitle": "Follow the master of Surrealism from Catalonia to the world",
+  "lifespan": "1904-1989",
+  "totalLocations": 5,
+  "totalPaintings": 1500,
+  "primaryCountries": ["Spain", "France", "USA"],
+  "introduction": "Salvador Dalí was equal parts genius and showman, creating some of the 20th century's most recognizable images while cultivating his eccentric persona. Born in Figueres, Catalonia, he conquered Paris with the Surrealists, scandalized and seduced New York, and returned to create a theatre-museum dedicated to his own legend. His trademark melting clocks, elephants on spider legs, and meticulous technique made dreams tangible.",
+  "trail": [
+    {
+      "order": 1,
+      "slug": "figueres",
+      "place": "Figueres",
+      "region": "Catalonia",
+      "country": "Spain",
+      "coordinates": { "lat": 42.2667, "lng": 2.9614 },
+      "years": "1904-1922, 1974-1989",
+      "ageRange": "0-18, 70-84",
+      "type": "birthplace",
+      "shortDescription": "Dalí's birthplace and final masterpiece",
+      "description": "Salvador Felipe Jacinto Dalí was born here on May 11, 1904. After conquering the art world, he returned to transform the municipal theater into the Dalí Theatre-Museum, a Surrealist experience that is itself his largest artwork. He lived in the tower until his death and is buried in the crypt beneath the stage.",
+      "significance": "The Theatre-Museum is Dalí's ultimate self-portrait, a building as surreal as his paintings. He called it 'the largest surrealist object in the world.' His grave lies beneath the geodesic dome.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Dalí Theatre-Museum",
+          "type": "museum",
+          "address": "Plaça Gala i Salvador Dalí, 5",
+          "description": "Dalí's greatest work: a former theater transformed into a surrealist experience. Contains the world's largest Dalí collection, including Mae West lips sofa, the rainy taxi, and hundreds of paintings and objects.",
+          "ticketUrl": "https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/",
+          "hours": "Daily, hours vary by season",
+          "note": "Book online to avoid long queues. Night visits available in summer. His crypt is in the basement."
+        },
+        {
+          "name": "Dalí's Birthplace",
+          "type": "landmark",
+          "address": "Carrer Monturiol, 6",
+          "description": "The apartment building where Dalí was born, marked by a plaque"
+        },
+        {
+          "name": "Church of Sant Pere",
+          "type": "landmark",
+          "description": "Where Dalí was baptized; visible from the museum's geodesic dome"
+        },
+        {
+          "name": "Dalí Jewels",
+          "type": "museum",
+          "description": "Adjacent to the Theatre-Museum, houses Dalí's fantastical jewelry designs including the famous ruby heart that beats"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 1500
+    },
+    {
+      "order": 2,
+      "slug": "cadaques",
+      "place": "Cadaqués & Port Lligat",
+      "region": "Catalonia",
+      "country": "Spain",
+      "coordinates": { "lat": 42.2883, "lng": 3.2764 },
+      "years": "1930-1982",
+      "ageRange": "26-78",
+      "type": "lived",
+      "shortDescription": "Dalí and Gala's Mediterranean paradise",
+      "description": "In this whitewashed fishing village, Dalí bought a small fisherman's hut for his muse and wife Gala. Over decades, they expanded it into a labyrinthine home filled with surrealist objects. The dramatic landscape of Cap de Creus, with its wind-eroded rocks, appears in countless paintings. This was his creative sanctuary.",
+      "significance": "Port Lligat's landscape is the setting for The Persistence of Memory and many masterworks. The melting clocks drape over rocks from this very coastline. This is where Dalí did his serious work, away from his public persona.",
+      "highlight": true,
+      "mustVisit": true,
+      "whatToSee": [
+        {
+          "name": "Casa Salvador Dalí - Port Lligat",
+          "type": "museum",
+          "address": "Port Lligat",
+          "description": "Dalí and Gala's home, a maze of fishermen's huts joined together. Contains his studio, stuffed animals, the swimming pool with Pirelli lips sofa, and surrealist gardens.",
+          "ticketUrl": "https://www.salvador-dali.org/en/museums/house-salvador-dali-in-portlligat/",
+          "note": "Small groups only; advance booking essential. 20-minute walk from Cadaqués or taxi."
+        },
+        {
+          "name": "Cap de Creus Natural Park",
+          "type": "landmark",
+          "description": "The eroded rocks and dramatic coastline that appear in Dalí's paintings. Hike to see the landscape that shaped his vision."
+        },
+        {
+          "name": "Cadaqués Village",
+          "type": "neighborhood",
+          "description": "The charming white village that attracted Picasso, Duchamp, and García Lorca. Walk its narrow streets and understand why artists came here."
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "persistence-of-memory-dali", "title": "The Persistence of Memory", "year": 1931 },
+        { "slug": "metamorphosis-narcissus-dali", "title": "Metamorphosis of Narcissus", "year": 1937 }
+      ],
+      "artworksHereNow": 50
+    },
+    {
+      "order": 3,
+      "slug": "madrid",
+      "place": "Madrid",
+      "region": "Community of Madrid",
+      "country": "Spain",
+      "coordinates": { "lat": 40.4168, "lng": -3.7038 },
+      "years": "1922-1926",
+      "ageRange": "18-22",
+      "type": "lived",
+      "shortDescription": "Where Dalí found Lorca and Buñuel",
+      "description": "At the Residencia de Estudiantes, Dalí met poet Federico García Lorca and filmmaker Luis Buñuel, forming friendships that shaped Spanish culture. He was expelled from art school twice, the second time for declaring no professor qualified to examine him. His technical mastery and growing confidence were evident, though Surrealism had not yet arrived.",
+      "significance": "Madrid introduced Dalí to modernism and the avant-garde. His friendship with Lorca may have been a romance; their influence on each other was profound. The Residencia was Spain's intellectual crucible.",
+      "whatToSee": [
+        {
+          "name": "Residencia de Estudiantes",
+          "type": "landmark",
+          "address": "Calle del Pinar, 21",
+          "description": "The famous student residence where Dalí, Lorca, and Buñuel lived and collaborated. Now a cultural center with exhibitions.",
+          "ticketUrl": "https://www.residencia.csic.es"
+        },
+        {
+          "name": "Museo Reina Sofía",
+          "type": "museum",
+          "description": "Houses major Dalí works alongside Picasso's Guernica",
+          "ticketUrl": "https://www.museoreinasofia.es"
+        },
+        {
+          "name": "Real Academia de Bellas Artes de San Fernando",
+          "type": "museum",
+          "description": "The art school Dalí attended and was expelled from twice"
+        },
+        {
+          "name": "Prado Museum",
+          "type": "museum",
+          "description": "Where young Dalí studied Velázquez and Goya, masters he revered",
+          "ticketUrl": "https://www.museodelprado.es"
+        }
+      ],
+      "paintingsFromHere": [],
+      "artworksHereNow": 30
+    },
+    {
+      "order": 4,
+      "slug": "paris",
+      "place": "Paris",
+      "region": "Ile-de-France",
+      "country": "France",
+      "coordinates": { "lat": 48.8566, "lng": 2.3522 },
+      "years": "1929-1940",
+      "ageRange": "25-36",
+      "type": "lived",
+      "shortDescription": "Surrealism and scandal",
+      "description": "Dalí arrived in Paris and was welcomed by André Breton's Surrealist circle. He created Un Chien Andalou with Buñuel, met his future wife Gala (then married to poet Paul Éluard), and produced his most iconic works. His obsessive imagery and showmanship thrilled some Surrealists and appalled others. Breton eventually expelled him for political reasons.",
+      "significance": "Paris made Dalí an international star. The Surrealists gave him a theoretical framework, but his talent exceeded their dogma. The paranoiac-critical method he developed here remained his technique forever.",
+      "highlight": true,
+      "whatToSee": [
+        {
+          "name": "Espace Dalí",
+          "type": "museum",
+          "address": "11 Rue Poulbot, Montmartre",
+          "description": "Over 300 Dalí works focusing on sculptures and graphics",
+          "ticketUrl": "https://www.daliparis.com"
+        },
+        {
+          "name": "Centre Pompidou",
+          "type": "museum",
+          "description": "Houses major Surrealist works including Dalí paintings",
+          "ticketUrl": "https://www.centrepompidou.fr"
+        },
+        {
+          "name": "Café de Flore",
+          "type": "landmark",
+          "address": "172 Boulevard Saint-Germain",
+          "description": "Where Surrealists gathered; Dalí held court here"
+        },
+        {
+          "name": "Le Meurice Hotel",
+          "type": "landmark",
+          "address": "228 Rue de Rivoli",
+          "description": "Dalí's Paris residence for decades; he kept an ocelot as a pet and once filled a swimming pool with newspapers"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "soft-construction-boiled-beans", "title": "Soft Construction with Boiled Beans", "year": 1936 },
+        { "slug": "burning-giraffe", "title": "The Burning Giraffe", "year": 1937 },
+        { "slug": "swans-reflecting-elephants", "title": "Swans Reflecting Elephants", "year": 1937 }
+      ],
+      "artworksHereNow": 40
+    },
+    {
+      "order": 5,
+      "slug": "new-york",
+      "place": "New York",
+      "region": "New York",
+      "country": "USA",
+      "coordinates": { "lat": 40.7128, "lng": -74.0060 },
+      "years": "1940-1948",
+      "ageRange": "36-44",
+      "type": "lived",
+      "shortDescription": "Dalí conquers America",
+      "description": "Fleeing World War II, Dalí and Gala spent eight years in America. He designed for Vogue, created dream sequences for Hitchcock's Spellbound, collaborated with Disney on Destino, and relentlessly promoted himself. His commercial work and showmanship led Breton to anagram his name as 'Avida Dollars.' New York embraced the spectacle.",
+      "significance": "America made Dalí rich and famous beyond the art world. His window displays for Bonwit Teller, advertisements, and society portraits brought Surrealism into popular culture.",
+      "whatToSee": [
+        {
+          "name": "Museum of Modern Art (MoMA)",
+          "type": "museum",
+          "address": "11 West 53rd Street",
+          "description": "Houses The Persistence of Memory, Dalí's most famous painting",
+          "ticketUrl": "https://www.moma.org",
+          "note": "The Persistence of Memory is in Gallery 517. One of MoMA's most visited works."
+        },
+        {
+          "name": "St. Regis Hotel",
+          "type": "landmark",
+          "address": "2 East 55th Street",
+          "description": "Where Dalí stayed for decades on his New York visits; he once led an anteater through the lobby"
+        },
+        {
+          "name": "Solomon R. Guggenheim Museum",
+          "type": "museum",
+          "description": "Contains several Dalí paintings in its collection",
+          "ticketUrl": "https://www.guggenheim.org"
+        },
+        {
+          "name": "The Salvador Dalí Gallery",
+          "type": "museum",
+          "address": "119 Wooster Street, SoHo",
+          "description": "Private gallery with Dalí graphics, sculptures, and original works"
+        }
+      ],
+      "paintingsFromHere": [
+        { "slug": "lobster-telephone-dali", "title": "Lobster Telephone", "year": 1936 }
+      ],
+      "artworksHereNow": 15
+    }
+  ],
+  "currentLocations": {
+    "title": "Where to See Dalí's Work Today",
+    "description": "Dalí was prolific and promoted himself relentlessly. His work fills museums worldwide:",
+    "topMuseums": [
+      {
+        "slug": "dali-theatre-museum",
+        "name": "Dalí Theatre-Museum",
+        "city": "Figueres",
+        "country": "Spain",
+        "count": 1500,
+        "note": "The world's largest Dalí collection in his ultimate artwork",
+        "coordinates": { "lat": 42.2668, "lng": 2.9615 },
+        "highlights": []
+      },
+      {
+        "slug": "salvador-dali-museum",
+        "name": "The Dalí Museum",
+        "city": "St. Petersburg, FL",
+        "country": "USA",
+        "count": 2400,
+        "note": "Comprehensive collection spanning his entire career",
+        "coordinates": { "lat": 27.7659, "lng": -82.6316 },
+        "highlights": ["persistence-of-memory-dali"]
+      },
+      {
+        "slug": "museo-reina-sofia",
+        "name": "Museo Reina Sofía",
+        "city": "Madrid",
+        "country": "Spain",
+        "count": 30,
+        "coordinates": { "lat": 40.4086, "lng": -3.6943 },
+        "highlights": ["soft-construction-boiled-beans"]
+      },
+      {
+        "slug": "moma",
+        "name": "Museum of Modern Art (MoMA)",
+        "city": "New York",
+        "country": "USA",
+        "count": 15,
+        "note": "Houses The Persistence of Memory",
+        "coordinates": { "lat": 40.7614, "lng": -73.9776 },
+        "highlights": ["persistence-of-memory-dali"]
+      },
+      {
+        "slug": "casa-dali-portlligat",
+        "name": "Casa Salvador Dalí",
+        "city": "Port Lligat",
+        "country": "Spain",
+        "count": 50,
+        "note": "His home and studio where he created most major works",
+        "coordinates": { "lat": 42.2944, "lng": 3.2883 },
+        "highlights": []
+      }
+    ]
+  },
+  "suggestedItineraries": [
+    {
+      "name": "Dalí Triangle",
+      "duration": "2-3 days",
+      "description": "The three Dalí museums in Catalonia: Figueres, Port Lligat, and Púbol Castle",
+      "stops": ["figueres", "cadaques"],
+      "highlight": true,
+      "note": "Púbol Castle, not in this trail, is where Gala lived and is buried. Add it for the complete triangle."
+    },
+    {
+      "name": "Figueres Day Trip",
+      "duration": "1 day",
+      "description": "The Theatre-Museum and Dalí Jewels from Barcelona",
+      "stops": ["figueres"],
+      "note": "About 2 hours by train from Barcelona"
+    },
+    {
+      "name": "Surrealist Spain",
+      "duration": "5-6 days",
+      "description": "Madrid's Dalí works plus the full Catalonia experience",
+      "stops": ["madrid", "figueres", "cadaques"]
+    },
+    {
+      "name": "The Complete Dalí",
+      "duration": "2 weeks",
+      "description": "From Spain to Paris to New York, following Dalí's conquest of the world",
+      "stops": ["figueres", "cadaques", "madrid", "paris", "new-york"]
+    }
+  ],
+  "timeline": [
+    { "year": 1904, "event": "Born in Figueres, Catalonia on May 11" },
+    { "year": 1922, "event": "Enrolls at Real Academia in Madrid; meets Lorca and Buñuel" },
+    { "year": 1929, "event": "Joins Surrealists in Paris; meets Gala" },
+    { "year": 1931, "event": "Paints The Persistence of Memory" },
+    { "year": 1934, "event": "Marries Gala" },
+    { "year": 1936, "event": "Creates Lobster Telephone and Mae West Lips Sofa" },
+    { "year": 1940, "event": "Flees to America during WWII" },
+    { "year": 1948, "event": "Returns to live in Port Lligat" },
+    { "year": 1974, "event": "Opens Dalí Theatre-Museum in Figueres" },
+    { "year": 1982, "event": "Gala dies; Dalí moves to Púbol Castle, then Figueres" },
+    { "year": 1989, "event": "Dies in Figueres on January 23, aged 84" }
+  ]
+}

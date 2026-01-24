@@ -80,15 +80,52 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Stop type badge styling
+// Stop type badge styling with accent colors for cards
 function getStopTypeBadge(type: TrailStop["type"]) {
   const styles = {
-    birthplace: { bg: "bg-blue-100", text: "text-blue-700", label: "Birthplace" },
-    lived: { bg: "bg-green-100", text: "text-green-700", label: "Lived & Worked" },
-    worked: { bg: "bg-amber-100", text: "text-amber-700", label: "Worked" },
-    death: { bg: "bg-neutral-100", text: "text-neutral-700", label: "Final Resting Place" },
+    birthplace: { bg: "bg-blue-100", text: "text-blue-700", label: "Birthplace", accent: "border-l-blue-500" },
+    lived: { bg: "bg-emerald-100", text: "text-emerald-700", label: "Lived & Worked", accent: "border-l-emerald-500" },
+    worked: { bg: "bg-amber-100", text: "text-amber-700", label: "Worked", accent: "border-l-amber-500" },
+    death: { bg: "bg-neutral-200", text: "text-neutral-700", label: "Final Resting Place", accent: "border-l-neutral-500" },
   };
   return styles[type] || styles.lived;
+}
+
+// What to see type icons
+function getPlaceTypeIcon(type: string) {
+  switch (type) {
+    case "museum":
+      return (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      );
+    case "landmark":
+      return (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      );
+    case "trail":
+      return (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+        </svg>
+      );
+    case "neighborhood":
+      return (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      );
+    default:
+      return (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      );
+  }
 }
 
 export default async function TrailPage({ params }: Props) {
@@ -150,108 +187,140 @@ export default async function TrailPage({ params }: Props) {
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white">
-        <div className="max-w-[1400px] mx-auto px-4 py-12 md:py-20">
+      <div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+          {/* Dot pattern */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '24px 24px'
+          }} />
+        </div>
+
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           {/* Breadcrumb */}
           <nav className="text-sm text-neutral-400 mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/artists" className="hover:text-white">Artists</Link>
-            <span className="mx-2">/</span>
-            <Link href={`/artist/${dbArtistSlug}`} className="hover:text-white">{trail.artistName}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">Trail</span>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span className="mx-2 text-neutral-600">/</span>
+            <Link href="/artists" className="hover:text-white transition-colors">Artists</Link>
+            <span className="mx-2 text-neutral-600">/</span>
+            <Link href={`/artist/${dbArtistSlug}`} className="hover:text-white transition-colors">{trail.artistName}</Link>
+            <span className="mx-2 text-neutral-600">/</span>
+            <span className="text-[#C9A84C]">Trail</span>
           </nav>
 
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-1">
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">{trail.title}</h1>
-              <p className="text-xl text-neutral-300 mb-6">{trail.subtitle}</p>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* Artist portrait if available - now on left */}
+            {artist?.imageUrl && (
+              <div className="relative flex-shrink-0">
+                <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-[#C9A84C] shadow-xl shadow-[#C9A84C]/20">
+                  <Image
+                    src={artist.imageUrl}
+                    alt={trail.artistName}
+                    width={144}
+                    height={144}
+                    className="object-cover w-full h-full"
+                    unoptimized
+                  />
+                </div>
+                {/* Decorative ring */}
+                <div className="absolute inset-0 rounded-full border-2 border-[#C9A84C]/30 scale-[1.15]" />
+              </div>
+            )}
 
-              {/* Stats */}
-              <div className="flex flex-wrap gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C9A84C]/20 rounded-full text-[#C9A84C] text-sm font-medium mb-3">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+                Artist Journey
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">{trail.title}</h1>
+              <p className="text-lg text-neutral-300 mb-5 max-w-2xl">{trail.subtitle}</p>
+
+              {/* Stats - pill style */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>{trail.totalLocations} locations</span>
+                  <span className="text-sm font-medium">{trail.totalLocations} locations</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span>{trail.totalPaintings}+ paintings</span>
+                  <span className="text-sm font-medium">{trail.totalPaintings}+ paintings</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span>{trail.lifespan}</span>
+                  <span className="text-sm font-medium">{trail.lifespan}</span>
                 </div>
               </div>
             </div>
-
-            {/* Artist portrait if available */}
-            {artist?.imageUrl && (
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#C9A84C] flex-shrink-0">
-                <Image
-                  src={artist.imageUrl}
-                  alt={trail.artistName}
-                  width={160}
-                  height={160}
-                  className="object-cover w-full h-full"
-                  unoptimized
-                />
-              </div>
-            )}
           </div>
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Introduction */}
-        <section className="max-w-3xl mb-16">
+        <section className="max-w-3xl mb-12">
           <p className="text-lg text-neutral-700 leading-relaxed">{trail.introduction}</p>
         </section>
 
         {/* Timeline */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-neutral-900 mb-8">The Journey</h2>
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">The Journey</h2>
+            </div>
+            <span className="text-sm text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">{trail.trail.length} stops</span>
+          </div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#C9A84C] via-neutral-300 to-neutral-200" />
+            <div className="absolute left-5 md:left-7 top-8 bottom-8 w-0.5 bg-gradient-to-b from-[#C9A84C] via-[#C9A84C]/50 to-neutral-200" />
 
-            <div className="space-y-12">
+            <div className="space-y-8">
               {trail.trail.map((stop, index) => {
                 const typeBadge = getStopTypeBadge(stop.type);
-                const stopArtworks = stop.paintingsFromHere
-                  .map((p) => artworkMap.get(p.slug))
-                  .filter(Boolean);
 
                 return (
-                  <div key={stop.slug} id={`stop-${stop.slug}`} className="relative pl-16 md:pl-20">
+                  <div key={stop.slug} id={`stop-${stop.slug}`} className="relative pl-14 md:pl-18">
                     {/* Timeline marker */}
-                    <div className={`absolute left-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-white font-bold text-lg ${stop.highlight || stop.mustVisit ? "bg-[#C9A84C]" : "bg-neutral-400"}`}>
+                    <div className={`absolute left-0 w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg shadow-lg ${stop.highlight || stop.mustVisit ? "bg-gradient-to-br from-[#C9A84C] to-[#b8973f]" : "bg-neutral-400"}`}>
                       {index + 1}
                     </div>
 
-                    <div className={`bg-white border rounded-xl overflow-hidden ${stop.mustVisit ? "border-[#C9A84C] shadow-lg" : "border-neutral-200"}`}>
+                    <div className={`bg-white border-l-4 ${typeBadge.accent} rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${stop.mustVisit ? "ring-2 ring-[#C9A84C]/20" : ""}`}>
                       {/* Header */}
-                      <div className="p-6 border-b border-neutral-100">
-                        <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div className="p-5 md:p-6 bg-gradient-to-r from-neutral-50 to-white border-b border-neutral-100">
+                        <div className="flex flex-wrap items-start justify-between gap-3">
                           <div>
-                            <div className="flex items-center gap-3 mb-2">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
                               <h3 className="text-xl font-bold text-neutral-900">{stop.place}, {stop.country}</h3>
                               {stop.mustVisit && (
-                                <span className="bg-[#C9A84C] text-white text-xs px-2 py-1 rounded-full font-medium">Must Visit</span>
+                                <span className="bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-white text-xs px-2.5 py-1 rounded-full font-medium shadow-sm">
+                                  Must Visit
+                                </span>
                               )}
                             </div>
-                            <div className="flex flex-wrap items-center gap-3 text-sm">
-                              <span className={`${typeBadge.bg} ${typeBadge.text} px-2 py-0.5 rounded`}>{typeBadge.label}</span>
-                              <span className="text-neutral-500">{stop.years}</span>
-                              <span className="text-neutral-400">|</span>
+                            <div className="flex flex-wrap items-center gap-2 text-sm">
+                              <span className={`${typeBadge.bg} ${typeBadge.text} px-2.5 py-0.5 rounded-full font-medium`}>{typeBadge.label}</span>
+                              <span className="text-neutral-400">•</span>
+                              <span className="text-neutral-600 font-medium">{stop.years}</span>
+                              <span className="text-neutral-400">•</span>
                               <span className="text-neutral-500">Age {stop.ageRange}</span>
                             </div>
                           </div>
@@ -259,13 +328,13 @@ export default async function TrailPage({ params }: Props) {
                       </div>
 
                       {/* Content */}
-                      <div className="p-6">
-                        <p className="text-neutral-700 mb-4">{stop.description}</p>
+                      <div className="p-5 md:p-6">
+                        <p className="text-neutral-700 leading-relaxed mb-5">{stop.description}</p>
 
                         {stop.significance && (
-                          <div className="bg-amber-50 border-l-4 border-[#C9A84C] p-4 mb-6">
-                            <p className="text-neutral-700">
-                              <strong className="text-[#C9A84C]">Why it matters:</strong> {stop.significance}
+                          <div className="bg-gradient-to-r from-amber-50 to-amber-50/50 border-l-4 border-[#C9A84C] rounded-r-lg p-4 mb-6">
+                            <p className="text-neutral-700 text-sm">
+                              <strong className="text-[#C9A84C] font-semibold">Why it matters:</strong> {stop.significance}
                             </p>
                           </div>
                         )}
@@ -273,37 +342,55 @@ export default async function TrailPage({ params }: Props) {
                         {/* What to See */}
                         {stop.whatToSee.length > 0 && (
                           <div className="mb-6">
-                            <h4 className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                              <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                              </svg>
+                            <h4 className="font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                              <div className="p-1.5 bg-[#C9A84C]/10 rounded-lg">
+                                <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                              </div>
                               What to See Here
+                              <span className="text-xs text-neutral-400 font-normal">({stop.whatToSee.length} places)</span>
                             </h4>
                             <div className="grid md:grid-cols-2 gap-3">
                               {stop.whatToSee.map((place, i) => (
-                                <div key={i} className="bg-neutral-50 rounded-lg p-4">
-                                  <div className="flex items-start justify-between gap-2 mb-1">
-                                    <h5 className="font-medium text-neutral-900">{place.name}</h5>
-                                    <span className="text-xs bg-neutral-200 text-neutral-600 px-2 py-0.5 rounded capitalize">{place.type}</span>
+                                <div key={i} className="group bg-white border border-neutral-200 hover:border-[#C9A84C]/50 rounded-xl p-4 transition-all hover:shadow-sm">
+                                  <div className="flex items-start gap-3">
+                                    <div className="p-2 bg-neutral-100 group-hover:bg-[#C9A84C]/10 rounded-lg text-neutral-500 group-hover:text-[#C9A84C] transition-colors">
+                                      {getPlaceTypeIcon(place.type)}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-start justify-between gap-2 mb-1">
+                                        <h5 className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors">{place.name}</h5>
+                                        <span className="text-xs bg-neutral-100 text-neutral-500 px-2 py-0.5 rounded-full capitalize flex-shrink-0">{place.type}</span>
+                                      </div>
+                                      <p className="text-sm text-neutral-600 mb-2">{place.description}</p>
+                                      {place.address && (
+                                        <p className="text-xs text-neutral-400 flex items-center gap-1 mb-2">
+                                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                          </svg>
+                                          {place.address}
+                                        </p>
+                                      )}
+                                      {place.note && (
+                                        <p className="text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded-lg inline-block">{place.note}</p>
+                                      )}
+                                      {place.ticketUrl && (
+                                        <a
+                                          href={place.ticketUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-sm text-[#C9A84C] hover:text-[#b8973f] font-medium mt-2 inline-flex items-center gap-1"
+                                        >
+                                          Get tickets
+                                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                          </svg>
+                                        </a>
+                                      )}
+                                    </div>
                                   </div>
-                                  <p className="text-sm text-neutral-600 mb-2">{place.description}</p>
-                                  {place.address && (
-                                    <p className="text-xs text-neutral-500 mb-2">{place.address}</p>
-                                  )}
-                                  {place.note && (
-                                    <p className="text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded">{place.note}</p>
-                                  )}
-                                  {place.ticketUrl && (
-                                    <a
-                                      href={place.ticketUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-sm text-[#C9A84C] hover:underline mt-2 inline-block"
-                                    >
-                                      Get tickets →
-                                    </a>
-                                  )}
                                 </div>
                               ))}
                             </div>
@@ -313,38 +400,47 @@ export default async function TrailPage({ params }: Props) {
                         {/* Paintings Created Here */}
                         {stop.paintingsFromHere.length > 0 && (
                           <div>
-                            <h4 className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                              <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                              </svg>
+                            <h4 className="font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                              <div className="p-1.5 bg-[#C9A84C]/10 rounded-lg">
+                                <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                              </div>
                               Masterpieces Created Here
+                              <span className="text-xs text-neutral-400 font-normal">({stop.paintingsFromHere.length} works)</span>
                             </h4>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                               {stop.paintingsFromHere.map((painting) => {
                                 const dbArtwork = artworkMap.get(painting.slug);
                                 return (
                                   <Link
                                     key={painting.slug}
                                     href={`/art/${painting.slug}`}
-                                    className="group flex items-center gap-3 bg-white border border-neutral-200 rounded-lg p-2 hover:border-[#C9A84C] transition-colors"
+                                    className="group relative bg-white border border-neutral-200 rounded-xl overflow-hidden hover:border-[#C9A84C] hover:shadow-md transition-all"
                                   >
-                                    {dbArtwork?.imageUrl && (
-                                      <div className="w-12 h-12 rounded overflow-hidden flex-shrink-0">
+                                    {dbArtwork?.imageUrl ? (
+                                      <div className="aspect-square relative overflow-hidden bg-neutral-100">
                                         <Image
                                           src={dbArtwork.imageUrl}
                                           alt={painting.title}
-                                          width={48}
-                                          height={48}
-                                          className="object-cover w-full h-full"
+                                          fill
+                                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                                           unoptimized
                                         />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                      </div>
+                                    ) : (
+                                      <div className="aspect-square bg-neutral-100 flex items-center justify-center">
+                                        <svg className="w-8 h-8 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
                                       </div>
                                     )}
-                                    <div>
-                                      <span className="text-sm font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                                    <div className="p-3">
+                                      <h5 className="text-sm font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors line-clamp-2">
                                         {painting.title}
-                                      </span>
-                                      <span className="text-xs text-neutral-500 block">{painting.year}</span>
+                                      </h5>
+                                      <p className="text-xs text-neutral-500 mt-0.5">{painting.year}</p>
                                     </div>
                                   </Link>
                                 );
@@ -355,7 +451,12 @@ export default async function TrailPage({ params }: Props) {
 
                         {/* Note about artworks */}
                         {stop.artworksNote && (
-                          <p className="text-sm text-neutral-500 italic mt-4">{stop.artworksNote}</p>
+                          <p className="text-sm text-neutral-500 italic mt-4 flex items-center gap-2">
+                            <svg className="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {stop.artworksNote}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -368,37 +469,72 @@ export default async function TrailPage({ params }: Props) {
 
         {/* Suggested Itineraries */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-neutral-900 mb-6">Suggested Itineraries</h2>
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">Suggested Itineraries</h2>
+            </div>
+            <span className="text-sm text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">{trail.suggestedItineraries.length} options</span>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {trail.suggestedItineraries.map((itinerary) => (
               <div
                 key={itinerary.name}
-                className={`rounded-xl p-6 ${itinerary.highlight ? "bg-[#C9A84C] text-white" : "bg-neutral-100"}`}
+                className={`relative rounded-2xl overflow-hidden transition-all hover:shadow-lg ${itinerary.highlight ? "bg-gradient-to-br from-[#C9A84C] to-[#a8893d] text-white shadow-lg shadow-[#C9A84C]/20" : "bg-white border border-neutral-200 hover:border-neutral-300"}`}
               >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className={`text-lg font-bold ${itinerary.highlight ? "text-white" : "text-neutral-900"}`}>
-                    {itinerary.name}
-                  </h3>
-                  <span className={`text-sm px-2 py-1 rounded ${itinerary.highlight ? "bg-white/20" : "bg-white"}`}>
-                    {itinerary.duration}
-                  </span>
-                </div>
-                <p className={`text-sm ${itinerary.highlight ? "text-white/90" : "text-neutral-600"}`}>
-                  {itinerary.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {itinerary.stops.map((stopSlug) => {
-                    const stop = trail.trail.find((s) => s.slug === stopSlug);
-                    return stop ? (
-                      <a
-                        key={stopSlug}
-                        href={`#stop-${stopSlug}`}
-                        className={`text-xs px-2 py-1 rounded ${itinerary.highlight ? "bg-white/20 hover:bg-white/30" : "bg-white hover:bg-neutral-200"} transition-colors`}
-                      >
-                        {stop.place}
-                      </a>
-                    ) : null;
-                  })}
+                {/* Recommended badge */}
+                {itinerary.highlight && (
+                  <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full font-medium flex items-center gap-1">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    Recommended
+                  </div>
+                )}
+
+                <div className="p-6">
+                  {/* Icon */}
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${itinerary.highlight ? "bg-white/20" : "bg-[#C9A84C]/10"}`}>
+                    <svg className={`w-6 h-6 ${itinerary.highlight ? "text-white" : "text-[#C9A84C]"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                  </div>
+
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className={`text-lg font-bold ${itinerary.highlight ? "text-white" : "text-neutral-900"}`}>
+                      {itinerary.name}
+                    </h3>
+                    <span className={`text-sm font-medium px-3 py-1 rounded-full flex-shrink-0 ${itinerary.highlight ? "bg-white/20 text-white" : "bg-neutral-100 text-neutral-600"}`}>
+                      {itinerary.duration}
+                    </span>
+                  </div>
+
+                  <p className={`text-sm leading-relaxed mb-4 ${itinerary.highlight ? "text-white/90" : "text-neutral-600"}`}>
+                    {itinerary.description}
+                  </p>
+
+                  {/* Route stops */}
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {itinerary.stops.map((stopSlug, idx) => {
+                      const stop = trail.trail.find((s) => s.slug === stopSlug);
+                      return stop ? (
+                        <div key={stopSlug} className="flex items-center">
+                          <a
+                            href={`#stop-${stopSlug}`}
+                            className={`text-xs px-2.5 py-1 rounded-full transition-all ${itinerary.highlight ? "bg-white/20 hover:bg-white/30 text-white" : "bg-neutral-100 hover:bg-neutral-200 text-neutral-700"}`}
+                          >
+                            {stop.place}
+                          </a>
+                          {idx < itinerary.stops.length - 1 && (
+                            <svg className={`w-4 h-4 mx-0.5 ${itinerary.highlight ? "text-white/40" : "text-neutral-300"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          )}
+                        </div>
+                      ) : null;
+                    })}
+                  </div>
                 </div>
               </div>
             ))}
@@ -407,80 +543,155 @@ export default async function TrailPage({ params }: Props) {
 
         {/* Where to See Works Today */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-neutral-900 mb-2">{trail.currentLocations.title}</h2>
-          <p className="text-neutral-600 mb-6">{trail.currentLocations.description}</p>
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">{trail.currentLocations.title}</h2>
+            </div>
+            <span className="text-sm text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">{trail.currentLocations.topMuseums.length} museums</span>
+          </div>
+          <p className="text-neutral-600 mb-6 ml-4">{trail.currentLocations.description}</p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {trail.currentLocations.topMuseums.map((museum) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {trail.currentLocations.topMuseums.map((museum, idx) => (
               <Link
                 key={museum.slug}
                 href={`/museum/${museum.slug}`}
-                className="group bg-white border border-neutral-200 rounded-xl p-6 hover:border-[#C9A84C] hover:shadow-md transition-all"
+                className="group bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:border-[#C9A84C] hover:shadow-lg transition-all"
               >
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="font-bold text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
-                      {museum.name}
-                    </h3>
-                    <p className="text-sm text-neutral-500">{museum.city}, {museum.country}</p>
+                {/* Top accent bar */}
+                <div className="h-1 bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/50" />
+
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex items-start gap-3">
+                      {/* Museum icon */}
+                      <div className="w-10 h-10 bg-neutral-100 group-hover:bg-[#C9A84C]/10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+                        <svg className="w-5 h-5 text-neutral-400 group-hover:text-[#C9A84C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
+                          {museum.name}
+                        </h3>
+                        <p className="text-sm text-neutral-500 flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          </svg>
+                          {museum.city}, {museum.country}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-sm">
+                      {museum.count}
+                    </div>
                   </div>
-                  <div className="bg-[#C9A84C] text-white text-sm font-bold px-3 py-1 rounded-full">
-                    {museum.count}
+
+                  {museum.note && (
+                    <p className="text-sm text-neutral-600 mb-3">{museum.note}</p>
+                  )}
+
+                  {/* Highlights as artwork tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {museum.highlights.slice(0, 3).map((slug) => (
+                      <span key={slug} className="text-xs bg-neutral-100 group-hover:bg-[#C9A84C]/10 text-neutral-600 px-2 py-1 rounded-lg transition-colors">
+                        {slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                      </span>
+                    ))}
+                    {museum.highlights.length > 3 && (
+                      <span className="text-xs text-neutral-400 px-1">+{museum.highlights.length - 3} more</span>
+                    )}
                   </div>
-                </div>
-                {museum.note && (
-                  <p className="text-sm text-neutral-600 mb-3">{museum.note}</p>
-                )}
-                <div className="flex flex-wrap gap-1">
-                  {museum.highlights.slice(0, 3).map((slug) => (
-                    <span key={slug} className="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 rounded">
-                      {slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
-                    </span>
-                  ))}
                 </div>
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Timeline */}
+        {/* Life Timeline */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-neutral-900 mb-6">Life Timeline</h2>
-          <div className="bg-neutral-50 rounded-xl p-6">
-            <div className="space-y-4">
-              {trail.timeline.map((event, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="w-16 flex-shrink-0 font-bold text-[#C9A84C]">{event.year}</div>
-                  <div className="flex-1 text-neutral-700">{event.event}</div>
-                </div>
-              ))}
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-[#C9A84C] to-[#C9A84C]/30 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">Life Timeline</h2>
+            </div>
+            <span className="text-sm text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">{trail.timeline.length} events</span>
+          </div>
+
+          <div className="bg-gradient-to-br from-neutral-50 to-white rounded-2xl border border-neutral-200 p-6 md:p-8">
+            <div className="relative">
+              {/* Vertical timeline line */}
+              <div className="absolute left-[3.25rem] md:left-[4.25rem] top-2 bottom-2 w-px bg-gradient-to-b from-[#C9A84C] via-[#C9A84C]/50 to-neutral-200" />
+
+              <div className="space-y-0">
+                {trail.timeline.map((event, index) => (
+                  <div key={index} className="relative flex items-start gap-4 md:gap-6 py-3 group">
+                    {/* Year badge */}
+                    <div className="relative z-10 w-14 md:w-18 flex-shrink-0">
+                      <span className="inline-block bg-white border-2 border-[#C9A84C] text-[#C9A84C] font-bold text-sm px-2 py-1 rounded-lg shadow-sm">
+                        {event.year}
+                      </span>
+                    </div>
+
+                    {/* Timeline dot */}
+                    <div className="absolute left-[3rem] md:left-[4rem] top-4 w-2.5 h-2.5 rounded-full bg-[#C9A84C] border-2 border-white shadow-sm z-10" />
+
+                    {/* Event content */}
+                    <div className="flex-1 bg-white rounded-lg p-3 border border-transparent group-hover:border-neutral-200 group-hover:shadow-sm transition-all ml-4">
+                      <p className="text-neutral-700">{event.event}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-black rounded-xl p-8 text-center">
-          <h2 className="text-xl font-semibold text-white mb-2">
-            Bring {trail.artistName}&apos;s Art Home
-          </h2>
-          <p className="text-neutral-400 mb-6">
-            Can&apos;t make the trip? Explore wall art inspired by {trail.artistName}&apos;s masterpieces.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={`/artist/${dbArtistSlug}`}
-              className="inline-block bg-white text-black px-6 py-3 rounded font-semibold hover:bg-neutral-100 transition-colors"
-            >
-              View All Artworks
-            </Link>
-            <a
-              href="https://luxurywallart.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded font-semibold hover:bg-[#b8973f] transition-colors"
-            >
-              Shop Wall Art
-            </a>
+        <section className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 md:p-12 text-center overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9A84C]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#C9A84C]/5 rounded-full blur-3xl" />
+          </div>
+
+          <div className="relative">
+            <div className="w-16 h-16 bg-[#C9A84C]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Bring {trail.artistName}&apos;s Art Home
+            </h2>
+            <p className="text-neutral-400 mb-8 max-w-md mx-auto">
+              Can&apos;t make the trip? Explore wall art inspired by {trail.artistName}&apos;s masterpieces.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href={`/artist/${dbArtistSlug}`}
+                className="inline-flex items-center justify-center gap-2 bg-white text-neutral-900 px-6 py-3 rounded-xl font-semibold hover:bg-neutral-100 transition-colors shadow-lg"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                View All Artworks
+              </Link>
+              <a
+                href="https://luxurywallart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#C9A84C] to-[#b8973f] text-white px-6 py-3 rounded-xl font-semibold hover:from-[#d4b45a] hover:to-[#C9A84C] transition-all shadow-lg shadow-[#C9A84C]/20"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                Shop Wall Art
+              </a>
+            </div>
           </div>
         </section>
       </div>
