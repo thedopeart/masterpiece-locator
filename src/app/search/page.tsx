@@ -245,18 +245,16 @@ export default async function SearchPage({ searchParams }: Props) {
   // Fuzzy search suggestions if no exact artist matches
   let artistSuggestions: { name: string; slug: string }[] = [];
   if (query && rawArtistResults.length === 0 && query.length >= 3) {
-    // Multiple fuzzy matching strategies
-    const q = query.toLowerCase();
+    const q = query.toLowerCase().replace(/\s+/g, '');
+    const qSlug = query.toLowerCase().replace(/\s+/g, '-');
     const fuzzyArtists = await prisma.$queryRaw<{ name: string; slug: string }[]>`
-      SELECT DISTINCT name, slug FROM "Artist"
+      SELECT name, slug FROM "Artist"
       WHERE
-        LOWER(name) LIKE ${`${q.slice(0, Math.min(4, q.length))}%`}
-        OR LOWER(name) LIKE ${`%${q}%`}
-        OR LOWER(slug) LIKE ${`%${q.replace(/\s+/g, '-')}%`}
+        LOWER(REPLACE(name, ' ', '')) LIKE ${`%${q}%`}
+        OR slug LIKE ${`%${qSlug}%`}
         OR LOWER(name) LIKE ${`%${q.slice(0, -1)}%`}
-      ORDER BY
-        CASE WHEN LOWER(name) LIKE ${`${q}%`} THEN 0 ELSE 1 END,
-        LENGTH(name)
+        OR LOWER(name) LIKE ${`${q.slice(0, Math.min(4, q.length))}%`}
+      ORDER BY LENGTH(name)
       LIMIT 5
     `;
     artistSuggestions = fuzzyArtists;
@@ -281,7 +279,7 @@ export default async function SearchPage({ searchParams }: Props) {
   if (query && rawMuseumResults.length === 0 && query.length >= 3) {
     const q = query.toLowerCase();
     const fuzzyMuseums = await prisma.$queryRaw<{ name: string; slug: string }[]>`
-      SELECT DISTINCT name, slug FROM "Museum"
+      SELECT name, slug FROM "Museum"
       WHERE
         LOWER(name) LIKE ${`%${q}%`}
         OR LOWER(city) LIKE ${`%${q}%`}
