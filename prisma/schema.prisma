@@ -23,12 +23,12 @@ model Artist {
   updatedAt    DateTime
   faqs         Json?
   Artwork      Artwork[]
-  Movement     Movement[]
+  Movement     Movement[] @relation("ArtistToMovement")
 }
 
 model Artwork {
-  id                     String              @id
-  slug                   String              @unique
+  id                     String             @id
+  slug                   String             @unique
   title                  String
   year                   Int?
   medium                 String?
@@ -37,29 +37,29 @@ model Artwork {
   historicalSignificance String?
   imageUrl               String?
   imageAttribution       String?
-  isPermanent            Boolean             @default(true)
+  isPermanent            Boolean            @default(true)
   galleryRoom            String?
-  wikidataId             String?             @unique
+  wikidataId             String?            @unique
   wikipediaUrl           String?
-  searchVolumeTier       Int                 @default(3)
+  searchVolumeTier       Int                @default(3)
   artistId               String?
   museumId               String?
   styleTags              String[]
   moodTags               String[]
   primaryColors          String[]
-  createdAt              DateTime            @default(now())
+  createdAt              DateTime           @default(now())
   updatedAt              DateTime
   faqs                   Json?
   imageHeight            Int?
   imageWidth             Int?
-  lastSalePrice          BigInt?
   lastSaleDate           DateTime?
+  lastSalePrice          BigInt?
   priceCategory          String?
-  Artist                 Artist?             @relation(fields: [artistId], references: [id])
-  Museum                 Museum?             @relation(fields: [museumId], references: [id])
-  ProductMatch           ProductMatch[]
-  AuctionSale            AuctionSale[]
+  Artist                 Artist?            @relation(fields: [artistId], references: [id])
+  Museum                 Museum?            @relation(fields: [museumId], references: [id])
   ArtworkValuation       ArtworkValuation[]
+  AuctionSale            AuctionSale[]
+  ProductMatch           ProductMatch[]
 
   @@index([artistId])
   @@index([museumId])
@@ -77,7 +77,7 @@ model Movement {
   keyCharacteristics String[]
   createdAt          DateTime @default(now())
   updatedAt          DateTime
-  Artist             Artist[]
+  Artist             Artist[] @relation("ArtistToMovement")
 }
 
 model Museum {
