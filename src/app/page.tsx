@@ -134,7 +134,7 @@ export default async function Home() {
         select: { imageUrl: true },
       },
     },
-    take: 6, // Fetch extra to filter out invalid ones
+    take: 15, // Fetch extra to filter out invalid ones
     orderBy: { Artwork: { _count: "desc" } },
   });
 
@@ -241,17 +241,17 @@ export default async function Home() {
     })
   );
 
-  // Filter to eras with content
-  const erasWithContent = eraStats.filter(
-    (e) => e.movementCount > 0 || e.artistCount > 0
-  );
+  // Filter to eras with content and limit to 6
+  const erasWithContent = eraStats
+    .filter((e) => e.movementCount > 0 || e.artistCount > 0)
+    .slice(0, 6);
 
   return (
     <div className="bg-neutral-50">
       {/* Hero Section - Compact */}
       <section className="bg-white py-8 md:py-12 border-b border-neutral-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-3 tracking-tight">
             Where Is That Famous Painting?
           </h1>
           <p className="text-neutral-600 mb-4 max-w-xl mx-auto">
