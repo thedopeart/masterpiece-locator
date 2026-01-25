@@ -24,7 +24,7 @@ const SUBJECTS = [
   { name: "Genre Scenes", tag: "genre", icon: "🎭" },
 ];
 
-// Generate interesting facts about an artwork - only truly interesting ones
+// Generate interesting facts about an artwork - quality over quantity
 function generateFacts(artwork: {
   title: string;
   year: number | null;
@@ -32,7 +32,14 @@ function generateFacts(artwork: {
   dimensions: string | null;
   lastSalePrice: number | null;
   styleTags: string[];
-  Artist: { name: string; slug: string; birthYear: number | null; deathYear: number | null; nationality: string | null } | null;
+  Artist: {
+    name: string;
+    slug: string;
+    birthYear: number | null;
+    deathYear: number | null;
+    nationality: string | null;
+    Movement?: { name: string; slug: string }[];
+  } | null;
   Museum: { name: string; slug: string; city: string; country: string } | null;
   hasTrail: boolean;
 }): string[] {
@@ -40,83 +47,160 @@ function generateFacts(artwork: {
   const now = new Date().getFullYear();
   const artist = artwork.Artist;
   const museum = artwork.Museum;
+  const title = artwork.title.toLowerCase();
 
-  // 1. PRIORITY: Artist trail (most engaging)
+  // 1. Artist trail (most engaging)
   if (artwork.hasTrail && artist) {
     const trailSlug = artist.slug === "van-gogh" ? "vincent-van-gogh" : artist.slug;
     facts.push(`Want to walk in ${artist.name}'s footsteps? <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">Follow the journey</a> through the places that shaped this artist's life and work.`);
   }
 
-  // 2. PRIORITY: Tragic/young death
-  if (artist?.birthYear && artist?.deathYear) {
-    const artistAge = artist.deathYear - artist.birthYear;
-    if (artistAge < 40) {
-      facts.push(`${artist.name} died at just ${artistAge}. In that short life, works like this one secured a place in art history.`);
-    }
-  }
-
-  // 3. PRIORITY: Final works (emotionally compelling)
-  if (artist?.deathYear && artwork.year) {
-    const yearsBeforeDeath = artist.deathYear - artwork.year;
-    if (yearsBeforeDeath === 0) {
-      facts.push(`${artist.name} painted this in the final year of life. It's one of the last works we have.`);
-    } else if (yearsBeforeDeath === 1) {
-      facts.push(`Created just a year before ${artist.name}'s death in ${artist.deathYear}.`);
-    }
-  }
-
-  // 4. PRIORITY: Big auction sales
-  if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000 && artist) {
-    const millions = Math.round(artwork.lastSalePrice / 1000000);
-    facts.push(`This sold for $${millions} million at auction. <a href="/auction-records/by-artist/${artist.slug}" class="text-[#C9A84C] hover:underline font-medium">See more ${artist.name} sales</a>.`);
-  }
-
-  // 5. PRIORITY: Very old paintings (500+ years)
-  if (artwork.year && artwork.year < 1525) {
-    const age = now - artwork.year;
-    facts.push(`This is over ${Math.floor(age / 100)} centuries old, painted in ${artwork.year}. It predates Shakespeare, the printing press reaching England, and the Protestant Reformation.`);
-  }
-
-  // 6. Cross-continental journey (nationality vs museum location)
-  if (artist?.nationality && museum) {
-    const nat = artist.nationality.toLowerCase();
-    const country = museum.country.toLowerCase();
-    // Check if artwork traveled far from home
-    if ((nat.includes('dutch') || nat.includes('netherlands')) && country.includes('united states')) {
-      facts.push(`A Dutch masterpiece that crossed the Atlantic. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
-    } else if ((nat.includes('french')) && (country.includes('united states') || country.includes('russia'))) {
-      facts.push(`Painted in France, now thousands of miles from home at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
-    } else if ((nat.includes('italian')) && !country.includes('ital')) {
-      facts.push(`Italian art that found a new home abroad. See it at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
-    } else if ((nat.includes('spanish')) && !country.includes('spain')) {
-      facts.push(`Spanish art that left the Iberian Peninsula. Now on display at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
-    }
-  }
-
-  // 7. Monumental size
-  if (artwork.dimensions) {
-    const match = artwork.dimensions.match(/(\d+(?:\.\d+)?)\s*(?:cm|×|x)\s*(\d+(?:\.\d+)?)/i);
-    if (match) {
-      const larger = Math.max(parseFloat(match[1]), parseFloat(match[2]));
-      if (larger > 300) {
-        facts.push(`This painting is massive: ${artwork.dimensions}. Standing in front of it, the scene surrounds you.`);
-      } else if (larger < 25) {
-        facts.push(`Surprisingly small at just ${artwork.dimensions}. The intimacy was intentional.`);
+  // 2. Self-portraits (check title)
+  if (title.includes('self-portrait') || title.includes('self portrait') || title.includes('autorretrato')) {
+    if (artist && artwork.year && artist.birthYear) {
+      const ageWhenPainted = artwork.year - artist.birthYear;
+      if (ageWhenPainted > 0 && ageWhenPainted < 100) {
+        facts.push(`${artist.name} painted this self-portrait at age ${ageWhenPainted}.`);
       }
     }
   }
 
-  // 8. Fresco technique (actually interesting)
-  if (artwork.medium?.toLowerCase().includes('fresco')) {
-    facts.push(`This is a fresco: painted directly on wet plaster. Once the plaster dried, there was no fixing mistakes.`);
+  // 3. Tragic/young death
+  if (artist?.birthYear && artist?.deathYear) {
+    const artistAge = artist.deathYear - artist.birthYear;
+    if (artistAge < 40) {
+      facts.push(`${artist.name} died at just ${artistAge}. In that short life, works like this secured a place in art history.`);
+    }
   }
 
-  // If we still don't have 2 facts, add a museum visit prompt (but make it good)
-  if (facts.length < 2 && museum && artist) {
-    facts.push(`See this ${artist.name} in person at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
+  // 4. Final works
+  if (artist?.deathYear && artwork.year && facts.length < 2) {
+    const yearsBeforeDeath = artist.deathYear - artwork.year;
+    if (yearsBeforeDeath === 0) {
+      facts.push(`${artist.name} painted this in the final year of life. One of the last works we have.`);
+    } else if (yearsBeforeDeath === 1) {
+      facts.push(`Created just one year before ${artist.name} died in ${artist.deathYear}.`);
+    }
   }
 
-  // Return up to 2 facts (they're already in priority order)
+  // 5. Artist's age when painted (very young or old)
+  if (artist?.birthYear && artwork.year && facts.length < 2) {
+    const ageWhenPainted = artwork.year - artist.birthYear;
+    if (ageWhenPainted <= 25 && ageWhenPainted > 0) {
+      facts.push(`${artist.name} was only ${ageWhenPainted} when this was painted. Already showing mastery.`);
+    } else if (ageWhenPainted >= 70) {
+      facts.push(`Painted when ${artist.name} was ${ageWhenPainted} years old. Late-career work often reveals new directions.`);
+    }
+  }
+
+  // 6. Big auction sales
+  if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000 && artist && facts.length < 2) {
+    const millions = Math.round(artwork.lastSalePrice / 1000000);
+    facts.push(`Sold for $${millions} million at auction. <a href="/auction-records/by-artist/${artist.slug}" class="text-[#C9A84C] hover:underline font-medium">See more ${artist.name} sales</a>.`);
+  }
+
+  // 7. Very old paintings (500+ years)
+  if (artwork.year && artwork.year < 1525 && facts.length < 2) {
+    const age = now - artwork.year;
+    facts.push(`Over ${Math.floor(age / 100)} centuries old. Painted in ${artwork.year}, before Shakespeare was born.`);
+  }
+
+  // 8. Art movement context
+  if (artist?.Movement && artist.Movement.length > 0 && facts.length < 2) {
+    const movement = artist.Movement[0];
+    const movementFacts: Record<string, string> = {
+      'impressionism': `Part of the <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Impressionist</a> movement that scandalized the Paris art world in the 1870s.`,
+      'post-impressionism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Post-Impressionism</a> pushed beyond capturing light to express emotion and symbolism.`,
+      'baroque': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Baroque</a> art was designed to awe. Drama, emotion, grandeur.`,
+      'renaissance': `From the <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Renaissance</a>, when artists rediscovered perspective and human anatomy.`,
+      'romanticism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Romanticism</a> celebrated emotion over reason, nature over industry.`,
+      'realism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Realism</a> rejected idealized subjects to show life as it really was.`,
+      'expressionism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Expressionism</a> distorted reality to show inner emotional experience.`,
+      'rococo': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Rococo</a> art favored elegance, lightness, and ornate decoration.`,
+      'neoclassicism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Neoclassicism</a> looked back to ancient Greece and Rome for inspiration.`,
+      'symbolism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Symbolism</a> used imagery to suggest ideas, dreams, and emotions.`,
+    };
+    const movementKey = movement.slug.toLowerCase();
+    if (movementFacts[movementKey]) {
+      facts.push(movementFacts[movementKey]);
+    }
+  }
+
+  // 9. Cross-continental journey
+  if (artist?.nationality && museum && facts.length < 2) {
+    const nat = artist.nationality.toLowerCase();
+    const country = museum.country.toLowerCase();
+    const city = museum.city;
+
+    if ((nat.includes('dutch') || nat.includes('flemish')) && country.includes('united states')) {
+      facts.push(`Dutch art that crossed the Atlantic. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    } else if (nat.includes('french') && country.includes('russia')) {
+      facts.push(`French art in Russia: traveled from Paris to <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
+    } else if (nat.includes('french') && country.includes('united states')) {
+      facts.push(`From France to America. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    } else if (nat.includes('spanish') && country.includes('united states')) {
+      facts.push(`Spanish art in America. See it at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    } else if (nat.includes('italian') && country.includes('united states')) {
+      facts.push(`Italian art that made its way to <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    } else if (nat.includes('german') && country.includes('united states')) {
+      facts.push(`German art in America. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    } else if (nat.includes('british') && country.includes('united states')) {
+      facts.push(`British art that crossed the pond. At <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+    }
+  }
+
+  // 10. Monumental or tiny size
+  if (artwork.dimensions && facts.length < 2) {
+    const match = artwork.dimensions.match(/(\d+(?:\.\d+)?)\s*(?:cm|×|x)\s*(\d+(?:\.\d+)?)/i);
+    if (match) {
+      const larger = Math.max(parseFloat(match[1]), parseFloat(match[2]));
+      if (larger > 300) {
+        facts.push(`At ${artwork.dimensions}, this painting towers over viewers. Photos can't capture the scale.`);
+      } else if (larger < 25) {
+        facts.push(`Just ${artwork.dimensions}. Smaller than a laptop screen, meant for intimate viewing.`);
+      }
+    }
+  }
+
+  // 11. Fresco technique
+  if (artwork.medium?.toLowerCase().includes('fresco') && facts.length < 2) {
+    facts.push(`A true fresco: painted on wet plaster. Once it dried, there was no fixing mistakes.`);
+  }
+
+  // 12. Panel painting (older technique)
+  if (artwork.medium?.toLowerCase().includes('panel') && artwork.year && artwork.year < 1600 && facts.length < 2) {
+    facts.push(`Painted on wood panel, the standard before canvas became popular in the 1500s.`);
+  }
+
+  // 13. Long-lived artist
+  if (artist?.birthYear && artist?.deathYear && facts.length < 2) {
+    const artistAge = artist.deathYear - artist.birthYear;
+    if (artistAge > 85) {
+      facts.push(`${artist.name} lived to ${artistAge}, with a career spanning over six decades.`);
+    }
+  }
+
+  // 14. World-famous museum context
+  if (museum && facts.length < 2) {
+    const famousMuseums: Record<string, string> = {
+      'louvre': `One of 380,000 works at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the Louvre</a>, the world's most visited museum.`,
+      'met': `Part of <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">The Met's</a> collection of over 2 million works spanning 5,000 years.`,
+      'metropolitan': `Part of <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">The Met's</a> collection of over 2 million works spanning 5,000 years.`,
+      'uffizi': `At <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the Uffizi</a>, one of the oldest art museums in the Western world.`,
+      'prado': `At <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the Prado</a>, home to the world's greatest collection of Spanish art.`,
+      'hermitage': `One of 3 million items at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the Hermitage</a>, housed in the former Winter Palace.`,
+      'rijksmuseum': `At <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the Rijksmuseum</a>, the national museum of Dutch art and history.`,
+      'national-gallery': `At <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">the National Gallery</a> in London, free to visit since 1824.`,
+    };
+    const museumKey = museum.slug.toLowerCase();
+    for (const [key, fact] of Object.entries(famousMuseums)) {
+      if (museumKey.includes(key)) {
+        facts.push(fact);
+        break;
+      }
+    }
+  }
+
   return facts.slice(0, 2);
 }
 
@@ -234,7 +318,16 @@ export default async function DiscoverPage() {
       return prisma.artwork.findFirst({
         where: publicDomainFilter,
         include: {
-          Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
+          Artist: {
+            select: {
+              name: true,
+              slug: true,
+              birthYear: true,
+              deathYear: true,
+              nationality: true,
+              Movement: { select: { name: true, slug: true } },
+            },
+          },
           Museum: { select: { name: true, slug: true, city: true, country: true } },
         },
         skip,
@@ -341,23 +434,24 @@ export default async function DiscoverPage() {
                     />
                   </Link>
                   <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-bold mb-4">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                      DID YOU KNOW?
-                    </div>
-
                     {facts.length > 0 && (
-                      <div className="space-y-3 mb-6">
-                        {facts.map((fact, i) => (
-                          <p
-                            key={i}
-                            className="text-neutral-200 text-lg leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: fact }}
-                          />
-                        ))}
-                      </div>
+                      <>
+                        <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-bold mb-4">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                          DID YOU KNOW?
+                        </div>
+                        <div className="space-y-3 mb-6">
+                          {facts.map((fact, i) => (
+                            <p
+                              key={i}
+                              className="text-neutral-200 text-lg leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: fact }}
+                            />
+                          ))}
+                        </div>
+                      </>
                     )}
 
                     <div className="border-t border-white/10 pt-5 mt-auto">
