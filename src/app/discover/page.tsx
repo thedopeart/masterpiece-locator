@@ -243,7 +243,7 @@ export default async function DiscoverPage() {
         },
         include: {
           Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
-          Museum: { select: { name: true, slug: true, city: true, country: true }, include: { _count: { select: { Artwork: true } } } },
+          Museum: { include: { _count: { select: { Artwork: true } } } },
         },
         skip,
       });
