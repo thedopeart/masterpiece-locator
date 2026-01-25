@@ -15,7 +15,7 @@ const navLinks = [
     icon: "🎨",
     subItems: [
       { href: "/artists", label: "All Artists" },
-      { href: "/artist/vincent-van-gogh", label: "Van Gogh" },
+      { href: "/artist/van-gogh", label: "Van Gogh" },
       { href: "/artist/claude-monet", label: "Monet" },
       { href: "/artist/pablo-picasso", label: "Picasso" },
       { href: "/artist/leonardo-da-vinci", label: "Da Vinci" },

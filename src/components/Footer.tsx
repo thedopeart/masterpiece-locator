@@ -165,7 +165,7 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Artists</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/artist/vincent-van-gogh" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/van-gogh" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
                   Van Gogh
                 </Link>
               </li>

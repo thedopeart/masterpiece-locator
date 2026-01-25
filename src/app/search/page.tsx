@@ -242,6 +242,24 @@ export default async function SearchPage({ searchParams }: Props) {
     _count: { artworks: a._count.Artwork },
   }));
 
+  // Fuzzy search suggestions if no exact artist matches
+  let artistSuggestions: { name: string; slug: string }[] = [];
+  if (query && rawArtistResults.length === 0 && query.length >= 3) {
+    const q = query.toLowerCase().replace(/\s+/g, '');
+    const qSlug = query.toLowerCase().replace(/\s+/g, '-');
+    const fuzzyArtists = await prisma.$queryRaw<{ name: string; slug: string }[]>`
+      SELECT name, slug FROM "Artist"
+      WHERE
+        LOWER(REPLACE(name, ' ', '')) LIKE ${`%${q}%`}
+        OR slug LIKE ${`%${qSlug}%`}
+        OR LOWER(name) LIKE ${`%${q.slice(0, -1)}%`}
+        OR LOWER(name) LIKE ${`${q.slice(0, Math.min(4, q.length))}%`}
+      ORDER BY LENGTH(name)
+      LIMIT 5
+    `;
+    artistSuggestions = fuzzyArtists;
+  }
+
   const rawMuseumResults = query
     ? await prisma.museum.findMany({
         where: {
@@ -255,6 +273,22 @@ export default async function SearchPage({ searchParams }: Props) {
         take: 10,
       })
     : [];
+
+  // Fuzzy museum suggestions if no exact matches
+  let museumSuggestions: { name: string; slug: string }[] = [];
+  if (query && rawMuseumResults.length === 0 && query.length >= 3) {
+    const q = query.toLowerCase();
+    const fuzzyMuseums = await prisma.$queryRaw<{ name: string; slug: string }[]>`
+      SELECT name, slug FROM "Museum"
+      WHERE
+        LOWER(name) LIKE ${`%${q}%`}
+        OR LOWER(city) LIKE ${`%${q}%`}
+        OR LOWER(name) LIKE ${`${q.slice(0, Math.min(4, q.length))}%`}
+      ORDER BY LENGTH(name)
+      LIMIT 3
+    `;
+    museumSuggestions = fuzzyMuseums;
+  }
 
   // Map to lowercase for components
   const museumResults = rawMuseumResults.map((m) => ({
@@ -537,14 +571,42 @@ export default async function SearchPage({ searchParams }: Props) {
                     </>
                   ) : (
                     <div className="bg-neutral-100 rounded-lg p-8 text-center">
-                      <p className="text-neutral-500">
-                        No artworks found matching your criteria.
+                      <p className="text-neutral-600 text-lg mb-2">
+                        No results found for &quot;{query}&quot;
                       </p>
+                      <p className="text-neutral-500 text-sm mb-4">
+                        Try checking your spelling or using different keywords
+                      </p>
+                      {(artistSuggestions.length > 0 || museumSuggestions.length > 0) && (
+                        <div className="mb-4">
+                          <p className="text-sm text-neutral-500 mb-2">Did you mean:</p>
+                          <div className="flex flex-wrap justify-center gap-2">
+                            {artistSuggestions.map((suggestion) => (
+                              <Link
+                                key={suggestion.slug}
+                                href={`/search?q=${encodeURIComponent(suggestion.name)}`}
+                                className="px-3 py-1 bg-white border border-neutral-300 rounded-full text-sm text-neutral-700 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+                              >
+                                {suggestion.name}
+                              </Link>
+                            ))}
+                            {museumSuggestions.map((suggestion) => (
+                              <Link
+                                key={suggestion.slug}
+                                href={`/museum/${suggestion.slug}`}
+                                className="px-3 py-1 bg-white border border-neutral-300 rounded-full text-sm text-neutral-700 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+                              >
+                                {suggestion.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                       <Link
                         href="/search"
-                        className="inline-block mt-4 text-[#C9A84C] hover:opacity-80 transition-opacity"
+                        className="inline-block mt-2 text-[#C9A84C] hover:opacity-80 transition-opacity"
                       >
-                        Clear filters
+                        Browse all artworks
                       </Link>
                     </div>
                   )}
