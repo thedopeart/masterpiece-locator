@@ -2,8 +2,9 @@ import { prisma } from "@/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { ERAS, getEraForYear, getEraSolidColorClass } from "@/lib/eras";
+import { ERAS } from "@/lib/eras";
 import { getAllTrails } from "@/lib/artist-trails";
+import FAQ, { FAQSchema } from "@/components/FAQ";
 
 export const metadata: Metadata = {
   title: "Discover Art | Browse by Subject, Color & Era",
@@ -13,217 +14,268 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-// Subject categories with their styleTags and LuxuryWallArt collection links
+// Subject categories with their styleTags
 const SUBJECTS = [
-  { name: "Portraits", tag: "portrait", icon: "👤", color: "bg-rose-100 text-rose-800", shopUrl: "https://luxurywallart.com/collections/portrait-art" },
-  { name: "Landscapes", tag: "landscape", icon: "🏔️", color: "bg-emerald-100 text-emerald-800", shopUrl: "https://luxurywallart.com/collections/landscapes" },
-  { name: "Religious", tag: "religious", icon: "✝️", color: "bg-amber-100 text-amber-800", shopUrl: "https://luxurywallart.com/collections/spiritual-art" },
-  { name: "Mythology", tag: "mythology", icon: "⚡", color: "bg-purple-100 text-purple-800", shopUrl: null },
-  { name: "Still Life", tag: "still life", icon: "🍎", color: "bg-orange-100 text-orange-800", shopUrl: "https://luxurywallart.com/collections/floral-art" },
-  { name: "History", tag: "history", icon: "⚔️", color: "bg-red-100 text-red-800", shopUrl: null },
-  { name: "Genre Scenes", tag: "genre", icon: "🎭", color: "bg-blue-100 text-blue-800", shopUrl: "https://luxurywallart.com/collections/people-paintings" },
-  { name: "Nude", tag: "nude", icon: "🎨", color: "bg-pink-100 text-pink-800", shopUrl: "https://luxurywallart.com/collections/women-art" },
+  { name: "Portraits", tag: "portrait", icon: "👤" },
+  { name: "Landscapes", tag: "landscape", icon: "🏔️" },
+  { name: "Religious", tag: "religious", icon: "✝️" },
+  { name: "Still Life", tag: "still life", icon: "🍎" },
+  { name: "History", tag: "history", icon: "⚔️" },
+  { name: "Genre Scenes", tag: "genre", icon: "🎭" },
 ];
 
-// Color categories with LuxuryWallArt collection links
+// Colors for the palette
 const COLORS = [
-  { name: "Blue", color: "#1e40af", bgClass: "bg-blue-700", shopUrl: "https://luxurywallart.com/collections/blue-wall-art" },
-  { name: "Red", color: "#b91c1c", bgClass: "bg-red-700", shopUrl: "https://luxurywallart.com/collections/red-wall-art" },
-  { name: "Green", color: "#15803d", bgClass: "bg-green-700", shopUrl: "https://luxurywallart.com/collections/green-wall-art" },
-  { name: "Gold", color: "#ca8a04", bgClass: "bg-yellow-600", shopUrl: "https://luxurywallart.com/collections/gold-art" },
-  { name: "Brown", color: "#78350f", bgClass: "bg-amber-900", shopUrl: "https://luxurywallart.com/collections/brown-art" },
-  { name: "Black", color: "#171717", bgClass: "bg-neutral-900", shopUrl: "https://luxurywallart.com/collections/black-wall-art" },
-  { name: "White", color: "#f5f5f5", bgClass: "bg-neutral-100 border border-neutral-300", shopUrl: "https://luxurywallart.com/collections/neutral-art" },
-  { name: "Pink", color: "#db2777", bgClass: "bg-pink-600", shopUrl: "https://luxurywallart.com/collections/pink-wall-art" },
+  { name: "Blue", hex: "#1e40af" },
+  { name: "Red", hex: "#b91c1c" },
+  { name: "Green", hex: "#15803d" },
+  { name: "Gold", hex: "#ca8a04" },
+  { name: "Brown", hex: "#78350f" },
+  { name: "Black", hex: "#171717" },
+  { name: "Pink", hex: "#db2777" },
+  { name: "Purple", hex: "#7c3aed" },
 ];
 
 export default async function DiscoverPage() {
-  // Get counts for each subject
-  const subjectCounts = await Promise.all(
-    SUBJECTS.map(async (subject) => {
-      const count = await prisma.artwork.count({
-        where: {
-          styleTags: { has: subject.tag },
-          imageUrl: { not: null },
+  // Run all queries in parallel for better performance
+  const [
+    subjectData,
+    eraData,
+    movementData,
+    trailArtists,
+    randomArtwork,
+  ] = await Promise.all([
+    // Subject previews with artworks
+    Promise.all(
+      SUBJECTS.map(async (subject) => {
+        const artworks = await prisma.artwork.findMany({
+          where: {
+            styleTags: { has: subject.tag },
+            imageUrl: { not: null },
+          },
+          select: {
+            id: true,
+            slug: true,
+            title: true,
+            imageUrl: true,
+          },
+          orderBy: { searchVolumeTier: "asc" },
+          take: 4,
+        });
+        const count = await prisma.artwork.count({
+          where: { styleTags: { has: subject.tag }, imageUrl: { not: null } },
+        });
+        return { ...subject, artworks, count };
+      })
+    ),
+    // Era data with preview images
+    Promise.all(
+      ERAS.map(async (era) => {
+        const artworks = await prisma.artwork.findMany({
+          where: {
+            year: { gte: era.startYear, lt: era.endYear },
+            imageUrl: { not: null },
+          },
+          select: { imageUrl: true },
+          orderBy: { searchVolumeTier: "asc" },
+          take: 1,
+        });
+        const count = await prisma.artwork.count({
+          where: { year: { gte: era.startYear, lt: era.endYear }, imageUrl: { not: null } },
+        });
+        return { ...era, previewImage: artworks[0]?.imageUrl || null, count };
+      })
+    ),
+    // Movements with preview images
+    prisma.movement.findMany({
+      include: {
+        Artist: {
+          take: 1,
+          include: {
+            Artwork: {
+              where: { imageUrl: { not: null } },
+              select: { imageUrl: true },
+              take: 1,
+            },
+          },
         },
+        _count: { select: { Artist: true } },
+      },
+      orderBy: { Artist: { _count: "desc" } },
+      take: 8,
+    }),
+    // Get trail artist images
+    prisma.artist.findMany({
+      where: {
+        slug: { in: ["van-gogh", "claude-monet", "rembrandt", "pablo-picasso"] },
+      },
+      select: {
+        slug: true,
+        imageUrl: true,
+        Artwork: {
+          where: { imageUrl: { not: null } },
+          select: { imageUrl: true },
+          take: 1,
+        },
+      },
+    }),
+    // Random artwork for hero
+    (async () => {
+      const total = await prisma.artwork.count({ where: { imageUrl: { not: null } } });
+      const skip = Math.floor(Math.random() * Math.max(0, total - 1));
+      return prisma.artwork.findFirst({
+        where: { imageUrl: { not: null } },
+        include: {
+          Artist: { select: { name: true, slug: true } },
+          Museum: { select: { name: true, city: true } },
+        },
+        skip,
       });
-      return { ...subject, count };
-    })
-  );
+    })(),
+  ]);
 
-  // Get random featured artwork for each subject (merge with counts)
-  const subjectPreviews = await Promise.all(
-    subjectCounts.slice(0, 4).map(async (subject) => {
-      const artworks = await prisma.artwork.findMany({
-        where: {
-          styleTags: { has: subject.tag },
-          imageUrl: { not: null },
-        },
-        select: {
-          id: true,
-          slug: true,
-          title: true,
-          imageUrl: true,
-          Artist: { select: { name: true } },
-        },
-        orderBy: { searchVolumeTier: "asc" },
-        take: 4,
-      });
-      return { ...subject, artworks };
-    })
-  );
+  // Filter out empty subjects
+  const validSubjects = subjectData.filter((s) => s.count > 0);
 
-  // Get era counts
-  const eraCounts = await Promise.all(
-    ERAS.map(async (era) => {
-      const count = await prisma.artwork.count({
-        where: {
-          year: { gte: era.startYear, lt: era.endYear },
-          imageUrl: { not: null },
-        },
-      });
-      return { ...era, count };
-    })
-  );
-
-  // Get color counts (rough estimate based on primaryColors field)
-  const colorCounts = await Promise.all(
-    COLORS.map(async (color) => {
-      const count = await prisma.artwork.count({
-        where: {
-          primaryColors: { has: color.name.toLowerCase() },
-          imageUrl: { not: null },
-        },
-      });
-      return { ...color, count };
-    })
-  );
-
-  // Get a random "Surprise Me" artwork
-  const totalArtworks = await prisma.artwork.count({
-    where: { imageUrl: { not: null } },
-  });
-  const randomOffset = Math.floor(Math.random() * Math.max(0, totalArtworks - 1));
-  const randomArtwork = await prisma.artwork.findFirst({
-    where: { imageUrl: { not: null } },
-    include: {
-      Artist: { select: { name: true, slug: true } },
-      Museum: { select: { name: true, city: true } },
-    },
-    skip: randomOffset,
-    take: 1,
-  });
-
-  // Get top movements by artwork count
-  const topMovements = await prisma.movement.findMany({
-    include: {
-      _count: { select: { Artist: true } },
-    },
-    orderBy: { Artist: { _count: "desc" } },
-    take: 8,
-  });
-
-  // Get available artist trails
+  // Get trail data with images
   const artistTrails = getAllTrails();
+  const trailsWithImages = artistTrails.map((trail) => {
+    const artistSlug = trail.artist === "vincent-van-gogh" ? "van-gogh" : trail.artist;
+    const artistData = trailArtists.find((a) => a.slug === artistSlug);
+    const image = artistData?.imageUrl || artistData?.Artwork[0]?.imageUrl || null;
+    return { ...trail, image };
+  });
+
+  // Process movements with images
+  const movementsWithImages = movementData.map((m) => ({
+    ...m,
+    previewImage: m.Artist[0]?.Artwork[0]?.imageUrl || null,
+    artistCount: m._count.Artist,
+  }));
+
+  // Get total counts for FAQs
+  const totalArtworks = await prisma.artwork.count({ where: { imageUrl: { not: null } } });
+  const totalMuseums = await prisma.museum.count();
+  const totalArtists = await prisma.artist.count();
+
+  // FAQs for the discover page
+  const discoverFaqs = [
+    {
+      question: "How many artworks can I explore?",
+      answer: `Our database includes <strong>${totalArtworks.toLocaleString()} artworks</strong> from <strong>${totalMuseums} museums</strong> worldwide. We focus on paintings you can actually visit in person, with location details for each piece.`,
+    },
+    {
+      question: "What's the best way to discover new art?",
+      answer: `Start with what interests you. Browse by <strong>subject</strong> (portraits, landscapes, religious art), by <strong>era</strong> (Renaissance, Impressionism, Modern), or by <strong>color</strong> if you're drawn to certain palettes. Each category shows preview images to help you explore.`,
+    },
+    {
+      question: "Can I plan museum visits from here?",
+      answer: `Yes. Every artwork links to its <strong>museum page</strong> with visiting information. You can also use our <a href="/trip"><strong>Trip Planner</strong></a> to save museums and build an itinerary grouped by city.`,
+    },
+    {
+      question: "What are Artist Trails?",
+      answer: `Artist Trails are <strong>curated travel guides</strong> that follow an artist's life journey. See where Van Gogh lived in Arles, where Monet painted in Giverny, and which museums hold their major works. Perfect for art-focused trips.`,
+    },
+    {
+      question: "How do I find a specific painting?",
+      answer: `Use the <strong>search bar</strong> at the bottom of this page or visit our <a href="/search"><strong>Search page</strong></a>. You can search by artwork title, artist name, museum, or city. We also have fuzzy matching for common misspellings.`,
+    },
+  ];
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="max-w-[1400px] mx-auto px-4 py-8">
-        {/* Breadcrumb */}
-        <nav className="text-sm text-neutral-600 mb-6">
-          <Link href="/" className="hover:text-neutral-900">
-            Home
-          </Link>
-          <span className="mx-2 text-neutral-400">/</span>
-          <span className="font-medium text-neutral-900">Discover</span>
-        </nav>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
+        <div className="max-w-[1400px] mx-auto px-4 py-12">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              Discover Art
+            </h1>
+            <p className="text-lg text-neutral-300 max-w-3xl mx-auto mb-4">
+              Not sure where to start? Browse thousands of paintings by what speaks to you.
+              Filter by subject matter, color palette, historical era, or artistic movement.
+            </p>
+            <p className="text-neutral-400 max-w-2xl mx-auto">
+              Every artwork links to its museum location so you can plan a visit.
+            </p>
+          </div>
 
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Discover Art
-          </h1>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Explore masterpieces by subject, color, era, or movement. Or let us surprise you.
-          </p>
-        </div>
-
-        {/* Surprise Me */}
-        {randomArtwork && (
-          <section className="mb-12">
-            <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl overflow-hidden">
-              <div className="flex flex-col md:flex-row items-center gap-6 p-6 md:p-8">
-                <div className="w-full md:w-1/3 aspect-[3/4] relative rounded-xl overflow-hidden shadow-2xl">
+          {/* Featured Artwork */}
+          {randomArtwork && (
+            <div className="bg-white/5 backdrop-blur rounded-2xl p-6 max-w-4xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <Link href={`/art/${randomArtwork.slug}`} className="w-full md:w-64 aspect-[3/4] relative rounded-xl overflow-hidden flex-shrink-0 group">
                   <Image
                     src={randomArtwork.imageUrl!}
                     alt={randomArtwork.title}
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="256px"
+                    priority
                     unoptimized
                   />
-                </div>
+                </Link>
                 <div className="flex-1 text-center md:text-left">
-                  <span className="inline-flex items-center gap-2 bg-[#C9A84C]/20 text-[#C9A84C] px-3 py-1 rounded-full text-sm font-medium mb-4">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <span className="inline-flex items-center gap-2 text-[#C9A84C] text-sm font-medium mb-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
-                    Surprise Discovery
+                    Featured Discovery
                   </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  <h2 className="text-2xl font-bold text-white mb-1">
                     {randomArtwork.title}
                   </h2>
                   {randomArtwork.Artist && (
-                    <p className="text-neutral-300 mb-4">
-                      by {randomArtwork.Artist.name}
-                    </p>
+                    <p className="text-neutral-300">by {randomArtwork.Artist.name}</p>
                   )}
                   {randomArtwork.Museum && (
-                    <p className="text-neutral-400 text-sm mb-6">
+                    <p className="text-neutral-500 text-sm mt-1">
                       {randomArtwork.Museum.name}, {randomArtwork.Museum.city}
                     </p>
                   )}
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                  <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
                     <Link
-                      href={`/artwork/${randomArtwork.slug}`}
-                      className="inline-block bg-[#C9A84C] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
+                      href={`/art/${randomArtwork.slug}`}
+                      className="bg-[#C9A84C] text-black px-5 py-2 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
                     >
-                      View This Artwork
+                      View Artwork
                     </Link>
                     <Link
                       href="/discover"
-                      className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                      className="border border-white/30 text-white px-5 py-2 rounded-lg hover:bg-white/10 transition-colors"
                     >
-                      Surprise Me Again
+                      Surprise Me
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-        )}
+          )}
+        </div>
+      </div>
 
+      <div className="max-w-[1400px] mx-auto px-4 py-10">
         {/* Browse by Subject */}
-        <section className="mb-12">
-          <h2 className="text-xl font-semibold text-neutral-900 mb-6">Browse by Subject</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {subjectPreviews.map((subject) => (
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-6">Browse by Subject</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {validSubjects.map((subject) => (
               <Link
                 key={subject.tag}
                 href={`/search?q=${encodeURIComponent(subject.tag)}`}
-                className="group relative bg-neutral-100 rounded-xl overflow-hidden aspect-[4/3] hover:shadow-lg transition-all"
+                className="group relative rounded-xl overflow-hidden aspect-[4/5] hover:shadow-xl transition-all"
               >
-                {/* Preview grid */}
-                <div className="absolute inset-0 grid grid-cols-2 gap-0.5">
+                {/* 2x2 Preview Grid */}
+                <div className="absolute inset-0 grid grid-cols-2 gap-px bg-neutral-200">
                   {subject.artworks.slice(0, 4).map((artwork, i) => (
-                    <div key={artwork.id} className="relative">
+                    <div key={artwork.id} className="relative bg-neutral-100">
                       {artwork.imageUrl && (
                         <Image
                           src={artwork.imageUrl}
                           alt=""
                           fill
                           className="object-cover"
-                          sizes="(max-width: 768px) 25vw, 12vw"
+                          sizes="(max-width: 768px) 25vw, 10vw"
                           unoptimized
                         />
                       )}
@@ -231,168 +283,163 @@ export default async function DiscoverPage() {
                   ))}
                 </div>
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
-                  <div>
-                    <span className="text-2xl mb-1 block">{subject.icon}</span>
-                    <h3 className="text-white font-semibold">{subject.name}</h3>
-                    <p className="text-white/70 text-sm">{subject.count} artworks</p>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4">
+                  <span className="text-2xl mb-1">{subject.icon}</span>
+                  <h3 className="text-white font-bold group-hover:text-[#C9A84C] transition-colors">
+                    {subject.name}
+                  </h3>
+                  <p className="text-white/70 text-sm">{subject.count.toLocaleString()} works</p>
                 </div>
               </Link>
-            ))}
-          </div>
-          {/* More subjects */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {subjectCounts.slice(4).map((subject) => (
-              <div key={subject.tag} className="flex items-center gap-1">
-                <Link
-                  href={`/search?q=${encodeURIComponent(subject.tag)}`}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${subject.color} hover:opacity-80 transition-opacity`}
-                >
-                  <span>{subject.icon}</span>
-                  {subject.name}
-                  <span className="opacity-70">({subject.count})</span>
-                </Link>
-                {subject.shopUrl && (
-                  <a
-                    href={subject.shopUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-[#C9A84C] hover:underline"
-                  >
-                    Shop →
-                  </a>
-                )}
-              </div>
             ))}
           </div>
         </section>
 
         {/* Browse by Era */}
-        <section className="mb-12">
+        <section className="mb-14">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-neutral-900">Browse by Era</h2>
-            <Link href="/movements" className="text-sm text-[#C9A84C] hover:underline">
+            <h2 className="text-2xl font-bold text-neutral-900">Browse by Era</h2>
+            <Link href="/movements" className="text-sm text-[#C9A84C] hover:underline font-medium">
               View timeline →
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {eraCounts.map((era) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {eraData.map((era) => (
               <Link
                 key={era.slug}
                 href={`/era/${era.slug}`}
-                className="group bg-neutral-50 rounded-xl p-4 border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all text-center"
+                className="group relative rounded-xl overflow-hidden aspect-[4/5] hover:shadow-xl transition-all"
               >
-                <div className={`w-10 h-10 ${getEraSolidColorClass(era)} rounded-full mx-auto mb-3 flex items-center justify-center text-white font-bold text-sm`}>
-                  {era.count > 999 ? "1k+" : era.count}
+                {era.previewImage ? (
+                  <Image
+                    src={era.previewImage}
+                    alt={era.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 16vw"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 to-neutral-900" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                  <h3 className="text-white font-bold group-hover:text-[#C9A84C] transition-colors">
+                    {era.shortName}
+                  </h3>
+                  <p className="text-white/70 text-sm">
+                    {era.slug === "medieval" ? "Before 1400" : era.slug === "contemporary" ? "1970+" : `${era.startYear}–${era.endYear}`}
+                  </p>
+                  <p className="text-white/50 text-xs mt-1">{era.count.toLocaleString()} works</p>
                 </div>
-                <h3 className="font-medium text-neutral-900 text-sm group-hover:text-[#C9A84C] transition-colors">
-                  {era.shortName}
-                </h3>
-                <p className="text-xs text-neutral-500 mt-1">
-                  {era.slug === "medieval" ? "Before 1400" : era.slug === "contemporary" ? "1970+" : `${era.startYear}–${era.endYear}`}
-                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Browse by Movement */}
+        <section className="mb-14">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-neutral-900">Popular Movements</h2>
+            <Link href="/movements" className="text-sm text-[#C9A84C] hover:underline font-medium">
+              View all →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {movementsWithImages.map((movement) => (
+              <Link
+                key={movement.id}
+                href={`/movement/${movement.slug}`}
+                className="group relative rounded-xl overflow-hidden aspect-[3/2] hover:shadow-xl transition-all"
+              >
+                {movement.previewImage ? (
+                  <Image
+                    src={movement.previewImage}
+                    alt={movement.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-neutral-600 to-neutral-800" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                  <h3 className="text-white font-bold group-hover:text-[#C9A84C] transition-colors">
+                    {movement.name}
+                  </h3>
+                  <p className="text-white/70 text-sm">
+                    {movement.startYear}{movement.endYear ? `–${movement.endYear}` : "+"} · {movement.artistCount} artists
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
         </section>
 
         {/* Browse by Color */}
-        <section className="mb-12">
-          <h2 className="text-xl font-semibold text-neutral-900 mb-6">Browse by Color</h2>
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-6">Browse by Color</h2>
           <div className="flex flex-wrap gap-3">
-            {colorCounts.map((color) => (
-              <div key={color.name} className="flex items-center gap-2">
-                <Link
-                  href={`/search?q=${encodeURIComponent(color.name.toLowerCase())}`}
-                  className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all"
-                >
-                  <div className={`w-8 h-8 rounded-full ${color.bgClass}`} />
-                  <div>
-                    <p className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors">
-                      {color.name}
-                    </p>
-                    <p className="text-xs text-neutral-500">{color.count} artworks</p>
-                  </div>
-                </Link>
-                {color.shopUrl && (
-                  <a
-                    href={color.shopUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-[#C9A84C] hover:underline whitespace-nowrap"
-                  >
-                    Shop prints →
-                  </a>
-                )}
-              </div>
+            {COLORS.map((color) => (
+              <Link
+                key={color.name}
+                href={`/search?q=${encodeURIComponent(color.name.toLowerCase())}`}
+                className="group flex items-center gap-3 px-5 py-3 rounded-full border border-neutral-200 hover:border-neutral-400 hover:shadow-md transition-all bg-white"
+              >
+                <div
+                  className="w-6 h-6 rounded-full ring-2 ring-white shadow-sm"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <span className="font-medium text-neutral-800 group-hover:text-neutral-900">
+                  {color.name}
+                </span>
+              </Link>
             ))}
           </div>
         </section>
 
-        {/* Browse by Movement */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-neutral-900">Popular Movements</h2>
-            <Link href="/movements" className="text-sm text-[#C9A84C] hover:underline">
-              View all →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {topMovements.map((movement) => {
-              const era = movement.startYear ? getEraForYear(movement.startYear) : null;
-              return (
-                <Link
-                  key={movement.id}
-                  href={`/movement/${movement.slug}`}
-                  className="group flex items-center gap-3 p-4 rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all"
-                >
-                  {era && (
-                    <div className={`w-3 h-3 rounded-full ${getEraSolidColorClass(era)} flex-shrink-0`} />
-                  )}
-                  <div className="min-w-0">
-                    <p className="font-medium text-neutral-900 group-hover:text-[#C9A84C] transition-colors truncate">
-                      {movement.name}
-                    </p>
-                    <p className="text-xs text-neutral-500">
-                      {movement.startYear}{movement.endYear ? `–${movement.endYear}` : "+"}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
         {/* Artist Trails */}
-        {artistTrails.length > 0 && (
-          <section className="mb-12">
-            <h2 className="text-xl font-semibold text-neutral-900 mb-6">Artist Journeys</h2>
+        {trailsWithImages.length > 0 && (
+          <section className="mb-14">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-neutral-900">Artist Journeys</h2>
+              <Link href="/trails" className="text-sm text-[#C9A84C] hover:underline font-medium">
+                View all →
+              </Link>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {artistTrails.map((trail) => (
+              {trailsWithImages.map((trail) => (
                 <Link
                   key={trail.artist}
                   href={`/trail/${trail.artist}`}
-                  className="group bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-xl p-6 hover:shadow-xl transition-all"
+                  className="group relative rounded-xl overflow-hidden aspect-[2/1] hover:shadow-xl transition-all"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#C9A84C] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#C9A84C] transition-colors">
+                  {trail.image ? (
+                    <Image
+                      src={trail.image}
+                      alt={trail.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 to-neutral-900" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent flex items-center p-6">
+                    <div>
+                      <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-medium mb-2">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        </svg>
+                        {trail.totalLocations} locations
+                      </div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#C9A84C] transition-colors">
                         {trail.title}
                       </h3>
-                      <p className="text-neutral-400 text-sm mt-1 line-clamp-2">
-                        {trail.subtitle}
+                      <p className="text-white/70 text-sm mt-1">
+                        {trail.primaryCountries.join(" · ")}
                       </p>
-                      <div className="flex items-center gap-4 mt-3 text-xs text-neutral-500">
-                        <span>{trail.totalLocations} locations</span>
-                        <span>{trail.primaryCountries.join(", ")}</span>
-                      </div>
                     </div>
                   </div>
                 </Link>
@@ -401,21 +448,25 @@ export default async function DiscoverPage() {
           </section>
         )}
 
+        {/* FAQs */}
+        <FAQSchema items={discoverFaqs} />
+        <FAQ items={discoverFaqs} title="Frequently Asked Questions" wide />
+
         {/* Quick Search */}
-        <section className="bg-neutral-50 rounded-2xl p-8 text-center">
-          <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+        <section className="bg-neutral-900 rounded-2xl p-8 text-center">
+          <h2 className="text-xl font-bold text-white mb-3">
             Looking for something specific?
           </h2>
-          <p className="text-neutral-600 mb-6">
-            Search by artwork title, artist name, museum, or city
+          <p className="text-neutral-400 mb-6">
+            Search by artwork, artist, museum, or city
           </p>
           <form action="/search" method="GET" className="max-w-xl mx-auto">
             <div className="relative">
               <input
                 type="text"
                 name="q"
-                placeholder="Try 'Mona Lisa', 'Van Gogh', or 'Paris'..."
-                className="w-full px-5 py-4 pr-12 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+                placeholder="Try 'Starry Night', 'Monet', or 'Paris'..."
+                className="w-full px-5 py-4 pr-12 rounded-xl bg-white text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
               <button
                 type="submit"
