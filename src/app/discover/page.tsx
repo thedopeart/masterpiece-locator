@@ -52,7 +52,7 @@ function generateFacts(artwork: {
   // 1. Artist trail (most engaging)
   if (artwork.hasTrail && artist) {
     const trailSlug = artist.slug === "van-gogh" ? "vincent-van-gogh" : artist.slug;
-    facts.push(`Want to walk in ${artist.name}'s footsteps? <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">Follow the journey</a> through the places that shaped this artist's life and work.`);
+    facts.push(`You can walk in ${artist.name}'s footsteps. <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">Follow the journey</a> through the places that shaped this artist's life and work.`);
   }
 
   // 2. Self-portraits (check title)
@@ -105,24 +105,66 @@ function generateFacts(artwork: {
     facts.push(`Over ${Math.floor(age / 100)} centuries old. Painted in ${artwork.year}, before Shakespeare was born.`);
   }
 
-  // 8. Art movement context
+  // 8. Art movement context - with varied facts to avoid repetition
   if (artist?.Movement && artist.Movement.length > 0 && facts.length < 2) {
     const movement = artist.Movement[0];
-    const movementFacts: Record<string, string> = {
-      'impressionism': `Part of the <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Impressionist</a> movement that scandalized the Paris art world in the 1870s.`,
-      'post-impressionism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Post-Impressionism</a> pushed beyond capturing light to express emotion and symbolism.`,
-      'baroque': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Baroque</a> art was designed to awe. Drama, emotion, grandeur.`,
-      'renaissance': `From the <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Renaissance</a>, when artists rediscovered perspective and human anatomy.`,
-      'romanticism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Romanticism</a> celebrated emotion over reason, nature over industry.`,
-      'realism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Realism</a> rejected idealized subjects to show life as it really was.`,
-      'expressionism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Expressionism</a> distorted reality to show inner emotional experience.`,
-      'rococo': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Rococo</a> art favored elegance, lightness, and ornate decoration.`,
-      'neoclassicism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Neoclassicism</a> looked back to ancient Greece and Rome for inspiration.`,
-      'symbolism': `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Symbolism</a> used imagery to suggest ideas, dreams, and emotions.`,
+    const movementFactOptions: Record<string, string[]> = {
+      'impressionism': [
+        `This is <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Impressionism</a>. The movement scandalized the Paris art world in the 1870s.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Impressionists</a> painted outdoors to capture fleeting effects of light and atmosphere.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Impressionists</a> were rejected by the official Salon. They organized their own exhibitions instead.`,
+      ],
+      'post-impressionism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Post-Impressionism</a> pushed beyond capturing light to express emotion and symbolism.`,
+        `After Impressionism, artists like this one developed more personal, expressive styles. <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Explore Post-Impressionism</a>.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Post-Impressionists</a> kept the bright colors but added structure, pattern, or emotional intensity.`,
+      ],
+      'baroque': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Baroque</a> art was designed to stir emotions. Dramatic lighting, intense gestures, theatrical compositions.`,
+        `This is <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Baroque</a> art: bold, emotional, designed to overwhelm the senses.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Baroque</a> period gave us some of art history's most dramatic images.`,
+      ],
+      'renaissance': [
+        `From the <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Renaissance</a>, when artists rediscovered perspective and human anatomy.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Renaissance</a> artists studied ancient Rome and Greece to revolutionize painting.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Renaissance</a> transformed art from craft to intellectual pursuit.`,
+      ],
+      'romanticism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Romanticism</a> celebrated emotion over reason, nature over industry.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Romantic</a> artists valued imagination, passion, and the sublime power of nature.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Romantics</a> rebelled against Enlightenment rationalism with intense feeling and wild landscapes.`,
+      ],
+      'realism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Realism</a> rejected idealized subjects to show life as it actually was.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Realist</a> painters shocked audiences by depicting ordinary people without flattery.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Realists</a> believed art should show truth, not beauty.`,
+      ],
+      'expressionism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Expressionism</a> distorted reality to convey inner emotional experience.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Expressionist</a> artists used jarring colors and distorted forms to express psychological states.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Expressionists</a> painted feelings, not appearances.`,
+      ],
+      'rococo': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Rococo</a> art favored elegance, lightness, and ornate decoration.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Rococo</a> emerged as a playful reaction to the heavy grandeur of Baroque.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Rococo</a> style celebrated aristocratic leisure with pastel colors and graceful curves.`,
+      ],
+      'neoclassicism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Neoclassicism</a> looked back to ancient Greece and Rome for inspiration.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Neoclassical</a> artists valued order, symmetry, and moral virtue in their subjects.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Neoclassicists</a> rejected Rococo frivolity for classical restraint and heroic themes.`,
+      ],
+      'symbolism': [
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Symbolism</a> used imagery to suggest ideas, dreams, and emotions.`,
+        `<a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Symbolist</a> artists rejected realism to explore the mysterious and the spiritual.`,
+        `The <a href="/movement/${movement.slug}" class="text-[#C9A84C] hover:underline font-medium">Symbolists</a> believed art should evoke moods and ideas, not describe the visible world.`,
+      ],
     };
     const movementKey = movement.slug.toLowerCase();
-    if (movementFacts[movementKey]) {
-      facts.push(movementFacts[movementKey]);
+    if (movementFactOptions[movementKey]) {
+      const options = movementFactOptions[movementKey];
+      const randomFact = options[Math.floor(Math.random() * options.length)];
+      facts.push(randomFact);
     }
   }
 
