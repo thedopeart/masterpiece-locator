@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,20 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#C9A84C] to-[#a8893d] rounded-lg flex items-center justify-center shadow-md">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <span className="font-bold text-lg text-white tracking-tight block leading-tight">
-                  Masterpiece
-                </span>
-                <span className="text-[#C9A84C] text-xs font-medium tracking-wider uppercase">
-                  Locator
-                </span>
-              </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/masterpiece-logo.svg"
+                alt="Masterpiece Locator"
+                width={200}
+                height={50}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-neutral-400 text-sm mb-6 max-w-xs leading-relaxed">
               Find where famous paintings are displayed. Search 4,000+ masterpieces across 700+ museums worldwide.
