@@ -24,7 +24,7 @@ const SUBJECTS = [
   { name: "Genre Scenes", tag: "genre", icon: "🎭" },
 ];
 
-// Generate interesting facts about an artwork with links
+// Generate interesting facts about an artwork - only truly interesting ones
 function generateFacts(artwork: {
   title: string;
   year: number | null;
@@ -38,108 +38,86 @@ function generateFacts(artwork: {
 }): string[] {
   const facts: string[] = [];
   const now = new Date().getFullYear();
+  const artist = artwork.Artist;
+  const museum = artwork.Museum;
 
-  // Age of the painting - always show if year exists
-  if (artwork.year) {
+  // 1. PRIORITY: Artist trail (most engaging)
+  if (artwork.hasTrail && artist) {
+    const trailSlug = artist.slug === "van-gogh" ? "vincent-van-gogh" : artist.slug;
+    facts.push(`Want to walk in ${artist.name}'s footsteps? <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">Follow the journey</a> through the places that shaped this artist's life and work.`);
+  }
+
+  // 2. PRIORITY: Tragic/young death
+  if (artist?.birthYear && artist?.deathYear) {
+    const artistAge = artist.deathYear - artist.birthYear;
+    if (artistAge < 40) {
+      facts.push(`${artist.name} died at just ${artistAge}. In that short life, works like this one secured a place in art history.`);
+    }
+  }
+
+  // 3. PRIORITY: Final works (emotionally compelling)
+  if (artist?.deathYear && artwork.year) {
+    const yearsBeforeDeath = artist.deathYear - artwork.year;
+    if (yearsBeforeDeath === 0) {
+      facts.push(`${artist.name} painted this in the final year of life. It's one of the last works we have.`);
+    } else if (yearsBeforeDeath === 1) {
+      facts.push(`Created just a year before ${artist.name}'s death in ${artist.deathYear}.`);
+    }
+  }
+
+  // 4. PRIORITY: Big auction sales
+  if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000 && artist) {
+    const millions = Math.round(artwork.lastSalePrice / 1000000);
+    facts.push(`This sold for $${millions} million at auction. <a href="/auction-records/by-artist/${artist.slug}" class="text-[#C9A84C] hover:underline font-medium">See more ${artist.name} sales</a>.`);
+  }
+
+  // 5. PRIORITY: Very old paintings (500+ years)
+  if (artwork.year && artwork.year < 1525) {
     const age = now - artwork.year;
-    if (age > 500) {
-      facts.push(`Over ${Math.floor(age / 100)} centuries old. This was painted in ${artwork.year}, before Columbus reached the Americas.`);
-    } else if (age > 400) {
-      facts.push(`This painting is ${age} years old, created in ${artwork.year} during the Renaissance era.`);
-    } else if (age > 200) {
-      facts.push(`Painted in ${artwork.year}, this work is ${age} years old and has survived revolutions, world wars, and countless owners.`);
-    } else if (age > 100) {
-      facts.push(`Created ${age} years ago in ${artwork.year}. The artist couldn't have imagined millions would see it online today.`);
+    facts.push(`This is over ${Math.floor(age / 100)} centuries old, painted in ${artwork.year}. It predates Shakespeare, the printing press reaching England, and the Protestant Reformation.`);
+  }
+
+  // 6. Cross-continental journey (nationality vs museum location)
+  if (artist?.nationality && museum) {
+    const nat = artist.nationality.toLowerCase();
+    const country = museum.country.toLowerCase();
+    // Check if artwork traveled far from home
+    if ((nat.includes('dutch') || nat.includes('netherlands')) && country.includes('united states')) {
+      facts.push(`A Dutch masterpiece that crossed the Atlantic. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
+    } else if ((nat.includes('french')) && (country.includes('united states') || country.includes('russia'))) {
+      facts.push(`Painted in France, now thousands of miles from home at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
+    } else if ((nat.includes('italian')) && !country.includes('ital')) {
+      facts.push(`Italian art that found a new home abroad. See it at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
+    } else if ((nat.includes('spanish')) && !country.includes('spain')) {
+      facts.push(`Spanish art that left the Iberian Peninsula. Now on display at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
     }
   }
 
-  // Artist trail link
-  if (artwork.hasTrail && artwork.Artist) {
-    const trailSlug = artwork.Artist.slug === "van-gogh" ? "vincent-van-gogh" : artwork.Artist.slug;
-    facts.push(`Follow <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}'s journey</a> across Europe to see where this and other works were created.`);
-  }
-
-  // Artist facts
-  if (artwork.Artist) {
-    // Special facts for artists with known lifespans
-    if (artwork.Artist.birthYear && artwork.Artist.deathYear) {
-      const artistAge = artwork.Artist.deathYear - artwork.Artist.birthYear;
-      if (artistAge < 40) {
-        facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> died at just ${artistAge} years old, yet left behind works like this one.`);
-      }
-      if (artwork.year && artwork.Artist.deathYear) {
-        const yearsBeforeDeath = artwork.Artist.deathYear - artwork.year;
-        if (yearsBeforeDeath <= 2 && yearsBeforeDeath >= 0) {
-          facts.push(`This was painted in the final ${yearsBeforeDeath === 0 ? 'year' : `${yearsBeforeDeath} years`} of <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>'s life.`);
-        }
-      }
-    }
-    // General artist link
-    if (artwork.Artist.nationality) {
-      facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> was a ${artwork.Artist.nationality} artist. Explore more of their work.`);
-    } else {
-      facts.push(`Explore more works by <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>.`);
-    }
-  }
-
-  // Museum link - make it interesting
-  if (artwork.Museum) {
-    const museumFacts = [
-      `You can see this in person at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city}.`,
-      `This painting hangs at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>. Plan a visit to ${artwork.Museum.city} to see it.`,
-      `Head to ${artwork.Museum.city} to see this at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>.`,
-    ];
-    facts.push(museumFacts[Math.floor(Math.random() * museumFacts.length)]);
-  }
-
-  // Artist nationality + museum location
-  if (artwork.Artist?.nationality && artwork.Museum?.country) {
-    if (!artwork.Artist.nationality.toLowerCase().includes(artwork.Museum.country.toLowerCase()) &&
-        !artwork.Museum.country.toLowerCase().includes(artwork.Artist.nationality.toLowerCase().split(' ')[0])) {
-      facts.push(`A ${artwork.Artist.nationality} artist's work, now on display at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.country}.`);
-    }
-  }
-
-  // Medium
-  if (artwork.medium) {
-    if (artwork.medium.toLowerCase().includes('oil on canvas')) {
-      facts.push(`Painted in oil on canvas, the most enduring medium in Western art history.`);
-    } else if (artwork.medium.toLowerCase().includes('fresco')) {
-      facts.push(`This is a fresco, painted directly onto wet plaster. The artist had to work fast before it dried.`);
-    } else if (artwork.medium.toLowerCase().includes('tempera')) {
-      facts.push(`Created with tempera, a fast-drying paint used before oil paints became popular in the Renaissance.`);
-    } else if (artwork.medium.toLowerCase().includes('watercolor')) {
-      facts.push(`A watercolor work, one of the most unforgiving mediums since mistakes can't be painted over.`);
-    }
-  }
-
-  // Dimensions
+  // 7. Monumental size
   if (artwork.dimensions) {
     const match = artwork.dimensions.match(/(\d+(?:\.\d+)?)\s*(?:cm|×|x)\s*(\d+(?:\.\d+)?)/i);
     if (match) {
-      const h = parseFloat(match[1]);
-      const w = parseFloat(match[2]);
-      const larger = Math.max(h, w);
+      const larger = Math.max(parseFloat(match[1]), parseFloat(match[2]));
       if (larger > 300) {
-        facts.push(`At ${artwork.dimensions}, this is a monumental work, larger than most doorways.`);
-      } else if (larger < 30) {
-        facts.push(`A surprisingly intimate work at just ${artwork.dimensions}, smaller than a sheet of paper.`);
+        facts.push(`This painting is massive: ${artwork.dimensions}. Standing in front of it, the scene surrounds you.`);
+      } else if (larger < 25) {
+        facts.push(`Surprisingly small at just ${artwork.dimensions}. The intimacy was intentional.`);
       }
     }
   }
 
-  // Sale price with link to auction records
-  if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000) {
-    const millions = Math.round(artwork.lastSalePrice / 1000000);
-    if (artwork.Artist) {
-      facts.push(`Sold at auction for $${millions} million. See more <a href="/auction-records/by-artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name} auction records</a>.`);
-    } else {
-      facts.push(`This painting sold at auction for $${millions} million. Browse our <a href="/auction-records/most-expensive" class="text-[#C9A84C] hover:underline font-medium">most expensive paintings</a>.`);
-    }
+  // 8. Fresco technique (actually interesting)
+  if (artwork.medium?.toLowerCase().includes('fresco')) {
+    facts.push(`This is a fresco: painted directly on wet plaster. Once the plaster dried, there was no fixing mistakes.`);
   }
 
-  // Shuffle and return top 2
-  return facts.sort(() => Math.random() - 0.5).slice(0, 2);
+  // If we still don't have 2 facts, add a museum visit prompt (but make it good)
+  if (facts.length < 2 && museum && artist) {
+    facts.push(`See this ${artist.name} in person at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
+  }
+
+  // Return up to 2 facts (they're already in priority order)
+  return facts.slice(0, 2);
 }
 
 // Colors for the palette
