@@ -15,19 +15,19 @@ const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 // Keyword-focused: "where to see famous paintings" queries
 // Title: 59 chars, Description: 157 chars (within limits)
 export const metadata: Metadata = {
-  title: "Where to See Famous Paintings: 4,000+ Museum Locations",
-  description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 4,000+ masterpieces. Museum locations, hours & tickets.",
+  title: "Where to See Famous Paintings: 3,600+ Museum Locations",
+  description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 3,600+ masterpieces. Museum locations, hours & tickets.",
   openGraph: {
-    title: "Where to See Famous Paintings: 4,000+ Museum Locations",
-    description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 4,000+ masterpieces.",
+    title: "Where to See Famous Paintings: 3,600+ Museum Locations",
+    description: "Find where famous paintings are displayed. Search Mona Lisa, Starry Night, The Scream & 3,600+ masterpieces.",
     type: "website",
     url: BASE_URL,
     siteName: "Masterpiece Locator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Where to See Famous Paintings: 4,000+ Museum Locations",
-    description: "Find where famous paintings are displayed. Museum locations for 4,000+ masterpieces including Mona Lisa, Starry Night & more.",
+    title: "Where to See Famous Paintings: 3,600+ Museum Locations",
+    description: "Find where famous paintings are displayed. Museum locations for 3,600+ masterpieces including Mona Lisa, Starry Night & more.",
   },
   alternates: {
     canonical: BASE_URL,
@@ -41,7 +41,7 @@ export const dynamic = 'force-dynamic';
 const homepageFAQs = [
   {
     question: "What is Masterpiece Locator?",
-    answer: "<strong>Masterpiece Locator</strong> is a free tool that tells you exactly where famous paintings are displayed. Search for any artwork and we'll show you the <strong>museum name</strong>, <strong>city</strong>, <strong>country</strong>, and basic visiting information. No more guessing which museum has the painting you want to see. The database includes over 4,000 artworks across 700+ museums worldwide.",
+    answer: "<strong>Masterpiece Locator</strong> is a free tool that tells you exactly where famous paintings are displayed. Search for any artwork and we'll show you the <strong>museum name</strong>, <strong>city</strong>, <strong>country</strong>, and basic visiting information. No more guessing which museum has the painting you want to see. The database includes over 3,600 artworks across 440+ museums worldwide.",
   },
   {
     question: "How do I use this tool to plan a museum visit?",

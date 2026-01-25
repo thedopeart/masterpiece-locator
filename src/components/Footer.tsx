@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="flex items-center gap-3 mb-4">
               <Image
                 src="/masterpiece-logo.png"
                 alt="Masterpiece Locator"
@@ -17,9 +17,17 @@ export default function Footer() {
                 height={316}
                 className="h-10 w-auto"
               />
+              <div>
+                <span className="font-bold text-lg text-white tracking-tight block leading-tight">
+                  Masterpiece
+                </span>
+                <span className="text-[#C9A84C] text-xs font-medium tracking-wider uppercase">
+                  Locator
+                </span>
+              </div>
             </Link>
             <p className="text-neutral-400 text-sm mb-6 max-w-xs leading-relaxed">
-              Find where famous paintings are displayed. Search 4,000+ masterpieces across 700+ museums worldwide.
+              Find where famous paintings are displayed. Search 3,600+ masterpieces across 440+ museums worldwide.
             </p>
             <Link
               href="https://luxurywallart.com"
