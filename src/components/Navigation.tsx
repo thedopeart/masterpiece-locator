@@ -272,12 +272,12 @@ export default function Navigation() {
               href="https://luxurywallart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-2 text-sm border border-white text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-all"
+              className="hidden lg:inline-flex items-center gap-2 text-sm bg-[#C9A84C] text-white font-semibold px-6 py-2 rounded-lg hover:bg-[#b8973f] transition-all shadow-md"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-              Shop
+              Shop Art
             </Link>
 
             {/* Mobile menu button */}
