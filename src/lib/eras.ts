@@ -221,7 +221,7 @@ export const ERAS: Era[] = [
 
 <p>By mid-century, <a href="/movement/realism"><strong>Realism</strong></a> demanded truth. <a href="/artist/gustave-courbet"><strong>Gustave Courbet</strong></a> painted peasants and laborers at monumental scale, insisting that art should depict contemporary life without idealization. Then came <a href="/movement/impressionism"><strong>Impressionism</strong></a>, the movement that scandalized Paris and changed everything. <a href="/artist/claude-monet"><strong>Monet</strong></a>, <a href="/artist/pierre-auguste-renoir"><strong>Renoir</strong></a>, and <a href="/artist/edgar-degas"><strong>Degas</strong></a> painted outdoors, capturing <strong>fleeting light</strong> with visible brushstrokes. Critics mocked them. Collectors eventually made them immortal.</p>
 
-<p><a href="/movement/post-impressionism"><strong>Post-Impressionism</strong></a> pushed further. <a href="/artist/paul-cezanne"><strong>Cézanne</strong></a> flattened space and built forms from color. <a href="/artist/vincent-van-gogh"><strong>Van Gogh</strong></a> painted emotional intensity with swirling brushwork. <a href="/artist/paul-gauguin"><strong>Gauguin</strong></a> sought escape in Tahitian subjects. <a href="/artist/georges-seurat"><strong>Seurat</strong></a> reduced color to scientific dots. Together, they prepared the ground for <a href="/era/modern"><strong>Modern art's</strong></a> complete break with tradition.</p>`,
+<p><a href="/movement/post-impressionism"><strong>Post-Impressionism</strong></a> pushed further. <a href="/artist/paul-cezanne"><strong>Cézanne</strong></a> flattened space and built forms from color. <a href="/artist/van-gogh"><strong>Van Gogh</strong></a> painted emotional intensity with swirling brushwork. <a href="/artist/paul-gauguin"><strong>Gauguin</strong></a> sought escape in Tahitian subjects. <a href="/artist/georges-seurat"><strong>Seurat</strong></a> reduced color to scientific dots. Together, they prepared the ground for <a href="/era/modern"><strong>Modern art's</strong></a> complete break with tradition.</p>`,
     keywords: ['Romantic art', 'Impressionist art', 'Realism paintings', 'Post-Impressionism', '19th century paintings', 'Monet', 'Van Gogh'],
     characteristics: [
       'Romanticism: emotion, nature, individualism',
@@ -262,7 +262,7 @@ export const ERAS: Era[] = [
       },
       {
         question: "What's the difference between Impressionism and Post-Impressionism?",
-        answer: "<strong>Impressionists</strong> focused on capturing light and atmosphere with loose brushwork. <strong>Post-Impressionists</strong> like <a href=\"/artist/vincent-van-gogh\"><strong>Van Gogh</strong></a>, <a href=\"/artist/paul-cezanne\"><strong>Cézanne</strong></a>, and <a href=\"/artist/paul-gauguin\"><strong>Gauguin</strong></a> pushed further, using bold colors and distorted forms for emotional or structural effect."
+        answer: "<strong>Impressionists</strong> focused on capturing light and atmosphere with loose brushwork. <strong>Post-Impressionists</strong> like <a href=\"/artist/van-gogh\"><strong>Van Gogh</strong></a>, <a href=\"/artist/paul-cezanne\"><strong>Cézanne</strong></a>, and <a href=\"/artist/paul-gauguin\"><strong>Gauguin</strong></a> pushed further, using bold colors and distorted forms for emotional or structural effect."
       }
     ],
     color: 'amber',
