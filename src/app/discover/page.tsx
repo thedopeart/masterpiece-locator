@@ -42,14 +42,14 @@ function generateFacts(artwork: {
   // Age of the painting - always show if year exists
   if (artwork.year) {
     const age = now - artwork.year;
-    if (age > 400) {
-      facts.push(`This painting is over ${Math.floor(age / 100)} centuries old, created in ${artwork.year}.`);
+    if (age > 500) {
+      facts.push(`Over ${Math.floor(age / 100)} centuries old. This was painted in ${artwork.year}, before Columbus reached the Americas.`);
+    } else if (age > 400) {
+      facts.push(`This painting is ${age} years old, created in ${artwork.year} during the Renaissance era.`);
+    } else if (age > 200) {
+      facts.push(`Painted in ${artwork.year}, this work is ${age} years old and has survived revolutions, world wars, and countless owners.`);
     } else if (age > 100) {
-      facts.push(`Painted ${age} years ago in ${artwork.year}, this work has survived wars, revolutions, and countless museum moves.`);
-    } else if (age > 50) {
-      facts.push(`Created in ${artwork.year}, this painting is now ${age} years old.`);
-    } else if (age > 0) {
-      facts.push(`A relatively recent work from ${artwork.year}, just ${age} years old.`);
+      facts.push(`Created ${age} years ago in ${artwork.year}. The artist couldn't have imagined millions would see it online today.`);
     }
   }
 
@@ -82,9 +82,14 @@ function generateFacts(artwork: {
     }
   }
 
-  // Museum link
+  // Museum link - make it interesting
   if (artwork.Museum) {
-    facts.push(`See this painting at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city}, ${artwork.Museum.country}.`);
+    const museumFacts = [
+      `You can see this in person at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city}.`,
+      `This painting hangs at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>. Plan a visit to ${artwork.Museum.city} to see it.`,
+      `Head to ${artwork.Museum.city} to see this at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>.`,
+    ];
+    facts.push(museumFacts[Math.floor(Math.random() * museumFacts.length)]);
   }
 
   // Artist nationality + museum location
@@ -232,24 +237,24 @@ export default async function DiscoverPage() {
         },
       },
     }),
-    // Random artwork for hero - get one with interesting data
+    // Random artwork for hero - get one with interesting data (public domain only)
     (async () => {
-      const total = await prisma.artwork.count({
-        where: {
-          imageUrl: { not: null },
-          year: { not: null },
-          Artist: { isNot: null },
-          Museum: { isNot: null },
-        }
-      });
+      const publicDomainFilter = {
+        imageUrl: { not: null },
+        year: { not: null, lt: 1928 }, // Safe public domain cutoff
+        Artist: { isNot: null },
+        Museum: {
+          is: {
+            name: { not: { contains: 'Private' } },
+            city: { not: 'Unknown' },
+            country: { not: 'Unknown' },
+          },
+        },
+      };
+      const total = await prisma.artwork.count({ where: publicDomainFilter });
       const skip = Math.floor(Math.random() * Math.max(0, total - 1));
       return prisma.artwork.findFirst({
-        where: {
-          imageUrl: { not: null },
-          year: { not: null },
-          Artist: { isNot: null },
-          Museum: { isNot: null },
-        },
+        where: publicDomainFilter,
         include: {
           Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
           Museum: { select: { name: true, slug: true, city: true, country: true } },
