@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import BackToTop from "@/components/BackToTop";
 
-const GTM_ID = "GTM-P87R3NZ";
+const GA_ID = "G-5BR280P2RM";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,28 +45,23 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          id="gtm-script"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga4-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
             `,
           }}
         />
       </head>
       <body className={`${inter.className} antialiased bg-gray-50`}>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         <Providers>
           <Navigation />
           <main className="min-h-screen">{children}</main>
