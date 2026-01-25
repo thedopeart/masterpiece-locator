@@ -33,7 +33,7 @@ function generateFacts(artwork: {
   lastSalePrice: number | null;
   styleTags: string[];
   Artist: { name: string; slug: string; birthYear: number | null; deathYear: number | null; nationality: string | null } | null;
-  Museum: { name: string; slug: string; city: string; country: string; artworkCount: number } | null;
+  Museum: { name: string; slug: string; city: string; country: string } | null;
   hasTrail: boolean;
 }): string[] {
   const facts: string[] = [];
@@ -71,13 +71,9 @@ function generateFacts(artwork: {
     }
   }
 
-  // Museum facts with links
+  // Museum link
   if (artwork.Museum) {
-    if (artwork.Museum.artworkCount > 100) {
-      facts.push(`This hangs at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>, home to ${artwork.Museum.artworkCount}+ masterpieces in ${artwork.Museum.city}.`);
-    } else if (artwork.Museum.artworkCount > 20) {
-      facts.push(`Visit <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city} to see this and ${artwork.Museum.artworkCount - 1} other works.`);
-    }
+    facts.push(`See this painting at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city}, ${artwork.Museum.country}.`);
   }
 
   // Artist nationality + museum location
@@ -243,7 +239,7 @@ export default async function DiscoverPage() {
         },
         include: {
           Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
-          Museum: { include: { _count: { select: { Artwork: true } } } },
+          Museum: { select: { name: true, slug: true, city: true, country: true } },
         },
         skip,
       });
@@ -331,10 +327,7 @@ export default async function DiscoverPage() {
               lastSalePrice: randomArtwork.lastSalePrice ? Number(randomArtwork.lastSalePrice) : null,
               styleTags: randomArtwork.styleTags || [],
               Artist: randomArtwork.Artist,
-              Museum: randomArtwork.Museum ? {
-                ...randomArtwork.Museum,
-                artworkCount: randomArtwork.Museum._count.Artwork,
-              } : null,
+              Museum: randomArtwork.Museum,
               hasTrail,
             });
             return (
