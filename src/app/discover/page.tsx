@@ -39,7 +39,7 @@ function generateFacts(artwork: {
   const facts: string[] = [];
   const now = new Date().getFullYear();
 
-  // Age of the painting
+  // Age of the painting - always show if year exists
   if (artwork.year) {
     const age = now - artwork.year;
     if (age > 400) {
@@ -48,6 +48,8 @@ function generateFacts(artwork: {
       facts.push(`Painted ${age} years ago in ${artwork.year}, this work has survived wars, revolutions, and countless museum moves.`);
     } else if (age > 50) {
       facts.push(`Created in ${artwork.year}, this painting is now ${age} years old.`);
+    } else if (age > 0) {
+      facts.push(`A relatively recent work from ${artwork.year}, just ${age} years old.`);
     }
   }
 
@@ -57,17 +59,26 @@ function generateFacts(artwork: {
     facts.push(`Follow <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}'s journey</a> across Europe to see where this and other works were created.`);
   }
 
-  // Artist lifespan
-  if (artwork.Artist?.birthYear && artwork.Artist?.deathYear) {
-    const artistAge = artwork.Artist.deathYear - artwork.Artist.birthYear;
-    if (artistAge < 40) {
-      facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> died at just ${artistAge} years old, yet left behind works like this one.`);
-    }
-    if (artwork.year && artwork.Artist.deathYear) {
-      const yearsBeforeDeath = artwork.Artist.deathYear - artwork.year;
-      if (yearsBeforeDeath <= 2 && yearsBeforeDeath >= 0) {
-        facts.push(`This was painted in the final ${yearsBeforeDeath === 0 ? 'year' : `${yearsBeforeDeath} years`} of <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>'s life.`);
+  // Artist facts
+  if (artwork.Artist) {
+    // Special facts for artists with known lifespans
+    if (artwork.Artist.birthYear && artwork.Artist.deathYear) {
+      const artistAge = artwork.Artist.deathYear - artwork.Artist.birthYear;
+      if (artistAge < 40) {
+        facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> died at just ${artistAge} years old, yet left behind works like this one.`);
       }
+      if (artwork.year && artwork.Artist.deathYear) {
+        const yearsBeforeDeath = artwork.Artist.deathYear - artwork.year;
+        if (yearsBeforeDeath <= 2 && yearsBeforeDeath >= 0) {
+          facts.push(`This was painted in the final ${yearsBeforeDeath === 0 ? 'year' : `${yearsBeforeDeath} years`} of <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>'s life.`);
+        }
+      }
+    }
+    // General artist link
+    if (artwork.Artist.nationality) {
+      facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> was a ${artwork.Artist.nationality} artist. Explore more of their work.`);
+    } else {
+      facts.push(`Explore more works by <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>.`);
     }
   }
 
@@ -228,6 +239,7 @@ export default async function DiscoverPage() {
           imageUrl: { not: null },
           year: { not: null },
           Artist: { isNot: null },
+          Museum: { isNot: null },
         }
       });
       const skip = Math.floor(Math.random() * Math.max(0, total - 1));
@@ -236,6 +248,7 @@ export default async function DiscoverPage() {
           imageUrl: { not: null },
           year: { not: null },
           Artist: { isNot: null },
+          Museum: { isNot: null },
         },
         include: {
           Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
