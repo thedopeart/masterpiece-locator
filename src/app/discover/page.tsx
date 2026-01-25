@@ -24,6 +24,112 @@ const SUBJECTS = [
   { name: "Genre Scenes", tag: "genre", icon: "🎭" },
 ];
 
+// Generate interesting facts about an artwork with links
+function generateFacts(artwork: {
+  title: string;
+  year: number | null;
+  medium: string | null;
+  dimensions: string | null;
+  lastSalePrice: number | null;
+  styleTags: string[];
+  Artist: { name: string; slug: string; birthYear: number | null; deathYear: number | null; nationality: string | null } | null;
+  Museum: { name: string; slug: string; city: string; country: string; artworkCount: number } | null;
+  hasTrail: boolean;
+}): string[] {
+  const facts: string[] = [];
+  const now = new Date().getFullYear();
+
+  // Age of the painting
+  if (artwork.year) {
+    const age = now - artwork.year;
+    if (age > 400) {
+      facts.push(`This painting is over ${Math.floor(age / 100)} centuries old, created in ${artwork.year}.`);
+    } else if (age > 100) {
+      facts.push(`Painted ${age} years ago in ${artwork.year}, this work has survived wars, revolutions, and countless museum moves.`);
+    } else if (age > 50) {
+      facts.push(`Created in ${artwork.year}, this painting is now ${age} years old.`);
+    }
+  }
+
+  // Artist trail link
+  if (artwork.hasTrail && artwork.Artist) {
+    const trailSlug = artwork.Artist.slug === "van-gogh" ? "vincent-van-gogh" : artwork.Artist.slug;
+    facts.push(`Follow <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}'s journey</a> across Europe to see where this and other works were created.`);
+  }
+
+  // Artist lifespan
+  if (artwork.Artist?.birthYear && artwork.Artist?.deathYear) {
+    const artistAge = artwork.Artist.deathYear - artwork.Artist.birthYear;
+    if (artistAge < 40) {
+      facts.push(`<a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a> died at just ${artistAge} years old, yet left behind works like this one.`);
+    }
+    if (artwork.year && artwork.Artist.deathYear) {
+      const yearsBeforeDeath = artwork.Artist.deathYear - artwork.year;
+      if (yearsBeforeDeath <= 2 && yearsBeforeDeath >= 0) {
+        facts.push(`This was painted in the final ${yearsBeforeDeath === 0 ? 'year' : `${yearsBeforeDeath} years`} of <a href="/artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name}</a>'s life.`);
+      }
+    }
+  }
+
+  // Museum facts with links
+  if (artwork.Museum) {
+    if (artwork.Museum.artworkCount > 100) {
+      facts.push(`This hangs at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a>, home to ${artwork.Museum.artworkCount}+ masterpieces in ${artwork.Museum.city}.`);
+    } else if (artwork.Museum.artworkCount > 20) {
+      facts.push(`Visit <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.city} to see this and ${artwork.Museum.artworkCount - 1} other works.`);
+    }
+  }
+
+  // Artist nationality + museum location
+  if (artwork.Artist?.nationality && artwork.Museum?.country) {
+    if (!artwork.Artist.nationality.toLowerCase().includes(artwork.Museum.country.toLowerCase()) &&
+        !artwork.Museum.country.toLowerCase().includes(artwork.Artist.nationality.toLowerCase().split(' ')[0])) {
+      facts.push(`A ${artwork.Artist.nationality} artist's work, now on display at <a href="/museum/${artwork.Museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Museum.name}</a> in ${artwork.Museum.country}.`);
+    }
+  }
+
+  // Medium
+  if (artwork.medium) {
+    if (artwork.medium.toLowerCase().includes('oil on canvas')) {
+      facts.push(`Painted in oil on canvas, the most enduring medium in Western art history.`);
+    } else if (artwork.medium.toLowerCase().includes('fresco')) {
+      facts.push(`This is a fresco, painted directly onto wet plaster. The artist had to work fast before it dried.`);
+    } else if (artwork.medium.toLowerCase().includes('tempera')) {
+      facts.push(`Created with tempera, a fast-drying paint used before oil paints became popular in the Renaissance.`);
+    } else if (artwork.medium.toLowerCase().includes('watercolor')) {
+      facts.push(`A watercolor work, one of the most unforgiving mediums since mistakes can't be painted over.`);
+    }
+  }
+
+  // Dimensions
+  if (artwork.dimensions) {
+    const match = artwork.dimensions.match(/(\d+(?:\.\d+)?)\s*(?:cm|×|x)\s*(\d+(?:\.\d+)?)/i);
+    if (match) {
+      const h = parseFloat(match[1]);
+      const w = parseFloat(match[2]);
+      const larger = Math.max(h, w);
+      if (larger > 300) {
+        facts.push(`At ${artwork.dimensions}, this is a monumental work, larger than most doorways.`);
+      } else if (larger < 30) {
+        facts.push(`A surprisingly intimate work at just ${artwork.dimensions}, smaller than a sheet of paper.`);
+      }
+    }
+  }
+
+  // Sale price with link to auction records
+  if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000) {
+    const millions = Math.round(artwork.lastSalePrice / 1000000);
+    if (artwork.Artist) {
+      facts.push(`Sold at auction for $${millions} million. See more <a href="/auction-records/by-artist/${artwork.Artist.slug}" class="text-[#C9A84C] hover:underline font-medium">${artwork.Artist.name} auction records</a>.`);
+    } else {
+      facts.push(`This painting sold at auction for $${millions} million. Browse our <a href="/auction-records/most-expensive" class="text-[#C9A84C] hover:underline font-medium">most expensive paintings</a>.`);
+    }
+  }
+
+  // Shuffle and return top 2
+  return facts.sort(() => Math.random() - 0.5).slice(0, 2);
+}
+
 // Colors for the palette
 const COLORS = [
   { name: "Blue", hex: "#1e40af" },
@@ -119,15 +225,25 @@ export default async function DiscoverPage() {
         },
       },
     }),
-    // Random artwork for hero
+    // Random artwork for hero - get one with interesting data
     (async () => {
-      const total = await prisma.artwork.count({ where: { imageUrl: { not: null } } });
+      const total = await prisma.artwork.count({
+        where: {
+          imageUrl: { not: null },
+          year: { not: null },
+          Artist: { isNot: null },
+        }
+      });
       const skip = Math.floor(Math.random() * Math.max(0, total - 1));
       return prisma.artwork.findFirst({
-        where: { imageUrl: { not: null } },
+        where: {
+          imageUrl: { not: null },
+          year: { not: null },
+          Artist: { isNot: null },
+        },
         include: {
-          Artist: { select: { name: true, slug: true } },
-          Museum: { select: { name: true, city: true } },
+          Artist: { select: { name: true, slug: true, birthYear: true, deathYear: true, nationality: true } },
+          Museum: { select: { name: true, slug: true, city: true, country: true }, include: { _count: { select: { Artwork: true } } } },
         },
         skip,
       });
@@ -200,57 +316,97 @@ export default async function DiscoverPage() {
             </p>
           </div>
 
-          {/* Featured Artwork */}
-          {randomArtwork && (
-            <div className="bg-white/5 backdrop-blur rounded-2xl p-6 max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <Link href={`/art/${randomArtwork.slug}`} className="w-full md:w-64 aspect-[3/4] relative rounded-xl overflow-hidden flex-shrink-0 group">
-                  <Image
-                    src={randomArtwork.imageUrl!}
-                    alt={randomArtwork.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="256px"
-                    priority
-                    unoptimized
-                  />
-                </Link>
-                <div className="flex-1 text-center md:text-left">
-                  <span className="inline-flex items-center gap-2 text-[#C9A84C] text-sm font-medium mb-2">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                    Featured Discovery
-                  </span>
-                  <h2 className="text-2xl font-bold text-white mb-1">
-                    {randomArtwork.title}
-                  </h2>
-                  {randomArtwork.Artist && (
-                    <p className="text-neutral-300">by {randomArtwork.Artist.name}</p>
-                  )}
-                  {randomArtwork.Museum && (
-                    <p className="text-neutral-500 text-sm mt-1">
-                      {randomArtwork.Museum.name}, {randomArtwork.Museum.city}
-                    </p>
-                  )}
-                  <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
-                    <Link
-                      href={`/art/${randomArtwork.slug}`}
-                      className="bg-[#C9A84C] text-black px-5 py-2 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
-                    >
-                      View Artwork
-                    </Link>
-                    <Link
-                      href="/discover"
-                      className="border border-white/30 text-white px-5 py-2 rounded-lg hover:bg-white/10 transition-colors"
-                    >
-                      Surprise Me
-                    </Link>
+          {/* Featured Artwork with Facts */}
+          {randomArtwork && (() => {
+            // Check if artist has a trail
+            const artistSlug = randomArtwork.Artist?.slug;
+            const trailArtistSlugs = artistTrails.map(t => t.artist === "vincent-van-gogh" ? "van-gogh" : t.artist);
+            const hasTrail = artistSlug ? trailArtistSlugs.includes(artistSlug) : false;
+
+            const facts = generateFacts({
+              title: randomArtwork.title,
+              year: randomArtwork.year,
+              medium: randomArtwork.medium,
+              dimensions: randomArtwork.dimensions,
+              lastSalePrice: randomArtwork.lastSalePrice ? Number(randomArtwork.lastSalePrice) : null,
+              styleTags: randomArtwork.styleTags || [],
+              Artist: randomArtwork.Artist,
+              Museum: randomArtwork.Museum ? {
+                ...randomArtwork.Museum,
+                artworkCount: randomArtwork.Museum._count.Artwork,
+              } : null,
+              hasTrail,
+            });
+            return (
+              <div className="bg-white/5 backdrop-blur rounded-2xl overflow-hidden max-w-5xl mx-auto">
+                <div className="flex flex-col md:flex-row">
+                  <Link href={`/art/${randomArtwork.slug}`} className="w-full md:w-80 aspect-[3/4] relative flex-shrink-0 group">
+                    <Image
+                      src={randomArtwork.imageUrl!}
+                      alt={randomArtwork.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="320px"
+                      priority
+                      unoptimized
+                    />
+                  </Link>
+                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-bold mb-4">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                      DID YOU KNOW?
+                    </div>
+
+                    {facts.length > 0 && (
+                      <div className="space-y-3 mb-6">
+                        {facts.map((fact, i) => (
+                          <p
+                            key={i}
+                            className="text-neutral-200 text-lg leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: fact }}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="border-t border-white/10 pt-5 mt-auto">
+                      <h2 className="text-xl font-bold text-white mb-1">
+                        {randomArtwork.title}
+                        {randomArtwork.year && <span className="font-normal text-neutral-400"> ({randomArtwork.year})</span>}
+                      </h2>
+                      {randomArtwork.Artist && (
+                        <p className="text-neutral-300">by {randomArtwork.Artist.name}</p>
+                      )}
+                      {randomArtwork.Museum && (
+                        <p className="text-neutral-500 text-sm mt-1">
+                          {randomArtwork.Museum.name}, {randomArtwork.Museum.city}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap gap-3 mt-4">
+                        <Link
+                          href={`/art/${randomArtwork.slug}`}
+                          className="bg-[#C9A84C] text-black px-5 py-2 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
+                        >
+                          Explore This Painting
+                        </Link>
+                        <Link
+                          href="/discover"
+                          className="border border-white/30 text-white px-5 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          Surprise Me Again
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
       </div>
 
