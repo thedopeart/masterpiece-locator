@@ -164,7 +164,7 @@ export default function Navigation() {
         <div className="flex items-center">
           {/* Logo */}
           <div className="md:w-56">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/masterpiece-logo.png"
                 alt="Masterpiece Locator"
@@ -172,6 +172,14 @@ export default function Navigation() {
                 height={316}
                 className="h-9 w-auto"
               />
+              <div className="hidden sm:block">
+                <span className="font-bold text-lg text-white tracking-tight block leading-tight">
+                  Masterpiece
+                </span>
+                <span className="text-[#C9A84C] text-xs font-medium tracking-wider uppercase">
+                  Locator
+                </span>
+              </div>
             </Link>
           </div>
 
@@ -264,7 +272,7 @@ export default function Navigation() {
               href="https://luxurywallart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-2 text-sm bg-white text-neutral-900 font-semibold px-4 py-2 rounded-lg hover:bg-neutral-100 transition-all shadow-md"
+              className="hidden lg:inline-flex items-center gap-2 text-sm border border-white text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-all"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
