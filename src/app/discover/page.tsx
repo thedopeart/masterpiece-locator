@@ -24,7 +24,7 @@ const SUBJECTS = [
   { name: "Genre Scenes", tag: "genre", icon: "🎭" },
 ];
 
-// Generate interesting facts about an artwork - only truly interesting ones
+// Generate interesting facts about an artwork - quality over quantity
 function generateFacts(artwork: {
   title: string;
   year: number | null;
@@ -40,14 +40,15 @@ function generateFacts(artwork: {
   const now = new Date().getFullYear();
   const artist = artwork.Artist;
   const museum = artwork.Museum;
+  let hasMuseumFact = false; // Track if we already mentioned the museum
 
-  // 1. PRIORITY: Artist trail (most engaging)
+  // 1. Artist trail (most engaging)
   if (artwork.hasTrail && artist) {
     const trailSlug = artist.slug === "van-gogh" ? "vincent-van-gogh" : artist.slug;
     facts.push(`Want to walk in ${artist.name}'s footsteps? <a href="/trail/${trailSlug}" class="text-[#C9A84C] hover:underline font-medium">Follow the journey</a> through the places that shaped this artist's life and work.`);
   }
 
-  // 2. PRIORITY: Tragic/young death
+  // 2. Tragic/young death
   if (artist?.birthYear && artist?.deathYear) {
     const artistAge = artist.deathYear - artist.birthYear;
     if (artistAge < 40) {
@@ -55,68 +56,83 @@ function generateFacts(artwork: {
     }
   }
 
-  // 3. PRIORITY: Final works (emotionally compelling)
+  // 3. Final works
   if (artist?.deathYear && artwork.year) {
     const yearsBeforeDeath = artist.deathYear - artwork.year;
     if (yearsBeforeDeath === 0) {
-      facts.push(`${artist.name} painted this in the final year of life. It's one of the last works we have.`);
+      facts.push(`${artist.name} painted this in the final year of life. It's among the last works we have.`);
     } else if (yearsBeforeDeath === 1) {
-      facts.push(`Created just a year before ${artist.name}'s death in ${artist.deathYear}.`);
+      facts.push(`Created just one year before ${artist.name} died in ${artist.deathYear}.`);
     }
   }
 
-  // 4. PRIORITY: Big auction sales
+  // 4. Big auction sales
   if (artwork.lastSalePrice && artwork.lastSalePrice > 10000000 && artist) {
     const millions = Math.round(artwork.lastSalePrice / 1000000);
     facts.push(`This sold for $${millions} million at auction. <a href="/auction-records/by-artist/${artist.slug}" class="text-[#C9A84C] hover:underline font-medium">See more ${artist.name} sales</a>.`);
   }
 
-  // 5. PRIORITY: Very old paintings (500+ years)
+  // 5. Very old paintings (500+ years)
   if (artwork.year && artwork.year < 1525) {
     const age = now - artwork.year;
-    facts.push(`This is over ${Math.floor(age / 100)} centuries old, painted in ${artwork.year}. It predates Shakespeare, the printing press reaching England, and the Protestant Reformation.`);
+    facts.push(`Over ${Math.floor(age / 100)} centuries old. This was painted in ${artwork.year}, before Shakespeare was even born.`);
   }
 
-  // 6. Cross-continental journey (nationality vs museum location)
-  if (artist?.nationality && museum) {
+  // 6. Cross-continental journey (nationality vs museum location) - only if truly interesting
+  if (artist?.nationality && museum && facts.length < 2) {
     const nat = artist.nationality.toLowerCase();
     const country = museum.country.toLowerCase();
-    // Check if artwork traveled far from home
-    if ((nat.includes('dutch') || nat.includes('netherlands')) && country.includes('united states')) {
-      facts.push(`A Dutch masterpiece that crossed the Atlantic. Now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
-    } else if ((nat.includes('french')) && (country.includes('united states') || country.includes('russia'))) {
-      facts.push(`Painted in France, now thousands of miles from home at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
-    } else if ((nat.includes('italian')) && !country.includes('ital')) {
-      facts.push(`Italian art that found a new home abroad. See it at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
-    } else if ((nat.includes('spanish')) && !country.includes('spain')) {
-      facts.push(`Spanish art that left the Iberian Peninsula. Now on display at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a>.`);
+    const city = museum.city;
+
+    if ((nat.includes('dutch') || nat.includes('flemish')) && country.includes('united states')) {
+      facts.push(`This Dutch work crossed the Atlantic and now hangs at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
+    } else if (nat.includes('french') && country.includes('russia')) {
+      facts.push(`French art in Russia: this painting traveled from Paris to <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
+    } else if (nat.includes('french') && country.includes('united states')) {
+      facts.push(`Originally from France, now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
+    } else if (nat.includes('spanish') && country.includes('united states')) {
+      facts.push(`Spanish art in America: see it at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
+    } else if (nat.includes('italian') && country.includes('united states')) {
+      facts.push(`Italian Renaissance art that made its way to <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
+    } else if (nat.includes('russian') && !country.includes('russia')) {
+      facts.push(`Russian art abroad: now at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${city}.`);
+      hasMuseumFact = true;
     }
   }
 
-  // 7. Monumental size
-  if (artwork.dimensions) {
+  // 7. Monumental or tiny size
+  if (artwork.dimensions && facts.length < 2) {
     const match = artwork.dimensions.match(/(\d+(?:\.\d+)?)\s*(?:cm|×|x)\s*(\d+(?:\.\d+)?)/i);
     if (match) {
       const larger = Math.max(parseFloat(match[1]), parseFloat(match[2]));
       if (larger > 300) {
-        facts.push(`This painting is massive: ${artwork.dimensions}. Standing in front of it, the scene surrounds you.`);
+        facts.push(`At ${artwork.dimensions}, this painting towers over most viewers. Photos don't capture the scale.`);
       } else if (larger < 25) {
-        facts.push(`Surprisingly small at just ${artwork.dimensions}. The intimacy was intentional.`);
+        facts.push(`Just ${artwork.dimensions}. This painting is smaller than a laptop screen.`);
       }
     }
   }
 
-  // 8. Fresco technique (actually interesting)
-  if (artwork.medium?.toLowerCase().includes('fresco')) {
-    facts.push(`This is a fresco: painted directly on wet plaster. Once the plaster dried, there was no fixing mistakes.`);
+  // 8. Fresco technique
+  if (artwork.medium?.toLowerCase().includes('fresco') && facts.length < 2) {
+    facts.push(`A true fresco: painted on wet plaster. The artist had to work fast before it dried.`);
   }
 
-  // If we still don't have 2 facts, add a museum visit prompt (but make it good)
-  if (facts.length < 2 && museum && artist) {
-    facts.push(`See this ${artist.name} in person at <a href="/museum/${museum.slug}" class="text-[#C9A84C] hover:underline font-medium">${museum.name}</a> in ${museum.city}.`);
+  // 9. Artist was prolific (lived long, painted a lot)
+  if (artist?.birthYear && artist?.deathYear && facts.length < 2) {
+    const artistAge = artist.deathYear - artist.birthYear;
+    if (artistAge > 80) {
+      facts.push(`${artist.name} lived to ${artistAge}, creating art across eight decades.`);
+    }
   }
 
-  // Return up to 2 facts (they're already in priority order)
+  // Return only what we have - don't pad with boring facts
+  // If we have 0-1 interesting facts, that's fine. Quality over quantity.
   return facts.slice(0, 2);
 }
 
@@ -341,23 +357,24 @@ export default async function DiscoverPage() {
                     />
                   </Link>
                   <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-bold mb-4">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                      DID YOU KNOW?
-                    </div>
-
                     {facts.length > 0 && (
-                      <div className="space-y-3 mb-6">
-                        {facts.map((fact, i) => (
-                          <p
-                            key={i}
-                            className="text-neutral-200 text-lg leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: fact }}
-                          />
-                        ))}
-                      </div>
+                      <>
+                        <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-bold mb-4">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                          DID YOU KNOW?
+                        </div>
+                        <div className="space-y-3 mb-6">
+                          {facts.map((fact, i) => (
+                            <p
+                              key={i}
+                              className="text-neutral-200 text-lg leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: fact }}
+                            />
+                          ))}
+                        </div>
+                      </>
                     )}
 
                     <div className="border-t border-white/10 pt-5 mt-auto">
