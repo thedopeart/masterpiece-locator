@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import FavoritesNavIcon from "./FavoritesNavIcon";
 import TripNavIcon from "./TripNavIcon";
 import { useFavorites } from "@/contexts/FavoritesContext";
@@ -163,20 +164,14 @@ export default function Navigation() {
         <div className="flex items-center">
           {/* Logo */}
           <div className="md:w-56">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#C9A84C] to-[#a8893d] rounded-lg flex items-center justify-center shadow-md group-hover:shadow-[#C9A84C]/30 transition-shadow">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="hidden sm:block">
-                <span className="font-bold text-lg text-white tracking-tight block leading-tight">
-                  Masterpiece
-                </span>
-                <span className="text-[#C9A84C] text-xs font-medium tracking-wider uppercase">
-                  Locator
-                </span>
-              </div>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/masterpiece-logo.png"
+                alt="Masterpiece Locator"
+                width={488}
+                height={316}
+                className="h-9 w-auto"
+              />
             </Link>
           </div>
 

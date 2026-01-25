@@ -11,10 +11,10 @@ export default function Footer() {
           <div className="col-span-2">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/masterpiece-logo.svg"
+                src="/masterpiece-logo.png"
                 alt="Masterpiece Locator"
-                width={200}
-                height={50}
+                width={488}
+                height={316}
                 className="h-10 w-auto"
               />
             </Link>
