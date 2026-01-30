@@ -1,0 +1,99 @@
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+const enrichments = {
+  'statue-queen-nefertari': {
+    description: `<p>This <strong>pink granite statue of Queen Nefertari</strong> dates to around 1250 BC during the reign of her husband Ramesses II. She stands in a striding pose, wearing a tight-fitting sheath dress and the double-plumed crown of a great royal wife. Her expression is serene and idealized, reflecting the conventions of New Kingdom royal sculpture.</p><p>Nefertari held unusual political power for an Egyptian queen. She corresponded with foreign rulers and appeared alongside Ramesses in temple reliefs, depicted at nearly equal scale. The colossal statues of her at Abu Simbel stand 33 feet tall, a tribute Ramesses gave no other wife.</p><p>The statue is displayed at the <a href="/apps/masterpieces/museum/grand-egyptian-museum"><strong>Grand Egyptian Museum</strong></a> near the Giza pyramids. Nefertari's legacy endures through her painted tomb in the Valley of the Queens, widely considered the <strong>most beautiful burial chamber</strong> in Egypt.</p>`,
+    faqs: [
+      { question: "Where can I see this statue?", answer: "It's at the <a href=\"/apps/masterpieces/museum/grand-egyptian-museum\"><strong>Grand Egyptian Museum</strong></a> near the Giza pyramids in Cairo, Egypt." },
+      { question: "Who was Nefertari?", answer: "<strong>Nefertari</strong> was the principal wife of Ramesses II and one of Egypt's most powerful queens. She had her own temple at Abu Simbel and the finest tomb in the Valley of the Queens." },
+      { question: "What stone is the statue made from?", answer: "The statue is carved from <strong>pink granite</strong>, quarried from Aswan in southern Egypt. Granite was reserved for royal and divine sculptures because of its hardness, beauty, and permanence." }
+    ]
+  },
+  'head-of-queen-tiye': {
+    description: `<p>This small portrait head of <strong>Queen Tiye</strong> (c. 1355 BC) captures one of ancient Egypt's most formidable women with startling realism. Carved from yew wood and originally adorned with a silver headdress, gold earrings, and linen shawl, the face shows an <strong>older woman with downturned mouth, heavy-lidded eyes, and deep lines</strong> beside the nose.</p><p>Tiye was the great royal wife of Amenhotep III and mother of the revolutionary pharaoh Akhenaten. She wielded significant political influence, corresponding directly with foreign kings. After her husband's death she remained powerful at court, advising her son during the Amarna period's religious upheaval.</p><p>The portrait's unflinching naturalism is rare in Egyptian art, which typically idealized royalty. It may have been reworked after her death as a funerary object. The head was found in the tomb of Amenhotep II (KV35) and is now in the <strong>Egyptian Museum, Cairo</strong>. At just four inches tall, it ranks among the finest small-scale portraits from the ancient world.</p>`,
+    faqs: [
+      { question: "How big is this sculpture?", answer: "The head is only about <strong>4 inches (9.4 cm) tall</strong>, making it one of the smallest royal portraits from ancient Egypt. Despite its size, the detail and realism are extraordinary." },
+      { question: "Who was Queen Tiye?", answer: "<strong>Tiye</strong> was the wife of Amenhotep III and mother of Akhenaten. She was one of the most politically powerful women in Egyptian history, corresponding directly with foreign rulers." },
+      { question: "Why does the face look so realistic?", answer: "The portrait shows <strong>signs of aging</strong> rare in Egyptian royal art. It may have been carved or reworked late in Tiye's life, or updated as a funerary portrait after death, when idealization mattered less." }
+    ]
+  },
+  'princess-meritaten': {
+    description: `<p>This painted limestone head depicts <strong>Princess Meritaten</strong>, eldest daughter of Akhenaten and Nefertiti, carved around 1345 BC during the Amarna period. The portrait shows the distinctive <strong>elongated skull</strong> characteristic of Amarna art, whether reflecting a real physical trait or the artistic conventions imposed by her father's radical religious reforms.</p><p>Meritaten grew up at Akhenaten's new capital of Amarna (Akhetaten), where artists broke with centuries of tradition. Faces became longer and more expressive, bodies thinner and more naturalistic. Meritaten later became great royal wife to Smenkhkare, one of the brief pharaohs between Akhenaten and Tutankhamun.</p><p>The Amarna period (c. 1353-1336 BC) produced some of ancient Egypt's most distinctive art. When the court returned to Thebes after Akhenaten's death, his city was abandoned and his monuments destroyed. Surviving Amarna portraits like this one are <strong>rare witnesses to a revolutionary artistic moment</strong>.</p>`,
+    faqs: [
+      { question: "Who was Princess Meritaten?", answer: "<strong>Meritaten</strong> was the eldest daughter of Pharaoh Akhenaten and Queen Nefertiti. She later became great royal wife, making her one of the most prominent women of the Amarna period." },
+      { question: "Why is the skull elongated?", answer: "Amarna art depicts the royal family with <strong>elongated skulls, thin limbs, and swollen bellies</strong>. Scholars debate whether this reflects a real genetic condition or was an artistic convention ordered by Akhenaten." },
+      { question: "What was the Amarna period?", answer: "The <strong>Amarna period</strong> (c. 1353-1336 BC) was Akhenaten's radical reign when he moved Egypt's capital, imposed worship of a single sun god (Aten), and revolutionized art with more naturalistic, expressive forms." }
+    ]
+  },
+  'isis-nursing-horus': {
+    description: `<p>This bronze statuette from around 600 BC shows the goddess <strong>Isis seated on a throne, nursing her infant son Horus</strong>. She wears the horned sun disk crown and holds the child on her lap. The iconography of a divine mother nursing her son became one of the most enduring images in Egyptian religion, produced in countless variations across a thousand years.</p><p>Isis was Egypt's most popular goddess by the Late Period. Her mythology centered on devotion: she reassembled the body of her murdered husband Osiris, conceived Horus magically, and protected the child from his uncle Set's attacks. The nursing image emphasizes her role as protector and life-giver.</p><p>Bronze Isis-and-Horus figures were produced as <strong>votive offerings</strong> placed in temples by worshippers seeking the goddess's protection. The image's influence extended far beyond Egypt: scholars have noted its visual similarity to early Christian depictions of the <strong>Madonna and Child</strong>, suggesting a direct artistic lineage.</p>`,
+    faqs: [
+      { question: "What does this statue represent?", answer: "It shows <strong>Isis nursing Horus</strong>, one of ancient Egypt's most important religious images. The goddess protects and nourishes her divine child, symbolizing maternal devotion and the renewal of kingship." },
+      { question: "How does this connect to Christian art?", answer: "The image of Isis nursing Horus likely <strong>influenced early Christian depictions</strong> of the Madonna and Child. The seated mother-with-infant pose traveled from Egyptian temples into Coptic and then Western Christian art." },
+      { question: "Who was Horus?", answer: "<strong>Horus</strong> was the falcon-headed god of kingship, son of Isis and Osiris. Every living pharaoh was considered an incarnation of Horus, making this nursing image a statement about divine royal power." }
+    ]
+  },
+  'amenhotep-son-of-hapu': {
+    description: `<p>This dark granite statue shows <strong>Amenhotep Son of Hapu</strong> seated cross-legged as a scribe, a papyrus scroll unrolled across his lap. Dating to around 1350 BC, it portrays one of ancient Egypt's most revered officials during the reign of Amenhotep III. The <strong>serene, youthful face</strong> contrasts with the rolls of fat on his torso, a sign of prosperity and high status.</p><p>Amenhotep Son of Hapu served as royal architect, overseeing construction projects including the Colossi of Memnon. He was one of the very few non-royals permitted to place statues of himself in the great temple at Karnak. A thousand years after his death, Egyptians deified him as a god of healing, building chapels in his honor.</p><p>The statue is at the <a href="/apps/masterpieces/museum/grand-egyptian-museum"><strong>Grand Egyptian Museum</strong></a>. The cross-legged scribe pose was one of the highest honors in Egyptian art, signifying literacy, wisdom, and direct access to the gods through sacred writing.</p>`,
+    faqs: [
+      { question: "Where can I see this statue?", answer: "It's at the <a href=\"/apps/masterpieces/museum/grand-egyptian-museum\"><strong>Grand Egyptian Museum</strong></a> near the Giza pyramids in Cairo, Egypt." },
+      { question: "Who was Amenhotep Son of Hapu?", answer: "He was the <strong>chief architect and advisor</strong> to Pharaoh Amenhotep III, responsible for major construction projects. He was later deified as a healing god, one of very few commoners to receive divine status." },
+      { question: "What does the scribe pose signify?", answer: "The <strong>cross-legged scribe pose</strong> indicated literacy, wisdom, and elite status. In a society where less than 1% could read, being depicted as a scribe was one of the highest honors a non-royal Egyptian could receive." }
+    ]
+  },
+  'golden-statuette-tutankhamun': {
+    description: `<p>This small <strong>solid gold statuette of Tutankhamun</strong> (c. 1323 BC) shows the young pharaoh standing in a traditional striding pose, wearing the White Crown of Upper Egypt. At just over 5 inches tall, the figure is exquisitely detailed: the facial features, royal regalia, and kilt are rendered with precision despite the miniature scale.</p><p>The statuette was found among thousands of objects packed into Tutankhamun's tomb in the Valley of the Kings. Howard Carter discovered the tomb in 1922, largely intact after over 3,000 years. The sheer quantity and quality of gold objects stunned the world and sparked global fascination with ancient Egypt.</p><p>It's displayed at the <a href="/apps/masterpieces/museum/grand-egyptian-museum"><strong>Grand Egyptian Museum</strong></a>. Tutankhamun's <strong>gold treasures</strong> represent the finest surviving examples of New Kingdom goldsmithing, though his was a minor king's burial. The riches of greater pharaohs like Ramesses II, long since looted, can only be imagined.</p>`,
+    faqs: [
+      { question: "Where can I see this statuette?", answer: "It's at the <a href=\"/apps/masterpieces/museum/grand-egyptian-museum\"><strong>Grand Egyptian Museum</strong></a> near the Giza pyramids, displayed among the complete Tutankhamun collection." },
+      { question: "How big is the statuette?", answer: "The figure is about <strong>5.4 inches (13.8 cm) tall</strong> and made of solid gold. Despite its small size, every detail of the pharaoh's crown, face, and regalia is carefully rendered." },
+      { question: "When was Tutankhamun's tomb discovered?", answer: "<strong>Howard Carter</strong> discovered the tomb (KV62) in the Valley of the Kings on November 4, 1922. It was the most intact royal tomb ever found, containing over 5,000 objects." }
+    ]
+  },
+  'canopic-jars-tutankhamun': {
+    description: `<p>The <strong>canopic jars of Tutankhamun</strong> (c. 1323 BC) held the young pharaoh's mummified internal organs: stomach, intestines, lungs, and liver. Each miniature golden coffin nestles inside a compartment of the calcite canopic chest, protected by one of the four sons of Horus. The stoppers are carved in Tutankhamun's likeness, inlaid with <strong>obsidian, glass, and blue pigment</strong>.</p><p>The canopic shrine is one of the most elaborate ever found. An outer gilded wooden shrine houses an alabaster chest, which in turn holds the four compartments. Carter's team found the organ bundles wrapped in linen and placed in miniature gold coffins identical in style to the full-size coffins that held the king's body.</p><p>The jars are displayed at the <a href="/apps/masterpieces/museum/grand-egyptian-museum"><strong>Grand Egyptian Museum</strong></a>. The Four Sons of Horus (Imsety, Hapy, Duamutef, and Qebehsenuef) each protected one organ, ensuring <strong>the pharaoh's body would be complete in the afterlife</strong>.</p>`,
+    faqs: [
+      { question: "Where can I see the canopic jars?", answer: "They're at the <a href=\"/apps/masterpieces/museum/grand-egyptian-museum\"><strong>Grand Egyptian Museum</strong></a> near the Giza pyramids, as part of the full Tutankhamun collection." },
+      { question: "What organs did the jars hold?", answer: "The four jars held Tutankhamun's <strong>stomach, intestines, lungs, and liver</strong>. The brain was discarded during mummification, and the heart was left in the body for the afterlife judgment." },
+      { question: "Who are the Four Sons of Horus?", answer: "The <strong>Four Sons of Horus</strong> are protective deities: Imsety (liver), Hapy (lungs), Duamutef (stomach), and Qebehsenuef (intestines). Each jar stopper was carved to represent one of these guardian gods." }
+    ]
+  },
+  'senenmut-and-neferure': {
+    description: `<p>This block statue from around 1470 BC shows <strong>Senenmut</strong>, one of ancient Egypt's most powerful officials, cradling the young Princess Neferure on his lap. Their bodies merge into a compact cubic form, with only Senenmut's face, arms, and the child's head emerging. The <strong>simplified geometry</strong> is both intimate and monumental.</p><p>Senenmut served Queen Hatshepsut as royal steward, architect, and tutor to her daughter Neferure. He designed Hatshepsut's mortuary temple at Deir el-Bahri, one of ancient Egypt's most innovative buildings. His relationship with the queen has fueled centuries of speculation: he held more titles and privileges than any other commoner in her court.</p><p>Block statues like this originated in the Middle Kingdom and remained popular for over a thousand years. They were placed in temples as eternal prayers to the gods. The intimacy of holding a royal child was an extraordinary privilege, suggesting Senenmut's uniquely close bond with the ruling family.</p>`,
+    faqs: [
+      { question: "Who was Senenmut?", answer: "<strong>Senenmut</strong> was the chief steward and architect of Queen Hatshepsut. He designed her famous mortuary temple at Deir el-Bahri and served as tutor to Princess Neferure. His exact relationship with the queen remains debated." },
+      { question: "What is a block statue?", answer: "A <strong>block statue</strong> shows a figure seated with knees drawn up, creating a cubic form. The smooth surfaces were ideal for inscriptions. They were placed in temples as permanent prayers on behalf of the person depicted." },
+      { question: "Who was Hatshepsut?", answer: "<strong>Hatshepsut</strong> was one of ancient Egypt's few female pharaohs, ruling for about 20 years (c. 1479-1458 BC). She launched major building projects and trade expeditions, and her reign was one of Egypt's most prosperous." }
+    ]
+  },
+  'fayum-mummy-portrait': {
+    description: `<p><strong>Fayum mummy portraits</strong> are panel paintings attached to Egyptian mummies during the Roman period (1st-3rd centuries AD). Painted in <strong>encaustic (hot wax pigment) or tempera on wood</strong>, they show individuals with startlingly lifelike faces: large dark eyes, individual hairstyles, jewelry, and clothing fashionable in the Roman Empire.</p><p>These portraits were produced in the Fayum oasis region of Egypt, where Greek, Roman, and Egyptian cultures blended. The subjects were likely middle-class Romans living in Egypt. They commissioned the portraits during their lifetimes, then had them placed over the mummy's face at death. It's an extraordinary fusion of Roman portraiture and Egyptian burial customs.</p><p>About 900 Fayum portraits survive, scattered across museums worldwide including the <a href="/apps/masterpieces/museum/british-museum"><strong>British Museum</strong></a>, the Met, and the Petrie Museum. They're the <strong>earliest surviving examples of Western portrait painting</strong> and offer an uncanny window into faces from nearly two thousand years ago.</p>`,
+    faqs: [
+      { question: "Where can I see Fayum portraits?", answer: "Major collections are at the <a href=\"/apps/masterpieces/museum/british-museum\"><strong>British Museum</strong></a>, the <a href=\"/apps/masterpieces/museum/the-metropolitan-museum-of-art\"><strong>Metropolitan Museum of Art</strong></a>, and the Petrie Museum in London. About 900 survive worldwide." },
+      { question: "What technique was used?", answer: "Most were painted in <strong>encaustic</strong> (pigment mixed with hot beeswax) on thin wooden panels. The wax medium preserved the colors remarkably well, which is why the faces still look vivid after nearly 2,000 years." },
+      { question: "Who are the people depicted?", answer: "The subjects were mostly <strong>middle-class Roman-Egyptians</strong> living in the Fayum oasis. Their hairstyles and jewelry match Roman fashions of the 1st-3rd centuries AD, helping scholars date individual portraits." }
+    ]
+  },
+  'tomb-of-sennefer': {
+    description: `<p>The <strong>Tomb of Sennefer</strong> (TT96) in the Theban necropolis near Luxor is nicknamed the "Tomb of the Vines" for the <strong>grape arbor painted across its ceiling</strong>. Built around 1400 BC for the Mayor of Thebes under Amenhotep II, the burial chamber's uneven rock surface creates a three-dimensional effect as the painted vines follow the natural contours of the stone.</p><p>The walls show Sennefer and his wife Meryt in scenes of daily life and religious ritual: receiving offerings, worshipping Osiris, and enjoying the afterlife's pleasures. The colors remain vivid after 3,400 years. Meryt appears repeatedly, unusually prominent for a non-royal woman, suggesting her importance to Sennefer or her own social standing.</p><p>The tomb is in the <strong>Tombs of the Nobles</strong> complex on Luxor's west bank, separate from the Valley of the Kings. Noble tombs often have better-preserved paintings than royal ones because they attracted less attention from ancient robbers. Sennefer's painted ceiling is one of the most photographed images in Egyptian archaeology.</p>`,
+    faqs: [
+      { question: "Where is the Tomb of Sennefer?", answer: "It's in the <strong>Tombs of the Nobles</strong> on the west bank at Luxor, Egypt (TT96). It's accessible to visitors with a separate ticket from the Valley of the Kings." },
+      { question: "Why is it called the Tomb of the Vines?", answer: "The burial chamber ceiling is painted with a <strong>grape arbor</strong> that follows the uneven rock surface, creating a remarkably three-dimensional effect. Grapes symbolized rebirth and the pleasures of the afterlife." },
+      { question: "Who was Sennefer?", answer: "<strong>Sennefer</strong> was Mayor of Thebes (modern Luxor) during the reign of Amenhotep II, around 1400 BC. His prominent role overseeing the city earned him one of the finest decorated noble tombs." }
+    ]
+  }
+};
+
+async function seed() {
+  for (const [slug, data] of Object.entries(enrichments)) {
+    try {
+      await prisma.artwork.update({
+        where: { slug },
+        data: { description: data.description, faqs: data.faqs, updatedAt: new Date() }
+      });
+      console.log(`✓ ${slug}: description + ${data.faqs.length} FAQs`);
+    } catch (err) { console.error(`✗ Failed: ${slug} - ${err.message}`); }
+  }
+  await prisma.$disconnect();
+}
+seed();
