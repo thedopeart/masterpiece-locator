@@ -136,7 +136,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     artwork.medium,
     ...(artwork.artist?.Movement?.map((m: { name: string }) => m.name) || []),
     latestSale ? "auction record" : null,
-    latestSale ? "most expensive painting" : null,
+    latestSale ? `most expensive ${rawArtwork.artworkType || "painting"}` : null,
     latestSale ? `${artistName} auction` : null,
   ].filter(Boolean).join(", ");
 
@@ -342,7 +342,7 @@ export default async function ArtworkPage({ params }: Props) {
     description: artwork.description ? artwork.description.replace(/<[^>]*>/g, '').substring(0, 500) : undefined,
     dateCreated: artwork.year?.toString(),
     artMedium: artwork.medium || undefined,
-    artform: "Painting",
+    artform: artwork.artworkType === "sculpture" ? "Sculpture" : artwork.artworkType === "drawing" ? "Drawing" : artwork.artworkType === "print" ? "Print" : "Painting",
     ...(artwork.dimensions && {
       width: { "@type": "Distance", name: artwork.dimensions.split("x")[0]?.trim() },
       height: { "@type": "Distance", name: artwork.dimensions.split("x")[1]?.trim() },
@@ -419,7 +419,7 @@ export default async function ArtworkPage({ params }: Props) {
       artwork.medium,
       ...(artwork.artist?.movements?.map(m => m.name) || []),
       latestSale ? "auction record" : null,
-      latestSale ? "most expensive painting" : null,
+      latestSale ? `most expensive ${artwork.artworkType || "painting"}` : null,
     ].filter(Boolean).join(", "),
     sameAs: artwork.wikipediaUrl ? [artwork.wikipediaUrl] : undefined,
   };
@@ -428,8 +428,10 @@ export default async function ArtworkPage({ params }: Props) {
   const altText = `${artwork.title} by ${artistName}${artwork.year ? ` (${artwork.year})` : ""}${artwork.medium ? `, ${artwork.medium}` : ""}${artwork.museum ? ` at ${artwork.museum.name}` : ""}`;
 
   // Build breadcrumb items for schema
+  const isSculpture = artwork.artworkType === "sculpture";
   const breadcrumbItems = [
     { name: "Home", href: "/" },
+    ...(isSculpture ? [{ name: "Sculptures", href: "/sculptures" }] : []),
     ...(artwork.artist ? [{ name: artwork.artist.name, href: `/artist/${artwork.artist.slug}` }] : []),
     { name: artwork.title },
   ];
@@ -450,6 +452,14 @@ export default async function ArtworkPage({ params }: Props) {
             Home
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
+          {isSculpture && (
+            <>
+              <Link href="/sculptures" className="hover:text-neutral-900">
+                Sculptures
+              </Link>
+              <span className="mx-2 text-neutral-400">/</span>
+            </>
+          )}
           {artwork.artist && (
             <>
               <Link

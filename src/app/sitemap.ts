@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
 import { ERAS } from "@/lib/eras";
 import { getAllTrailSlugs } from "@/lib/artist-trails";
+import { getAllCategorySlugs } from "@/lib/sculpture-categories";
 
 // Canonical URL for SEO (Shopify proxy URL, not Vercel)
 const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
@@ -83,6 +84,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/sculptures`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   // Era pages (static from eras.ts)
@@ -142,6 +149,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  // Sculpture category pages
+  const sculptureCategorySlugs = getAllCategorySlugs();
+  const sculptureCategoryPages: MetadataRoute.Sitemap = sculptureCategorySlugs.map((slug) => ({
+    url: `${BASE_URL}/sculptures/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...eraPages,
@@ -151,5 +167,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...movementPages,
     ...cityPages,
     ...trailPages,
+    ...sculptureCategoryPages,
   ];
 }
