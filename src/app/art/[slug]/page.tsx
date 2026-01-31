@@ -136,7 +136,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     artwork.medium,
     ...(artwork.artist?.Movement?.map((m: { name: string }) => m.name) || []),
     latestSale ? "auction record" : null,
-    latestSale ? "most expensive painting" : null,
+    latestSale ? `most expensive ${rawArtwork.artworkType || "painting"}` : null,
     latestSale ? `${artistName} auction` : null,
   ].filter(Boolean).join(", ");
 
@@ -342,7 +342,7 @@ export default async function ArtworkPage({ params }: Props) {
     description: artwork.description ? artwork.description.replace(/<[^>]*>/g, '').substring(0, 500) : undefined,
     dateCreated: artwork.year?.toString(),
     artMedium: artwork.medium || undefined,
-    artform: "Painting",
+    artform: artwork.artworkType === "sculpture" ? "Sculpture" : artwork.artworkType === "drawing" ? "Drawing" : artwork.artworkType === "print" ? "Print" : "Painting",
     ...(artwork.dimensions && {
       width: { "@type": "Distance", name: artwork.dimensions.split("x")[0]?.trim() },
       height: { "@type": "Distance", name: artwork.dimensions.split("x")[1]?.trim() },
@@ -419,7 +419,7 @@ export default async function ArtworkPage({ params }: Props) {
       artwork.medium,
       ...(artwork.artist?.movements?.map(m => m.name) || []),
       latestSale ? "auction record" : null,
-      latestSale ? "most expensive painting" : null,
+      latestSale ? `most expensive ${artwork.artworkType || "painting"}` : null,
     ].filter(Boolean).join(", "),
     sameAs: artwork.wikipediaUrl ? [artwork.wikipediaUrl] : undefined,
   };
@@ -428,8 +428,10 @@ export default async function ArtworkPage({ params }: Props) {
   const altText = `${artwork.title} by ${artistName}${artwork.year ? ` (${artwork.year})` : ""}${artwork.medium ? `, ${artwork.medium}` : ""}${artwork.museum ? ` at ${artwork.museum.name}` : ""}`;
 
   // Build breadcrumb items for schema
+  const isSculpture = artwork.artworkType === "sculpture";
   const breadcrumbItems = [
     { name: "Home", href: "/" },
+    ...(isSculpture ? [{ name: "Sculptures", href: "/sculptures" }] : []),
     ...(artwork.artist ? [{ name: artwork.artist.name, href: `/artist/${artwork.artist.slug}` }] : []),
     { name: artwork.title },
   ];
@@ -450,6 +452,14 @@ export default async function ArtworkPage({ params }: Props) {
             Home
           </Link>
           <span className="mx-2 text-neutral-400">/</span>
+          {isSculpture && (
+            <>
+              <Link href="/sculptures" className="hover:text-neutral-900">
+                Sculptures
+              </Link>
+              <span className="mx-2 text-neutral-400">/</span>
+            </>
+          )}
           {artwork.artist && (
             <>
               <Link
@@ -493,12 +503,25 @@ export default async function ArtworkPage({ params }: Props) {
                 <div className="text-7xl font-light text-neutral-300 mb-4">
                   {artwork.title.charAt(0)}
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
-                  <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
-                </div>
-                <p className="text-neutral-500 text-sm max-w-md mx-auto">
-                  This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
-                </p>
+                {artwork.year && artwork.year < 1900 ? (
+                  <>
+                    <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
+                      <span className="text-neutral-600 font-medium">No Image Available</span>
+                    </div>
+                    <p className="text-neutral-500 text-sm max-w-md mx-auto">
+                      We don&apos;t have a photograph of this work yet.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
+                      <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
+                    </div>
+                    <p className="text-neutral-500 text-sm max-w-md mx-auto">
+                      This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
+                    </p>
+                  </>
+                )}
                 {artwork.museum && (
                   <p className="text-neutral-600 text-sm mt-4 font-medium">
                     See the original at {artwork.museum.name} in {artwork.museum.city}

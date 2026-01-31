@@ -44,10 +44,10 @@ Similar approach: combine factual info with collection stats, use bold keywords 
 
 ## Internal Linking Strategy
 
-Always link to:
-- Artist names → `/artist/[slug]`
-- Museum names → `/museum/[slug]`
-- Movement names → `/movement/[slug]`
-- City names → `/city/[slug]`
+Always use the full `/apps/masterpieces/` prefix for links:
+- Artist names → `/apps/masterpieces/artist/[slug]`
+- Museum names → `/apps/masterpieces/museum/[slug]`
+- Movement names → `/apps/masterpieces/movement/[slug]`
+- Artwork names → `/apps/masterpieces/art/[slug]`
 
-Use gold color (#C9A84C) for internal links to maintain brand consistency.
+**Important:** Do NOT use short paths like `/artist/[slug]`. Always include the full `/apps/masterpieces/` prefix. Old-format links cause artworks to fail checklist validation.

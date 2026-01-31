@@ -524,7 +524,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
             <section id="artworks" className="scroll-mt-20">
               <div className="flex items-center justify-between mb-2">
                 <h2 className="text-xl font-semibold text-neutral-900">
-                  Famous Paintings at {museum.name}
+                  Famous Works at {museum.name}
                 </h2>
                 {totalPages > 1 && (
                   <span className="text-sm text-neutral-500">
@@ -534,7 +534,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
               </div>
               <p className="text-neutral-500 mb-6">
                 {totalArtworks > 0
-                  ? `Browse ${totalArtworks} notable ${totalArtworks === 1 ? "artwork" : "artworks"} in our database. Click any painting to see details and plan your visit.`
+                  ? `Browse ${totalArtworks} notable ${totalArtworks === 1 ? "artwork" : "artworks"} in our database. Click any work to see details and plan your visit.`
                   : "No artworks catalogued for this museum yet."}
               </p>
 

@@ -15,6 +15,7 @@ interface ArtistFiltersProps {
   currentMovement: Movement | null;
   movementFilter: string | undefined;
   searchQuery: string;
+  typeFilter: string | undefined;
 }
 
 export default function ArtistFilters({
@@ -22,25 +23,78 @@ export default function ArtistFilters({
   currentMovement,
   movementFilter,
   searchQuery,
+  typeFilter,
 }: ArtistFiltersProps) {
   const router = useRouter();
 
-  const handleMovementChange = (value: string) => {
+  const buildUrl = (overrides: Record<string, string | undefined>) => {
     const params = new URLSearchParams();
-    if (value) params.set("movement", value);
-    if (searchQuery) params.set("q", searchQuery);
-    router.push(`/artists${params.toString() ? "?" + params.toString() : ""}`);
+    const vals = {
+      movement: movementFilter,
+      q: searchQuery || undefined,
+      type: typeFilter,
+      ...overrides,
+    };
+    for (const [k, v] of Object.entries(vals)) {
+      if (v) params.set(k, v);
+    }
+    return `/artists${params.toString() ? "?" + params.toString() : ""}`;
+  };
+
+  const handleMovementChange = (value: string) => {
+    router.push(buildUrl({ movement: value || undefined, page: undefined }));
+  };
+
+  const handleTypeChange = (value: string) => {
+    router.push(buildUrl({ type: value || undefined, page: undefined }));
   };
 
   return (
     <>
+      {/* Type Toggle */}
+      <div className="mt-8 flex gap-1 bg-white/10 rounded-lg p-1 w-fit">
+        <button
+          onClick={() => handleTypeChange("")}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            !typeFilter
+              ? "bg-white text-black"
+              : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          All Artists
+        </button>
+        <button
+          onClick={() => handleTypeChange("painters")}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            typeFilter === "painters"
+              ? "bg-white text-black"
+              : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          Painters
+        </button>
+        <button
+          onClick={() => handleTypeChange("sculptors")}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            typeFilter === "sculptors"
+              ? "bg-white text-black"
+              : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          Sculptors
+        </button>
+      </div>
+
       {/* Search and Filter Controls */}
-      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+      <div className="mt-4 flex flex-col sm:flex-row gap-4">
         {/* Search Input */}
         <div className="relative flex-1 max-w-md">
           <form action="/artists" method="get">
             {movementFilter && (
               <input type="hidden" name="movement" value={movementFilter} />
+            )}
+            {typeFilter && (
+              <input type="hidden" name="type" value={typeFilter} />
             )}
             <input
               type="text"
@@ -102,12 +156,12 @@ export default function ArtistFilters({
       </div>
 
       {/* Active Filters */}
-      {(searchQuery || movementFilter) && (
+      {(searchQuery || movementFilter || typeFilter) && (
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span className="text-sm text-neutral-400">Active filters:</span>
           {searchQuery && (
             <Link
-              href={`/artists${movementFilter ? `?movement=${movementFilter}` : ""}`}
+              href={buildUrl({ q: undefined })}
               className="inline-flex items-center gap-1 px-3 py-1 bg-[#C9A84C] text-black text-sm rounded-full hover:bg-[#b8973f] transition-colors"
             >
               Search: &quot;{searchQuery}&quot;
@@ -126,9 +180,30 @@ export default function ArtistFilters({
               </svg>
             </Link>
           )}
+          {typeFilter && (
+            <Link
+              href={buildUrl({ type: undefined })}
+              className="inline-flex items-center gap-1 px-3 py-1 bg-[#C9A84C] text-black text-sm rounded-full hover:bg-[#b8973f] transition-colors"
+            >
+              {typeFilter === "painters" ? "Painters" : "Sculptors"}
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </Link>
+          )}
           {currentMovement && (
             <Link
-              href={`/artists${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""}`}
+              href={buildUrl({ movement: undefined })}
               className="inline-flex items-center gap-1 px-3 py-1 bg-[#C9A84C] text-black text-sm rounded-full hover:bg-[#b8973f] transition-colors"
             >
               {currentMovement.name}

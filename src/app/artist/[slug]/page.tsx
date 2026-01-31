@@ -472,30 +472,74 @@ export default async function ArtistPage({ params }: Props) {
           </Link>
         )}
 
-        {/* Notable Works */}
-        <section className="mb-12">
-          <h2 className="text-xl font-semibold text-neutral-900 mb-2">
-            Notable Works by {artist.name}
-          </h2>
-          <p className="text-neutral-500 mb-6">
-            {artist.artworks.length > 0
-              ? `${artist.artworks.length} ${artist.artworks.length === 1 ? "painting" : "paintings"} catalogued with museum locations`
-              : "No artworks catalogued yet"}
-          </p>
-          {artist.artworks.length > 0 ? (
-            <div className="masonry-grid">
-              {artist.artworks.map((artwork, index) => (
-                <MasonryArtworkCard
-                  key={artwork.id}
-                  artwork={artwork}
-                  priority={index < 8}
-                />
-              ))}
-            </div>
-          ) : (
-            <p className="text-neutral-500">No artworks catalogued yet.</p>
-          )}
-        </section>
+        {/* Notable Works - split by type if artist has both paintings and sculptures */}
+        {(() => {
+          const paintings = artist.artworks.filter(a => a.artworkType !== "sculpture");
+          const sculptures = artist.artworks.filter(a => a.artworkType === "sculpture");
+          const hasBoth = paintings.length > 0 && sculptures.length > 0;
+
+          return (
+            <>
+              {hasBoth ? (
+                <>
+                  {/* Paintings section */}
+                  <section className="mb-12">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-2">
+                      Paintings by {artist.name}
+                    </h2>
+                    <p className="text-neutral-500 mb-6">
+                      {paintings.length} {paintings.length === 1 ? "painting" : "paintings"} catalogued with museum locations
+                    </p>
+                    <div className="masonry-grid">
+                      {paintings.map((artwork, index) => (
+                        <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
+                      ))}
+                    </div>
+                  </section>
+
+                  {/* Sculptures section */}
+                  <section className="mb-12">
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-2">
+                      Sculptures by {artist.name}
+                    </h2>
+                    <p className="text-neutral-500 mb-6">
+                      {sculptures.length} {sculptures.length === 1 ? "sculpture" : "sculptures"} catalogued with museum locations.{" "}
+                      <Link href="/sculptures" className="text-[#C9A84C] hover:underline">Browse all sculptures</Link>
+                    </p>
+                    <div className="masonry-grid">
+                      {sculptures.map((artwork, index) => (
+                        <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 4} />
+                      ))}
+                    </div>
+                  </section>
+                </>
+              ) : (
+                <section className="mb-12">
+                  <h2 className="text-xl font-semibold text-neutral-900 mb-2">
+                    {sculptures.length > 0 ? "Sculptures" : "Notable Works"} by {artist.name}
+                  </h2>
+                  <p className="text-neutral-500 mb-6">
+                    {artist.artworks.length > 0
+                      ? `${artist.artworks.length} ${sculptures.length > 0 ? (artist.artworks.length === 1 ? "sculpture" : "sculptures") : (artist.artworks.length === 1 ? "painting" : "paintings")} catalogued with museum locations`
+                      : "No artworks catalogued yet"}
+                    {sculptures.length > 0 && (
+                      <>. <Link href="/sculptures" className="text-[#C9A84C] hover:underline">Browse all sculptures</Link></>
+                    )}
+                  </p>
+                  {artist.artworks.length > 0 ? (
+                    <div className="masonry-grid">
+                      {artist.artworks.map((artwork, index) => (
+                        <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-neutral-500">No artworks catalogued yet.</p>
+                  )}
+                </section>
+              )}
+            </>
+          );
+        })()}
 
         {/* Where to See Their Work */}
         {museums.length > 0 && (
@@ -504,7 +548,7 @@ export default async function ArtistPage({ params }: Props) {
               Museums with {artist.name}&apos;s Work
             </h2>
             <p className="text-neutral-500 mb-6">
-              {museums.length} {museums.length === 1 ? "museum displays" : "museums display"} {artist.name.split(" ").pop()}&apos;s paintings. Click any museum to see visiting info and the specific works they hold.
+              {museums.length} {museums.length === 1 ? "museum displays" : "museums display"} {artist.name.split(" ").pop()}&apos;s works. Click any museum to see visiting info and the specific works they hold.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {museums.map((museum) => (
