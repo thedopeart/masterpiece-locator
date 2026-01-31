@@ -503,12 +503,25 @@ export default async function ArtworkPage({ params }: Props) {
                 <div className="text-7xl font-light text-neutral-300 mb-4">
                   {artwork.title.charAt(0)}
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
-                  <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
-                </div>
-                <p className="text-neutral-500 text-sm max-w-md mx-auto">
-                  This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
-                </p>
+                {artwork.year && artwork.year < 1900 ? (
+                  <>
+                    <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
+                      <span className="text-neutral-600 font-medium">No Image Available</span>
+                    </div>
+                    <p className="text-neutral-500 text-sm max-w-md mx-auto">
+                      We don&apos;t have a photograph of this work yet.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="inline-flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full mb-3">
+                      <span className="text-neutral-600 font-medium">© Copyrighted Artwork</span>
+                    </div>
+                    <p className="text-neutral-500 text-sm max-w-md mx-auto">
+                      This artwork is protected by copyright. We cannot display images of works by artists who passed away after 1954.
+                    </p>
+                  </>
+                )}
                 {artwork.museum && (
                   <p className="text-neutral-600 text-sm mt-4 font-medium">
                     See the original at {artwork.museum.name} in {artwork.museum.city}

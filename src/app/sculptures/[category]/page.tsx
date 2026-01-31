@@ -36,24 +36,48 @@ export default async function SculptureCategoryPage({ params, searchParams }: Pr
 
   const whereClause = buildCategoryWhereClause(category);
 
-  const [totalCount, rawArtworks] = await Promise.all([
-    prisma.artwork.count({ where: whereClause }),
-    prisma.artwork.findMany({
-      where: whereClause,
-      include: {
-        Artist: { select: { name: true } },
-        Museum: { select: { name: true, city: true } },
-      },
-      orderBy: [
-        { searchVolumeTier: "asc" },
-        { imageUrl: { sort: "desc", nulls: "last" } },
-      ],
-      skip: (currentPage - 1) * ARTWORKS_PER_PAGE,
-      take: ARTWORKS_PER_PAGE,
-    }),
-  ]);
-
+  const totalCount = await prisma.artwork.count({ where: whereClause });
   const totalPages = Math.ceil(totalCount / ARTWORKS_PER_PAGE);
+
+  // Use two queries: images first (by tier), then no-images (by tier)
+  // This avoids Prisma's lack of CASE WHEN in orderBy
+  const withImageWhere = { ...whereClause, imageUrl: { not: null } };
+  const noImageWhere = { ...whereClause, imageUrl: null };
+  const withImageCount = await prisma.artwork.count({ where: withImageWhere });
+
+  const skip = (currentPage - 1) * ARTWORKS_PER_PAGE;
+  const includeOpts = { Artist: { select: { name: true } }, Museum: { select: { name: true, city: true } } } as const;
+  const orderOpts = [{ searchVolumeTier: "asc" as const }];
+
+  let rawArtworks;
+  if (skip + ARTWORKS_PER_PAGE <= withImageCount) {
+    // Entire page is within images section
+    rawArtworks = await prisma.artwork.findMany({
+      where: withImageWhere, include: includeOpts, orderBy: orderOpts,
+      skip, take: ARTWORKS_PER_PAGE,
+    });
+  } else if (skip >= withImageCount) {
+    // Entire page is within no-images section
+    rawArtworks = await prisma.artwork.findMany({
+      where: noImageWhere, include: includeOpts, orderBy: orderOpts,
+      skip: skip - withImageCount, take: ARTWORKS_PER_PAGE,
+    });
+  } else {
+    // Page straddles both sections
+    const imgTake = withImageCount - skip;
+    const noImgTake = ARTWORKS_PER_PAGE - imgTake;
+    const [withImg, noImg] = await Promise.all([
+      prisma.artwork.findMany({
+        where: withImageWhere, include: includeOpts, orderBy: orderOpts,
+        skip, take: imgTake,
+      }),
+      prisma.artwork.findMany({
+        where: noImageWhere, include: includeOpts, orderBy: orderOpts,
+        take: noImgTake,
+      }),
+    ]);
+    rawArtworks = [...withImg, ...noImg];
+  }
 
   const artworks = rawArtworks.map((a) => ({
     ...a,

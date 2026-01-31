@@ -88,25 +88,37 @@ images: {
 
 ## Expansion Roadmap
 
-### Phase 1: Fix Data Quality (Current)
+### Phase 1: Fix Data Quality (Mostly Complete)
 - [x] Fix broken portrait URLs
 - [x] Add "No Portrait Available" fallback with tag
 - [x] Fix incorrect artwork images
+- [x] Fix old-format internal links across sculpture descriptions
 - [ ] Audit all artwork imageUrls for broken links
 - [ ] Replace low-quality images with museum API sources
 
-### Phase 2: Expand Catalog
+### Phase 2: Content Enrichment (In Progress)
+- [x] Artist bios and FAQs: 314/799 complete (39%)
+- [x] Artwork descriptions and FAQs: 5,112/6,494 complete (78.7%)
+- [x] Museum descriptions and FAQs: 110/467 complete (23.5%)
+- [x] Sculpture artist enrichment: 20 major sculpture artists done
+- [x] Sculpture landing page FAQs improved
+- [ ] Remaining 485 artists need bios/FAQs
+- [ ] Remaining 1,382 artworks need descriptions (mostly T3, ~1,330 are sculptures with no assigned artist)
+- [ ] Remaining 357 museums need FAQs
+
+### Phase 3: Expand Catalog
+- [x] 2,546 sculptures added to database
+- [x] Sculpture browsing hub with 13 categories (by material and origin)
 - [ ] Script to find missing artworks from WikiArt (public domain only)
 - [ ] Import museum collection data via APIs
-- [ ] Add search volume / popularity ranking
 
-### Phase 3: Differentiation Features
+### Phase 4: Differentiation Features
+- [x] Opening hours and practical info for 20 top museums
 - [ ] "Museums near me" geolocation
 - [ ] "See these 5 masterpieces in one visit" trip planning
-- [ ] Opening hours and ticket prices
 - [ ] User reviews / tips for visiting
 
-### Phase 4: SEO & Traffic
+### Phase 5: SEO & Traffic
 - [ ] City landing pages ("Art museums in Paris")
 - [ ] Artist movement pages
 - [ ] "Best paintings at [Museum]" guides

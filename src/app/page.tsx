@@ -72,10 +72,11 @@ export default async function Home() {
     prisma.museum.count(),
   ]);
 
-  // Fetch featured artworks (Tier 1 - most searched, with images only)
+  // Fetch featured artworks (Tier 1 paintings - most searched, with images only)
   const rawFeaturedArtworks = await prisma.artwork.findMany({
     where: {
       searchVolumeTier: 1,
+      artworkType: "painting",
       imageUrl: { not: null }, // Only show artworks with images on homepage
     },
     include: {
@@ -282,7 +283,7 @@ export default async function Home() {
             Find which museum has the artwork you want to see in person.
           </p>
           <p className="text-neutral-400 text-sm mb-8 max-w-2xl mx-auto">
-            Search <span className="font-semibold text-[#C9A84C]">{artworkCount.toLocaleString()}+ paintings</span> across <span className="font-semibold text-[#C9A84C]">{museumCount}+ museums</span> worldwide
+            Search <span className="font-semibold text-[#C9A84C]">{artworkCount.toLocaleString()}+ artworks</span> across <span className="font-semibold text-[#C9A84C]">{museumCount}+ museums</span> worldwide
           </p>
 
           <div className="flex justify-center mb-8">

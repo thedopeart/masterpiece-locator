@@ -1,18 +1,18 @@
 # Masterpiece Locator - Image Issues
 
-Updated: 2026-01-18
+Updated: 2026-01-30
 
 ---
 
 ## Summary
 
-| Category | Count | Percentage |
-|----------|-------|------------|
-| **Total Artworks** | 453 | 100% |
-| Working Images | 453 | 100% |
-| Broken URLs | 0 | 0% |
+**Note:** Image audit data below is from Jan 2026 when there were 453 artworks. The database has since grown to 6,494 artworks (including 2,546 sculptures). A new audit of all image URLs is needed.
 
-**All images are now working.**
+| Category | Count | Notes |
+|----------|-------|-------|
+| **Total Artworks** | 6,494 | 3,948 paintings + 2,546 sculptures |
+| Audited (Jan 18) | 453 | All working at time of audit |
+| Unaudited | ~6,041 | Needs image URL verification |
 
 ---
 

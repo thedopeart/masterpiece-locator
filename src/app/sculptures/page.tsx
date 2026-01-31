@@ -11,23 +11,31 @@ import { decodeHtmlEntities } from "@/lib/text";
 const sculptureFAQs = [
   {
     question: "What materials are most sculptures made from?",
-    answer: "<strong>Bronze</strong>, <strong>marble</strong>, and <strong>stone</strong> are the most common materials. Bronze allows fine detail and survives outdoors. Marble has a translucent quality that mimics skin. Stone varies widely, from soft limestone to hard granite.",
+    answer: "<strong>Bronze</strong>, <strong>marble</strong>, and <strong>stone</strong> are the most common. Bronze was preferred for freestanding figures because it's strong, holds fine detail, and survives outdoors. Marble has a translucent quality that mimics human skin, which is why sculptors like <a href=\"/apps/masterpieces/artist/antonio-canova\"><strong>Canova</strong></a> and <a href=\"/apps/masterpieces/artist/michelangelo\"><strong>Michelangelo</strong></a> favored it. Wood, terracotta, ivory, and porcelain round out the list.",
   },
   {
     question: "What is the most famous sculpture in the world?",
-    answer: "Michelangelo's <a href=\"/apps/masterpieces/art/michelangelo-david\"><strong>David</strong></a> (1504) at the <a href=\"/apps/masterpieces/museum/galleria-dellaccademia\"><strong>Galleria dell'Accademia</strong></a> in Florence is widely considered the most recognized sculpture. The Venus de Milo and Rodin's The Thinker are close behind.",
+    answer: "<a href=\"/apps/masterpieces/artist/michelangelo\"><strong>Michelangelo's</strong></a> <em>David</em> (1504) in Florence is widely considered the most recognized. <a href=\"/apps/masterpieces/artist/auguste-rodin\"><strong>Rodin's</strong></a> <em>The Thinker</em>, the <em>Venus de Milo</em> at the <a href=\"/apps/masterpieces/museum/louvre-paris-france\"><strong>Louvre</strong></a>, and <a href=\"/apps/masterpieces/artist/gian-lorenzo-bernini\"><strong>Bernini's</strong></a> <em>Apollo and Daphne</em> at the <a href=\"/apps/masterpieces/museum/borghese-gallery-rome-italy\"><strong>Borghese Gallery</strong></a> are close behind.",
   },
   {
     question: "Where can I see famous sculptures?",
-    answer: "The <a href=\"/apps/masterpieces/museum/the-cleveland-museum-of-art\"><strong>Cleveland Museum of Art</strong></a>, <a href=\"/apps/masterpieces/museum/the-art-institute-of-chicago\"><strong>Art Institute of Chicago</strong></a>, <a href=\"/apps/masterpieces/museum/the-metropolitan-museum-of-art\"><strong>Metropolitan Museum</strong></a>, and <a href=\"/apps/masterpieces/museum/british-museum\"><strong>British Museum</strong></a> all have major sculpture collections.",
+    answer: "The <a href=\"/apps/masterpieces/museum/louvre-paris-france\"><strong>Louvre</strong></a> in Paris, the <a href=\"/apps/masterpieces/museum/met\"><strong>Metropolitan Museum of Art</strong></a> in New York, and the <a href=\"/apps/masterpieces/museum/british-museum\"><strong>British Museum</strong></a> in London all hold world-class sculpture collections spanning thousands of years. The <a href=\"/apps/masterpieces/museum/vatican-museums\"><strong>Vatican Museums</strong></a> and the <a href=\"/apps/masterpieces/museum/borghese-gallery-rome-italy\"><strong>Borghese Gallery</strong></a> in Rome are essential for Baroque and classical works.",
   },
   {
     question: "What's the difference between carving and casting?",
-    answer: "<strong>Carving</strong> removes material (marble, stone, wood) to reveal the form. <strong>Casting</strong> pours molten metal (usually bronze) into a mold. Carving is subtractive, casting is additive. Both techniques have been used for thousands of years.",
+    answer: "<strong>Carving</strong> removes material (marble, stone, wood) to reveal the form. It's subtractive. <strong>Casting</strong> pours molten metal into a mold, an additive process. <a href=\"/apps/masterpieces/artist/michelangelo\"><strong>Michelangelo</strong></a> believed figures already existed inside marble, waiting to be freed. <a href=\"/apps/masterpieces/artist/auguste-rodin\"><strong>Rodin</strong></a> worked in both methods but is best known for his bronzes.",
   },
   {
     question: "How old are the oldest known sculptures?",
-    answer: "The oldest known figurative sculpture is the <strong>Lion-man of Hohlenstein-Stadel</strong>, carved from mammoth ivory roughly 40,000 years ago. Ancient Egyptian sculptures date back over 5,000 years and remain remarkably intact.",
+    answer: "The <strong>Lion-man of Hohlenstein-Stadel</strong>, carved from mammoth ivory roughly 40,000 years ago, is the oldest known figurative sculpture. <a href=\"/apps/masterpieces/artist/ancient-egyptian\"><strong>Ancient Egyptian</strong></a> sculptures date back over 5,000 years. <a href=\"/apps/masterpieces/artist/ancient-greek\"><strong>Ancient Greek</strong></a> sculpture, which shaped all of Western art, began around 700 BC.",
+  },
+  {
+    question: "Who are the greatest sculptors of all time?",
+    answer: "<a href=\"/apps/masterpieces/artist/michelangelo\"><strong>Michelangelo</strong></a>, <a href=\"/apps/masterpieces/artist/gian-lorenzo-bernini\"><strong>Bernini</strong></a>, <a href=\"/apps/masterpieces/artist/auguste-rodin\"><strong>Rodin</strong></a>, and <a href=\"/apps/masterpieces/artist/donatello\"><strong>Donatello</strong></a> top most lists. <a href=\"/apps/masterpieces/artist/praxiteles\"><strong>Praxiteles</strong></a> was the most celebrated sculptor in ancient Greece. <a href=\"/apps/masterpieces/artist/antonio-canova\"><strong>Canova</strong></a> dominated the Neoclassical era. In modern art, <a href=\"/apps/masterpieces/artist/alexander-calder\"><strong>Calder</strong></a> invented the mobile and <a href=\"/apps/masterpieces/artist/louise-bourgeois\"><strong>Louise Bourgeois</strong></a> redefined what sculpture could be.",
+  },
+  {
+    question: "Why were so many ancient sculptures lost?",
+    answer: "Most ancient <strong>bronze sculptures were melted down</strong> for weapons, coins, or new castings. Marble statues were burned for lime or destroyed during religious conflicts. What survives is a fraction of what existed. Much of what we know about lost <a href=\"/apps/masterpieces/artist/ancient-greek\"><strong>Greek</strong></a> originals comes from <a href=\"/apps/masterpieces/artist/ancient-roman\"><strong>Roman</strong></a> marble copies.",
   },
 ];
 

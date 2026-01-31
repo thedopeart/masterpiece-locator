@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const ARTISTS_PER_PAGE = 50;
 
 interface Props {
-  searchParams: Promise<{ movement?: string; page?: string; q?: string }>;
+  searchParams: Promise<{ movement?: string; page?: string; q?: string; type?: string }>;
 }
 
 export default async function ArtistsPage({ searchParams }: Props) {
@@ -53,6 +53,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
   const movementFilter = resolvedParams?.movement;
   const pageParam = resolvedParams?.page;
   const searchQuery = resolvedParams?.q?.trim() || "";
+  const typeFilter = resolvedParams?.type; // "painters" or "sculptors"
   const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
 
   // Get all movements for the filter
@@ -69,7 +70,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
     _count: { artists: m._count.Artist },
   }));
 
-  // Build artist query with both movement and search filters
+  // Build artist query with movement, search, and type filters
   const whereClause: Record<string, unknown> = {};
 
   if (movementFilter && typeof movementFilter === 'string') {
@@ -78,6 +79,12 @@ export default async function ArtistsPage({ searchParams }: Props) {
 
   if (searchQuery) {
     whereClause.name = { contains: searchQuery, mode: 'insensitive' };
+  }
+
+  if (typeFilter === 'painters') {
+    whereClause.Artwork = { some: { artworkType: 'painting' } };
+  } else if (typeFilter === 'sculptors') {
+    whereClause.Artwork = { some: { artworkType: 'sculpture' } };
   }
 
   // Get total count for pagination
@@ -144,14 +151,26 @@ export default async function ArtistsPage({ searchParams }: Props) {
           </nav>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#fff' }}>
-            {currentMovement
-              ? `${currentMovement.name} Artists`
-              : "Famous Artists & Their Masterpieces"}
+            {typeFilter === 'sculptors'
+              ? currentMovement ? `${currentMovement.name} Sculptors` : "Famous Sculptors & Their Works"
+              : typeFilter === 'painters'
+                ? currentMovement ? `${currentMovement.name} Painters` : "Famous Painters & Their Masterpieces"
+                : currentMovement
+                  ? `${currentMovement.name} Artists`
+                  : "Famous Artists & Their Masterpieces"}
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: '#aaa' }}>
-            {currentMovement
-              ? `The painters and sculptors who defined ${currentMovement.name}. Click any artist to see their work and where it hangs today.`
-              : "Da Vinci, Monet, Picasso, and more. Find their paintings, see which museums have them, and plan your visit."}
+            {typeFilter === 'sculptors'
+              ? currentMovement
+                ? `Sculptors who defined ${currentMovement.name}. Click any artist to see their work and where to find it.`
+                : "Rodin, Bernini, Canova, and more. Find their sculptures, see which museums have them, and plan your visit."
+              : typeFilter === 'painters'
+                ? currentMovement
+                  ? `The painters who defined ${currentMovement.name}. Click any artist to see their work and where it hangs today.`
+                  : "Da Vinci, Monet, Picasso, and more. Find their paintings, see which museums have them, and plan your visit."
+                : currentMovement
+                  ? `The painters and sculptors who defined ${currentMovement.name}. Click any artist to see their work and where it hangs today.`
+                  : "Da Vinci, Monet, Picasso, and more. Find their paintings, see which museums have them, and plan your visit."}
           </p>
 
           <ArtistFilters
@@ -159,6 +178,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             currentMovement={currentMovement}
             movementFilter={movementFilter}
             searchQuery={searchQuery}
+            typeFilter={typeFilter}
           />
         </div>
       </div>
@@ -170,9 +190,13 @@ export default async function ArtistsPage({ searchParams }: Props) {
         <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
           {searchQuery
             ? `Results for "${searchQuery}"`
-            : currentMovement
-              ? `${currentMovement.name} Painters & Sculptors`
-              : "Browse All Artists"}
+            : typeFilter === 'sculptors'
+              ? currentMovement ? `${currentMovement.name} Sculptors` : "Browse Sculptors"
+              : typeFilter === 'painters'
+                ? currentMovement ? `${currentMovement.name} Painters` : "Browse Painters"
+                : currentMovement
+                  ? `${currentMovement.name} Painters & Sculptors`
+                  : "Browse All Artists"}
         </h2>
         <p className="text-neutral-600 mb-6">
           {totalArtists > 0 ? (
@@ -291,7 +315,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {/* Previous Button */}
             {currentPage > 1 ? (
               <Link
-                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage - 1}#artists`}
+                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${currentPage - 1}#artists`}
                 className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Previous
@@ -322,7 +346,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
                         <span className="px-2 text-neutral-400">...</span>
                       )}
                       <Link
-                        href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${page}#artists`}
+                        href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${page}#artists`}
                         className={`px-4 py-2 rounded-lg transition-colors ${
                           page === currentPage
                             ? "bg-black text-white"
@@ -339,7 +363,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {/* Next Button */}
             {currentPage < totalPages ? (
               <Link
-                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}page=${currentPage + 1}#artists`}
+                href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${currentPage + 1}#artists`}
                 className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Next

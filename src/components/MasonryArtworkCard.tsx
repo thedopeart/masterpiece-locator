@@ -110,12 +110,20 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
             <span className="text-4xl font-light text-neutral-400 mb-1">
               {artwork.title.charAt(0)}
             </span>
-            <span className="text-xs text-neutral-500 px-2 py-1 bg-white/80 rounded font-medium">
-              © Copyrighted
-            </span>
-            <span className="text-[10px] text-neutral-400 mt-1">
-              Image cannot be shown
-            </span>
+            {artwork.year && artwork.year < 1900 ? (
+              <span className="text-xs text-neutral-500 px-2 py-1 bg-white/80 rounded font-medium">
+                No Image Available
+              </span>
+            ) : (
+              <>
+                <span className="text-xs text-neutral-500 px-2 py-1 bg-white/80 rounded font-medium">
+                  © Copyrighted
+                </span>
+                <span className="text-[10px] text-neutral-400 mt-1">
+                  Image cannot be shown
+                </span>
+              </>
+            )}
           </div>
         )}
       </div>
