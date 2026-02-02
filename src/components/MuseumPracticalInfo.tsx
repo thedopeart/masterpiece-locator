@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MuseumPracticalData } from "@/types/museum-hours";
+import TicketButton from "@/components/TicketButton";
 import {
   formatHours,
   formatPrice,
@@ -22,6 +23,7 @@ interface Artist {
 interface MuseumPracticalInfoProps {
   data: MuseumPracticalData;
   artists?: Artist[];
+  slug: string;
 }
 
 // Chevron icon component for collapsible sections
@@ -40,7 +42,7 @@ function ChevronIcon({ isOpen }: { isOpen: boolean }) {
   );
 }
 
-export default function MuseumPracticalInfo({ data, artists = [] }: MuseumPracticalInfoProps) {
+export default function MuseumPracticalInfo({ data, artists = [], slug }: MuseumPracticalInfoProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentDay, setCurrentDay] = useState<string>("monday");
 
@@ -77,25 +79,13 @@ export default function MuseumPracticalInfo({ data, artists = [] }: MuseumPracti
     <div className="space-y-4">
       {/* Tickets Button */}
       <div className="lg:sticky lg:top-4 z-20">
-        <a
-          href={data.tickets.onlineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`block w-full text-center font-bold py-3.5 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] ${
-            isFreeAdmission
-              ? "bg-green-600 hover:bg-green-700 text-white"
-              : "bg-[#028161] hover:bg-[#026b51] text-white"
-          }`}
-        >
-          <span className="text-xl">{isFreeAdmission ? "Book Free Entry" : "Buy Tickets"}</span>
-          {isFreeAdmission ? (
-            <span className="block text-sm font-semibold mt-1 opacity-90">Free timed entry available online</span>
-          ) : (
-            data.tickets.skipTheLine && (
-              <span className="block text-sm font-semibold mt-1 opacity-90">Skip the line with online tickets</span>
-            )
-          )}
-        </a>
+        <TicketButton
+          museumSlug={slug}
+          directTicketUrl={data.tickets.onlineUrl}
+          variant="practical"
+          isFreeAdmission={isFreeAdmission}
+          skipTheLine={data.tickets.skipTheLine}
+        />
       </div>
 
       {/* Hours Section - Combined with Open/Closed Status */}

@@ -11,6 +11,7 @@ import { artworkMetaTitle, artworkMetaDescription } from "@/lib/seo";
 import { decodeHtmlEntities } from "@/lib/text";
 import PriceComparisonModule from "@/components/PriceComparison";
 import ShareButtons from "@/components/ShareButtons";
+import TicketButton from "@/components/TicketButton";
 
 // Extract series name from artwork title (e.g., "Rouen Cathedral" from "Rouen Cathedral, West Facade")
 function extractSeriesName(title: string): string | null {
@@ -664,16 +665,11 @@ export default async function ArtworkPage({ params }: Props) {
                         Museum Website
                       </a>
                     )}
-                    {artwork.museum.ticketUrl && (
-                      <a
-                        href={artwork.museum.ticketUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm bg-black text-white px-3 py-1 rounded hover:bg-neutral-800 transition-colors"
-                      >
-                        Buy Tickets
-                      </a>
-                    )}
+                    <TicketButton
+                      museumSlug={artwork.museum.slug}
+                      directTicketUrl={artwork.museum.ticketUrl}
+                      variant="artwork"
+                    />
                   </div>
                 </div>
               )}
@@ -848,16 +844,12 @@ export default async function ArtworkPage({ params }: Props) {
                     </p>
                   )}
                   <div className="mt-4 flex flex-col gap-2">
-                    {artwork.museum.ticketUrl && (
-                      <a
-                        href={artwork.museum.ticketUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-black text-white px-4 py-2 rounded text-sm text-center hover:bg-neutral-800 transition-colors"
-                      >
-                        Buy Tickets
-                      </a>
-                    )}
+                    <TicketButton
+                      museumSlug={artwork.museum.slug}
+                      directTicketUrl={artwork.museum.ticketUrl}
+                      variant="artwork"
+                      className="px-4 py-2 text-center"
+                    />
                     {artwork.museum.websiteUrl && (
                       <a
                         href={artwork.museum.websiteUrl}

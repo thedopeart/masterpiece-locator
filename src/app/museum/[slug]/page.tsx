@@ -16,6 +16,7 @@ import { getMuseumPracticalData, getHoursSummary, isMuseumOpenNow } from "@/lib/
 import GalleryLightbox from "@/components/GalleryLightbox";
 import FeaturedArtists from "@/components/FeaturedArtists";
 import AddToTripButton from "@/components/AddToTripButton";
+import TicketButton from "@/components/TicketButton";
 
 // Pagination constant
 const ARTWORKS_PER_PAGE = 48;
@@ -317,20 +318,15 @@ export default async function MuseumPage({ params, searchParams }: Props) {
             <div className="lg:sticky lg:top-4">
               {/* Enhanced Practical Info (if available) or Basic Visiting Info */}
               {practicalData ? (
-                <MuseumPracticalInfo data={practicalData} artists={artists} />
+                <MuseumPracticalInfo data={practicalData} artists={artists} slug={museum.slug} />
               ) : (
                 <div className="space-y-4">
                   {/* Basic Ticket Button */}
-                  {museum.ticketUrl && (
-                    <a
-                      href={museum.ticketUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full text-center bg-[#028161] text-white font-semibold py-3.5 px-4 rounded-xl hover:bg-[#026b51] transition-colors shadow-md"
-                    >
-                      Buy Tickets
-                    </a>
-                  )}
+                  <TicketButton
+                    museumSlug={museum.slug}
+                    directTicketUrl={museum.ticketUrl}
+                    variant="museum-primary"
+                  />
 
                   {/* Add to Trip Button */}
                   <AddToTripButton
