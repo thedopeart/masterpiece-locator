@@ -192,7 +192,7 @@ export default async function MovementPage({ params }: Props) {
     name: decodeHtmlEntities(m.name),
   }));
 
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+  const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
   // Get enrichment for the movement (for description in JSON-LD)
   const enrichment = getMovementEnrichment(movement.slug);

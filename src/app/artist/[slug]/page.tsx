@@ -57,7 +57,7 @@ function generateArtistFAQs(artist: {
   return faqs;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Cached data fetching to avoid duplicate queries between generateMetadata and page component
 const getArtist = cache(async (slug: string) => {
@@ -134,6 +134,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       images: imageUrl ? [imageUrl] : [],
+    },
+    alternates: {
+      canonical: `${BASE_URL}/artist/${slug}`,
     },
   };
 }

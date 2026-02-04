@@ -48,7 +48,7 @@ function generateMuseumFAQs(museum: {
   return faqs;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Cached data fetching - now with pagination support
 const getMuseum = cache(async (slug: string, page: number = 1) => {
@@ -151,6 +151,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       images: museum.imageUrl ? [museum.imageUrl] : [],
+    },
+    alternates: {
+      canonical: `${BASE_URL}/museum/${slug}`,
     },
   };
 }

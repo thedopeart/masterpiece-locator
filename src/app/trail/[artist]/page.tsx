@@ -8,7 +8,7 @@ import { TrailStop } from "@/types/artist-trail";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import TicketButton from "@/components/TicketButton";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Map trail artist slugs to database artist slugs
 const artistSlugMap: Record<string, string> = {

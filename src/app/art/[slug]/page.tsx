@@ -57,7 +57,7 @@ function generateArtworkFAQ(artwork: {
   return [];
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Cached data fetching to avoid duplicate queries between generateMetadata and page component
 const getArtwork = cache(async (slug: string) => {

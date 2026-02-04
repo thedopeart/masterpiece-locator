@@ -2,9 +2,9 @@
 
 Track progress across workers. Mark as DONE when complete.
 
-**Last Updated:** 2026-02-01T21:19
+**Last Updated:** 2026-02-04T22:47
 
-**Progress:** 314/799 complete
+**Progress:** 319/799 complete
 
 ---
 
@@ -14,15 +14,15 @@ Track progress across workers. Mark as DONE when complete.
 |--------|------|------|-------|-------------|-------|-----------|----------|
 | DONE | rembrandt | Rembrandt van Rijn | 225 | Dutch | 1606-1669 | Baroque, Dutch Golden Age | [Link](https://en.wikipedia.org/wiki/Rembrandt) |
 | DONE | claude-monet | Claude Monet | 172 | French | 1840-1926 | Impressionism | [Link](https://en.wikipedia.org/wiki/Claude_Monet) |
-| TODO | ancient-egyptian | Ancient Egyptian (Unknown) | 153 | Egyptian | - | - | - |
+| DONE | ancient-egyptian | Ancient Egyptian (Unknown) | 153 | Egyptian | - | - | - |
 | DONE | edgar-degas | Edgar Degas | 112 | French | 1834-1917 | Impressionism, Surrealism | [Link](https://en.wikipedia.org/wiki/Edgar_Degas) |
-| TODO | ancient-greek | Ancient Greek (Unknown) | 85 | Greek | - | - | - |
+| DONE | ancient-greek | Ancient Greek (Unknown) | 85 | Greek | - | - | - |
 | DONE | adriaen-van-ostade | Adriaen van Ostade | 51 | Dutch | 1610-1685 | - | - |
-| TODO | ancient-roman | Ancient Roman (Unknown) | 48 | Roman | - | - | - |
+| DONE | ancient-roman | Ancient Roman (Unknown) | 48 | Roman | - | - | - |
 | DONE | van-gogh | Vincent van Gogh | 45 | Dutch | 1853-1890 | Post-Impressionism | [Link](https://en.wikipedia.org/wiki/Vincent_van_Gogh) |
 | DONE | johannes-vermeer | Johannes Vermeer | 39 | Dutch | 1632-1675 | Baroque, Dutch Golden Age | [Link](https://en.wikipedia.org/wiki/Johannes_Vermeer) |
 | DONE | auguste-rodin | Auguste Rodin | 37 | French | 1840-1917 | - | - |
-| TODO | wedgwood-manufactory | Wedgwood Manufactory | 36 | - | - | - | - |
+| DONE | wedgwood-manufactory | Wedgwood Manufactory | 36 | - | - | - | - |
 | DONE | raphael | Raphael | 34 | Italian | 1483-1520 | Renaissance | [Link](https://en.wikipedia.org/wiki/Raphael) |
 | DONE | diego-velazquez | Diego Velázquez | 31 | Spanish | 1599-1660 | Baroque | [Link](https://en.wikipedia.org/wiki/Diego_Vel%C3%A1zquez) |
 | DONE | gustav-klimt | Gustav Klimt | 31 | Austrian | 1862-1918 | Symbolism | [Link](https://en.wikipedia.org/wiki/Gustav_Klimt) |
@@ -84,7 +84,7 @@ Track progress across workers. Mark as DONE when complete.
 | DONE | giorgione | Giorgione | 19 | Italian | 1477-1510 | Renaissance | - |
 | DONE | jean-francois-millet | Jean-François Millet | 19 | French | 1814-1875 | Romanticism | - |
 | DONE | john-everett-millais | John Everett Millais | 19 | British | 1829-1896 | Pre-Raphaelite Brotherhood | - |
-| TODO | meissen-porcelain-manufactory | Meissen Porcelain Manufactory | 19 | - | - | - | - |
+| DONE | meissen-porcelain-manufactory | Meissen Porcelain Manufactory | 19 | - | - | - | - |
 | DONE | pablo-picasso | Pablo Picasso | 19 | Spanish | 1881-1973 | Expressionism, Cubism, Surrealism | [Link](https://en.wikipedia.org/wiki/Pablo_Picasso) |
 | DONE | paul-signac | Paul Signac | 19 | French | 1863-1935 | Post-Impressionism | - |
 | DONE | theodore-gericault | Théodore Géricault | 19 | French | 1791-1824 | Romanticism | [Link](https://en.wikipedia.org/wiki/Th%C3%A9odore_G%C3%A9ricault) |
