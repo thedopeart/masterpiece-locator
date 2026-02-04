@@ -1,8 +1,8 @@
 // Central config for museum ticket affiliate links
-// Priority: GetYourGuide affiliate → direct ticketUrl → null
-// Designed to swap in other providers (Musement, Tiqets) later
+// Priority: GetYourGuide affiliate → Tiqets affiliate → direct ticketUrl → null
+// Designed to swap in other providers (Musement, Viator) later
 
-type AffiliateProvider = "getyourguide";
+type AffiliateProvider = "getyourguide" | "tiqets";
 
 interface TicketUrlResult {
   url: string;
@@ -80,6 +80,31 @@ const GYG_MUSEUM_MAP: Record<string, string> = {
   "munch-museum": "https://www.getyourguide.com/munch-museum-l4241/",
 };
 
+// Maps museum slugs to Tiqets venue URLs
+// Used as fallback when GYG doesn't have coverage
+const TIQETS_MUSEUM_MAP: Record<string, string> = {
+  // Italy - museums not well covered by GYG
+  "brancacci-chapel": "https://www.tiqets.com/en/brancacci-chapel-tickets-l145947/",
+  "museo-correr-venice-italy": "https://www.tiqets.com/en/museo-correr-tickets-l145672/",
+  "ca39-rezzonico-museo-del-settecento-venice-italy": "https://www.tiqets.com/en/ca-rezzonico-museum-tickets-l150760/",
+
+  // Germany - museums not in GYG
+  "gem228ldegalerie-berlin-germany": "https://www.tiqets.com/en/gemaldegalerie-tickets-l164851/",
+  "hamburger-kunsthalle": "https://www.tiqets.com/en/hamburger-kunsthalle-tickets-l147334/",
+
+  // Netherlands
+  "kroeller-mueller-museum": "https://www.tiqets.com/en/houtkampweg-6-tickets-l236585/",
+
+  // USA - museums not in GYG
+  "mfa-boston": "https://www.tiqets.com/en/museum-of-fine-arts-boston-tickets-l141969/",
+
+  // France - additional museums
+  "muse-marmottan-monet-paris": "https://www.tiqets.com/en/musee-marmottan-monet-tickets-l175907/",
+
+  // Czech Republic
+  "national-gallery-prague": "https://www.tiqets.com/en/national-gallery-prague-tickets-l245733/",
+};
+
 function buildGygUrl(baseUrl: string): string {
   const partnerId = process.env.NEXT_PUBLIC_GYG_PARTNER_ID;
   if (!partnerId) return baseUrl;
@@ -88,17 +113,35 @@ function buildGygUrl(baseUrl: string): string {
   return `${baseUrl}${separator}partner_id=${partnerId}&utm_medium=online_publisher&utm_campaign=masterpiece-locator`;
 }
 
+function buildTiqetsUrl(baseUrl: string): string {
+  const partnerId = process.env.NEXT_PUBLIC_TIQETS_PARTNER_ID;
+  if (!partnerId) return baseUrl;
+
+  const separator = baseUrl.includes("?") ? "&" : "?";
+  return `${baseUrl}${separator}partner=${partnerId}`;
+}
+
 export function getTicketUrl(
   museumSlug: string,
   directTicketUrl?: string | null
 ): TicketUrlResult | null {
-  // Check GYG mapping first
+  // Check GYG mapping first (higher commission)
   const gygUrl = GYG_MUSEUM_MAP[museumSlug];
   if (gygUrl) {
     return {
       url: buildGygUrl(gygUrl),
       isAffiliate: true,
       provider: "getyourguide",
+    };
+  }
+
+  // Check Tiqets mapping second
+  const tiqetsUrl = TIQETS_MUSEUM_MAP[museumSlug];
+  if (tiqetsUrl) {
+    return {
+      url: buildTiqetsUrl(tiqetsUrl),
+      isAffiliate: true,
+      provider: "tiqets",
     };
   }
 
@@ -115,5 +158,5 @@ export function getTicketUrl(
 }
 
 export function hasAffiliateLink(museumSlug: string): boolean {
-  return museumSlug in GYG_MUSEUM_MAP;
+  return museumSlug in GYG_MUSEUM_MAP || museumSlug in TIQETS_MUSEUM_MAP;
 }
