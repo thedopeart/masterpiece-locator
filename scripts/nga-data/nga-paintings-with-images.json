@@ -1,0 +1,930 @@
+{
+  "totalPaintings": 758,
+  "famousFound": [
+    {
+      "title": "Madonna and Child",
+      "artist": "Massimo Stanzione",
+      "date": "1635/1640",
+      "objectId": "224921",
+      "imageUrl": "https://api.nga.gov/iiif/de464618-9272-44f2-860e-78a8b1478a95/full/!800,800/0/default.jpg"
+    }
+  ],
+  "famousMissing": [
+    "Ginevra de' Benci",
+    "The Alba Madonna",
+    "Watson and the Shark",
+    "The Voyage of Life",
+    "The Small Cowper Madonna",
+    "Daniel in the Lions' Den",
+    "Symphony in White",
+    "The Sacrament of the Last Supper",
+    "Aristotle with a Bust of Homer",
+    "Portrait of a Lady",
+    "Girl with the Red Hat",
+    "Saint George and the Dragon",
+    "The Feast of the Gods",
+    "Portrait of a Young Man"
+  ],
+  "sample": [
+    {
+      "objectId": "1212",
+      "title": "The Hon. Mrs. Gray",
+      "artist": "Daniel Gardner",
+      "date": "c. 1785/1790",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 76 x 63.5 cm (29 15/16 x 25 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4373e800-f8f6-45a6-848f-3d9e6150170f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "61355",
+      "title": "Tennis Tournament",
+      "artist": "George Bellows",
+      "date": "1920",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 149.8 x 167.6 cm (59 x 66 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/459b5285-0460-4690-928d-365ee558d635/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "94647",
+      "title": "Careless Love",
+      "artist": "Elizabeth Murray",
+      "date": "1995-1996",
+      "medium": "oil on canvas over shaped wooden support",
+      "dimensions": "overall: 270.5 x 252.7 x 68.6 cm (106 1/2 x 99 1/2 x 27 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4dbde8f7-f692-4b1a-9110-7a3ebfdb54e1/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "161815",
+      "title": "Pond 1",
+      "artist": "Warren Rohrer",
+      "date": "1975",
+      "medium": "oil on linen",
+      "dimensions": "overall: 152.4 × 152.4 cm (60 × 60 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a771a5c1-153d-40e4-8165-487d8c0a4898/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "166503",
+      "title": "Mao",
+      "artist": "Andy Warhol",
+      "date": "1973",
+      "medium": "acrylic and silkscreen ink on linen",
+      "dimensions": "overall: 127.3 × 107.6 cm (50 1/8 × 42 3/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/af22c7ab-4b0a-418b-a040-e740d587a2e0/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "42481",
+      "title": "The Colonel",
+      "artist": "American 19th Century",
+      "date": "c. 1865",
+      "medium": "oil on wood",
+      "dimensions": "overall (oval): 53.1 x 40 cm (20 7/8 x 15 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/05ec733e-4800-46bf-9a25-5e56c64224f8/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "45965",
+      "title": "Little Girl and the Cat",
+      "artist": "American 20th Century",
+      "date": "after 1916/1919",
+      "medium": "oil on wood",
+      "dimensions": "overall: 52.1 x 36.3 cm (20 1/2 x 14 5/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/9617035d-2cd6-41bb-863e-b91038c1e688/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "45855",
+      "title": "Bareback Riders",
+      "artist": "W.H. Brown",
+      "date": "1886",
+      "medium": "oil on cardboard on wood",
+      "dimensions": "overall: 47 x 62.2 cm (18 1/2 x 24 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/35eba7ac-3e33-4f06-bf9e-4e453b1be56b/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50349",
+      "title": "A Small Cheyenne Village",
+      "artist": "George Catlin",
+      "date": "1861/1869",
+      "medium": "oil on card mounted on paperboard",
+      "dimensions": "overall: 45.7 x 62.2 cm (18 x 24 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d8d229e4-0046-41bc-8afb-2ce21d4f7e3c/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50372",
+      "title": "Pawnee Indians Approaching Buffalo",
+      "artist": "George Catlin",
+      "date": "1861/1869",
+      "medium": "oil on card mounted on paperboard",
+      "dimensions": "overall: 47.3 x 62.8 cm (18 5/8 x 24 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/272302bb-a6f9-4b83-8a27-7f224608fabd/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50436",
+      "title": "An Ojibbeway Village of Skin Tents",
+      "artist": "George Catlin",
+      "date": "1861/1869",
+      "medium": "oil on card mounted on paperboard",
+      "dimensions": "overall: 47.5 x 63.9 cm (18 11/16 x 25 3/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/0e58d57f-3e3e-42b4-908d-910f9e447ed1/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50747",
+      "title": "Storm Brewing",
+      "artist": "Lyonel Feininger",
+      "date": "1939",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 48.2 x 77.5 cm (19 x 30 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/e951cb6c-90ee-4341-8e4a-52011157145d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50483",
+      "title": "Buffalo Chase",
+      "artist": "George Catlin",
+      "date": "1861/1869",
+      "medium": "oil on card mounted on paperboard",
+      "dimensions": "overall: 46.3 x 63 cm (18 1/4 x 24 13/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f81d9087-2dd9-4e8d-bac6-1fa0e983bbc8/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "50660",
+      "title": "David E. Finley",
+      "artist": "Bernard Hailstone",
+      "date": "1965",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 76.2 x 63.7 cm (30 x 25 1/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4d32c57f-a8fb-4785-a34b-fab3cf9e2602/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "53091",
+      "title": "Four Square",
+      "artist": "Franz Kline",
+      "date": "1956",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 199 x 128.9 cm (78 3/8 x 50 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/8c38bd6f-c10b-4400-bead-db67f2a78a45/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "53587",
+      "title": "La Négresse",
+      "artist": "Henri Matisse",
+      "date": "1952",
+      "medium": "paper collage on canvas",
+      "dimensions": "overall: 453.9 x 623.3 cm (178 11/16 x 245 3/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/c26ab5ac-c60e-4486-8bc8-662467816b95/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "53814",
+      "title": "Large Decoration with Masks",
+      "artist": "Henri Matisse",
+      "date": "1953",
+      "medium": "gouache on paper, cut and pasted on white paper, mounted on canvas",
+      "dimensions": "overall (five joined panels): 353.6 x 996.4 cm (139 3/16 x 392 5/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/ba97c120-385d-4ffc-bf09-7712b65caf9f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "54183",
+      "title": "Mound",
+      "artist": "Milton Resnick",
+      "date": "1961",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 292 x 469.8 cm (114 15/16 x 184 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f4d99bd0-7082-411f-a2dd-e6ac9c0469ab/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "55605",
+      "title": "Untitled",
+      "artist": "Tony Smith",
+      "date": "1962",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 162.7 x 244.4 cm (64 1/16 x 96 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/cee324ec-de02-4683-a71a-b0d5fc879e29/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "56335",
+      "title": "Woman",
+      "artist": "Joan Miró",
+      "date": "1976",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 244.4 x 169.5 cm (96 1/4 x 66 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4022c16e-3293-400c-b1a0-afdf974266f9/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "56509",
+      "title": "Equal, No. 2",
+      "artist": "William Dutterer",
+      "date": "1968",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 244.1 x 152.3 x 11.5 cm (96 1/8 x 59 15/16 x 4 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/03cea09d-adc8-4241-8938-057842d7375f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "56512",
+      "title": "Tristan da Cugna",
+      "artist": "Larry Poons",
+      "date": "1964",
+      "medium": "liquitex on canvas",
+      "dimensions": "overall: 183.1 x 366.2 cm (72 1/16 x 144 3/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/fa72dcaf-8d41-4703-9d66-e39acf91b3d2/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "56615",
+      "title": "Reconciliation Elegy",
+      "artist": "Robert Motherwell",
+      "date": "1978",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 304.8 x 924.2 cm (120 x 363 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/253bc95d-8d43-4b3d-bb2f-686a09bd25df/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "56737",
+      "title": "Little Girl Holding Apple",
+      "artist": "Sturtevant J. Hamblin",
+      "date": "c. 1840",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 57.2 x 46.7 cm (22 1/2 x 18 3/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/2405812b-df0f-4275-82e2-544dea3ca282/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "57104",
+      "title": "Chyrow II",
+      "artist": "Frank Stella",
+      "date": "1972",
+      "medium": "mixed media",
+      "dimensions": "overall: 284.5 x 254 cm (112 x 100 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/47ff4cbd-d757-48ec-be8f-2e5bdc89f490/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "57515",
+      "title": "Narcissus III",
+      "artist": "Gene Davis",
+      "date": "1975",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 244.1 x 289.9 cm (96 1/8 x 114 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/532d4904-f302-44a2-ad96-2774330378bb/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59886",
+      "title": "Bucks County Farm Outside Doylestown, Pennsylvania",
+      "artist": "American 19th Century",
+      "date": "c. 1890",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 67 x 93.2 cm (26 3/8 x 36 11/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a0e57e06-45d6-4e92-826d-e15ddd0ee968/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59888",
+      "title": "The Independent Voter",
+      "artist": "American 19th Century",
+      "date": "1849 or after",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 90.4 x 131.5 cm (35 9/16 x 51 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d25dd005-1a0a-470e-a0ab-25fe90f83400/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59894",
+      "title": "Ship in Full Sail",
+      "artist": "T. Davies",
+      "date": "1827",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 68 x 92.3 cm (26 3/4 x 36 5/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/41fd8949-2d3a-4abf-8c34-fda63de2f903/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59897",
+      "title": "Boston Harbor",
+      "artist": "Thomas Chambers",
+      "date": "mid 19th century",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 55.8 x 76.5 cm (21 15/16 x 30 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d15b57c6-ff87-459e-ab0f-ab9d80cbf35a/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59936",
+      "title": "Girl with Kitten",
+      "artist": "Joseph Goodhue Chandler",
+      "date": "c. 1836/1838",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 122 x 70.5 cm (48 1/16 x 27 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f8b621bb-fc4d-4e3f-a4ac-59c3e556f1dc/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "59917",
+      "title": "J. M. Stolle",
+      "artist": "American 18th Century",
+      "date": "c. 1734/1735",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 101.6 x 87 cm (40 x 34 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/5672ff0d-42cc-4c54-a9fb-57e14c85fc05/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "60330",
+      "title": "Sound",
+      "artist": "Kenneth Noland",
+      "date": "c. 1966",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 76.2 x 549 cm (30 x 216 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/e3db18cd-c4a0-44eb-a19f-e89c6ad0fb47/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "61172",
+      "title": "A Moment of Calm",
+      "artist": "Max Ernst",
+      "date": "1939",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 169.8 x 325 cm (66 7/8 x 127 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/7e621de4-8ffb-4de8-8250-efb3c638e2a0/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "61173",
+      "title": "Jarama II",
+      "artist": "Frank Stella",
+      "date": "1982",
+      "medium": "mixed media on etched magnesium",
+      "dimensions": "overall: 319.9 x 253.9 x 62.8 cm (125 15/16 x 99 15/16 x 24 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/82217755-3d1e-4d0e-9a4f-badd26bb8f76/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "61214",
+      "title": "Sacramento Mall Proposal #4",
+      "artist": "Frank Stella",
+      "date": "1978",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 262.89 × 263.21 × 7.62 cm (103 1/2 × 103 5/8 × 3 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/32ba9e9b-3d36-4800-b9e2-678a3093dc36/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "65714",
+      "title": "White Curve VIII",
+      "artist": "Ellsworth Kelly",
+      "date": "1976",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 244 x 195.4 x 3.5 cm (96 1/16 x 76 15/16 x 1 3/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/c473f61b-acf3-4103-ab4e-3beae5d48ced/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67917",
+      "title": "Winter Landscape",
+      "artist": "John Marin",
+      "date": "c. 1900",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 22.8 x 29.8 cm (9 x 11 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/9ec4f189-cfef-48af-98cd-d905cf4bfa29/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67918",
+      "title": "Buildings with Snowbank, Cliffside, New Jersey",
+      "artist": "John Marin",
+      "date": "1928",
+      "medium": "oil on canvas board",
+      "dimensions": "overall: 22.5 x 28.3 cm (8 7/8 x 11 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/368ed414-35ce-4343-8e3b-95d0bc73c870/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67919",
+      "title": "House with Dutch Roof",
+      "artist": "John Marin",
+      "date": "c. 1928",
+      "medium": "oil on canvas board",
+      "dimensions": "overall: 20.3 x 25.2 cm (8 x 9 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/29db29e3-83fb-4b93-bb67-7240182a258e/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67920",
+      "title": "View from the Green, New Castle, Delaware",
+      "artist": "John Marin",
+      "date": "1931",
+      "medium": "oil on canvas on cardboard",
+      "dimensions": "overall: 36.2 x 45 cm (14 1/4 x 17 11/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/0fdf3afe-b139-4afe-959d-ae4c2e40a605/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67921",
+      "title": "Third Street, New Castle, Delaware",
+      "artist": "John Marin",
+      "date": "1931",
+      "medium": "oil on canvas on cardboard",
+      "dimensions": "overall: 35 x 45 cm (13 3/4 x 17 11/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/7a30f77d-c6bf-41bd-80ef-e6917f680667/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67922",
+      "title": "Immanuel Church, New Castle, Delaware: Close View",
+      "artist": "John Marin",
+      "date": "1931",
+      "medium": "oil on canvas on cardboard",
+      "dimensions": "overall: 45.4 x 36 cm (17 7/8 x 14 3/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/ba3e5ecf-faf9-4142-adc6-cfabf9a92d97/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67923",
+      "title": "Immanuel Church, New Castle, Delaware: Distant View",
+      "artist": "John Marin",
+      "date": "1931",
+      "medium": "oil on canvas on cardboard",
+      "dimensions": "overall: 45.3 x 35.8 cm (17 13/16 x 14 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/71183cad-57f8-49c3-abd0-e97d3e26097d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67924",
+      "title": "Marie Jane Hughes Marin (Mrs. John Marin)",
+      "artist": "John Marin",
+      "date": "c. 1944",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 71.1 x 55.8 cm (28 x 21 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/50239b8a-367e-43f8-a7a9-e96465d18bcc/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67925",
+      "title": "Tunk Mountains, Maine",
+      "artist": "John Marin",
+      "date": "1948",
+      "medium": "oil on canvas board",
+      "dimensions": "overall: 35.4 x 45.7 cm (13 15/16 x 18 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/6739c65f-5e0e-4124-abc8-5946a4e0f25a/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67926",
+      "title": "Sketch of Two Bison",
+      "artist": "John Marin",
+      "date": "c. 1950",
+      "medium": "oil on canvas on board",
+      "dimensions": "overall: 13.6 x 28.3 cm (5 3/8 x 11 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/ff1b9068-f687-4450-875e-6b8e77c75df4/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67927",
+      "title": "Bather Seated on Rocks",
+      "artist": "John Marin",
+      "date": "1951",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 55.8 x 71.4 x 1.9 cm (21 15/16 x 28 1/8 x 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/19abba0a-7841-4253-a804-fa2a526b019f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "67928",
+      "title": "Untitled: Circus",
+      "artist": "John Marin",
+      "date": "c. 1953",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 56.1 x 71.1 cm (22 1/16 x 28 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/85514e58-f3d6-4ac6-bdb3-663ae13d7f47/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69269",
+      "title": "Untitled (vase of flowers) [obverse]",
+      "artist": "Mark Rothko",
+      "date": "1937/1938",
+      "medium": "oil on hardboard",
+      "dimensions": "overall: 31.7 × 41.9 cm (12 1/2 × 16 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/773cac45-6518-4611-9780-f9b92b39d8f4/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69270",
+      "title": "Untitled (woman under tree) [reverse]",
+      "artist": "Mark Rothko",
+      "date": "1937/1938",
+      "medium": "oil on hardboard",
+      "dimensions": "overall: 31.7 x 41.9 cm (12 1/2 x 16 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/0a3acf86-6bc6-4f7e-add1-6ec4c26b8a8f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69271",
+      "title": "Sketch in the Shade",
+      "artist": "Mark Rothko",
+      "date": "1925",
+      "medium": "oil on canvas board",
+      "dimensions": "overall: 40.5 × 30 cm (15 15/16 × 11 13/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/fe0f24fb-5d10-4c30-8773-e286c4d1a7b1/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69274",
+      "title": "Thru the Window",
+      "artist": "Mark Rothko",
+      "date": "1938/1939",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 25.1 x 17.5 cm (9 7/8 x 6 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d13eb8f1-8239-4362-853d-74fe705147fc/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69275",
+      "title": "Untitled (figure with a racket)",
+      "artist": "Mark Rothko",
+      "date": "1938/1939",
+      "medium": "oil and graphite on gesso board",
+      "dimensions": "overall: 30.2 x 22.7 cm (11 7/8 x 8 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4e26a927-32fb-4c52-8593-fd75568a9b76/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69276",
+      "title": "Untitled (still life with mallet, scissors and glove)",
+      "artist": "Mark Rothko",
+      "date": "1938/1939",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 12.6 x 17.6 cm (4 15/16 x 6 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/241ca2fb-1d3d-46b1-8163-e1de318cc393/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69277",
+      "title": "Untitled (still life with vase and bottle)",
+      "artist": "Mark Rothko",
+      "date": "1937/1938",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 17.6 × 12.6 cm (6 15/16 × 4 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/5612d9aa-1173-41a7-afce-25da96a8b47f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69278",
+      "title": "Untitled (woman in subway)",
+      "artist": "Mark Rothko",
+      "date": "c. 1938",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 30.2 x 22.5 cm (11 7/8 x 8 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/aba712d5-686a-4445-858c-669a6c4c4a2b/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69279",
+      "title": "Untitled (man with racket and ball)",
+      "artist": "Mark Rothko",
+      "date": "1939",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 22.7 x 30.2 cm (8 15/16 x 11 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/220bd1e6-b371-4cb2-810c-bbc94a91b01c/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69280",
+      "title": "Untitled (still life with mallet, scissors and two gloves)",
+      "artist": "Mark Rothko",
+      "date": "1938/1939",
+      "medium": "oil on gesso board",
+      "dimensions": "overall: 7.5 x 12.6 cm (2 15/16 x 4 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4d5db04c-c1ed-4472-b7ab-3ccfa31bfe52/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69281",
+      "title": "Head of Woman (Sonia Rothkowitz)",
+      "artist": "Mark Rothko",
+      "date": "c. 1932",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 44.1 x 37.1 cm (17 3/8 x 14 5/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/6e4d4efc-09bc-4020-8669-36bb9efcf458/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69282",
+      "title": "Untitled (scene with nude figures)",
+      "artist": "Mark Rothko",
+      "date": "1933/1934",
+      "medium": "oil on canvas on board",
+      "dimensions": "overall: 36.2 x 42.2 cm (14 1/4 x 16 5/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/7ccddc17-cd4f-4410-b186-01f612dd103c/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69374",
+      "title": "Fourth Station",
+      "artist": "Barnett Newman",
+      "date": "1960",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.1 x 153 cm (78 x 60 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a6419aa6-d6db-4737-9bdf-4e5146a38fb0/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69379",
+      "title": "Ninth Station",
+      "artist": "Barnett Newman",
+      "date": "1964",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 198.1 x 152.7 cm (78 x 60 1/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/71dfc483-8b93-40ba-b1ee-35052653e87f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69371",
+      "title": "First Station",
+      "artist": "Barnett Newman",
+      "date": "1958",
+      "medium": "Magna on canvas",
+      "dimensions": "overall: 197.8 x 153.7 cm (77 7/8 x 60 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/e33af888-e2a1-4419-9451-52bb86ece9aa/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69372",
+      "title": "Second Station",
+      "artist": "Barnett Newman",
+      "date": "1958",
+      "medium": "Magna on canvas",
+      "dimensions": "overall: 198.4 x 153.2 cm (78 1/8 x 60 5/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/caba46a3-1173-469d-91d4-6016dcf350c7/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69373",
+      "title": "Third Station",
+      "artist": "Barnett Newman",
+      "date": "1960",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.4 x 152.1 cm (78 1/8 x 59 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/6821b552-a0cd-4ca8-a435-dbe772f95a93/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69375",
+      "title": "Fifth Station",
+      "artist": "Barnett Newman",
+      "date": "1962",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.7 x 153 cm (78 1/4 x 60 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/2b44502c-8ba7-4ad5-932b-bbc14d8ce9bb/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69376",
+      "title": "Sixth Station",
+      "artist": "Barnett Newman",
+      "date": "1962",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.4 x 152.1 cm (78 1/8 x 59 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d3932607-ef24-4886-90c2-ffab0c5ddfa5/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69377",
+      "title": "Seventh Station",
+      "artist": "Barnett Newman",
+      "date": "1964",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.1 x 152.4 cm (78 x 60 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/e1ef38c5-7b99-4aff-9355-858d7c0961e3/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69378",
+      "title": "Eighth Station",
+      "artist": "Barnett Newman",
+      "date": "1964",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 198.4 x 152.4 cm (78 1/8 x 60 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/99e0bb42-8c67-4bba-814b-5734b915dc19/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69380",
+      "title": "Tenth Station",
+      "artist": "Barnett Newman",
+      "date": "1965",
+      "medium": "Magna on canvas",
+      "dimensions": "overall: 198.1 x 152.5 cm (78 x 60 1/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a1c74c70-5e15-4d31-b7c5-35a3ec838164/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69381",
+      "title": "Eleventh Station",
+      "artist": "Barnett Newman",
+      "date": "1965",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 198.1 x 152.4 cm (78 x 60 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/99bb815d-983b-45ff-8352-cefea952c751/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69382",
+      "title": "Twelfth Station",
+      "artist": "Barnett Newman",
+      "date": "1965",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 198.1 x 152.4 cm (78 x 60 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/0bf17aee-ff32-41f2-bb9a-7fdd9ae2e38d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69383",
+      "title": "Thirteenth Station",
+      "artist": "Barnett Newman",
+      "date": "1965/1966",
+      "medium": "acrylic on canvas",
+      "dimensions": "overall: 198.2 x 152.5 cm (78 1/16 x 60 1/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/47d0da5a-88d1-4012-a059-d23a2670956e/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69384",
+      "title": "Fourteenth Station",
+      "artist": "Barnett Newman",
+      "date": "1965/1966",
+      "medium": "acrylic and Duco on canvas",
+      "dimensions": "overall: 198.1 x 152.2 cm (78 x 59 15/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/4c2d8d51-9356-425a-a052-4a8a56c1a3ad/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69385",
+      "title": "Be II",
+      "artist": "Barnett Newman",
+      "date": "1961/1964",
+      "medium": "acrylic and oil on canvas",
+      "dimensions": "overall: 204.5 x 183.5 cm (80 1/2 x 72 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/16f9c288-f2c1-4ac9-a669-8922f382c7d3/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "69637",
+      "title": "Fanny/Fingerpainting",
+      "artist": "Chuck Close",
+      "date": "1985",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 259.1 x 213.4 x 6.3 cm (102 x 84 x 2 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/e23a6cb6-c136-4080-ac82-244f7ba9bf1a/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "70526",
+      "title": "Dionysius",
+      "artist": "Barnett Newman",
+      "date": "1949",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 170.2 x 124.5 cm (67 x 49 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d6213d11-158a-498c-9fb4-6b77400bbe3e/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "70527",
+      "title": "Yellow Painting",
+      "artist": "Barnett Newman",
+      "date": "1949",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 171.4 x 133.1 cm (67 1/2 x 52 3/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/40b2680d-b037-4140-813f-d3e343908d3d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "70528",
+      "title": "The Name II",
+      "artist": "Barnett Newman",
+      "date": "1950",
+      "medium": "Magna and oil on canvas",
+      "dimensions": "overall: 264.2 x 240 cm (104 x 94 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/0d678bc0-141a-4ea7-a6b9-69f3bfe10ef9/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "70529",
+      "title": "Achilles",
+      "artist": "Barnett Newman",
+      "date": "1952",
+      "medium": "oil and acrylic resin on canvas",
+      "dimensions": "overall: 241.6 x 201 x 5.7 cm (95 1/8 x 79 1/8 x 2 1/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/6f9ec693-36a9-4de2-8678-b2f3012a596d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "71599",
+      "title": "Zim Zum",
+      "artist": "Anselm Kiefer",
+      "date": "1990",
+      "medium": "acrylic, emulsion, crayon, shellac, ashes, and canvas on lead",
+      "dimensions": "overall: 380.3 x 560.1 cm (149 3/4 x 220 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f57996d5-eee1-4986-a985-9b9a25164a36/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72010",
+      "title": "I Think I'll...",
+      "artist": "Ed Ruscha",
+      "date": "1983",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 136.5 x 161.9 cm (53 3/4 x 63 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/9142dc54-1e27-48b3-b556-10634e71303f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72045",
+      "title": "Land",
+      "artist": "Joan Mitchell",
+      "date": "1989",
+      "medium": "oil on canvas",
+      "dimensions": "overall size (two joined panels): 280 x 400 cm (110 1/4 x 157 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/d2233434-ac9c-4e02-80c3-06f05b0d36fb/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72830",
+      "title": "Copperhead Grande/ROCI CHILE",
+      "artist": "Robert Rauschenberg",
+      "date": "1985",
+      "medium": "acrylic and tarnishes on copper",
+      "dimensions": "overall: 228.6 x 365.8 cm (90 x 144 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/342b1b86-8fb1-4c9a-a965-c7eb50cd6f1a/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72831",
+      "title": "Urban/Interior Network/ROCI VENEZUELA",
+      "artist": "Robert Rauschenberg",
+      "date": "1985",
+      "medium": "acrylic and collage on plywood panel with objects",
+      "dimensions": "framed: 126 x 250.8 x 38.1 cm (49 5/8 x 98 3/4 x 15 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/dc35c3b8-3357-43cd-a1c1-bffa0d188edd/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72834",
+      "title": "Cuban Acre/ROCI CUBA",
+      "artist": "Robert Rauschenberg",
+      "date": "1988",
+      "medium": "enamel and acrylic on galvanized steel",
+      "dimensions": "overall size (six joined panels): 215.3 × 550.7 cm (84 3/4 × 216 13/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f80c49d0-2f29-4f2d-aecf-c9686fb16659/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72835",
+      "title": "Bach's Rocks (Bachs Steine)/ROCI BERLIN",
+      "artist": "Robert Rauschenberg",
+      "date": "1990",
+      "medium": "acrylic and fabric collage on plywood panels",
+      "dimensions": "overall size (two joined panels): 252.4 x 252.8 cm (99 3/8 x 99 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/b9eafa65-da6d-4cff-8b37-e0ff3e34d873/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "72836",
+      "title": "Malaysian Flower Cave/ROCI MALAYSIA",
+      "artist": "Robert Rauschenberg",
+      "date": "1990",
+      "medium": "acrylic and fabric on galvanized steel",
+      "dimensions": "overall: 306.8 x 367.7 cm (120 13/16 x 144 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/476cff5d-c582-4668-b32c-d1871f76323d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "73869",
+      "title": "Erotic Blando Fruto",
+      "artist": "Malcolm Morley",
+      "date": "1989",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 337.9 x 271.9 cm (133 x 107 1/16 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/b27e15a9-a8be-43a4-9ac6-5f5fe9fac97f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "73891",
+      "title": "Cobalt Green",
+      "artist": "Ilya Bolotowsky",
+      "date": "1939",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 55.9 x 71.1 cm (22 x 28 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a9866c29-ce11-4c34-8992-57e330ddcdfe/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74625",
+      "title": "Light - Neutral Area",
+      "artist": "Robert Mangold",
+      "date": "1966",
+      "medium": "oil and flat lacquer on hardboard",
+      "dimensions": "overall: 76.2 x 87.6 cm (30 x 34 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f2d7fbc6-462c-43ed-982c-d2addc8a0aec/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74626",
+      "title": "1/2 W Series (Medium Scale)",
+      "artist": "Robert Mangold",
+      "date": "1968",
+      "medium": "acrylic on wood fiberboard panels",
+      "dimensions": "overall: 60.9 x 121.9 cm (24 x 48 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/011c2817-e2cf-462a-a003-b1d833485f2f/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74627",
+      "title": "1/2 V Series (Medium Scale)",
+      "artist": "Robert Mangold",
+      "date": "1969",
+      "medium": "acrylic on wood fiberboard panels",
+      "dimensions": "overall: 60.9 x 121.9 cm (24 x 48 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/737c21fc-1035-4e8d-abd6-7f59c1f3ed9e/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74629",
+      "title": "Distorted Red Square-Circle",
+      "artist": "Robert Mangold",
+      "date": "1971",
+      "medium": "acrylic and graphite on hardboard",
+      "dimensions": "overall size ((irregularly shaped)): 40 x 40 cm (15 3/4 x 15 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/a8409754-cfd5-45bd-b449-661e1736d72d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74630",
+      "title": "Green Distorted Square-Circle",
+      "artist": "Robert Mangold",
+      "date": "1971",
+      "medium": "acrylic and graphite on hardboard",
+      "dimensions": "overall size ((irregularly shaped)): 38.1 x 41.9 cm (15 x 16 1/2 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/84da5380-72ea-4d66-9dca-240a9bf19b4d/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74631",
+      "title": "Orange Distorted Square-Circle",
+      "artist": "Robert Mangold",
+      "date": "1971",
+      "medium": "acrylic and graphite on hardboard",
+      "dimensions": "overall: 38.1 x 38.1 cm (15 x 15 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/95d7ed89-6f8a-4a96-bc0c-07deac2b2b6c/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74632",
+      "title": "Untitled",
+      "artist": "Robert Mangold",
+      "date": "1972",
+      "medium": "acrylic and graphite on hardboard",
+      "dimensions": "overall size ((painting is 5-sided)): 22.2 x 24.8 cm (8 3/4 x 9 3/4 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/baa5a73d-4eb4-4bb6-b6c3-759380a8c527/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74633",
+      "title": "Untitled II",
+      "artist": "Robert Mangold",
+      "date": "1972",
+      "medium": "acrylic and graphite on hardboard",
+      "dimensions": "overall size (painting is shaped and curved): 26 x 27.6 cm (10 1/4 x 10 7/8 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/f64d6b4a-c327-498a-ada4-bc3ef21228ff/full/!800,800/0/default.jpg"
+    },
+    {
+      "objectId": "74634",
+      "title": "Model for Painting: Circle in and out of a Polygon II",
+      "artist": "Robert Mangold",
+      "date": "1973",
+      "medium": "oil on wood",
+      "dimensions": "overall: 27.9 x 27.9 cm (11 x 11 in.)",
+      "imageUrl": "https://api.nga.gov/iiif/37636227-30bb-499a-8b20-cd2cbd52864b/full/!800,800/0/default.jpg"
+    }
+  ]
+}
