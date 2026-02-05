@@ -1,8 +1,7 @@
 // Central config for museum ticket affiliate links
-// Priority: GetYourGuide affiliate → Tiqets affiliate → direct ticketUrl → null
-// Designed to swap in other providers (Musement, Viator) later
+// Priority: Musement (highest commission) → GetYourGuide → Tiqets → direct ticketUrl → null
 
-type AffiliateProvider = "getyourguide" | "tiqets";
+type AffiliateProvider = "getyourguide" | "tiqets" | "musement";
 
 interface TicketUrlResult {
   url: string;
@@ -105,6 +104,30 @@ const TIQETS_MUSEUM_MAP: Record<string, string> = {
   "national-gallery-prague": "https://www.tiqets.com/en/national-gallery-prague-tickets-l245733/",
 };
 
+// Maps museum slugs to Musement venue URLs
+// Used as fallback when GYG and Tiqets don't have coverage
+const MUSEMENT_MUSEUM_MAP: Record<string, string> = {
+  // Italy - Milan
+  "santa-maria-delle-grazie": "https://www.musement.com/us/milan/leonardo-s-last-supper-v/",
+  "biblioteca-ambrosiana-milan-italy": "https://www.musement.com/us/milan/pinacoteca-ambrosiana-v/",
+
+  // Italy - Florence
+  "bargello-palazzo-del-popolo-florence-italy": "https://www.musement.com/us/florence/bargello-national-museum-v/",
+
+  // Italy - Venice
+  "ca39-pesaro-international-gallery-of-modern-art-ve": "https://www.musement.com/us/venice/import-647-323424/",
+
+  // Italy - Rome
+  "galleria-colonna": "https://www.musement.com/us/rome/colonna-gallery-entrance-tickets-7958/",
+
+  // Germany - Berlin
+  "alte-nationalgalerie": "https://www.musement.com/us/berlin/alte-nationalgalerie-skip-the-line-ticket-7850/",
+  "alte-nationalgalerie-berlin-germany": "https://www.musement.com/us/berlin/alte-nationalgalerie-skip-the-line-ticket-7850/",
+
+  // Portugal
+  "calouste-gulbenkian-museum-lisbon-portugal": "https://www.musement.com/us/lisbon/calouste-gulbenkian-museum-and-centro-de-arte-moderna-tickets-248532/",
+};
+
 function buildGygUrl(baseUrl: string): string {
   const partnerId = process.env.NEXT_PUBLIC_GYG_PARTNER_ID;
   if (!partnerId) return baseUrl;
@@ -121,11 +144,29 @@ function buildTiqetsUrl(baseUrl: string): string {
   return `${baseUrl}${separator}partner=${partnerId}`;
 }
 
+function buildMusementUrl(baseUrl: string): string {
+  const partnerId = process.env.NEXT_PUBLIC_MUSEMENT_PARTNER_ID;
+  if (!partnerId) return baseUrl;
+
+  const separator = baseUrl.includes("?") ? "&" : "?";
+  return `${baseUrl}${separator}aid=${partnerId}`;
+}
+
 export function getTicketUrl(
   museumSlug: string,
   directTicketUrl?: string | null
 ): TicketUrlResult | null {
-  // Check GYG mapping first (higher commission)
+  // Check Musement first (highest commission)
+  const musementUrl = MUSEMENT_MUSEUM_MAP[museumSlug];
+  if (musementUrl) {
+    return {
+      url: buildMusementUrl(musementUrl),
+      isAffiliate: true,
+      provider: "musement",
+    };
+  }
+
+  // Check GYG mapping second
   const gygUrl = GYG_MUSEUM_MAP[museumSlug];
   if (gygUrl) {
     return {
@@ -135,7 +176,7 @@ export function getTicketUrl(
     };
   }
 
-  // Check Tiqets mapping second
+  // Check Tiqets mapping third
   const tiqetsUrl = TIQETS_MUSEUM_MAP[museumSlug];
   if (tiqetsUrl) {
     return {
@@ -158,5 +199,9 @@ export function getTicketUrl(
 }
 
 export function hasAffiliateLink(museumSlug: string): boolean {
-  return museumSlug in GYG_MUSEUM_MAP || museumSlug in TIQETS_MUSEUM_MAP;
+  return (
+    museumSlug in GYG_MUSEUM_MAP ||
+    museumSlug in TIQETS_MUSEUM_MAP ||
+    museumSlug in MUSEMENT_MUSEUM_MAP
+  );
 }
