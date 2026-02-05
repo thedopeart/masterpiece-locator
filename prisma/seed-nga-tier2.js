@@ -172,7 +172,7 @@ const TIER2_PAINTINGS = [
   {
     slug: "self-portrait-van-gogh-nga",
     title: "Self-Portrait",
-    artistSlug: "vincent-van-gogh",
+    artistSlug: "van-gogh",
     year: 1889,
     medium: "Oil on canvas",
     dimensions: "57.79 × 44.5 cm (22.7 × 17.5 in)",
