@@ -206,7 +206,7 @@ export default async function EraPage({ params }: Props) {
   const prevEra = currentIndex > 0 ? ERAS[currentIndex - 1] : null;
   const nextEra = currentIndex < ERAS.length - 1 ? ERAS[currentIndex + 1] : null;
 
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+  const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
   // Build JSON-LD structured data for SEO
   const jsonLd = {

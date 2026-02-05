@@ -6,8 +6,9 @@ import { prisma } from "@/lib/db";
 import { getTrailData } from "@/lib/artist-trails";
 import { TrailStop } from "@/types/artist-trail";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import TicketButton from "@/components/TicketButton";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://masterpiece-locator.vercel.app";
+const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 
 // Map trail artist slugs to database artist slugs
 const artistSlugMap: Record<string, string> = {
@@ -376,19 +377,11 @@ export default async function TrailPage({ params }: Props) {
                                       {place.note && (
                                         <p className="text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded-lg inline-block">{place.note}</p>
                                       )}
-                                      {place.ticketUrl && (
-                                        <a
-                                          href={place.ticketUrl}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="text-sm text-[#C9A84C] hover:text-[#b8973f] font-medium mt-2 inline-flex items-center gap-1"
-                                        >
-                                          Get tickets
-                                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                          </svg>
-                                        </a>
-                                      )}
+                                      <TicketButton
+                                        museumSlug={place.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}
+                                        directTicketUrl={place.ticketUrl}
+                                        variant="trail"
+                                      />
                                     </div>
                                   </div>
                                 </div>
