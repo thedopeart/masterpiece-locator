@@ -258,40 +258,35 @@ export default async function MovementPage({ params }: Props) {
         {/* Two-column layout */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
-          <div className="flex-1 min-w-0 lg:max-w-[65%]">
+          <div className="flex-1 min-w-0">
             {/* Hero Header */}
-            <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 mb-8 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+            <div className="mb-8">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {movement.startYear}
+                {movement.endYear ? ` – ${movement.endYear}` : " – Present"}
               </div>
-              <div className="relative">
-                <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {movement.startYear}
-                  {movement.endYear ? ` – ${movement.endYear}` : " – Present"}
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  {movement.name}
-                </h1>
-                {(() => {
-                  const enrichment = getMovementEnrichment(movement.slug);
-                  if (enrichment?.descriptionHtml) {
-                    return (
-                      <div
-                        className="text-neutral-300 text-lg leading-relaxed max-w-2xl movement-content"
-                        dangerouslySetInnerHTML={{ __html: enrichment.descriptionHtml }}
-                      />
-                    );
-                  }
-                  return movement.description ? (
-                    <p className="text-neutral-300 text-lg leading-relaxed max-w-2xl">
-                      {movement.description}
-                    </p>
-                  ) : null;
-                })()}
-              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                {movement.name}
+              </h1>
+              {(() => {
+                const enrichment = getMovementEnrichment(movement.slug);
+                if (enrichment?.descriptionHtml) {
+                  return (
+                    <div
+                      className="text-neutral-600 text-lg leading-relaxed prose"
+                      dangerouslySetInnerHTML={{ __html: enrichment.descriptionHtml }}
+                    />
+                  );
+                }
+                return movement.description ? (
+                  <p className="text-neutral-600 text-lg leading-relaxed">
+                    {movement.description}
+                  </p>
+                ) : null;
+              })()}
             </div>
 
             {/* What to Look For */}
