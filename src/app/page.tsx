@@ -72,23 +72,35 @@ export default async function Home() {
     prisma.museum.count(),
   ]);
 
-  // Fetch featured artworks (Tier 1 paintings - most searched, with images only)
+  // Curated list of iconic paintings for homepage (no nudes, universally recognized)
+  const HOMEPAGE_FEATURED_SLUGS = [
+    "mona-lisa",
+    "the-starry-night",
+    "girl-with-a-pearl-earring",
+    "the-scream",
+    "nighthawks",
+    "american-gothic",
+    "the-night-watch",
+    "sunflowers",
+  ];
+
+  // Fetch featured artworks by curated slug list
   const rawFeaturedArtworks = await prisma.artwork.findMany({
     where: {
-      searchVolumeTier: 1,
-      artworkType: "painting",
-      imageUrl: { not: null }, // Only show artworks with images on homepage
+      slug: { in: HOMEPAGE_FEATURED_SLUGS },
+      imageUrl: { not: null },
     },
     include: {
       Artist: { select: { name: true } },
       Museum: { select: { name: true, city: true } },
     },
-    take: 8,
-    orderBy: { createdAt: "desc" },
   });
 
-  // Map to lowercase property names for ArtworkCard component and decode HTML entities
-  const featuredArtworks = rawFeaturedArtworks.map((a) => ({
+  // Sort by curated order and map to lowercase property names
+  const sortedFeaturedArtworks = rawFeaturedArtworks.sort(
+    (a, b) => HOMEPAGE_FEATURED_SLUGS.indexOf(a.slug) - HOMEPAGE_FEATURED_SLUGS.indexOf(b.slug)
+  );
+  const featuredArtworks = sortedFeaturedArtworks.map((a) => ({
     ...a,
     title: decodeHtmlEntities(a.title),
     artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
