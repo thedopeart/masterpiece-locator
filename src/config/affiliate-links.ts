@@ -102,27 +102,55 @@ const TIQETS_MUSEUM_MAP: Record<string, string> = {
 
   // Czech Republic
   "national-gallery-prague": "https://www.tiqets.com/en/national-gallery-prague-tickets-l245733/",
+
+  // France - Paris (additional museums)
+  "musee-rodin-paris": "https://www.tiqets.com/en/musee-rodin-tickets-l148619/",
+  "musee-armee-invalides-paris": "https://www.tiqets.com/en/musee-de-larmee-tickets-l145823/",
+  "musee-jacquemart-andre-paris": "https://www.tiqets.com/en/musee-jacquemart-andre-tickets-l146475/",
 };
 
 // Maps museum slugs to Musement venue URLs
 // Used as fallback when GYG and Tiqets don't have coverage
 const MUSEMENT_MUSEUM_MAP: Record<string, string> = {
-  // Italy - Milan
+  // Italy - Rome
   "santa-maria-delle-grazie": "https://www.musement.com/us/milan/leonardo-s-last-supper-v/",
-  "biblioteca-ambrosiana-milan-italy": "https://www.musement.com/us/milan/pinacoteca-ambrosiana-v/",
+  "museo-nazionale-romano": "https://www.musement.com/us/rome/tickets-for-the-national-roman-museum-with-audio-guide-for-palazzo-altemps-47077/",
+  "galleria-spada-rome": "https://www.musement.com/us/rome/galleria-spada-entrance-tickets-7986/",
+  "villa-farnesina-rome": "https://www.musement.com/uk/rome/villa-farnesina-private-tour-11159/",
+  "maxxi-rome": "https://www.musement.com/us/rome/maxxi-national-museum-of-xxi-century-arts-ticket-3856/",
+  "galleria-nazionale-arte-moderna-rome": "https://www.musement.com/us/rome/biglietti-per-la-galleria-nazionale-d-arte-moderna-73582/",
+  "galleria-colonna": "https://www.musement.com/us/rome/colonna-gallery-entrance-tickets-7958/",
 
-  // Italy - Florence
-  "bargello-palazzo-del-popolo-florence-italy": "https://www.musement.com/us/florence/bargello-national-museum-v/",
+  // Italy - Milan
+  "biblioteca-ambrosiana-milan-italy": "https://www.musement.com/us/milan/pinacoteca-ambrosiana-v/",
+  "museo-del-novecento-milan": "https://www.musement.com/us/milan/milan-museo-del-novecento-entry-ticket-with-audio-guide-452748/",
+  "triennale-milano": "https://www.musement.com/us/milan/triennale-v/",
+  "palazzo-reale-milan": "https://www.musement.com/us/milan/royal-palace-of-milan-v/",
+
+  // Italy - Turin
+  "museo-egizio-turin": "https://www.musement.com/us/turin/the-egyptian-museum-of-turin-v/",
+  "palazzo-madama-turin": "https://www.musement.com/us/turin/palazzo-madama-of-turin-v/",
+  "royal-museums-turin": "https://www.musement.com/us/turin/royal-museums-of-turin-v/",
+
+  // Italy - Naples
+  "museo-capodimonte-naples": "https://www.musement.com/us/naples/tickets-for-museum-and-royal-wood-of-capodimonte-3757/",
+  "museo-archeologico-nazionale-naples": "https://www.musement.com/uk/naples/museo-archeologico-nazionale-di-napoli-entrance-ticket-3730/",
 
   // Italy - Venice
   "ca39-pesaro-international-gallery-of-modern-art-ve": "https://www.musement.com/us/venice/import-647-323424/",
+  "peggy-guggenheim-collection-venice": "https://www.musement.com/us/venice/peggy-guggenheim-collection-tickets-1-155385/",
+  "palazzo-ducale-venice": "https://www.musement.com/us/venice/doge-s-palace-v/",
 
-  // Italy - Rome
-  "galleria-colonna": "https://www.musement.com/us/rome/colonna-gallery-entrance-tickets-7958/",
+  // Italy - Florence
+  "bargello-palazzo-del-popolo-florence-italy": "https://www.musement.com/us/florence/bargello-national-museum-v/",
+  "palazzo-vecchio-florence": "https://www.musement.com/us/florence/palazzo-vecchio-v/",
 
   // Germany - Berlin
   "alte-nationalgalerie": "https://www.musement.com/us/berlin/alte-nationalgalerie-skip-the-line-ticket-7850/",
   "alte-nationalgalerie-berlin-germany": "https://www.musement.com/us/berlin/alte-nationalgalerie-skip-the-line-ticket-7850/",
+  "pergamon-museum-berlin": "https://www.musement.com/us/berlin/pergamon-museum-v/",
+  "neues-museum-berlin": "https://www.musement.com/us/berlin/neues-museum-1-v/",
+  "bode-museum-berlin": "https://www.musement.com/us/berlin/bode-museum-skip-the-line-tickets-10545/",
 
   // Portugal
   "calouste-gulbenkian-museum-lisbon-portugal": "https://www.musement.com/us/lisbon/calouste-gulbenkian-museum-and-centro-de-arte-moderna-tickets-248532/",
