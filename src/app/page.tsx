@@ -81,7 +81,7 @@ export default async function Home() {
     "nighthawks",
     "american-gothic",
     "the-night-watch",
-    "sunflowers",
+    "the-kiss-klimt",
   ];
 
   // Fetch featured artworks by curated slug list
