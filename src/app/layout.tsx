@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <body className={`${inter.className} antialiased bg-gray-50`}>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
@@ -60,8 +60,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className={`${inter.className} antialiased bg-gray-50`}>
         <Providers>
           <Navigation />
           <main className="min-h-screen">{children}</main>
