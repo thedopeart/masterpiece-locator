@@ -36,16 +36,26 @@ const artistFAQs = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Famous Artists | Find Their Masterpieces & Museum Locations",
-  description:
-    "Browse famous artists from Da Vinci to Picasso. See their masterpieces and discover which museums display their work.",
-};
-
 const ARTISTS_PER_PAGE = 50;
 
 interface Props {
   searchParams: Promise<{ movement?: string; page?: string; q?: string; type?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const params = await searchParams;
+  const page = parseInt(params.page || "1", 10);
+
+  const canonicalBase = "https://luxurywallart.com/apps/masterpieces/artists";
+  const canonical = page > 1 ? `${canonicalBase}?page=${page}` : canonicalBase;
+
+  return {
+    title: "Famous Artists | Find Their Masterpieces & Museum Locations",
+    description:
+      "Browse famous artists from Da Vinci to Picasso. See their masterpieces and discover which museums display their work.",
+    ...(page > 1 && { robots: { index: false, follow: true } }),
+    alternates: { canonical },
+  };
 }
 
 export default async function ArtistsPage({ searchParams }: Props) {

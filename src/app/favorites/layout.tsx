@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "My Favorites | Saved Artworks & Masterpieces",
   description:
     "Your saved artworks collection. Bookmark famous paintings and masterpieces to find them later. Create your personal art gallery.",
+  robots: { index: false, follow: true },
 };
 
 export default function FavoritesLayout({

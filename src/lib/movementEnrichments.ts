@@ -20,7 +20,7 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
     slug: 'impressionism',
     descriptionHtml: `<p><strong>Impressionism</strong> emerged in 1860s Paris when a group of artists rejected the rigid rules of the French Academy. Instead of working in studios, they painted outdoors (<strong>plein air</strong>), capturing how light fell on haystacks, water lilies, and Parisian boulevards at specific moments. <a href="/artist/claude-monet"><strong>Claude Monet</strong></a>, <a href="/artist/pierre-auguste-renoir"><strong>Pierre-Auguste Renoir</strong></a>, and <a href="/artist/edgar-degas"><strong>Edgar Degas</strong></a> became the movement's leading figures.</p>
 
-<p>The name "Impressionism" was coined as an insult. When <a href="/artist/claude-monet"><strong>Monet</strong></a> exhibited <em>Impression, Sunrise</em> in 1874, critics mocked the loose brushwork and unfinished appearance. But what critics dismissed as sloppiness was actually revolutionary technique: visible brushstrokes, pure colors placed side by side, and shadows rendered in <a href="https://luxurywallart.com/collections/blue-wall-art" target="_blank" rel="noopener"><strong>blue and purple</strong></a> rather than brown or black.</p>
+<p>The name "Impressionism" was coined as an insult. When <a href="/artist/claude-monet"><strong>Monet</strong></a> exhibited <em>Impression, Sunrise</em> in 1874, critics mocked the loose brushwork and unfinished appearance. But what critics dismissed as sloppiness was actually radical technique: visible brushstrokes, pure colors placed side by side, and shadows rendered in <a href="https://luxurywallart.com/collections/blue-wall-art" target="_blank" rel="noopener"><strong>blue and purple</strong></a> rather than brown or black.</p>
 
 <p>The Impressionists painted modern life: cafes, railway stations, ballet dancers, boating parties. They captured movement and atmosphere rather than static poses. <a href="/artist/berthe-morisot"><strong>Berthe Morisot</strong></a> and <a href="/artist/mary-cassatt"><strong>Mary Cassatt</strong></a> brought domestic scenes and women's perspectives to the movement. Today, Impressionist paintings rank among the world's most beloved and valuable artworks, displayed in major museums from the <a href="/museum/musee-dorsay"><strong>Musée d'Orsay</strong></a> to the <a href="/museum/art-institute-of-chicago"><strong>Art Institute of Chicago</strong></a>.</p>`,
     whatToLookFor: [
@@ -59,7 +59,7 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
 
   'renaissance': {
     slug: 'renaissance',
-    descriptionHtml: `<p>The <strong>Renaissance</strong> transformed European art from roughly 1400 to 1600, centered first in Florence and later spreading to Rome, Venice, and beyond. Artists rediscovered classical Greek and Roman principles, developing revolutionary techniques like <strong>linear perspective</strong> and anatomical accuracy. <a href="/artist/leonardo-da-vinci"><strong>Leonardo da Vinci</strong></a>, <a href="/artist/michelangelo"><strong>Michelangelo</strong></a>, and <a href="/artist/raphael"><strong>Raphael</strong></a> became the movement's towering figures.</p>
+    descriptionHtml: `<p>The <strong>Renaissance</strong> transformed European art from roughly 1400 to 1600, centered first in Florence and later spreading to Rome, Venice, and beyond. Artists rediscovered classical Greek and Roman principles, developing new techniques like <strong>linear perspective</strong> and anatomical accuracy. <a href="/artist/leonardo-da-vinci"><strong>Leonardo da Vinci</strong></a>, <a href="/artist/michelangelo"><strong>Michelangelo</strong></a>, and <a href="/artist/raphael"><strong>Raphael</strong></a> became the movement's towering figures.</p>
 
 <p>Florence's Medici family bankrolled much of this explosion. Wealthy patrons competed for the best artists, who became celebrities for the first time in Western history. <a href="/artist/sandro-botticelli"><strong>Botticelli's</strong></a> graceful mythological scenes, <a href="/artist/titian"><strong>Titian's</strong></a> rich Venetian colors, and <a href="/artist/leonardo-da-vinci"><strong>Leonardo's</strong></a> <strong>sfumato</strong> technique (soft, smoky transitions between tones) defined the era. Oil painting, imported from Northern Europe, allowed for luminous glazes impossible with tempera.</p>
 
@@ -200,7 +200,7 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
     faqs: [
       {
         question: "What is Cubism?",
-        answer: "<strong>Cubism</strong> (1907-1920) fragmented objects into geometric planes, showing multiple viewpoints simultaneously. <a href=\"/artist/pablo-picasso\"><strong>Pablo Picasso</strong></a> and <a href=\"/artist/georges-braque\"><strong>Georges Braque</strong></a> pioneered this revolutionary approach, which abandoned traditional perspective and transformed 20th-century art."
+        answer: "<strong>Cubism</strong> (1907-1920) fragmented objects into geometric planes, showing multiple viewpoints simultaneously. <a href=\"/artist/pablo-picasso\"><strong>Pablo Picasso</strong></a> and <a href=\"/artist/georges-braque\"><strong>Georges Braque</strong></a> pioneered this radical approach, which abandoned traditional perspective and transformed 20th-century art."
       },
       {
         question: "Who invented Cubism?",
@@ -499,7 +499,7 @@ export const MOVEMENT_ENRICHMENTS: Record<string, MovementEnrichment> = {
       },
       {
         question: "Where can I see Rococo art?",
-        answer: "The <a href=\"/museum/louvre\"><strong>Louvre</strong></a> Paris holds major French Rococo works. The Wallace Collection in London has exceptional paintings and decorative arts. The Frick Collection New York includes Fragonard's <em>Progress of Love</em> series. Munich's Residenz showcases Rococo architecture and interiors."
+        answer: "The <a href=\"/museum/louvre\"><strong>Louvre</strong></a> Paris holds major French Rococo works. The Wallace Collection in London has outstanding paintings and decorative arts. The Frick Collection New York includes Fragonard's <em>Progress of Love</em> series. Munich's Residenz showcases Rococo architecture and interiors."
       },
       {
         question: "Why did Rococo decline?",

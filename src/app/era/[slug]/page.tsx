@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const era = getEraBySlug(slug);
 
-  if (!era) return { title: "Era Not Found" };
+  if (!era) notFound();
 
   // Get movement and artist counts
   const movementCount = await prisma.movement.count({

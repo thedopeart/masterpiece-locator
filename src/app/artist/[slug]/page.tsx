@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const artist = await getArtist(slug);
 
-  if (!artist) return { title: "Artist Not Found" };
+  if (!artist) notFound();
 
   const lifespan =
     artist.birthYear && artist.deathYear
@@ -106,7 +106,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Keyword-focused with character limits (60 title, 160 description)
   const title = artistMetaTitle(artist.name, artworkCount, museumCount, lifespan);
-  const description = artistMetaDescription(artist.name, artworkCount, museumCount, topMuseum, notableWork, artist.bioShort);
+  const description = artistMetaDescription(artist.name, artworkCount, museumCount, topMuseum, notableWork, artist.bioShort, {
+    nationality: artist.nationality,
+    birthYear: artist.birthYear,
+    deathYear: artist.deathYear,
+    movements: artist.Movement?.map(m => m.name) || [],
+  });
 
   const imageUrl = artist.imageUrl || artist.Artwork[0]?.imageUrl;
 

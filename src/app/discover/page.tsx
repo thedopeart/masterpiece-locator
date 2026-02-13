@@ -417,7 +417,7 @@ export default async function DiscoverPage() {
     },
     {
       question: "What are Artist Trails?",
-      answer: `Artist Trails are <strong>curated travel guides</strong> that follow an artist's life journey. See where Van Gogh lived in Arles, where Monet painted in Giverny, and which museums hold their major works. Perfect for art-focused trips.`,
+      answer: `Artist Trails are <strong>guided travel routes</strong> that follow an artist's life journey. See where Van Gogh lived in Arles, where Monet painted in Giverny, and which museums hold their major works. Perfect for art-focused trips.`,
     },
     {
       question: "How do I find a specific painting?",

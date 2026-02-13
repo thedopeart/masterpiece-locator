@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Submit Your Art | Masterpiece Locator",
   description:
     "Apply to have your artwork featured on Masterpiece Locator. We welcome submissions from living artists working in all styles and mediums.",
+  robots: { index: false, follow: true },
 };
 
 export default function SubmitPage() {

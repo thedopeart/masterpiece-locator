@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const rawArtwork = await getArtwork(slug);
 
-  if (!rawArtwork) return { title: "Artwork Not Found" };
+  if (!rawArtwork) notFound();
 
   // Map to lowercase for consistency
   const artwork = {
@@ -119,12 +119,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Keyword-focused with character limits (60 title, 160 description)
   let title = artworkMetaTitle(artwork.title, museumName);
-  let description = artworkMetaDescription(artwork.title, artistName, museumName, city);
+  let description = artworkMetaDescription(artwork.title, artistName, museumName, city, {
+    year: artwork.year,
+    medium: artwork.medium,
+    nationality: artwork.artist?.nationality,
+    artworkType: rawArtwork.artworkType,
+  });
 
-  // Enhance for auction artworks
+  // Enhance for auction artworks (respecting 60-char title limit)
   if (latestSale) {
     const priceM = (Number(latestSale.priceUsd) / 100 / 1000000).toFixed(0);
-    title = `${artwork.title} by ${artistName} | $${priceM}M Auction Record`;
+    const priceSuffix = `$${priceM}M Auction Record`;
+    const fullTitle = `${artwork.title} by ${artistName} | ${priceSuffix}`;
+    if (fullTitle.length <= 60) {
+      title = fullTitle;
+    } else {
+      const titleOnly = `${artwork.title} | ${priceSuffix}`;
+      if (titleOnly.length <= 60) {
+        title = titleOnly;
+      } else {
+        // Shorten the artwork title to fit with price suffix
+        const maxTitleLen = 60 - ` | ${priceSuffix}`.length;
+        let shortTitle = artwork.title;
+        if (artwork.title.length > maxTitleLen) {
+          shortTitle = artwork.title.slice(0, artwork.title.lastIndexOf(" ", maxTitleLen))
+            .replace(/\s+(?:of|the|with|by|a|an|in|at|to|for|and|on)$/i, "")
+            .replace(/[,;:\-–—]$/, "")
+            .trim();
+          // Remove unclosed parenthetical at the end
+          if (shortTitle.includes("(") && !shortTitle.includes(")")) {
+            shortTitle = shortTitle.replace(/\s*\([^)]*$/, "").trim();
+          }
+        }
+        title = `${shortTitle} | ${priceSuffix}`;
+      }
+    }
     description = `${artwork.title} by ${artistName} sold for $${priceM} million${latestSale.auctionHouse ? ` at ${latestSale.auctionHouse}` : ''}. View auction history, price analysis, and artwork details.`;
   }
 
