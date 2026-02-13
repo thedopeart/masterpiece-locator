@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   });
 
-  if (!movement) return { title: "Movement Not Found" };
+  if (!movement) notFound();
 
   const years = movement.endYear
     ? `${movement.startYear}-${movement.endYear}`

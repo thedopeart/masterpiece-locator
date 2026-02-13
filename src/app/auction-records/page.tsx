@@ -111,7 +111,7 @@ export default async function AuctionRecordsPage() {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: "Art Auction Sales Database",
-    description: `Comprehensive database of ${totalSales} major art auction sales totaling ${formatPrice(totalValue._sum.priceUsd || BigInt(0))} in recorded transactions.`,
+    description: `Database of ${totalSales} major art auction sales totaling ${formatPrice(totalValue._sum.priceUsd || BigInt(0))} in recorded transactions.`,
     url: `${BASE_URL}/auction-records`,
     keywords: ["art auction", "auction records", "expensive paintings", "art market", "art sales"],
   };

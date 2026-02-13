@@ -50,7 +50,7 @@ export const ERAS: Era[] = [
       'Hierarchical scaling (important figures larger)',
       'Symbolic imagery over naturalistic representation',
       'Anonymous artists working for the Church',
-      'Illuminated manuscripts with intricate detail',
+      'Illuminated manuscripts with elaborate detail',
       'Gothic architecture and stained glass'
     ],
     whatToLookFor: [
@@ -58,7 +58,7 @@ export const ERAS: Era[] = [
       'Figures facing forward with large, almond-shaped eyes (Byzantine influence)',
       'Important figures (Christ, Mary) appear larger than others regardless of position',
       'Flat, two-dimensional bodies with little sense of depth or shadow',
-      'Halos around holy figures, often decorated with intricate patterns',
+      'Halos around holy figures, often decorated with detailed patterns',
       'Rich blues made from expensive lapis lazuli (reserved for the Virgin Mary)',
       'Ornate borders and decorative patterns filling empty spaces',
       'Pointed Gothic arches and elongated, vertical figures in later works'
@@ -99,7 +99,7 @@ export const ERAS: Era[] = [
     historicalContext: 'Constantinople fell to the Ottomans in 1453, sending Greek scholars fleeing west with ancient texts. Gutenberg invented the printing press, spreading ideas faster than ever before. Columbus sailed to the Americas. Banking families like the Medici grew wealthy enough to rival kings and spent fortunes on art. Leonardo dissected corpses to understand anatomy. The Protestant Reformation split Christianity. Science began replacing faith as the path to knowledge. For the first time, individual genius mattered more than guild tradition.',
     descriptionHtml: `<p>The <strong>Renaissance</strong> means "rebirth," and that's exactly what happened in Florence around 1400. Artists rediscovered classical Greek and Roman ideals, studied ancient sculptures, and developed techniques that would define Western art for centuries. <a href="/artist/leonardo-da-vinci"><strong>Leonardo da Vinci</strong></a>, <a href="/artist/michelangelo"><strong>Michelangelo</strong></a>, and <a href="/artist/raphael"><strong>Raphael</strong></a> didn't just paint. They investigated anatomy, mathematics, and engineering to understand how the world actually worked.</p>
 
-<p><strong>Linear perspective</strong> was the revolutionary breakthrough. Filippo Brunelleschi demonstrated how parallel lines converge at a vanishing point, and suddenly painters could create convincing depth on flat surfaces. <a href="/artist/sandro-botticelli"><strong>Botticelli's</strong></a> graceful figures, <a href="/artist/titian"><strong>Titian's</strong></a> rich colors, and Leonardo's <strong>sfumato</strong> technique (soft, smoky transitions between tones) became defining characteristics. Oil painting, imported from Northern Europe, allowed for luminous glazes and subtle gradations impossible with tempera.</p>
+<p><strong>Linear perspective</strong> was the critical breakthrough. Filippo Brunelleschi demonstrated how parallel lines converge at a vanishing point, and suddenly painters could create convincing depth on flat surfaces. <a href="/artist/sandro-botticelli"><strong>Botticelli's</strong></a> graceful figures, <a href="/artist/titian"><strong>Titian's</strong></a> rich colors, and Leonardo's <strong>sfumato</strong> technique (soft, smoky transitions between tones) became defining characteristics. Oil painting, imported from Northern Europe, allowed for luminous glazes and subtle gradations impossible with tempera.</p>
 
 <p>The Medici family in Florence bankrolled much of this explosion. Wealthy patrons competed for the best artists, and for the first time, individual genius mattered. Artists signed their work. They became celebrities. Humanism placed mankind at the center of inquiry, and <a href="https://luxurywallart.com/collections/portrait-art" target="_blank" rel="noopener"><strong>portraits</strong></a> flourished alongside religious subjects. By the time the High Renaissance peaked around 1500, art had transformed from anonymous craft to celebrated profession.</p>`,
     keywords: ['Renaissance paintings', 'Renaissance artists', 'Italian Renaissance', 'Renaissance art', 'High Renaissance', 'Leonardo da Vinci', 'Michelangelo'],
@@ -155,7 +155,7 @@ export const ERAS: Era[] = [
     startYear: 1600,
     endYear: 1799,
     subtitle: 'Drama, grandeur, and emotional intensity. Caravaggio, Rembrandt, and the Dutch masters.',
-    description: 'Baroque art exploded with drama, movement, and emotional intensity. Caravaggio\'s revolutionary chiaroscuro influenced a generation, while Rubens and Bernini created works of theatrical grandeur.',
+    description: 'Baroque art exploded with drama, movement, and emotional intensity. Caravaggio\'s dramatic chiaroscuro influenced a generation, while Rubens and Bernini created works of theatrical grandeur.',
     historicalContext: 'The Catholic Counter-Reformation fought Protestantism with emotional, overwhelming art. Absolute monarchs like Louis XIV built Versailles to project power. The Thirty Years War devastated Central Europe. Meanwhile, the Dutch broke free from Spain and created the first capitalist republic, where merchants bought paintings instead of churches commissioning them. Galileo pointed telescopes at Jupiter. Newton described gravity. The scientific revolution was reshaping how humans understood the universe, while empires carved up the globe.',
     descriptionHtml: `<p>If Renaissance art sought harmony and balance, <strong>Baroque art</strong> wanted to overwhelm you. Beginning around 1600, artists like <a href="/artist/caravaggio"><strong>Caravaggio</strong></a> developed <strong>tenebrism</strong>, an extreme form of chiaroscuro where figures emerge from pitch darkness into dramatic spotlight. The Catholic Church, fighting the Protestant Reformation, deployed art as propaganda. Paintings had to move viewers emotionally, to make them feel the ecstasy of saints and the terror of martyrdom.</p>
 

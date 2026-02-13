@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { artist: artistSlug } = await params;
   const trail = await getTrailData(artistSlug);
 
-  if (!trail) return { title: "Trail Not Found" };
+  if (!trail) notFound();
 
   const title = `${trail.title} | Follow ${trail.artistName}'s Footsteps`;
   const description = `Explore ${trail.artistName}'s journey through ${trail.primaryCountries.join(", ")}. Visit ${trail.totalLocations} locations where masterpieces were created. Interactive travel guide with museums and itineraries.`;

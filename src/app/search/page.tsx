@@ -25,6 +25,16 @@ const ITEMS_PER_PAGE = 50;
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const params = await searchParams;
   const query = params.q || "";
+  const page = parseInt(params.page || "1", 10);
+
+  // Build canonical URL (strip page=1, keep query)
+  const canonicalBase = "https://luxurywallart.com/apps/masterpieces/search";
+  const canonicalParams = new URLSearchParams();
+  if (query) canonicalParams.set("q", query);
+  if (page > 1) canonicalParams.set("page", String(page));
+  const canonical = canonicalParams.toString()
+    ? `${canonicalBase}?${canonicalParams.toString()}`
+    : canonicalBase;
 
   // Keyword-focused titles (no branding)
   return {
@@ -32,8 +42,10 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
       ? `${query} Paintings: Where to See Them`
       : "Search Famous Paintings by Artist, Museum, or City",
     description: query
-      ? `Find where to see "${query}" in person. Museum locations, hours, and tickets for famous paintings.`
-      : "Search famous artworks, artists, and museums. Find where masterpieces are located worldwide.",
+      ? `Find where to see "${query}" paintings and artwork in person. Browse museum locations, visiting hours, and tickets for famous paintings worldwide.`
+      : "Search 3,600+ famous artworks by artist, museum, or city. Find where paintings are displayed, get visiting hours, tickets, and plan your museum visit.",
+    ...(page > 1 && { robots: { index: false, follow: true } }),
+    alternates: { canonical },
   };
 }
 

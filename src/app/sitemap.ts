@@ -158,6 +158,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Auction records pages
+  const auctionArtists = await prisma.artist.findMany({
+    where: { Artwork: { some: { AuctionSale: { some: {} } } } },
+    select: { slug: true },
+  });
+
+  const auctionPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/auction-records`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/auction-records/most-expensive`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/auction-records/by-artist`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    ...auctionArtists.map((artist) => ({
+      url: `${BASE_URL}/auction-records/by-artist/${artist.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticPages,
     ...eraPages,
@@ -168,5 +201,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...cityPages,
     ...trailPages,
     ...sculptureCategoryPages,
+    ...auctionPages,
   ];
 }

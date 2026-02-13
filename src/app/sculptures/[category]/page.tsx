@@ -15,14 +15,17 @@ interface Props {
   searchParams: Promise<{ page?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { category: slug } = await params;
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1", 10);
   const category = getCategoryBySlug(slug);
-  if (!category) return { title: "Category Not Found" };
+  if (!category) notFound();
 
   return {
     title: createMetaTitle(`${category.name}: Where to See Them | Masterpiece Finder`),
     description: createMetaDescription(category.description),
+    ...(page > 1 && { robots: { index: false, follow: true } }),
   };
 }
 

@@ -93,19 +93,44 @@ export function artworkMetaTitle(title: string, museum: string | null): string {
 /**
  * Artwork page meta description generator
  * Format: "{Title} by {Artist} is at {Museum} in {City}. Gallery location, visiting hours, tickets & nearby masterpieces."
+ * Ensures at least 120 characters by adding year, medium, and nationality details when needed.
  */
 export function artworkMetaDescription(
   title: string,
   artist: string | null,
   museum: string | null,
-  city: string | null
+  city: string | null,
+  extras?: { year?: number | null; medium?: string | null; nationality?: string | null; artworkType?: string | null }
 ): string {
   const artistPart = artist ? ` by ${artist}` : "";
   const locationPart = museum
     ? ` is at ${museum}${city ? ` in ${city}` : ""}`
     : "";
 
-  const fullDesc = `${title}${artistPart}${locationPart}. Gallery location, visiting hours, tickets & nearby masterpieces.`;
+  const suffix = "Gallery location, visiting hours, tickets & nearby masterpieces.";
+  let fullDesc = `${title}${artistPart}${locationPart}. ${suffix}`;
+
+  if (fullDesc.length < 120 && extras) {
+    // Build a detail fragment from available extras
+    const details: string[] = [];
+    if (extras.year) details.push(`created in ${extras.year}`);
+    if (extras.medium) details.push(extras.medium.toLowerCase());
+    if (extras.nationality && artist) details.push(`${extras.nationality} artist`);
+
+    if (details.length > 0) {
+      const detailStr = details.join(", ");
+      // Try inserting details after the location sentence
+      fullDesc = `${title}${artistPart}${locationPart}. ${detailStr.charAt(0).toUpperCase() + detailStr.slice(1)}. ${suffix}`;
+    }
+  }
+
+  // If still too short, add a generic useful phrase
+  if (fullDesc.length < 120) {
+    fullDesc = fullDesc.replace(
+      suffix,
+      `Plan your visit with gallery location, visiting hours, tickets & nearby masterpieces to see.`
+    );
+  }
 
   return createMetaDescription(fullDesc);
 }
@@ -150,7 +175,8 @@ export function artistMetaDescription(
   museumCount: number,
   topMuseum: string | null,
   notableWork: string | null,
-  bioShort: string | null
+  bioShort: string | null,
+  extras?: { nationality?: string | null; birthYear?: number | null; deathYear?: number | null; movements?: string[] }
 ): string {
   if (artworkCount > 0 && museumCount > 0) {
     let desc = `See ${name}'s paintings in person. ${artworkCount} works across ${museumCount} museums`;
@@ -165,14 +191,45 @@ export function artistMetaDescription(
       desc += ".";
     }
 
+    // Pad if still short
+    if (desc.length < 120) {
+      desc += " Find gallery locations, visiting hours, and tickets.";
+    }
+
     return createMetaDescription(desc);
   }
 
-  if (bioShort) {
+  if (bioShort && bioShort.length >= 120) {
     return createMetaDescription(bioShort);
   }
 
-  return createMetaDescription(`Where to see ${name}'s art. Museum locations and famous paintings.`);
+  // Build a richer fallback using extras
+  const parts: string[] = [];
+  if (extras?.nationality) parts.push(`${extras.nationality} artist`);
+  if (extras?.birthYear && extras?.deathYear) {
+    parts.push(`${extras.birthYear}–${extras.deathYear}`);
+  } else if (extras?.birthYear) {
+    parts.push(`born ${extras.birthYear}`);
+  }
+
+  let desc: string;
+  if (parts.length > 0) {
+    desc = `${name}, ${parts.join(", ")}. `;
+  } else {
+    desc = `${name}. `;
+  }
+
+  if (extras?.movements && extras.movements.length > 0) {
+    desc += `Known for ${extras.movements.slice(0, 2).join(" and ")}. `;
+  }
+
+  if (bioShort) {
+    desc += bioShort;
+  } else {
+    desc += `Where to see ${name}'s art in person. Museum locations, gallery hours, and famous paintings to visit.`;
+  }
+
+  return createMetaDescription(desc);
 }
 
 /**
@@ -203,7 +260,8 @@ export function museumMetaDescription(
   city: string,
   artworkCount: number,
   topArtists: string[],
-  topWorks: string[]
+  topWorks: string[],
+  country?: string
 ): string {
   let desc: string;
 
@@ -212,6 +270,13 @@ export function museumMetaDescription(
     desc = `What to see at ${name} in ${city}. ${artworkCount} famous paintings${artistsPart}. Tickets, hours & visitor tips.`;
   } else {
     desc = `Visit ${name} in ${city}. Famous paintings collection, tickets, hours & visitor guide.`;
+  }
+
+  // Pad if still too short
+  if (desc.length < 120) {
+    const countryPart = country ? `, ${country}` : "";
+    const paintingWord = artworkCount === 1 ? "painting" : "paintings";
+    desc = `Plan your visit to ${name} in ${city}${countryPart}. See ${artworkCount} famous ${paintingWord} and artworks on display. Gallery hours, tickets, directions & visitor tips.`;
   }
 
   return createMetaDescription(desc);
@@ -303,9 +368,18 @@ export function eraMetaDescription(
   }
 
   if (topArtists.length > 0) {
-    desc += `See works by ${topArtists.slice(0, 3).join(", ")} and ${artistCount} more artists.`;
+    desc += `See works by ${topArtists.slice(0, 3).join(", ")}`;
+    if (artistCount > 3) {
+      desc += ` and ${artistCount - 3} more artists`;
+    }
+    desc += ". ";
+  }
+
+  // Pad if still short
+  if (desc.length < 120) {
+    desc += `Browse paintings, sculptures, and artworks from this period. Find museum locations and plan your visit.`;
   } else {
-    desc += `Discover ${artistCount} artists and their masterpieces in museums worldwide.`;
+    desc += "Find where to see these paintings in museums worldwide.";
   }
 
   return createMetaDescription(desc);

@@ -108,7 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const museum = await getMuseum(slug);
 
-  if (!museum) return { title: "Museum Not Found" };
+  if (!museum) notFound();
 
   // Check if we have practical data for enhanced meta
   const practicalData = getMuseumPracticalData(slug);
@@ -117,15 +117,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topWorks = museum.Artwork.slice(0, 2).map(a => a.title);
   const topArtists = [...new Set(museum.Artwork.filter(a => a.Artist).map(a => a.Artist!.name))].slice(0, 2);
 
-  // Enhanced title with hours info if available
-  const title = practicalData
-    ? `${museum.name} Hours, Tickets & Visitor Guide | Masterpiece Finder`
-    : museumMetaTitle(museum.name, museum.Artwork.length);
+  // Enhanced title with hours info if available, respecting 60-char limit
+  let title: string;
+  if (practicalData) {
+    const full = `${museum.name} Hours, Tickets & Visitor Guide`;
+    if (full.length <= 60) {
+      title = full;
+    } else {
+      const shorter = `${museum.name} Hours & Tickets`;
+      title = shorter.length <= 60 ? shorter : museumMetaTitle(museum.name, museum.Artwork.length);
+    }
+  } else {
+    title = museumMetaTitle(museum.name, museum.Artwork.length);
+  }
 
   // Enhanced description with hours and prices if available
   const description = practicalData
     ? `Plan your visit to ${museum.name}. ${getHoursSummary(practicalData.hours)}. Admission: ${practicalData.admission.adult === 0 ? 'Free' : `${practicalData.admission.currency === 'USD' ? '$' : practicalData.admission.currency === 'GBP' ? '£' : '€'}${practicalData.admission.adult}`}. Plus insider tips and must-see masterpieces.`
-    : museumMetaDescription(museum.name, museum.city, museum.Artwork.length, topArtists, topWorks);
+    : museumMetaDescription(museum.name, museum.city, museum.Artwork.length, topArtists, topWorks, museum.country);
 
   return {
     title,

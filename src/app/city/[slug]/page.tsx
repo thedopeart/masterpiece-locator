@@ -47,8 +47,10 @@ interface Props {
   searchParams: Promise<{ page?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1", 10);
   const cityName = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -61,16 +63,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     include: { _count: { select: { Artwork: true } } },
   });
 
-  if (rawMuseums.length === 0) return { title: "City Not Found" };
+  if (rawMuseums.length === 0) notFound();
 
   const totalArtworks = rawMuseums.reduce((sum, m) => sum + m._count.Artwork, 0);
 
   // Keyword-focused with character limits (60 title, 160 description)
   const topMuseum = rawMuseums[0]?.name || null;
 
+  const canonicalBase = `https://luxurywallart.com/apps/masterpieces/city/${slug}`;
+  const canonical = page > 1 ? `${canonicalBase}?page=${page}` : canonicalBase;
+
   return {
     title: cityMetaTitle(cityName, rawMuseums.length, totalArtworks),
     description: cityMetaDescription(cityName, rawMuseums.length, totalArtworks, topMuseum),
+    ...(page > 1 && { robots: { index: false, follow: true } }),
+    alternates: { canonical },
   };
 }
 

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     where: { slug }
   });
 
-  if (!artist) return { title: "Artist Not Found" };
+  if (!artist) notFound();
 
   return {
     title: `${artist.name} Auction Records: Most Expensive Paintings Sold`,
@@ -247,7 +247,7 @@ export default async function ArtistAuctionPage({ params }: Props) {
             </svg>
             <p className="text-amber-800">
               <strong>{recordSales.length} record-breaking {recordSales.length === 1 ? 'sale' : 'sales'}</strong>
-              {' '}— {recordSales.length === 1 ? 'This work' : 'These works'} set auction records when sold.
+              {' '}&ndash; {recordSales.length === 1 ? 'This work' : 'These works'} set auction records when sold.
             </p>
           </div>
         )}
