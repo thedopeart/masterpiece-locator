@@ -68,7 +68,7 @@ const navLinks = [
     icon: "📜",
     subItems: [
       { href: "/era/renaissance", label: "Renaissance (1400-1600)" },
-      { href: "/era/baroque", label: "Baroque (1600-1750)" },
+      { href: "/era/baroque-rococo", label: "Baroque (1600-1750)" },
       { href: "/era/19th-century", label: "19th Century" },
       { href: "/era/modern", label: "Modern (1900+)" },
     ]
