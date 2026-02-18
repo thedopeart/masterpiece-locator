@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { decodeHtmlEntities } from "@/lib/text";
+import AuctionImage from "@/components/AuctionImage";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import PriceComparisonModule from "@/components/PriceComparison";
 
@@ -209,20 +210,37 @@ export default async function MostExpensivePage() {
                   </div>
 
                   {/* Image */}
-                  {sale.Artwork.imageUrl && (
-                    <div className="md:w-48 h-48 md:h-auto shrink-0 bg-neutral-100">
-                      <Link href={`/art/${sale.Artwork.slug}`}>
-                        <Image
-                          src={sale.Artwork.imageUrl}
-                          alt={sale.Artwork.title}
-                          width={192}
-                          height={192}
-                          className="w-full h-full object-cover"
-                          unoptimized
-                        />
+                  <div className="md:w-48 h-48 md:h-auto shrink-0 bg-neutral-100">
+                    {sale.Artwork.imageUrl ? (
+                      <AuctionImage
+                        src={sale.Artwork.imageUrl}
+                        alt={sale.Artwork.title}
+                        slug={sale.Artwork.slug}
+                      />
+                    ) : (
+                      <Link
+                        href={`/art/${sale.Artwork.slug}`}
+                        className="w-full h-full flex flex-col items-center justify-center text-center px-4 min-h-[192px]"
+                      >
+                        <svg
+                          className="w-8 h-8 text-neutral-300 mb-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M12 15v2m0 0v2m0-2h2m-2 0H10m9.364-7.364A9 9 0 1112 3a9 9 0 017.364 4.636z"
+                          />
+                        </svg>
+                        <span className="text-xs font-medium text-neutral-500">
+                          Copyrighted Image
+                        </span>
                       </Link>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
                   {/* Content */}
                   <div className="flex-1 p-6">
