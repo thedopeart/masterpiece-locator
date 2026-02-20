@@ -15,6 +15,7 @@ interface TripMuseum {
 
 interface TripPlannerContextType {
   museums: TripMuseum[];
+  isLoaded: boolean;
   isInTrip: (slug: string) => boolean;
   addMuseum: (museum: Omit<TripMuseum, "addedAt">) => void;
   removeMuseum: (slug: string) => void;
@@ -101,6 +102,7 @@ export function TripPlannerProvider({ children }: { children: ReactNode }) {
     <TripPlannerContext.Provider
       value={{
         museums,
+        isLoaded,
         isInTrip,
         addMuseum,
         removeMuseum,

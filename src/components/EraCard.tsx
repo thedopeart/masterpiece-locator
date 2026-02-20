@@ -168,11 +168,11 @@ export function TimelineEraCard({
       <div className="absolute top-0 left-0 right-0 h-8 flex items-center">
         {/* Left line segment */}
         {!isFirst && (
-          <div className="absolute left-0 right-1/2 h-0.5 bg-gradient-to-r from-[#C9A84C]/60 to-[#C9A84C]" />
+          <div className="hidden lg:block absolute left-0 right-1/2 h-0.5 bg-gradient-to-r from-[#C9A84C]/60 to-[#C9A84C]" />
         )}
         {/* Right line segment */}
         {!isLast && (
-          <div className="absolute left-1/2 right-0 h-0.5 bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/60" />
+          <div className="hidden lg:block absolute left-1/2 right-0 h-0.5 bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]/60" />
         )}
         {/* Center dot */}
         <div
@@ -269,7 +269,7 @@ export function TimelineSection({
   return (
     <div className="relative">
       {/* Main timeline line */}
-      <div className="absolute top-4 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
+      <div className="hidden lg:block absolute top-4 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
 
       {/* Era cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-2">

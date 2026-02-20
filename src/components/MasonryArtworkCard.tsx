@@ -39,7 +39,7 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
   const [imageError, setImageError] = useState(false);
 
   // Calculate aspect ratio from stored dimensions, fallback to 4:3
-  const hasStoredDimensions = artwork.imageWidth && artwork.imageHeight;
+  const hasStoredDimensions = artwork.imageWidth && artwork.imageHeight && artwork.imageHeight > 0;
   const aspectRatio = hasStoredDimensions
     ? artwork.imageWidth! / artwork.imageHeight!
     : 4 / 3;
@@ -68,8 +68,8 @@ export default function MasonryArtworkCard({ artwork, priority = false, highligh
         )}
         {/* Favorite Button */}
         {showFavorite && (
-          <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <FavoriteButton artwork={artwork} size="sm" />
+          <div className="absolute top-2 right-2 z-10 md:opacity-0 md:group-hover:opacity-100 md:focus-within:opacity-100 transition-opacity duration-200">
+            <FavoriteButton artwork={artwork} size="md" />
           </div>
         )}
         {artwork.imageUrl && !imageError ? (

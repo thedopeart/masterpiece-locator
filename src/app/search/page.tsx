@@ -63,6 +63,15 @@ export default async function SearchPage({ searchParams }: Props) {
 
   const currentPage = Math.max(1, parseInt(pageParam || "1", 10) || 1);
 
+  // Build clean search URL omitting empty params
+  function buildSearchUrl(filters: Record<string, string | undefined>) {
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(filters)) {
+      if (value) params.set(key, value);
+    }
+    return `/search?${params.toString()}`;
+  }
+
   // Get filter options and type counts
   const [museums, artists, movements, cities, typeCountsRaw] = await Promise.all([
     prisma.museum.findMany({
@@ -233,6 +242,7 @@ export default async function SearchPage({ searchParams }: Props) {
   }));
 
   const totalPages = Math.ceil(totalArtworks / ITEMS_PER_PAGE);
+  const safePage = totalPages > 0 ? Math.min(currentPage, totalPages) : 1;
 
   // Also search artists and museums if there's a text query
   const rawArtistResults = query
@@ -337,7 +347,7 @@ export default async function SearchPage({ searchParams }: Props) {
             <span style={{ color: '#fff' }}>Search</span>
           </nav>
 
-          <h1 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#fff' }}>
+          <h1 className="text-2xl md:text-3xl font-bold mb-4 break-words" style={{ color: '#fff' }}>
             {query ? `Results for "${query}"` : "Search"}
           </h1>
 
@@ -376,7 +386,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 <span className="text-sm text-neutral-500">Filters:</span>
                 {activeFilters.museum && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, artist: artistFilter || "", movement: movementFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
+                    href={buildSearchUrl({ q: query, artist: artistFilter, movement: movementFilter, city: cityFilter, type: typeFilter })}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200"
                   >
                     {activeFilters.museum}
@@ -385,7 +395,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.artist && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", movement: movementFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
+                    href={buildSearchUrl({ q: query, museum: museumFilter, movement: movementFilter, city: cityFilter, type: typeFilter })}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200"
                   >
                     {activeFilters.artist}
@@ -394,7 +404,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.movement && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", city: cityFilter || "", type: typeFilter || "" }).toString()}`}
+                    href={buildSearchUrl({ q: query, museum: museumFilter, artist: artistFilter, city: cityFilter, type: typeFilter })}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm hover:bg-amber-200"
                   >
                     {activeFilters.movement}
@@ -403,7 +413,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.city && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", movement: movementFilter || "", type: typeFilter || "" }).toString()}`}
+                    href={buildSearchUrl({ q: query, museum: museumFilter, artist: artistFilter, movement: movementFilter, type: typeFilter })}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm hover:bg-purple-200"
                   >
                     {activeFilters.city}
@@ -412,7 +422,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 )}
                 {activeFilters.type && (
                   <Link
-                    href={`/search?${new URLSearchParams({ q: query, museum: museumFilter || "", artist: artistFilter || "", movement: movementFilter || "", city: cityFilter || "" }).toString()}`}
+                    href={buildSearchUrl({ q: query, museum: museumFilter, artist: artistFilter, movement: movementFilter, city: cityFilter })}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm hover:bg-teal-200"
                   >
                     {activeFilters.type}
@@ -516,7 +526,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage - 1),
                               }).toString()}#results`}
-                              className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
+                              className="px-4 py-3 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
                             >
                               Previous
                             </Link>
@@ -545,7 +555,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                       ...(typeFilter && { type: typeFilter }),
                                       page: String(page),
                                     }).toString()}#results`}
-                                    className={`px-4 py-2 rounded-lg transition-colors ${
+                                    className={`px-4 py-3 rounded-lg transition-colors ${
                                       page === currentPage
                                         ? "bg-[#C9A84C] text-white"
                                         : "border border-neutral-300 hover:bg-neutral-100"
@@ -568,7 +578,7 @@ export default async function SearchPage({ searchParams }: Props) {
                                 ...(typeFilter && { type: typeFilter }),
                                 page: String(currentPage + 1),
                               }).toString()}#results`}
-                              className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
+                              className="px-4 py-3 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
                             >
                               Next
                             </Link>
@@ -578,7 +588,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
                       {/* Page info */}
                       <p className="mt-4 text-center text-sm text-neutral-500">
-                        Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, totalArtworks)} of {totalArtworks} artworks
+                        Showing {(safePage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(safePage * ITEMS_PER_PAGE, totalArtworks)} of {totalArtworks} artworks
                       </p>
                     </>
                   ) : (

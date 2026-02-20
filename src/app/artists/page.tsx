@@ -326,12 +326,12 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {currentPage > 1 ? (
               <Link
                 href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${currentPage - 1}#artists`}
-                className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Previous
               </Link>
             ) : (
-              <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+              <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
                 Previous
               </span>
             )}
@@ -357,7 +357,7 @@ export default async function ArtistsPage({ searchParams }: Props) {
                       )}
                       <Link
                         href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${page}#artists`}
-                        className={`px-4 py-2 rounded-lg transition-colors ${
+                        className={`px-4 py-3 rounded-lg transition-colors ${
                           page === currentPage
                             ? "bg-black text-white"
                             : "border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
@@ -374,12 +374,12 @@ export default async function ArtistsPage({ searchParams }: Props) {
             {currentPage < totalPages ? (
               <Link
                 href={`/artists?${movementFilter ? `movement=${movementFilter}&` : ""}${searchQuery ? `q=${encodeURIComponent(searchQuery)}&` : ""}${typeFilter ? `type=${typeFilter}&` : ""}page=${currentPage + 1}#artists`}
-                className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 Next
               </Link>
             ) : (
-              <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+              <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
                 Next
               </span>
             )}

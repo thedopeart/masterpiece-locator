@@ -180,7 +180,7 @@ export default async function AuctionRecordsPage() {
           <p className="text-neutral-600 mb-6 max-w-xl mx-auto">
             Explore the most expensive paintings ever sold at auction, plus valuations for priceless masterpieces held in museums worldwide.
           </p>
-          <div className="flex justify-center gap-8 text-sm">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
             <div>
               <span className="text-2xl font-bold text-neutral-900">{totalSales}</span>
               <p className="text-neutral-500">Auction Sales</p>
@@ -200,13 +200,13 @@ export default async function AuctionRecordsPage() {
           <div className="flex justify-center gap-4 mt-6">
             <Link
               href="/auction-records/most-expensive"
-              className="bg-neutral-900 text-white px-4 py-2 rounded-lg text-sm hover:bg-neutral-800 transition-colors"
+              className="bg-neutral-900 text-white px-4 py-3 rounded-lg text-sm hover:bg-neutral-800 transition-colors"
             >
               Top 50 Rankings
             </Link>
             <Link
               href="/auction-records/by-artist"
-              className="bg-neutral-100 text-neutral-700 px-4 py-2 rounded-lg text-sm hover:bg-neutral-200 transition-colors"
+              className="bg-neutral-100 text-neutral-700 px-4 py-3 rounded-lg text-sm hover:bg-neutral-200 transition-colors"
             >
               Browse by Artist
             </Link>

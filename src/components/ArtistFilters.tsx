@@ -55,7 +55,7 @@ export default function ArtistFilters({
       <div className="mt-8 flex gap-1 bg-white/10 rounded-lg p-1 w-fit">
         <button
           onClick={() => handleTypeChange("")}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+          className={`px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
             !typeFilter
               ? "bg-white text-black"
               : "text-neutral-400 hover:text-white"
@@ -65,7 +65,7 @@ export default function ArtistFilters({
         </button>
         <button
           onClick={() => handleTypeChange("painters")}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+          className={`px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
             typeFilter === "painters"
               ? "bg-white text-black"
               : "text-neutral-400 hover:text-white"
@@ -75,7 +75,7 @@ export default function ArtistFilters({
         </button>
         <button
           onClick={() => handleTypeChange("sculptors")}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+          className={`px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
             typeFilter === "sculptors"
               ? "bg-white text-black"
               : "text-neutral-400 hover:text-white"

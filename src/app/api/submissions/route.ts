@@ -89,6 +89,10 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: "Missing submission ID" }, { status: 400 });
     }
 
+    if (status && !["pending", "approved", "rejected"].includes(status)) {
+      return NextResponse.json({ error: "Invalid status value" }, { status: 400 });
+    }
+
     const updated = await prisma.artistSubmission.update({
       where: { id },
       data: {

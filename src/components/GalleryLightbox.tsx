@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface GalleryImage {
@@ -16,16 +16,28 @@ interface GalleryLightboxProps {
 export default function GalleryLightbox({ images }: GalleryLightboxProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Clean up scroll lock on unmount and manage focus
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = "hidden";
+      overlayRef.current?.focus();
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxOpen]);
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
     setLightboxOpen(true);
-    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
-    document.body.style.overflow = "";
   };
 
   const goNext = () => {
@@ -63,8 +75,8 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium bg-black/50 px-3 py-1.5 rounded-full">
-                  Click to enlarge
+                <span className="sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-white text-xs sm:text-sm font-medium bg-black/50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                  Tap to enlarge
                 </span>
               </div>
             </div>
@@ -78,6 +90,7 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
       {/* Lightbox Modal */}
       {lightboxOpen && (
         <div
+          ref={overlayRef}
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
           onKeyDown={handleKeyDown}
@@ -89,7 +102,7 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10"
+            className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10 bg-black/50 rounded-full"
             aria-label="Close lightbox"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +117,7 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
                 e.stopPropagation();
                 goPrev();
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-black/30 rounded-full"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-black/50 rounded-full z-10"
               aria-label="Previous image"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +161,7 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
                 e.stopPropagation();
                 goNext();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-black/30 rounded-full"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-black/50 rounded-full z-10"
               aria-label="Next image"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

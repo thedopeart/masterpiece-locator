@@ -1,6 +1,7 @@
 "use client";
 
 import { useFavorites } from "@/contexts/FavoritesContext";
+import { useToast } from "@/contexts/ToastContext";
 
 interface FavoriteButtonProps {
   artwork: {
@@ -17,6 +18,7 @@ interface FavoriteButtonProps {
 
 export default function FavoriteButton({ artwork, size = "md", className = "" }: FavoriteButtonProps) {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { showToast } = useToast();
   const favorited = isFavorite(artwork.slug);
 
   const sizeClasses = {
@@ -34,6 +36,7 @@ export default function FavoriteButton({ artwork, size = "md", className = "" }:
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasFavorited = favorited;
     toggleFavorite({
       id: artwork.id,
       slug: artwork.slug,
@@ -42,6 +45,11 @@ export default function FavoriteButton({ artwork, size = "md", className = "" }:
       artistName: artwork.artist?.name,
       museumName: artwork.museum?.name,
     });
+    if (wasFavorited) {
+      showToast("Removed from favorites");
+    } else {
+      showToast("Added to favorites");
+    }
   };
 
   return (

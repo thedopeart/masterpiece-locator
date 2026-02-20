@@ -153,7 +153,7 @@ export default function CitySearch({ cities, privateCollectionCount, topCities }
         <div className="flex flex-wrap gap-1">
           <button
             onClick={() => setSelectedLetter(null)}
-            className={`px-3 h-8 text-sm font-medium rounded transition-colors ${
+            className={`px-3 h-9 text-sm font-medium rounded transition-colors ${
               !selectedLetter
                 ? "bg-neutral-900 text-white"
                 : "bg-white text-neutral-700 hover:bg-neutral-100 border border-neutral-200"
@@ -171,7 +171,7 @@ export default function CitySearch({ cities, privateCollectionCount, topCities }
                 key={letter}
                 onClick={() => hasItems && handleLetterClick(letter)}
                 disabled={!hasItems}
-                className={`w-8 h-8 text-sm font-medium rounded transition-colors ${
+                className={`w-9 h-9 text-sm font-medium rounded transition-colors ${
                   isActive
                     ? "bg-[#C9A84C] text-white"
                     : hasItems
@@ -195,13 +195,13 @@ export default function CitySearch({ cities, privateCollectionCount, topCities }
             {selectedLetter && (
               <span className="inline-flex items-center gap-1 px-2 py-1 bg-[#C9A84C]/10 text-[#C9A84C] rounded font-medium">
                 Starting with {selectedLetter}
-                <button onClick={() => setSelectedLetter(null)} className="hover:text-[#b8973f] ml-1">×</button>
+                <button onClick={() => setSelectedLetter(null)} className="hover:text-[#b8973f] ml-1 p-1 -m-1">×</button>
               </span>
             )}
             {searchQuery && (
               <span className="inline-flex items-center gap-1 px-2 py-1 bg-white text-neutral-700 rounded border border-neutral-200">
                 &ldquo;{searchQuery}&rdquo;
-                <button onClick={() => handleSearch("")} className="hover:text-neutral-900 ml-1">×</button>
+                <button onClick={() => handleSearch("")} className="hover:text-neutral-900 ml-1 p-1 -m-1">×</button>
               </span>
             )}
             <button

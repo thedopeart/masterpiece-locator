@@ -123,6 +123,7 @@ export default function Navigation() {
   const closeMenu = useCallback(() => {
     setIsOpen(false);
     setOpenDropdown(null);
+    setClickedDropdown(null);
   }, []);
 
   const handleMouseEnter = (label: string) => {
@@ -192,8 +193,9 @@ export default function Navigation() {
                 onMouseEnter={() => handleMouseEnter(link.label)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
-                  onClick={() => handleClick(link.label)}
+                <Link
+                  href={link.href}
+                  onClick={() => { setOpenDropdown(null); setClickedDropdown(null); }}
                   className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 flex items-center gap-1.5 ${
                     isActive(link.href)
                       ? "bg-[#C9A84C]/20 text-[#C9A84C]"
@@ -212,7 +214,7 @@ export default function Navigation() {
                   {isActive(link.href) && (
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#C9A84C] rounded-full" />
                   )}
-                </button>
+                </Link>
 
                 {/* Dropdown Menu */}
                 {openDropdown === link.label && link.subItems && (
@@ -247,7 +249,7 @@ export default function Navigation() {
           <div className="flex items-center justify-end gap-1 sm:gap-2 ml-auto">
             <Link
               href="/search"
-              className="text-neutral-400 hover:text-white hover:bg-white/10 transition-all p-2 sm:p-2.5 rounded-lg"
+              className="text-neutral-400 hover:text-white hover:bg-white/10 transition-all p-2.5 rounded-lg"
               aria-label="Search"
             >
               <svg

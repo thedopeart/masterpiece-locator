@@ -189,11 +189,11 @@ export default async function SculptureCategoryPage({ params, searchParams }: Pr
                 {totalPages > 1 && (
                   <div className="flex items-center justify-center gap-2 mt-10">
                     {currentPage > 1 ? (
-                      <Link href={getPaginationLink(currentPage - 1)} className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors">
+                      <Link href={getPaginationLink(currentPage - 1)} className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors">
                         Previous
                       </Link>
                     ) : (
-                      <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">Previous</span>
+                      <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">Previous</span>
                     )}
                     <div className="flex items-center gap-1">
                       {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -210,7 +210,7 @@ export default async function SculptureCategoryPage({ params, searchParams }: Pr
                               {showEllipsis && <span className="px-2 text-neutral-400">...</span>}
                               <Link
                                 href={getPaginationLink(pageNum)}
-                                className={`px-3 py-2 rounded-lg transition-colors ${
+                                className={`px-3 py-3 rounded-lg transition-colors ${
                                   pageNum === currentPage
                                     ? "bg-black text-white"
                                     : "border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
@@ -223,11 +223,11 @@ export default async function SculptureCategoryPage({ params, searchParams }: Pr
                         })}
                     </div>
                     {currentPage < totalPages ? (
-                      <Link href={getPaginationLink(currentPage + 1)} className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors">
+                      <Link href={getPaginationLink(currentPage + 1)} className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors">
                         Next
                       </Link>
                     ) : (
-                      <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">Next</span>
+                      <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">Next</span>
                     )}
                   </div>
                 )}

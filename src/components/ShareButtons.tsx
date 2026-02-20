@@ -2,12 +2,11 @@
 
 interface ShareButtonsProps {
   title: string;
-  url?: string;
+  url: string;
 }
 
 export default function ShareButtons({ title, url }: ShareButtonsProps) {
-  const shareUrl = url || (typeof window !== "undefined" ? window.location.href : "");
-  const encodedUrl = encodeURIComponent(shareUrl);
+  const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
   const links = [
@@ -49,7 +48,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors"
+          className="p-3 text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 rounded-full transition-colors"
           title={`Share on ${link.name}`}
         >
           {link.icon}

@@ -14,6 +14,7 @@ interface FavoriteItem {
 
 interface FavoritesContextType {
   favorites: FavoriteItem[];
+  isLoaded: boolean;
   isFavorite: (slug: string) => boolean;
   addFavorite: (item: Omit<FavoriteItem, "addedAt">) => void;
   removeFavorite: (slug: string) => void;
@@ -90,6 +91,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     <FavoritesContext.Provider
       value={{
         favorites,
+        isLoaded,
         isFavorite,
         addFavorite,
         removeFavorite,

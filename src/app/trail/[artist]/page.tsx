@@ -294,7 +294,7 @@ export default async function TrailPage({ params }: Props) {
                 const typeBadge = getStopTypeBadge(stop.type);
 
                 return (
-                  <div key={stop.slug} id={`stop-${stop.slug}`} className="relative pl-14 md:pl-18">
+                  <div key={stop.slug} id={`stop-${stop.slug}`} className="relative pl-12 md:pl-18">
                     {/* Timeline marker */}
                     <div className={`absolute left-0 w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg shadow-lg ${stop.highlight || stop.mustVisit ? "bg-gradient-to-br from-[#C9A84C] to-[#b8973f]" : "bg-neutral-400"}`}>
                       {index + 1}

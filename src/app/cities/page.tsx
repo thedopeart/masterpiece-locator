@@ -257,20 +257,20 @@ export default async function CitiesPage() {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-4 lg:gap-6">
-              <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
+            <div className="grid grid-cols-3 gap-3 lg:flex lg:gap-6">
+              <div className="rounded-lg p-3 lg:p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
                 <div className="text-2xl md:text-3xl font-bold" style={{ color: "#C9A84C" }}>
                   {totalCities}
                 </div>
                 <div className="text-sm" style={{ color: "#999" }}>Cities</div>
               </div>
-              <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
+              <div className="rounded-lg p-3 lg:p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
                 <div className="text-2xl md:text-3xl font-bold" style={{ color: "#C9A84C" }}>
                   {totalMuseums}
                 </div>
                 <div className="text-sm" style={{ color: "#999" }}>Museums</div>
               </div>
-              <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
+              <div className="rounded-lg p-3 lg:p-4 text-center" style={{ backgroundColor: "#1a1a1a", border: "1px solid #333" }}>
                 <div className="text-2xl md:text-3xl font-bold" style={{ color: "#C9A84C" }}>
                   {totalArtworks.toLocaleString()}
                 </div>

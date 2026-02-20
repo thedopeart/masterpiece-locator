@@ -464,7 +464,7 @@ export default async function DiscoverPage() {
             return (
               <div className="bg-white/5 backdrop-blur rounded-2xl overflow-hidden max-w-5xl mx-auto">
                 <div className="flex flex-col md:flex-row">
-                  <Link href={`/art/${randomArtwork.slug}`} className="w-full md:w-80 aspect-[3/4] relative flex-shrink-0 group">
+                  <Link href={`/art/${randomArtwork.slug}`} className="w-full md:w-80 aspect-[4/3] md:aspect-[3/4] relative flex-shrink-0 group">
                     <Image
                       src={randomArtwork.imageUrl!}
                       alt={randomArtwork.title}
@@ -512,13 +512,13 @@ export default async function DiscoverPage() {
                       <div className="flex flex-wrap gap-3 mt-4">
                         <Link
                           href={`/art/${randomArtwork.slug}`}
-                          className="bg-[#C9A84C] text-black px-5 py-2 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
+                          className="bg-[#C9A84C] text-black px-5 py-3 rounded-lg font-semibold hover:bg-[#b8973f] transition-colors"
                         >
                           Explore This Painting
                         </Link>
                         <Link
                           href="/discover"
-                          className="border border-white/30 text-white px-5 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2"
+                          className="border border-white/30 text-white px-5 py-3 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -734,7 +734,7 @@ export default async function DiscoverPage() {
         <FAQ items={discoverFaqs} title="Frequently Asked Questions" wide />
 
         {/* Quick Search */}
-        <section className="bg-neutral-900 rounded-2xl p-8 text-center">
+        <section className="bg-neutral-900 rounded-2xl p-6 sm:p-8 text-center">
           <h2 className="text-xl font-bold text-white mb-3">
             Looking for something specific?
           </h2>

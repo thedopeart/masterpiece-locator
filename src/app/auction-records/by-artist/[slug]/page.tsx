@@ -83,7 +83,7 @@ export default async function ArtistAuctionPage({ params }: Props) {
   // Flatten and sort all sales
   const allSales = artist.Artwork
     .flatMap(artwork => artwork.AuctionSale.map(sale => ({ ...sale, artwork })))
-    .sort((a, b) => Number(b.priceUsd - a.priceUsd));
+    .sort((a, b) => (b.priceUsd > a.priceUsd ? 1 : b.priceUsd < a.priceUsd ? -1 : 0));
 
   if (allSales.length === 0) notFound();
 

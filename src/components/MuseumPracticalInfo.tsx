@@ -57,8 +57,9 @@ export default function MuseumPracticalInfo({ data, artists = [], slug }: Museum
     setCurrentDay(getCurrentDay());
     setIsOpen(isMuseumOpen(data.hours));
 
-    // Update every minute
+    // Update every minute (both open status and current day)
     const interval = setInterval(() => {
+      setCurrentDay(getCurrentDay());
       setIsOpen(isMuseumOpen(data.hours));
     }, 60000);
 

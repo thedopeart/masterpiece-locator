@@ -16,7 +16,7 @@ import {
   ERAS,
 } from "@/lib/eras";
 
-export const dynamic = 'force-dynamic'; // Revalidate every hour
+export const revalidate = 3600; // Revalidate every hour
 
 // Generate static params for all eras
 export async function generateStaticParams() {
@@ -266,7 +266,7 @@ export default async function EraPage({ params }: Props) {
           <div className="flex-1 min-w-0 lg:max-w-[65%]">
             {/* Hero Header - Clean and concise */}
             <div
-              className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-8 mb-8 relative overflow-hidden`}
+              className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-6 md:p-8 mb-8 relative overflow-hidden`}
             >
               <div className="absolute inset-0 opacity-10">
                 <div

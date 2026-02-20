@@ -1,11 +1,32 @@
 "use client";
 
 import { useFavorites } from "@/contexts/FavoritesContext";
+import { useToast } from "@/contexts/ToastContext";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function FavoritesPage() {
-  const { favorites, removeFavorite, clearFavorites } = useFavorites();
+  const { favorites, isLoaded, removeFavorite, clearFavorites } = useFavorites();
+  const { showToast } = useToast();
+  const [confirmingClear, setConfirmingClear] = useState(false);
+
+  const handleRemove = (slug: string, title: string) => {
+    removeFavorite(slug);
+    showToast(`Removed "${title}" from favorites`);
+  };
+
+  const handleClearAll = () => {
+    if (!confirmingClear) {
+      setConfirmingClear(true);
+      setTimeout(() => setConfirmingClear(false), 3000);
+      return;
+    }
+    const count = favorites.length;
+    clearFavorites();
+    setConfirmingClear(false);
+    showToast(`Cleared ${count} favorite${count !== 1 ? "s" : ""}`);
+  };
 
   return (
     <div className="bg-white min-h-screen">
@@ -30,14 +51,14 @@ export default function FavoritesPage() {
             </div>
             {favorites.length > 0 && (
               <button
-                onClick={() => {
-                  if (confirm("Clear all favorites?")) {
-                    clearFavorites();
-                  }
-                }}
-                className="text-sm text-neutral-400 hover:text-white transition-colors"
+                onClick={handleClearAll}
+                className={`text-sm transition-colors ${
+                  confirmingClear
+                    ? "text-red-400 hover:text-red-300 font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
               >
-                Clear all
+                {confirmingClear ? "Tap again to confirm" : "Clear all"}
               </button>
             )}
           </div>
@@ -45,7 +66,19 @@ export default function FavoritesPage() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 py-8">
-        {favorites.length === 0 ? (
+        {!isLoaded ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border border-neutral-100">
+                <div className="aspect-[4/3] bg-neutral-100 animate-pulse" />
+                <div className="p-4 space-y-3">
+                  <div className="h-4 bg-neutral-100 rounded animate-pulse w-3/4" />
+                  <div className="h-3 bg-neutral-100 rounded animate-pulse w-1/2" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : favorites.length === 0 ? (
           <div className="text-center py-16">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-neutral-100 flex items-center justify-center">
               <svg className="w-10 h-10 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,8 +142,8 @@ export default function FavoritesPage() {
                     Saved {new Date(fav.addedAt).toLocaleDateString()}
                   </span>
                   <button
-                    onClick={() => removeFavorite(fav.slug)}
-                    className="text-xs text-red-500 hover:text-red-700 transition-colors"
+                    onClick={() => handleRemove(fav.slug, fav.title)}
+                    className="text-xs text-red-500 hover:text-red-700 transition-colors px-2 py-2 -mr-2"
                   >
                     Remove
                   </button>

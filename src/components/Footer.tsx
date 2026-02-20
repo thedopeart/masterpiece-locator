@@ -47,42 +47,42 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Browse</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/artists" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artists" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   All Artists
                 </Link>
               </li>
               <li>
-                <Link href="/museums" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museums" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   All Museums
                 </Link>
               </li>
               <li>
-                <Link href="/cities" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/cities" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Cities
                 </Link>
               </li>
               <li>
-                <Link href="/movements" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/movements" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Art Movements
                 </Link>
               </li>
               <li>
-                <Link href="/search" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/search" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Search Artworks
                 </Link>
               </li>
               <li>
-                <Link href="/discover" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/discover" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Discover Art
                 </Link>
               </li>
               <li>
-                <Link href="/auction-records/most-expensive" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/auction-records/most-expensive" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Auction Records
                 </Link>
               </li>
               <li>
-                <Link href="/submit" className="text-[#C9A84C] hover:text-[#d4b45a] transition-colors text-sm font-medium">
+                <Link href="/submit" className="text-[#C9A84C] hover:text-[#d4b45a] transition-colors text-sm font-medium block py-1">
                   Submit Your Art
                 </Link>
               </li>
@@ -94,32 +94,32 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Popular</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/art/mona-lisa" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/mona-lisa" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Mona Lisa
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-starry-night" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/the-starry-night" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Starry Night
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-scream" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/the-scream" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Scream
                 </Link>
               </li>
               <li>
-                <Link href="/art/girl-with-a-pearl-earring" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/girl-with-a-pearl-earring" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Girl with a Pearl Earring
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-birth-of-venus" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/the-birth-of-venus" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Birth of Venus
                 </Link>
               </li>
               <li>
-                <Link href="/art/the-last-supper" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/art/the-last-supper" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Last Supper
                 </Link>
               </li>
@@ -131,32 +131,32 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Museums</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/museum/louvre-paris-france" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/louvre-paris-france" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Louvre
                 </Link>
               </li>
               <li>
-                <Link href="/museum/moma" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/moma" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   MoMA
                 </Link>
               </li>
               <li>
-                <Link href="/museum/met" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/met" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   The Met
                 </Link>
               </li>
               <li>
-                <Link href="/museum/uffizi-gallery-florence-italy" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/uffizi-gallery-florence-italy" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Uffizi Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/museum/rijksmuseum" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/rijksmuseum" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Rijksmuseum
                 </Link>
               </li>
               <li>
-                <Link href="/museum/national-gallery" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/museum/national-gallery" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   National Gallery
                 </Link>
               </li>
@@ -168,32 +168,32 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Artists</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/artist/van-gogh" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/van-gogh" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Van Gogh
                 </Link>
               </li>
               <li>
-                <Link href="/artist/leonardo-da-vinci" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/leonardo-da-vinci" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Da Vinci
                 </Link>
               </li>
               <li>
-                <Link href="/artist/claude-monet" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/claude-monet" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Monet
                 </Link>
               </li>
               <li>
-                <Link href="/artist/pablo-picasso" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/pablo-picasso" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Picasso
                 </Link>
               </li>
               <li>
-                <Link href="/artist/rembrandt" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/rembrandt" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Rembrandt
                 </Link>
               </li>
               <li>
-                <Link href="/artist/michelangelo" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+                <Link href="/artist/michelangelo" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
                   Michelangelo
                 </Link>
               </li>
@@ -236,34 +236,34 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-neutral-800">
           <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Top Art Cities</h4>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/city/paris" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/paris" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Paris
             </Link>
-            <Link href="/city/new-york" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/new-york" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               New York
             </Link>
-            <Link href="/city/london" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/london" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               London
             </Link>
-            <Link href="/city/amsterdam" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/amsterdam" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Amsterdam
             </Link>
-            <Link href="/city/florence" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/florence" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Florence
             </Link>
-            <Link href="/city/madrid" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/madrid" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Madrid
             </Link>
-            <Link href="/city/rome" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/rome" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Rome
             </Link>
-            <Link href="/city/berlin" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/berlin" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Berlin
             </Link>
-            <Link href="/city/chicago" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/chicago" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Chicago
             </Link>
-            <Link href="/city/vienna" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/city/vienna" className="text-neutral-300 hover:text-white transition-colors text-sm font-medium block py-1">
               Vienna
             </Link>
           </div>

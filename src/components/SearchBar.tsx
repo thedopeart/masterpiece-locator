@@ -192,6 +192,8 @@ export default function SearchBar() {
             className="w-full px-5 py-4 pr-14 text-lg bg-white border border-neutral-200 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent text-neutral-900 placeholder:text-neutral-400"
             aria-expanded={isOpen}
             aria-autocomplete="list"
+            aria-controls="search-listbox"
+            aria-activedescendant={selectedIndex >= 0 ? `search-option-${selectedIndex}` : undefined}
             role="combobox"
           />
           <button
@@ -216,7 +218,9 @@ export default function SearchBar() {
       {/* Autocomplete dropdown - Two column layout */}
       {isOpen && hasResults && (
         <div
-          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-neutral-200 overflow-hidden z-50"
+          id="search-listbox"
+          role="listbox"
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-neutral-200 overflow-hidden z-50 max-h-[60vh] overflow-y-auto"
         >
           {/* Two-column grid layout - stacks on mobile, side-by-side on desktop */}
           {hasArtworks && hasSecondary ? (

@@ -167,7 +167,7 @@ export default async function MostExpensivePage() {
             <span className="mx-2">/</span>
             <span className="text-white">Most Expensive</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4">
             Most Expensive Paintings Ever Sold
           </h1>
           <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
@@ -267,7 +267,7 @@ export default async function MostExpensivePage() {
                           </p>
                         )}
                       </div>
-                      <div className="text-right shrink-0">
+                      <div className="text-left md:text-right shrink-0">
                         <div className="text-2xl md:text-3xl font-bold text-[#C9A84C]">
                           {formatPrice(sale.priceUsd)}
                         </div>
@@ -352,7 +352,7 @@ export default async function MostExpensivePage() {
         </div>
 
         {/* SEO Content */}
-        <section className="mt-16 bg-white rounded-xl border border-neutral-200 p-8">
+        <section className="mt-16 bg-white rounded-xl border border-neutral-200 p-5 sm:p-8">
           <h2 className="text-2xl font-bold text-neutral-900 mb-4">
             About This List
           </h2>

@@ -77,6 +77,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: createMetaDescription(
       `${movement.name} (${years}) paintings and artists. See ${movement._count.Artist} artists and where to find their masterpieces in museums worldwide.`
     ),
+    alternates: {
+      canonical: `https://luxurywallart.com/apps/masterpieces/movement/${slug}`,
+    },
   };
 }
 

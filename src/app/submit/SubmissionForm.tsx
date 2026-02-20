@@ -16,18 +16,26 @@ export default function SubmissionForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const sampleUrls = (formData.get("sampleUrls") as string)
+      .split("\n")
+      .map((url) => url.trim())
+      .filter((url) => url.length > 0);
+
+    if (sampleUrls.length === 0) {
+      setStatus("error");
+      setErrorMessage("Please provide at least one sample URL");
+      return;
+    }
+
     const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      website: formData.get("website") as string,
-      instagram: formData.get("instagram") as string,
-      artStyle: formData.get("artStyle") as string,
-      bio: formData.get("bio") as string,
-      sampleUrls: (formData.get("sampleUrls") as string)
-        .split("\n")
-        .map((url) => url.trim())
-        .filter((url) => url.length > 0),
-      message: formData.get("message") as string,
+      name: (formData.get("name") as string).trim(),
+      email: (formData.get("email") as string).trim(),
+      website: (formData.get("website") as string).trim(),
+      instagram: (formData.get("instagram") as string).trim(),
+      artStyle: (formData.get("artStyle") as string).trim(),
+      bio: (formData.get("bio") as string).trim(),
+      sampleUrls,
+      message: (formData.get("message") as string).trim(),
     };
 
     try {
@@ -88,7 +96,7 @@ export default function SubmissionForm() {
           id="name"
           name="name"
           required
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
           placeholder="Full name or artist name"
         />
       </div>
@@ -102,7 +110,7 @@ export default function SubmissionForm() {
           id="email"
           name="email"
           required
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
           placeholder="you@example.com"
         />
       </div>
@@ -116,7 +124,7 @@ export default function SubmissionForm() {
             type="url"
             id="website"
             name="website"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+            className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
             placeholder="https://yoursite.com"
           />
         </div>
@@ -128,7 +136,7 @@ export default function SubmissionForm() {
             type="text"
             id="instagram"
             name="instagram"
-            className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+            className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
             placeholder="@yourusername"
           />
         </div>
@@ -143,7 +151,7 @@ export default function SubmissionForm() {
           id="artStyle"
           name="artStyle"
           required
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
           placeholder="e.g., Digital art, Pop Surrealism, Oil painting, Photography"
         />
       </div>
@@ -157,7 +165,7 @@ export default function SubmissionForm() {
           name="bio"
           required
           rows={3}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none"
           placeholder="Tell us about yourself and your work (2-4 sentences)"
         />
       </div>
@@ -171,7 +179,7 @@ export default function SubmissionForm() {
           name="sampleUrls"
           required
           rows={4}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none font-mono text-sm"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none font-mono text-sm"
           placeholder="Paste links to 3-5 pieces (one per line)&#10;https://example.com/artwork1&#10;https://example.com/artwork2"
         />
         <p className="mt-1 text-xs text-neutral-500">
@@ -187,7 +195,7 @@ export default function SubmissionForm() {
           id="message"
           name="message"
           rows={3}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none"
+          className="w-full px-3 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent resize-none"
           placeholder="Anything else you'd like us to know (optional)"
         />
       </div>

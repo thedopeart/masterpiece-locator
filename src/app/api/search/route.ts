@@ -9,6 +9,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] });
   }
 
+  try {
   const [artworks, artists, museums] = await Promise.all([
     prisma.artwork.findMany({
       where: {
@@ -85,4 +86,8 @@ export async function GET(request: NextRequest) {
       })),
     },
   });
+  } catch (error) {
+    console.error("Search API error:", error);
+    return NextResponse.json({ results: { artworks: [], artists: [], museums: [] } }, { status: 500 });
+  }
 }

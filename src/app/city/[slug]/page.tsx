@@ -92,6 +92,7 @@ export default async function CityPage({ params, searchParams }: Props) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
+  // Get museums (without artworks) for the city info section
   const rawMuseums = await prisma.museum.findMany({
     where: {
       city: { equals: cityName, mode: "insensitive" },
@@ -99,14 +100,9 @@ export default async function CityPage({ params, searchParams }: Props) {
     include: {
       _count: { select: { Artwork: true } },
       Artwork: {
-        include: {
-          Artist: { select: { name: true } },
-          Museum: { select: { name: true, city: true } },
-        },
-        orderBy: [
-          { imageUrl: { sort: "desc", nulls: "last" } }, // Artworks with images first, null last
-          { searchVolumeTier: "asc" },
-        ],
+        take: 1,
+        select: { imageUrl: true },
+        orderBy: { imageUrl: { sort: "desc", nulls: "last" } },
       },
     },
     orderBy: { Artwork: { _count: "desc" } },
@@ -114,7 +110,29 @@ export default async function CityPage({ params, searchParams }: Props) {
 
   if (rawMuseums.length === 0) notFound();
 
-  // Map to lowercase for components and decode HTML entities
+  const museumIds = rawMuseums.map(m => m.id);
+
+  // Get total artwork count and paginated artworks in parallel
+  const [totalArtworks, paginatedArtworks] = await Promise.all([
+    prisma.artwork.count({
+      where: { museumId: { in: museumIds } },
+    }),
+    prisma.artwork.findMany({
+      where: { museumId: { in: museumIds } },
+      include: {
+        Artist: { select: { name: true } },
+        Museum: { select: { name: true, city: true } },
+      },
+      orderBy: [
+        { imageUrl: { sort: "desc", nulls: "last" } },
+        { searchVolumeTier: "asc" },
+      ],
+      skip: (currentPage - 1) * ARTWORKS_PER_PAGE,
+      take: ARTWORKS_PER_PAGE,
+    }),
+  ]);
+
+  // Map museums for display
   const museums = rawMuseums.map((m) => ({
     ...m,
     name: decodeHtmlEntities(m.name),
@@ -124,32 +142,28 @@ export default async function CityPage({ params, searchParams }: Props) {
     _count: { artworks: m._count.Artwork },
     artworks: m.Artwork.map((a) => ({
       ...a,
-      title: decodeHtmlEntities(a.title),
     })),
   }));
 
   const country = museums[0].country;
-  const totalArtworks = museums.reduce((sum, m) => sum + m._count.artworks, 0);
 
-  // Get all artworks from all museums in this city
-  // Map to lowercase property names for ArtworkCard component
-  const allArtworks = rawMuseums.flatMap((m) =>
-    m.Artwork.map((a) => ({
-      ...a,
-      title: decodeHtmlEntities(a.title),
-      artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
-      museum: a.Museum ? {
-        ...a.Museum,
-        name: decodeHtmlEntities(a.Museum.name),
-        city: decodeHtmlEntities(a.Museum.city),
-      } : null,
-    }))
-  );
+  // Map paginated artworks for display
+  const allArtworks = paginatedArtworks.map((a) => ({
+    ...a,
+    title: decodeHtmlEntities(a.title),
+    artist: a.Artist ? { ...a.Artist, name: decodeHtmlEntities(a.Artist.name) } : null,
+    museum: a.Museum ? {
+      ...a.Museum,
+      name: decodeHtmlEntities(a.Museum.name),
+      city: decodeHtmlEntities(a.Museum.city),
+    } : null,
+  }));
 
-  // Get unique artists in this city
-  const artistIds = [...new Set(allArtworks.map((a) => a.artistId).filter((id): id is string => id !== null))];
+  // Get top artists who have artworks in museums in this city
   const rawArtists = await prisma.artist.findMany({
-    where: { id: { in: artistIds } },
+    where: {
+      Artwork: { some: { museumId: { in: museumIds } } },
+    },
     include: { _count: { select: { Artwork: true } } },
     orderBy: { Artwork: { _count: "desc" } },
     take: 8,
@@ -289,20 +303,18 @@ export default async function CityPage({ params, searchParams }: Props) {
           {allArtworks.length > 0 ? (
             <>
               <div className="masonry-grid">
-                {allArtworks
-                  .slice((currentPage - 1) * ARTWORKS_PER_PAGE, currentPage * ARTWORKS_PER_PAGE)
-                  .map((artwork, index) => (
-                    <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
-                  ))}
+                {allArtworks.map((artwork, index) => (
+                  <MasonryArtworkCard key={artwork.id} artwork={artwork} priority={index < 8} />
+                ))}
               </div>
 
               {/* Pagination */}
-              {allArtworks.length > ARTWORKS_PER_PAGE && (
+              {totalArtworks > ARTWORKS_PER_PAGE && (
                 <div className="flex items-center justify-center gap-2 mt-8">
                   {currentPage > 1 && (
                     <Link
                       href={`/city/${slug}?page=${currentPage - 1}#artworks`}
-                      className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                      className="px-4 py-3 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                     >
                       Previous
                     </Link>
@@ -310,7 +322,7 @@ export default async function CityPage({ params, searchParams }: Props) {
 
                   {/* Page numbers */}
                   {(() => {
-                    const totalPages = Math.ceil(allArtworks.length / ARTWORKS_PER_PAGE);
+                    const totalPages = Math.ceil(totalArtworks / ARTWORKS_PER_PAGE);
                     const pages = [];
                     const maxVisible = 5;
 
@@ -377,10 +389,10 @@ export default async function CityPage({ params, searchParams }: Props) {
                     return pages;
                   })()}
 
-                  {currentPage < Math.ceil(allArtworks.length / ARTWORKS_PER_PAGE) && (
+                  {currentPage < Math.ceil(totalArtworks / ARTWORKS_PER_PAGE) && (
                     <Link
                       href={`/city/${slug}?page=${currentPage + 1}#artworks`}
-                      className="px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                      className="px-4 py-3 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
                     >
                       Next
                     </Link>
@@ -390,7 +402,7 @@ export default async function CityPage({ params, searchParams }: Props) {
 
               {/* Total count */}
               <p className="text-center text-neutral-500 text-sm mt-4">
-                Showing {Math.min((currentPage - 1) * ARTWORKS_PER_PAGE + 1, allArtworks.length)}-{Math.min(currentPage * ARTWORKS_PER_PAGE, allArtworks.length)} of {allArtworks.length} masterpieces
+                Showing {Math.min((currentPage - 1) * ARTWORKS_PER_PAGE + 1, totalArtworks)}-{Math.min(currentPage * ARTWORKS_PER_PAGE, totalArtworks)} of {totalArtworks} masterpieces
               </p>
             </>
           ) : (

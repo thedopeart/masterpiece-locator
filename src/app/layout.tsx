@@ -61,8 +61,11 @@ export default function RootLayout({
           }}
         />
         <Providers>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-black focus:shadow-lg">
+            Skip to main content
+          </a>
           <Navigation />
-          <main className="min-h-screen">{children}</main>
+          <main id="main-content" className="min-h-screen">{children}</main>
           <Footer />
           <BackToTop />
         </Providers>

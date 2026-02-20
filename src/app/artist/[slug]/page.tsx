@@ -464,11 +464,11 @@ export default async function ArtistPage({ params }: Props) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-white font-semibold text-lg group-hover:text-[#C9A84C] transition-colors">
+                <div className="min-w-0">
+                  <h3 className="text-white font-semibold text-base md:text-lg group-hover:text-[#C9A84C] transition-colors">
                     Follow {artist.name}&apos;s Journey
                   </h3>
-                  <p className="text-neutral-400 text-sm">
+                  <p className="text-neutral-400 text-sm truncate">
                     Explore the places where {artist.name.split(" ").pop()} lived, worked, and created masterpieces
                   </p>
                 </div>

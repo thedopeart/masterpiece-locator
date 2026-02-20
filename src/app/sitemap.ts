@@ -11,22 +11,21 @@ const BASE_URL = "https://luxurywallart.com/apps/masterpieces";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch all dynamic content from database sequentially to avoid connection pool issues
-  const artworks = await prisma.artwork.findMany({
-    select: { slug: true, updatedAt: true, searchVolumeTier: true },
-  });
-
-  const artists = await prisma.artist.findMany({
-    select: { slug: true, updatedAt: true },
-  });
-
-  const museums = await prisma.museum.findMany({
-    select: { slug: true, city: true, updatedAt: true },
-  });
-
-  const movements = await prisma.movement.findMany({
-    select: { slug: true, updatedAt: true },
-  });
+  // Fetch all dynamic content from database in parallel
+  const [artworks, artists, museums, movements] = await Promise.all([
+    prisma.artwork.findMany({
+      select: { slug: true, updatedAt: true, searchVolumeTier: true },
+    }),
+    prisma.artist.findMany({
+      select: { slug: true, updatedAt: true },
+    }),
+    prisma.museum.findMany({
+      select: { slug: true, city: true, updatedAt: true },
+    }),
+    prisma.movement.findMany({
+      select: { slug: true, updatedAt: true },
+    }),
+  ]);
 
   // Get unique cities for city pages
   const cities = [...new Set(museums.map((m) => m.city))].map((city) => ({

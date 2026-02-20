@@ -104,9 +104,11 @@ interface Props {
   searchParams: Promise<{ page?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const museum = await getMuseum(slug);
+  const { page: pageParam } = await searchParams;
+  const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
+  const museum = await getMuseum(slug, 1);
 
   if (!museum) notFound();
 
@@ -164,6 +166,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `${BASE_URL}/museum/${slug}`,
     },
+    ...(currentPage > 1 && { robots: { index: false, follow: true } }),
   };
 }
 
@@ -299,7 +302,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
         )}
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-[1400px] mx-auto px-4 pb-8 w-full">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 line-clamp-2">
               {museum.name}
             </h1>
             <p className="text-xl text-neutral-200">
@@ -415,7 +418,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                     </span>
                   );
                 })()}
-                <span className="text-neutral-400">|</span>
+                <span className="text-neutral-400 hidden sm:inline">|</span>
                 {/* Show actual museum collection numbers if available */}
                 {practicalData.collectionStats ? (
                   <span className="text-neutral-600">
@@ -424,7 +427,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                 ) : (
                   <span className="text-neutral-600"><strong>{totalArtworks.toLocaleString()}</strong> in Database</span>
                 )}
-                <span className="text-neutral-400">|</span>
+                <span className="text-neutral-400 hidden sm:inline">|</span>
                 <span className="text-neutral-600">
                   <strong>
                     {practicalData.admission.adult === 0 ? 'Free' :
@@ -590,12 +593,12 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                       {currentPage > 1 ? (
                         <Link
                           href={getPaginationLink(currentPage - 1)}
-                          className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                          className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
                         >
                           Previous
                         </Link>
                       ) : (
-                        <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+                        <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
                           Previous
                         </span>
                       )}
@@ -620,7 +623,7 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                                 )}
                                 <Link
                                   href={getPaginationLink(pageNum)}
-                                  className={`px-3 py-2 rounded-lg transition-colors ${
+                                  className={`px-3 py-3 rounded-lg transition-colors ${
                                     pageNum === currentPage
                                       ? "bg-black text-white"
                                       : "border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
@@ -637,12 +640,12 @@ export default async function MuseumPage({ params, searchParams }: Props) {
                       {currentPage < totalPages ? (
                         <Link
                           href={getPaginationLink(currentPage + 1)}
-                          className="px-4 py-2 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
+                          className="px-4 py-3 rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition-colors"
                         >
                           Next
                         </Link>
                       ) : (
-                        <span className="px-4 py-2 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
+                        <span className="px-4 py-3 rounded-lg border border-neutral-200 text-neutral-400 cursor-not-allowed">
                           Next
                         </span>
                       )}

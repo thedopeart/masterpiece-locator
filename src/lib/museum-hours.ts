@@ -37,18 +37,40 @@ export function getMuseumPracticalData(dbSlug: string): MuseumPracticalData | nu
   return null;
 }
 
-// Get current day of week
-export function getCurrentDay(): keyof MuseumPracticalData["hours"]["regular"] {
+// Get current day of week in a specific timezone
+export function getCurrentDay(timezone?: string): keyof MuseumPracticalData["hours"]["regular"] {
   const days: (keyof MuseumPracticalData["hours"]["regular"])[] = [
     "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
   ];
+  if (timezone) {
+    const localStr = new Date().toLocaleDateString("en-US", { timeZone: timezone, weekday: "long" }).toLowerCase();
+    const idx = days.indexOf(localStr as keyof MuseumPracticalData["hours"]["regular"]);
+    return idx >= 0 ? days[idx] : days[new Date().getDay()];
+  }
   return days[new Date().getDay()];
+}
+
+// Get current hours and minutes in a specific timezone
+function getCurrentTime(timezone?: string): { hours: number; minutes: number } {
+  if (timezone) {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: timezone,
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+    });
+    const parts = formatter.formatToParts(new Date());
+    const hours = parseInt(parts.find(p => p.type === "hour")?.value || "0", 10);
+    const minutes = parseInt(parts.find(p => p.type === "minute")?.value || "0", 10);
+    return { hours, minutes };
+  }
+  const now = new Date();
+  return { hours: now.getHours(), minutes: now.getMinutes() };
 }
 
 // Check if museum is currently open
 export function isMuseumOpen(hours: MuseumPracticalData["hours"], timezone?: string): boolean {
-  const now = new Date();
-  const day = getCurrentDay();
+  const day = getCurrentDay(timezone);
   const dayHours = hours.regular[day];
 
   if (dayHours.closed || !dayHours.open || !dayHours.close) {
@@ -56,7 +78,8 @@ export function isMuseumOpen(hours: MuseumPracticalData["hours"], timezone?: str
   }
 
   // Parse times
-  const currentTime = now.getHours() * 60 + now.getMinutes();
+  const { hours: h, minutes: m } = getCurrentTime(timezone);
+  const currentTime = h * 60 + m;
   const [openHour, openMin] = dayHours.open.split(":").map(Number);
   const [closeHour, closeMin] = dayHours.close.split(":").map(Number);
 
@@ -67,9 +90,9 @@ export function isMuseumOpen(hours: MuseumPracticalData["hours"], timezone?: str
 }
 
 // Check if museum is open with next change info
-export function isMuseumOpenNow(hours: MuseumPracticalData["hours"]): { isOpen: boolean; nextChange: string | null } {
-  const now = new Date();
-  const day = getCurrentDay();
+export function isMuseumOpenNow(hours: MuseumPracticalData["hours"], timezone?: string): { isOpen: boolean; nextChange: string | null } {
+  const { hours: h, minutes: m } = getCurrentTime(timezone);
+  const day = getCurrentDay(timezone);
   const dayHours = hours.regular[day];
 
   // If closed today
@@ -92,7 +115,7 @@ export function isMuseumOpenNow(hours: MuseumPracticalData["hours"]): { isOpen: 
   }
 
   // Parse times
-  const currentTime = now.getHours() * 60 + now.getMinutes();
+  const currentTime = h * 60 + m;
   const [openHour, openMin] = dayHours.open.split(":").map(Number);
   const [closeHour, closeMin] = dayHours.close.split(":").map(Number);
 

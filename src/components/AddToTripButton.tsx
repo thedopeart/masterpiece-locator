@@ -1,6 +1,7 @@
 "use client";
 
 import { useTripPlanner } from "@/contexts/TripPlannerContext";
+import { useToast } from "@/contexts/ToastContext";
 
 interface AddToTripButtonProps {
   museum: {
@@ -18,11 +19,13 @@ interface AddToTripButtonProps {
 
 export default function AddToTripButton({ museum, variant = "button", className = "" }: AddToTripButtonProps) {
   const { isInTrip, toggleMuseum } = useTripPlanner();
+  const { showToast } = useToast();
   const inTrip = isInTrip(museum.slug);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasInTrip = inTrip;
     toggleMuseum({
       id: museum.id,
       slug: museum.slug,
@@ -32,13 +35,18 @@ export default function AddToTripButton({ museum, variant = "button", className 
       imageUrl: museum.imageUrl || undefined,
       artworkCount: museum.artworkCount,
     });
+    if (wasInTrip) {
+      showToast("Removed from trip");
+    } else {
+      showToast(`${museum.name} added to trip`);
+    }
   };
 
   if (variant === "icon") {
     return (
       <button
         onClick={handleClick}
-        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
+        className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 ${
           inTrip
             ? "bg-[#C9A84C] text-white shadow-lg"
             : "bg-black/50 text-white hover:bg-black/70 backdrop-blur-sm"

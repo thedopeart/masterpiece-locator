@@ -1,11 +1,15 @@
 "use client";
 
 import { useTripPlanner } from "@/contexts/TripPlannerContext";
+import { useToast } from "@/contexts/ToastContext";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function TripPlannerPage() {
-  const { museums, removeMuseum, clearTrip, reorderMuseums } = useTripPlanner();
+  const { museums, isLoaded, removeMuseum, clearTrip, reorderMuseums } = useTripPlanner();
+  const { showToast } = useToast();
+  const [confirmingClear, setConfirmingClear] = useState(false);
 
   // Group museums by city
   const museumsByCity = museums.reduce((acc, museum) => {
@@ -43,13 +47,23 @@ export default function TripPlannerPage() {
             {museums.length > 0 && (
               <button
                 onClick={() => {
-                  if (confirm("Clear your trip itinerary?")) {
-                    clearTrip();
+                  if (!confirmingClear) {
+                    setConfirmingClear(true);
+                    setTimeout(() => setConfirmingClear(false), 3000);
+                    return;
                   }
+                  const count = museums.length;
+                  clearTrip();
+                  setConfirmingClear(false);
+                  showToast(`Cleared ${count} museum${count !== 1 ? "s" : ""} from trip`);
                 }}
-                className="text-sm text-neutral-400 hover:text-white transition-colors"
+                className={`text-sm transition-colors ${
+                  confirmingClear
+                    ? "text-red-400 hover:text-red-300 font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
               >
-                Clear all
+                {confirmingClear ? "Tap again to confirm" : "Clear all"}
               </button>
             )}
           </div>
@@ -57,7 +71,20 @@ export default function TripPlannerPage() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 py-8">
-        {museums.length === 0 ? (
+        {!isLoaded ? (
+          <div className="space-y-4 max-w-2xl">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="flex gap-4 p-4 border border-neutral-200 rounded-xl">
+                <div className="w-24 h-24 rounded-lg bg-neutral-100 animate-pulse shrink-0" />
+                <div className="flex-1 space-y-3 py-1">
+                  <div className="h-4 bg-neutral-100 rounded animate-pulse w-3/4" />
+                  <div className="h-3 bg-neutral-100 rounded animate-pulse w-1/2" />
+                  <div className="h-3 bg-neutral-100 rounded animate-pulse w-1/3" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : museums.length === 0 ? (
           <div className="text-center py-16">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-neutral-100 flex items-center justify-center">
               <svg className="w-10 h-10 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +149,7 @@ export default function TripPlannerPage() {
                         </Link>
                         <div className="flex-1 min-w-0">
                           <Link href={`/museum/${museum.slug}`}>
-                            <h3 className="font-semibold text-neutral-900 hover:text-[#C9A84C] transition-colors">
+                            <h3 className="font-semibold text-neutral-900 hover:text-[#C9A84C] transition-colors truncate">
                               {museum.name}
                             </h3>
                           </Link>
@@ -135,13 +162,46 @@ export default function TripPlannerPage() {
                             </p>
                           )}
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col items-center gap-1">
+                          {museums.length > 1 && (
+                            <>
+                              <button
+                                onClick={() => {
+                                  const globalIndex = museums.findIndex(m => m.slug === museum.slug);
+                                  if (globalIndex > 0) reorderMuseums(globalIndex, globalIndex - 1);
+                                }}
+                                disabled={museums.findIndex(m => m.slug === museum.slug) === 0}
+                                className="p-1.5 text-neutral-300 hover:text-neutral-600 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                title="Move up"
+                              >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                                </svg>
+                              </button>
+                              <button
+                                onClick={() => {
+                                  const globalIndex = museums.findIndex(m => m.slug === museum.slug);
+                                  if (globalIndex < museums.length - 1) reorderMuseums(globalIndex, globalIndex + 1);
+                                }}
+                                disabled={museums.findIndex(m => m.slug === museum.slug) === museums.length - 1}
+                                className="p-1.5 text-neutral-300 hover:text-neutral-600 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                title="Move down"
+                              >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </button>
+                            </>
+                          )}
                           <button
-                            onClick={() => removeMuseum(museum.slug)}
-                            className="p-2 text-neutral-400 hover:text-red-500 transition-colors"
+                            onClick={() => {
+                              removeMuseum(museum.slug);
+                              showToast(`Removed ${museum.name} from trip`);
+                            }}
+                            className="p-1.5 text-neutral-300 hover:text-red-500 transition-colors"
                             title="Remove from trip"
                           >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                           </button>

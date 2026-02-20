@@ -76,7 +76,7 @@ export default function SearchFilters({
           <select
             value={activeFilters.type || ""}
             onChange={(e) => updateFilter("type", e.target.value)}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
           >
             <option value="">All Types</option>
             {ARTWORK_TYPES.map((t) => (
@@ -98,7 +98,7 @@ export default function SearchFilters({
           <select
             value={activeFilters.movement || ""}
             onChange={(e) => updateFilter("movement", e.target.value)}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
           >
             <option value="">All Movements</option>
             {movements.map((m) => (
@@ -117,7 +117,7 @@ export default function SearchFilters({
           <select
             value={activeFilters.museum || ""}
             onChange={(e) => updateFilter("museum", e.target.value)}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
           >
             <option value="">All Museums</option>
             {museums.map((m) => (
@@ -136,7 +136,7 @@ export default function SearchFilters({
           <select
             value={activeFilters.artist || ""}
             onChange={(e) => updateFilter("artist", e.target.value)}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
           >
             <option value="">All Artists</option>
             {artists.map((a) => (
@@ -155,7 +155,7 @@ export default function SearchFilters({
           <select
             value={activeFilters.city || ""}
             onChange={(e) => updateFilter("city", e.target.value)}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
           >
             <option value="">All Cities</option>
             {cities.map((city) => (
@@ -174,7 +174,7 @@ export default function SearchFilters({
               if (query) params.set("q", query);
               router.push(`/search?${params.toString()}`);
             }}
-            className="w-full mt-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+            className="w-full mt-2 px-4 py-3 text-sm text-gray-600 hover:text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
           >
             Clear All Filters
           </button>

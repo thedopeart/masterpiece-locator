@@ -214,9 +214,9 @@ export default async function ArtworkPage({ params }: Props) {
   const artwork = {
     ...rawArtwork,
     title: decodeHtmlEntities(rawArtwork.title),
-    description: decodeHtmlEntities(rawArtwork.description),
+    description: rawArtwork.description,
     medium: decodeHtmlEntities(rawArtwork.medium),
-    historicalSignificance: decodeHtmlEntities(rawArtwork.historicalSignificance),
+    historicalSignificance: rawArtwork.historicalSignificance,
     artist: rawArtwork.Artist ? {
       ...rawArtwork.Artist,
       name: decodeHtmlEntities(rawArtwork.Artist.name),
@@ -236,56 +236,57 @@ export default async function ArtworkPage({ params }: Props) {
     } : null,
   };
 
-  // Get other artworks at this museum (prefer those with images)
-  const rawNearbyArtworks = artwork.museumId
-    ? await prisma.artwork.findMany({
-        where: {
-          museumId: artwork.museumId,
-          id: { not: artwork.id },
-          imageUrl: { not: null }, // Only show artworks with images
-        },
-        include: {
-          Artist: { select: { name: true } },
-          Museum: { select: { name: true, city: true } },
-        },
-        take: 4,
-      })
-    : [];
-
-  // Get other artworks by this artist (prefer those with images)
-  const rawMoreByArtist = artwork.artistId
-    ? await prisma.artwork.findMany({
-        where: {
-          artistId: artwork.artistId,
-          id: { not: artwork.id },
-          imageUrl: { not: null }, // Only show artworks with images
-        },
-        include: {
-          Artist: { select: { name: true } },
-          Museum: { select: { name: true, city: true } },
-        },
-        take: 4,
-      })
-    : [];
-
-  // Find series variations (other artworks with similar titles by same artist)
+  // Fetch related artworks in parallel (no dependencies between these queries)
   const seriesName = extractSeriesName(artwork.title);
-  const rawSeriesVariations = (seriesName && artwork.artistId)
-    ? await prisma.artwork.findMany({
-        where: {
-          artistId: artwork.artistId,
-          id: { not: artwork.id },
-          title: { startsWith: seriesName },
-          imageUrl: { not: null },
-        },
-        include: {
-          Artist: { select: { name: true } },
-          Museum: { select: { name: true, city: true } },
-        },
-        orderBy: { year: "asc" },
-        take: 8,
-      })
-    : [];
+  const [rawNearbyArtworks, rawMoreByArtist, rawSeriesVariations] = await Promise.all([
+    // Other artworks at this museum
+    artwork.museumId
+      ? prisma.artwork.findMany({
+          where: {
+            museumId: artwork.museumId,
+            id: { not: artwork.id },
+            imageUrl: { not: null },
+          },
+          include: {
+            Artist: { select: { name: true } },
+            Museum: { select: { name: true, city: true } },
+          },
+          take: 4,
+        })
+      : Promise.resolve([]),
+    // Other artworks by this artist
+    artwork.artistId
+      ? prisma.artwork.findMany({
+          where: {
+            artistId: artwork.artistId,
+            id: { not: artwork.id },
+            imageUrl: { not: null },
+          },
+          include: {
+            Artist: { select: { name: true } },
+            Museum: { select: { name: true, city: true } },
+          },
+          take: 4,
+        })
+      : Promise.resolve([]),
+    // Series variations (similar titles by same artist)
+    (seriesName && artwork.artistId)
+      ? prisma.artwork.findMany({
+          where: {
+            artistId: artwork.artistId,
+            id: { not: artwork.id },
+            title: { startsWith: seriesName },
+            imageUrl: { not: null },
+          },
+          include: {
+            Artist: { select: { name: true } },
+            Museum: { select: { name: true, city: true } },
+          },
+          orderBy: { year: "asc" },
+          take: 8,
+        })
+      : Promise.resolve([]),
+  ]);
 
   // Map to lowercase property names for ArtworkCard component
   // Also decode HTML entities for display
@@ -501,7 +502,7 @@ export default async function ArtworkPage({ params }: Props) {
               <span className="mx-2 text-neutral-400">/</span>
             </>
           )}
-          <span className="font-medium text-neutral-900">{artwork.title}</span>
+          <span className="font-medium text-neutral-900 truncate max-w-[180px] inline-block align-bottom" title={artwork.title}>{artwork.title}</span>
         </nav>
 
         {/* Two-column layout */}
@@ -592,7 +593,7 @@ export default async function ArtworkPage({ params }: Props) {
               )}
               {/* Share buttons */}
               <div className="mt-4">
-                <ShareButtons title={`${artwork.title} by ${artwork.artist?.name || "Unknown Artist"}`} />
+                <ShareButtons title={`${artwork.title} by ${artwork.artist?.name || "Unknown Artist"}`} url={`https://luxurywallart.com/apps/masterpieces/art/${artwork.slug}`} />
               </div>
             </header>
 
@@ -961,9 +962,14 @@ export default async function ArtworkPage({ params }: Props) {
           {/* More by this Artist */}
           {filteredMoreByArtist.length > 0 && artwork.artist && (
             <section className="mb-12 border-t border-neutral-200 pt-8">
-              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-                More by {artwork.artist.name}
-              </h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold text-neutral-900">
+                  More by {artwork.artist.name}
+                </h2>
+                <Link href={`/artist/${artwork.artist.slug}`} className="text-sm text-[#C9A84C] hover:underline shrink-0">
+                  View all →
+                </Link>
+              </div>
               <div className="masonry-grid">
                 {filteredMoreByArtist.map((item, index) => (
                   <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
@@ -975,9 +981,14 @@ export default async function ArtworkPage({ params }: Props) {
           {/* Other Works at This Museum */}
           {nearbyArtworks.length > 0 && artwork.museum && (
             <section className="mb-12 border-t border-neutral-200 pt-8">
-              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-                Also at {artwork.museum.name}
-              </h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold text-neutral-900">
+                  Also at {artwork.museum.name}
+                </h2>
+                <Link href={`/museum/${artwork.museum.slug}`} className="text-sm text-[#C9A84C] hover:underline shrink-0">
+                  View all →
+                </Link>
+              </div>
               <div className="masonry-grid">
                 {nearbyArtworks.map((item, index) => (
                   <MasonryArtworkCard key={item.id} artwork={item} priority={index < 4} />
